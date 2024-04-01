@@ -1,6 +1,11 @@
+import { useState } from 'react';
 import Twitter from '../assets/Frame 20.png'
 
 export const Contact = () => {
+    const [subject, setSubject] = useState("");
+    const [bodytext, setBodyText] = useState("");
+    const email = "hello@blockchainforgood.xyz"
+
     return (
         <div id="contact" className="items-start justify-between gap-6 inline-flex w-content m-auto">
             <div className="flex-col justify-start items-start gap-8 inline-flex">
@@ -17,7 +22,7 @@ export const Contact = () => {
                         <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Chat to us</div>
                     </div>
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
-                        <a className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal" href='mailto:hello@blockchainforgood.xyz'>hello@blockchainforgood.xyz</a>
+                        <a className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal" href={`mailto:${email}`} rel="noopener noreferrer">{email}</a>
                     </div>
                 </div>
                 <div className="self-stretch h-6 flex-col justify-start items-start flex">
@@ -29,27 +34,31 @@ export const Contact = () => {
                     </svg>
                 </div>
             </div>
-            <div className="w-[604px] p-6 bg-white shadow flex-col justify-start items-start gap-4 inline-flex z-50">
+            <div className="w-[604px] p-6 bg-white shadow flex-col justify-start items-start gap-4 inline-flex z-20">
                 <div className="self-stretch h-6 flex-col justify-start items-start flex">
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
                         <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Send Message</div>
                     </div>
                 </div>
-                <div className="self-stretch h-[260px] flex-col justify-start items-start gap-2 flex">
-                    <div className="self-stretch h-[62px] flex-col justify-start items-start gap-1 flex">
+                <div className="self-stretch h-[200px] flex-col justify-start items-start gap-2 flex">
+                    {/* <div className="self-stretch h-[62px] flex-col justify-start items-start gap-1 flex">
                         <div className="self-stretch justify-center items-center gap-2 inline-flex">
                             <div className="grow shrink basis-0 text-neutral-400 text-xs font-normal font-['Inter'] leading-[18px]">Name*</div>
                         </div>
                         <div className="self-stretch h-10 bg-white shadow-inner border border-neutral-400 flex-col justify-center items-start gap-2.5 flex">
-                            <input className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black" placeholder='enter your name' />
+                            <input className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black" placeholder='enter your name' value={subject} onChange={(e)=>{
+                                setSubject(e.target.value)
+                            }}/>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="self-stretch h-[62px] flex-col justify-start items-start gap-1 flex">
                         <div className="self-stretch justify-center items-center gap-2 inline-flex">
                             <div className="grow shrink basis-0 text-neutral-400 text-xs font-normal font-['Inter'] leading-[18px]">Subject*</div>
                         </div>
                         <div className="self-stretch h-10 bg-white shadow-inner border border-neutral-400 flex-col justify-center items-start gap-2.5 flex">
-                            <input className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black" placeholder='enter your name' />
+                            <input className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black" placeholder='enter your name' value={subject} onChange={(e) => {
+                                setSubject(e.target.value)
+                            }} />
                         </div>
                     </div>
                     <div className="self-stretch h-[142px] flex-col justify-start items-start gap-1 flex">
@@ -57,11 +66,13 @@ export const Contact = () => {
                             <div className="grow shrink basis-0 text-neutral-400 text-xs font-normal font-['Inter'] leading-[18px]">Body*</div>
                         </div>
                         <div className="self-stretch h-20 bg-white shadow-inner border border-neutral-400 flex-col justify-center items-start gap-2.5 flex">
-                            <textarea cols={4} className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black" placeholder='enter your name' />
+                            <textarea cols={4} className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black" placeholder='enter your name' value={bodytext} onChange={(e) => {
+                                setBodyText(e.target.value)
+                            }} />
                         </div>
                     </div>
                 </div>
-                <a className="w-[87px] h-8 px-6 border border-slate-800 justify-center items-center gap-2.5 inline-flex hover:border-main group cursor-pointer" href={`mailto:example@example.com?subject=Hello&body=你好`}>
+                <a className="w-[87px] h-8 px-6 border border-slate-800 justify-center items-center gap-2.5 inline-flex hover:border-main group cursor-pointer" href={`mailto:${email}?subject=${subject}&body=${bodytext}`} rel="noopener noreferrer">
                     <div className="text-center text-slate-800 text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-main">Send</div>
                 </a>
             </div>
