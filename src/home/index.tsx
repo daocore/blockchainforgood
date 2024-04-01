@@ -10,7 +10,7 @@ import { FAQ } from './FAQ'
 
 export const Home = () => {
     return (
-        <div className="w-full">
+        <div className="w-full z-10">
             {/* <div className="w-[1325px] h-[434px] left-[27px] top-[530px] absolute">
                 <div className="w-[19px] h-[19px] left-[77px] top-[214px] absolute opacity-50 bg-white" />
                 <div className="w-[19px] h-[19px] left-[557px] top-[204px] absolute opacity-50 bg-white" />

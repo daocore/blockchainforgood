@@ -25,7 +25,7 @@ const forces = [
 export const Intro = () => {
     return (
         <div id="about" className="flex-col justify-start items-center gap-4 flex w-content">
-            <div className="justify-center items-center gap-[130px] inline-flex h-[260px]">
+            <div className="justify-center md:justify-between items-center inline-flex">
                 <div className="w-[499px] flex-col justify-start items-start gap-2 inline-flex">
                     <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                         <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">Force for Good</div>
@@ -34,7 +34,7 @@ export const Intro = () => {
                         <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Join our mission to leverage blockchain for global good through our pioneering initiatives.<br />Together, we’re building a collaborative ecosystem for change.</div>
                     </div>
                 </div>
-                <div className="justify-start items-start gap-6 flex w-1/2">
+                <div className="justify-start items-start gap-6 flex w-1/2 ">
                     {
                         forces?.map((force, index) => {
                             return (
@@ -42,7 +42,7 @@ export const Intro = () => {
                                     <div className="w-[185px] h-[104px] relative">
                                         <img className="w-40 h-[97.88px] left-0 top-[6px] absolute" src={force?.img} />
                                     </div>
-                                    <div className="h-[72px] flex-col justify-start items-start flex">
+                                    <div className="flex-col justify-start items-start flex">
                                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                                             <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{force?.title}</div>
                                         </div>

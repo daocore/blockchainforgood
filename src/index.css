@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url(./assets/font/Inter/static/Inter-Bold.ttf) format('woff');
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
