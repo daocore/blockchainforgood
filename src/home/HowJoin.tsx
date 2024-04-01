@@ -17,10 +17,10 @@ const list = [
 
 export const HowJoin = () => {
     return (
-        <div className="w-[1231.97px] justify-between items-center inline-flex">
-            <div className="w-[709px] flex-col justify-start items-start gap-8 inline-flex">
-                <div className="self-stretch h-[426px] flex-col justify-start items-start gap-2 flex">
-                    <div className="self-stretch h-[74px] flex-col justify-start items-start gap-2 flex">
+        <div className="w-full md:w-content px-4 md:px-0 justify-center md:justify-between items-center inline-flex flex-wrap text-center md:text-left">
+            <div className="w-full md:w-[709px] flex-col justify-start items-start gap-8 inline-flex">
+                <div className="self-stretch md:h-[426px] flex-col justify-center md:justify-start items-start gap-2 flex">
+                    <div className="self-stretch md:h-[74px] flex-col justify-start items-start gap-2 flex">
                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                             <div className="grow shrink basis-0 text-slate-800 text-[32px] font-bold font-['Inter'] leading-[41.60px]">How to Begin Your Journey </div>
                         </div>
@@ -28,13 +28,13 @@ export const HowJoin = () => {
                             <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Join us on our mission to harness the power of blockchain for positive change.</div>
                         </div>
                     </div>
-                    <div className="self-stretch h-[344px] flex-col justify-start items-start gap-1 flex">
+                    <div className="self-stretch md:h-[344px] flex-col justify-start items-start gap-4 md:gap-1 flex">
                         {
                             list?.map((item, index) => {
                                 return (
                                     <div key={index} className="justify-start items-start gap-3 inline-flex">
-                                        <div className="w-[11px] h-[11px] bg-cyan-500 mt-2" />
-                                        <div className="w-[476px] flex-col justify-start items-start inline-flex">
+                                        <div className="md:w-[11px] h-[11px] bg-cyan-500 mt-2" />
+                                        <div className="md:w-[476px] flex-col justify-start items-start inline-flex">
                                             <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                                                 <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{item?.title}</div>
                                             </div>
@@ -48,11 +48,11 @@ export const HowJoin = () => {
                         }
                     </div>
                 </div>
-                <div className="px-6 py-3 justify-center transform items-center inline-flex button cursor-pointer mt-4">
+                <div className="w-full md:w-auto px-6 py-3 justify-center transform items-center inline-flex button cursor-pointer mt-4">
                     Apply Now
                 </div>
             </div>
-            <img className="w-[441px] h-[604px]" src={Graphics} />
+            <img className="w-3/5 md:w-[441px] md:h-[604px] mt-10 md:mt-0" src={Graphics} />
         </div>
     )
 }

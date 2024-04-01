@@ -22,11 +22,45 @@ const forces = [
     }
 ]
 
+const wahts = [
+    {
+        title: "Communities",
+        desc: "Resources such as mentors, funding, education material, meetup support, venue."
+    },
+    {
+        title: "Builders",
+        desc: "Resources such as mentors, funding, connections."
+    },
+    {
+        title: "Corporates",
+        desc: "Resources such as Web 3.0 consultancy, connections, community activation."
+    },
+    {
+        title: "Hackathon/ Event organizers",
+        desc: "Resources such as funding, community activation, connections."
+    }
+]
+
+const helps = [
+    {
+        title: "Organizer/ Builder",
+        desc: "Actively contribute to organizing and initiating activities that advance our mission E.g. running demo days, hackathons, workshops"
+    },
+    {
+        title: "Connector",
+        desc: "Be the bridge between partners and valuable resources E.g. Mentors, speakers, talent pool"
+    },
+    {
+        title: "Funder",
+        desc: "Fund BGA initiatives Invest in impactful solutions"
+    }
+]
+
 export const Intro = () => {
     return (
-        <div id="about" className="flex-col justify-start items-center gap-4 flex w-content">
-            <div className="justify-center md:justify-between items-center inline-flex">
-                <div className="w-[499px] flex-col justify-start items-start gap-2 inline-flex">
+        <div id="about" className="flex-col justify-start items-center gap-10 md:gap-4 flex w-full md:w-content flex-wrap px-4 md:px-0 text-center md:text-left">
+            <div className="justify-center md:justify-between items-center inline-flex flex-wrap">
+                <div className="w-full md:w-[499px] flex-col md:justify-start items-start gap-2 inline-flex">
                     <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                         <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">Force for Good</div>
                     </div>
@@ -34,15 +68,13 @@ export const Intro = () => {
                         <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Join our mission to leverage blockchain for global good through our pioneering initiatives.<br />Together, we’re building a collaborative ecosystem for change.</div>
                     </div>
                 </div>
-                <div className="justify-start items-start gap-6 flex w-1/2 ">
+                <div className="justify-start items-start flex w-full gap-4 md:gap-0 md:w-1/2 flex-wrap">
                     {
                         forces?.map((force, index) => {
                             return (
-                                <div key={index} className="flex-col justify-start items-start gap-2 inline-flex">
-                                    <div className="w-[185px] h-[104px] relative">
-                                        <img className="w-40 h-[97.88px] left-0 top-[6px] absolute" src={force?.img} />
-                                    </div>
-                                    <div className="flex-col justify-start items-start flex">
+                                <div key={index} className="flex-col justify-center md:justify-start items-start gap-2 inline-flex w-full md:w-1/3 px-2">
+                                    <img className="w-40 h-[97.88px] m-auto" src={force?.img} />
+                                    <div className="flex-col justify-start items-start flex w-full">
                                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                                             <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{force?.title}</div>
                                         </div>
@@ -56,85 +88,55 @@ export const Intro = () => {
                     }
                 </div>
             </div>
-            <div className="w-[1232px] justify-start items-center gap-[214px] inline-flex">
-                <img className="w-[414px] h-[364px]" src={WhatBag} />
-                <div className="w-[604px] flex-col justify-start items-start gap-2 inline-flex">
-                    <div className="self-stretch h-[42px] flex-col justify-start items-start flex">
+            <div className="w-full justify-start items-center md:gap-[214px] inline-flex flex-wrap mt-10 md:mt-0">
+                <img className="w-4/5 md:w-[414px] md:h-[364px]" src={WhatBag} />
+                <div className="w-full md:w-[604px] flex-col justify-start items-start gap-2 inline-flex flex-wrap">
+                    <div className="self-stretch md:h-[42px] flex-col justify-start items-start flex">
                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                             <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">What BGA can offer</div>
                         </div>
                     </div>
-                    <div className="self-stretch h-[228px] flex-col justify-start items-start gap-1 flex">
-                        <div className="self-stretch h-[72px] flex-col justify-start items-start flex">
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Communities</div>
-                            </div>
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Resources such as mentors, funding, education material, meetup support, venue.</div>
-                            </div>
-                        </div>
-                        <div className="self-stretch h-12 flex-col justify-start items-start flex">
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Builders</div>
-                            </div>
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Resources such as mentors, funding, connections.</div>
-                            </div>
-                        </div>
-                        <div className="self-stretch h-12 flex-col justify-start items-start flex">
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Corporates</div>
-                            </div>
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Resources such as Web 3.0 consultancy, connections, community activation.</div>
-                            </div>
-                        </div>
-                        <div className="self-stretch h-12 flex-col justify-start items-start flex">
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Hackathon/ Event organizers</div>
-                            </div>
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Resources such as funding, community activation, connections.</div>
-                            </div>
-                        </div>
+                    <div className="self-stretch md:h-[228px] flex-col justify-start items-start gap-4 md:gap-1 flex">
+                        {wahts?.map((what, index) => {
+                            return (
+                                <div key={index} className="self-stretch md:h-[72px] flex-col justify-start items-start flex">
+                                    <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
+                                        <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{what?.title}</div>
+                                    </div>
+                                    <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
+                                        <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">{what?.desc}</div>
+                                    </div>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
-            <div className="w-[1232px] h-[364px] relative">
-                <div className="w-[499px] h-[298px] left-0 top-[66px] absolute flex-col justify-start items-start gap-2 inline-flex">
+            <div className="w-full md:h-[364px] flex justify-center md:justify-between flex-wrap">
+                <div className="w-full md:w-[499px] h-[298px] flex-col justify-start items-start gap-2 inline-flex">
                     <div className="self-stretch h-[42px] flex-col justify-start items-start flex">
                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                             <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">How you can help</div>
                         </div>
                     </div>
-                    <div className="self-stretch h-[248px] flex-col justify-start items-start gap-1 flex">
-                        <div className="self-stretch h-24 flex-col justify-start items-start flex">
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Organizer/ Builder</div>
-                            </div>
-                            <div className="w-[499px] h-[72px] justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Actively contribute to organizing and initiating activities that advance our mission<br />E.g. running demo days, hackathons, workshops</div>
-                            </div>
-                        </div>
-                        <div className="self-stretch h-[72px] flex-col justify-start items-start flex">
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Connector</div>
-                            </div>
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Be the bridge between partners and valuable resources  <br />E.g. Mentors, speakers, talent pool</div>
-                            </div>
-                        </div>
-                        <div className="self-stretch h-[72px] flex-col justify-start items-start flex">
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Funder</div>
-                            </div>
-                            <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Fund BGA initiatives <br />Invest in impactful solutions </div>
-                            </div>
-                        </div>
+                    <div className="self-stretch md:h-[248px] flex-col justify-start items-start gap-4 md:gap-1 flex">
+                        {
+                            helps?.map((help, index) => {
+                                return (
+                                    <div key={index} className="self-stretch md:h-[72px] flex-col justify-start items-start flex">
+                                        <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
+                                            <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{help?.title}</div>
+                                        </div>
+                                        <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
+                                            <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">{help?.desc}</div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
-                <img className="w-[604px] h-[364px] left-[628px] top-0 absolute" src={HowCanHelp} />
+                <img className="w-full h-[220px] md:w-[604px] md:h-[364px] mt-10 md:mt-0" src={HowCanHelp} />
             </div>
         </div>
     )

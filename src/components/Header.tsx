@@ -39,11 +39,11 @@ export const Header = () => {
     }, [])
 
     return (
-        <div className="fixed z-50 w-full" style={{
+        <div className="fixed z-50 w-full " style={{
             background: `rgb(243,244,246,${top / 260})`,
             backdropFilter: top <= 50 ? "none" : `blur(${top / 10}px)`
         }}>
-            <div className="py-4 justify-between items-center flex w-content m-auto ">
+            <div className="py-4 justify-between items-center flex w-full md:w-content m-auto">
                 <svg width="89" height="24" viewBox="0 0 89 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 0.729889H4.71878C7.00555 0.729889 8.01407 1.86364 8.01407 3.19599C8.01407 4.20747 7.48277 4.92996 6.72323 5.24267C7.43386 5.49536 8.27639 6.16079 8.27639 7.38643C8.27639 8.94108 7.11524 10.2127 4.74991 10.2127H0V0.729889ZM4.24825 4.38606C5.01371 4.38606 5.32198 3.99258 5.32198 3.47831C5.32198 2.88995 4.89515 2.60169 4.22675 2.60169H2.69655V4.38606H4.2475H4.24825ZM2.69729 8.3453H4.11783C5.0315 8.3453 5.41978 7.94812 5.41978 7.26935C5.41978 6.67357 5.05224 6.25194 4.16895 6.25194H2.69729V8.34456V8.3453Z" fill="black" />
                     <path d="M38.075 0.729889H40.8345V4.5802C41.4547 3.7147 42.8552 1.97924 43.7904 0.729889H47.0813L43.597 4.61577L47.2005 10.2134H43.9445L41.6733 6.40977L40.8345 7.27454V10.2134H38.075V0.729889Z" fill="black" />
@@ -71,13 +71,13 @@ export const Header = () => {
                     <path d="M22.5765 9.15076H21.6873V16.2171H22.5765V9.15076Z" fill="black" />
                 </svg>
 
-                <div className="justify-end items-center gap-12 flex">
-                    <div className="justify-end items-start gap-3 flex">
+                <div className="justify-end items-center gap-4 md:gap-12 flex">
+                    <div className="justify-end items-start gap-4 md:gap-12 flex">
                         {
                             navs?.map((nav, index) => {
                                 return (
-                                    <div key={index} className="w-[89px] px-6 justify-center items-center gap-2.5 flex">
-                                        <div className="text-center text-slate-800 text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer hover:text-main" onClick={(e => {
+                                    <div key={index} className="justify-center items-center gap-2.5 flex">
+                                        <div className="text-center text-slate-800 text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer hover:text-main" onClick={(e => {
                                             hashClick(e, nav.id)
                                         })}>{nav.name}</div>
                                     </div>
@@ -85,9 +85,9 @@ export const Header = () => {
                             })
                         }
                     </div>
-                    <div className="w-[87px] h-8 px-6 border border-slate-800 justify-center items-center gap-2.5 inline-flex hover:border-main group cursor-pointer" onClick={() => {
+                    <div className="w-[60px] md:w-[87px] h-[24px] md:h-8 px-6 border border-slate-800 justify-center items-center gap-2.5 inline-flex hover:border-main group cursor-pointer" onClick={() => {
                     }}>
-                        <div className="text-center text-slate-800 text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-main">Apply</div>
+                        <div className="text-center text-slate-800 text-xs md:text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-main">Apply</div>
                     </div>
                 </div>
             </div>
