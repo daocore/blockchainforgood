@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ApplyLink } from '../components/Const';
 
 const FAQItem = ({ question, answer, index }: { question: string, answer: string, index: number }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,7 @@ const faqs = [
   },
   {
     question: 'How does the application process work?',
-    answer: `Applicants must submit an online application <a href="https://www.google.com" target="blank" style="color: #00d5bf">link</a> and will be contacted within 2 weeks for next steps.`,
+    answer: `Applicants must submit an online application <a href="${ApplyLink}" target="blank" style="color: #00d5bf">link</a> and will be contacted within 2 weeks for next steps.`,
   },
   {
     question: 'What kind of support does BGA offer?',

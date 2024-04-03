@@ -34,24 +34,24 @@ html {
   src: url(./assets/font/Inter/static/Inter-ExtraLight.ttf) format('woff');
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   src: url(./assets/font/Inter/static/Inter-Light.ttf) format('woff');
-}
+} */
 
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   src: url(./assets/font/Inter/static/Inter-Medium.ttf) format('woff');
 }
 
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   src: url(./assets/font/Inter/static/Inter-Regular.ttf) format('woff');
 }
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ApplyLink } from "./Const";
 
 export const hashClick = (e?: any, id?: string) => {
     e && e.preventDefault();
@@ -39,7 +40,7 @@ export const Header = () => {
     }, [])
 
     return (
-        <div className="fixed z-50 w-full " style={{
+        <div className="fixed z-50 w-full px-4 md:px-0" style={{
             background: `rgb(243,244,246,${top / 260})`,
             backdropFilter: top <= 50 ? "none" : `blur(${top / 10}px)`
         }}>
@@ -77,7 +78,7 @@ export const Header = () => {
                             navs?.map((nav, index) => {
                                 return (
                                     <div key={index} className="justify-center items-center gap-2.5 flex">
-                                        <div className="text-center text-slate-800 text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer hover:text-main" onClick={(e => {
+                                        <div className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer hover:text-main" onClick={(e => {
                                             hashClick(e, nav.id)
                                         })}>{nav.name}</div>
                                     </div>
@@ -85,9 +86,10 @@ export const Header = () => {
                             })
                         }
                     </div>
-                    <div className="w-[60px] md:w-[87px] h-[24px] md:h-8 px-6 border border-slate-800 justify-center items-center gap-2.5 inline-flex hover:border-main group cursor-pointer" onClick={() => {
+                    <div className="w-[60px] md:w-[87px] h-[24px] md:h-8 px-6 border border-text justify-center items-center gap-2.5 inline-flex hover:border-main group cursor-pointer" onClick={() => {
+                        window.open(ApplyLink, "_blank")
                     }}>
-                        <div className="text-center text-slate-800 text-xs md:text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-main">Apply</div>
+                        <div className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-main">Apply</div>
                     </div>
                 </div>
             </div>

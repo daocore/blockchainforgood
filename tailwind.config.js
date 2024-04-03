@@ -10,7 +10,8 @@ export default {
         content: 1232
       },
       colors: {
-        main: "#00d5bf"
+        main: "#00d5bf",
+        text: "#283344",
       }
     },
   },

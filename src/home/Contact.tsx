@@ -11,23 +11,23 @@ export const Contact = () => {
             <div className="flex-col justify-start items-start gap-8 inline-flex">
                 <div className="h-[66px] flex-col justify-start items-start flex">
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
-                        <div className="grow shrink basis-0 text-slate-800 text-[32px] font-bold font-['Inter'] leading-[41.60px]">Contact Us</div>
+                        <div className="grow shrink basis-0 text-text text-[32px] font-bold font-['Inter'] leading-[41.60px]">Contact Us</div>
                     </div>
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
-                        <div className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal">Join us to drive meaningful change together.</div>
+                        <div className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">Join us to drive meaningful change together</div>
                     </div>
                 </div>
                 <div className="self-stretch h-12 flex-col justify-start items-start flex">
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
-                        <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Chat to us</div>
+                        <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Chat with us</div>
                     </div>
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
-                        <a className="grow shrink basis-0 text-slate-600 text-base font-normal font-['Inter'] leading-normal" href={`mailto:${email}`} rel="noopener noreferrer">{email}</a>
+                        <a className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal" href={`mailto:${email}`} rel="noopener noreferrer">{email}</a>
                     </div>
                 </div>
                 <div className="self-stretch h-6 flex-col justify-start items-start flex">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="cursor-pointer" onClick={() => {
-                        window.open("https://twitter.com/blockchainforgood", "_blank")
+                        window.open("https://twitter.com/chainforgood", "_blank")
                     }}>
                         <rect width="24" height="24" transform="translate(0 0.000976562)" fill="#283344" />
                         <path d="M13.143 11.0827L17.6107 6.00098H16.5522L12.6711 10.4124L9.5735 6.00098H6L10.6852 12.6725L6 18.001H7.05857L11.1546 13.3412L14.4265 18.001H18L13.143 11.0827ZM11.6926 12.731L11.2172 12.0663L7.44032 6.78186H9.06651L12.1155 11.0482L12.5889 11.7129L16.5517 17.2581H14.9255L11.6926 12.731Z" fill="white" />
@@ -72,8 +72,8 @@ export const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <a className="w-[87px] h-8 px-6 border border-slate-800 justify-center items-center gap-2.5 inline-flex hover:border-main group cursor-pointer" href={`mailto:${email}?subject=${subject}&body=${bodytext}`} rel="noopener noreferrer">
-                    <div className="text-center text-slate-800 text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-main">Send</div>
+                <a className="w-[87px] h-8 px-6 border border-text justify-center items-center gap-2.5 inline-flex hover:border-main group cursor-pointer" href={`mailto:${email}?subject=${subject}&body=${bodytext}`} rel="noopener noreferrer">
+                    <div className="text-center text-text text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-main">Send</div>
                 </a>
             </div>
         </div>

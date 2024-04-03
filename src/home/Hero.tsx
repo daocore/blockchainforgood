@@ -1,5 +1,7 @@
 import HeroImg from '../assets/HeroImage.png'
 import HeroImageRubixcubewText from '../assets/HeroImage-RubixcubewText.png'
+import { RowSpace } from '.'
+import { ApplyLink } from '../components/Const'
 
 export const Hero = () => {
     return (
@@ -8,9 +10,11 @@ export const Hero = () => {
                 <div className="w-full md:w-[499px] flex-col justify-start items-start gap-8 inline-flex">
                     <div className="self-stretch md:h-[211px] flex-col justify-start items-start gap-4 flex">
                         <div className="self-stretch text-black text-[48px] md:text-[82px] font-extrabold font-['Inter'] leading-[48px] md:leading-[82px]">Blockchain<br />for Good</div>
-                        <div className="self-stretch text-slate-800 text-xl md:text-[26px] font-normal font-['Inter'] leading-loose">Your Key to Web3</div>
+                        <div className="self-stretch text-text text-xl md:text-[26px] font-normal font-['Inter'] leading-loose">Your Key to Web3</div>
                     </div>
-                    <div className="w-full md:w-auto px-6 py-3 justify-center transform items-center inline-flex button cursor-pointer">
+                    <div className="w-full md:w-auto px-6 py-3 justify-center transform items-center inline-flex button cursor-pointer" onClick={() => {
+                        window.open(ApplyLink, "_blank")
+                    }}>
                         Join Us
                     </div>
                 </div>
@@ -28,7 +32,9 @@ export const Hero = () => {
                         </div>
                     </div>
                     <div className="self-stretch justify-center items-center inline-flex">
-                        <div className="grow shrink basis-0 text-slate-600 text-sm md:text-base font-normal font-['Inter'] leading-normal">At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain technology to address some of the most pressing challenges facing our society.<br />Our alliance serves as a collaborative hub, bringing together a diverse range of stakeholders to collectively explore, innovate and implement blockchain solutions for social good.</div>
+                        <div className="grow shrink basis-0 text-[#576172] text-sm md:text-base font-normal font-['Inter'] leading-normal">At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain technology to address some of the most pressing challenges facing our society.
+                            <RowSpace />
+                            Our alliance serves as a collaborative hub, bringing together a diverse range of stakeholders to collectively explore, innovate and implement blockchain solutions for social good.</div>
                     </div>
                 </div>
             </div>

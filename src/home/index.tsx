@@ -8,20 +8,22 @@ import { HowJoin } from './HowJoin'
 import { Contact } from './Contact'
 import { FAQ } from './FAQ'
 
+export const RowSpace = ()=> <div className='h-3 w-full'></div>
+
 export const Home = () => {
     return (
-        <div className="w-full z-10 border border-red-500">
+        <div className="w-full z-10">
             <Header />
-            {/* <Hero /> */}
+            <Hero />
             <div className="flex-col justify-start items-center gap-24 inline-flex w-full">
-                {/* <Partner /> */}
-                {/* <Intro /> */}
+                <Partner />
+                <Intro />
                 <Journey />
-                {/* <HowJoin /> */}
-                {/* <FAQ /> */}
-                {/* <Contact /> */}
+                <HowJoin />
+                <FAQ />
+                <Contact />
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }
