@@ -91,22 +91,22 @@ export const Intro = () => {
                 </div>
             </div>
             <div className="w-full justify-start items-center md:gap-[214px] inline-flex flex-wrap mt-10 md:mt-0">
-                <img className="w-4/5 md:w-[414px] md:h-[364px]" src={WhatBag} />
-                <div className="w-full md:w-[604px] flex-col justify-start items-start gap-2 inline-flex flex-wrap">
+                <img className="w-4/5 md:w-[410px] md:h-[364px]" src={WhatBag} />
+                <div className="w-full md:w-[608px] flex-col justify-start items-start gap-2 inline-flex flex-wrap">
                     <div className="self-stretch md:h-[42px] flex-col justify-start items-start flex">
                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                             <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">What BGA can offer</div>
                         </div>
                     </div>
-                    <div className="self-stretch md:h-[228px] flex-col justify-start items-start gap-4 md:gap-1 flex">
+                    <div className="self-stretch md:h-[228px] flex-col justify-start items-start gap-4 md:gap-3 flex">
                         {wahts?.map((what, index) => {
                             return (
-                                <div key={index} className="self-stretch md:h-[72px] flex-col justify-start items-start flex mt-2">
+                                <div key={index} className="self-stretch md:h-[72px] flex-col justify-start items-start flex">
                                     <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                                         <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{what?.title}</div>
                                     </div>
                                     <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                        <div className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">{what?.desc}</div>
+                                        <div className="grow shrink basis-0 text-[#576172] text-[15px] font-normal font-['Inter'] leading-normal">{what?.desc}</div>
                                     </div>
                                 </div>
                             )
