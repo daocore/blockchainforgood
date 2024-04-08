@@ -61,9 +61,9 @@ const helps = [
 
 export const Intro = () => {
     return (
-        <div id="about" className="flex-col justify-start items-center gap-10 md:gap-4 flex w-full md:w-content flex-wrap px-4 md:px-0 text-center md:text-left">
-            <div className="justify-center md:justify-between items-center inline-flex flex-wrap">
-                <div className="w-full md:w-[499px] flex-col md:justify-start items-start gap-2 inline-flex">
+        <div id="about" className="flex-col justify-start items-center gap-8 md:gap-4 flex w-full md:w-content flex-wrap px-4 md:px-0 text-center md:text-left">
+            <div className="justify-center md:justify-between items-center inline-flex flex-wrap border">
+                <div className="w-full md:w-[499px] flex-col md:justify-start items-start gap-2 inline-flex md:mt-0 mt-4">
                     <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
                         <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">Force for Good</div>
                     </div>
@@ -142,7 +142,7 @@ export const Intro = () => {
                     </div>
                     <JoinUs />
                 </div>
-                <img className="w-[330px] md:w-[604px] m-auto mt-10 md:mt-0" src={HowCanHelp} />
+                <img className="w-[330px] md:w-[604px] m-auto" src={HowCanHelp} />
             </div>
         </div>
     )

@@ -56,7 +56,7 @@ export const HowJoin = () => {
                     Apply Now
                 </div>
             </div>
-            <img className="w-[174px] md:w-[441px] md:h-[604px] mt-10 md:mt-0" src={Graphics} />
+            <img className="w-[174px] md:w-[441px] md:h-[604px]" src={Graphics} />
         </div>
     )
 }

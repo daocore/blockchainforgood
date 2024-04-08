@@ -73,7 +73,7 @@ export const FAQ = () => {
   
   return (
     <div id="faq" className="w-full md:w-content flex-col justify-start items-start gap-4 inline-flex select-none px-4 md:px-0">
-      <div className="self-stretch justify-center items-center gap-2.5 inline-flex md:text-left text-center">
+      <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
         <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">FAQ</div>
       </div>
       <div className="self-stretch flex-col justify-start items-center flex">

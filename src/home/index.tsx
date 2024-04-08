@@ -7,6 +7,7 @@ import { Journey } from './Journey'
 import { HowJoin } from './HowJoin'
 import { Contact } from './Contact'
 import { FAQ } from './FAQ'
+import { Videos } from './Video'
 
 export const RowSpace = ()=> <div className='h-3 w-full'></div>
 
@@ -15,7 +16,8 @@ export const Home = () => {
         <div className="w-full z-10 border">
             <Header />
             <Hero />
-            <div className="flex-col justify-start items-center gap-24 inline-flex w-full">
+            <Videos />
+            <div className="flex-col justify-start items-center gap-8 xs:gap-12 md:gap-24 inline-flex w-full">
                 <Partner />
                 <Intro />
                 <Journey />
