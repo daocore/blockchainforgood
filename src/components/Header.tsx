@@ -78,8 +78,8 @@ export const Header = () => {
                     <path d="M22.5765 9.15076H21.6873V16.2171H22.5765V9.15076Z" fill="black" />
                 </svg>
 
-                <div className="justify-end items-center gap-0 md:gap-12 flex">
-                    <div className="justify-end items-start gap-0 md:gap-1 flex">
+                <div className="justify-end items-center gap-2 md:gap-12 flex">
+                    <div className="justify-end items-start gap-2 md:gap-1 flex">
                         {
                             navs?.map((nav, index) => {
                                 return (
