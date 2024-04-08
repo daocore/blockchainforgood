@@ -5,19 +5,144 @@ import moledao from '../assets/partner/moledao Logo (H) 1.png'
 import BybitWeb3 from '../assets/partner/Bybit Web3.png'
 import CoinEasy from '../assets/partner/CoinEasy Logo 1.png'
 import solanaVerticalLogo from '../assets/partner/solanaVerticalLogo.png'
+import Aptos_Primary_BLK from '../assets/partner/Aptos_Primary_BLK.png'
+import BZD from '../assets/partner/BZD.jpeg'
+import Edu3Labs from '../assets/partner/Edu3Labs.jpeg'
+import Libera_logo_new_3a from '../assets/partner/Libera_logo_new_3a.png'
+import XueDAO from '../assets/partner/XueDAO logo 去背.png'
+import { useEffect, useRef } from 'react'
+import Splide from '@splidejs/splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+
+// 导入 Splide 的样式文件（根据你的项目配置可能会有所不同）
+import '@splidejs/splide/css';
+import { isMobile } from '../helpers'
+
+const logos = [
+    {
+        src: BybitWeb3,
+        alt: "Bybit Web3",
+        width: "134px",
+        height: "24px",
+        href: "https://www.bybit.com/en/web3/home"
+    },
+    {
+        src: moledao,
+        alt: "moledao",
+        width: "128px",
+        height: "26px",
+        href: "https://moledao.io"
+    },
+    {
+        src: Harvard,
+        alt: "Harvard",
+        width: "152px",
+        height: "38px",
+        href: "https://harvardblockchainclub.com/"
+    },
+    {
+        src: solanaVerticalLogo,
+        alt: "solanaVerticalLogo",
+        width: "90px",
+        height: "38px",
+        href: "https://solana.com/"
+    },
+    {
+        src: DFINITY,
+        alt: "DFINITY",
+        width: "98.5px",
+        height: "56px",
+        href: "http://internetcomputer.org/"
+    },
+    {
+        src: CoinEasy,
+        alt: "CoinEasy",
+        width: "103.7px",
+        height: "17px",
+        href: "https://www.coineasy.xyz/"
+    },
+    {
+        src: AUS,
+        alt: "AUS",
+        width: "193px",
+        height: "22px",
+        href: "https://www.aus.edu/"
+    },
+    {
+        src: Aptos_Primary_BLK,
+        alt: "Aptos_Primary_BLK",
+        width: "90px",
+        height: "22px",
+        href: "https://aptosfoundation.org/"
+    },
+    {
+        src: BZD,
+        alt: "BZD",
+        width: "60px",
+        height: "60px",
+        href: "https://www.buzhidao.tw/"
+    },
+    {
+        src: Edu3Labs,
+        alt: "Edu3Labs",
+        width: "120px",
+        height: "60px",
+        href: "https://edu3labs.com/"
+    },
+    {
+        src: Libera_logo_new_3a,
+        alt: "Libera_logo_new_3a",
+        width: "60px",
+        height: "60px",
+        href: "https://liberaglobal.ai/"
+    },
+    {
+        src: XueDAO,
+        alt: "XueDAO",
+        width: "120px",
+        height: "60px",
+        href: ""
+    }]
 
 export const Partner = () => {
+    const ref = useRef<any>();
+
+    useEffect(() => {
+        if (ref.current) return
+        const mobile = isMobile();
+        ref.current = new Splide('.splide', {
+            type: 'loop',
+            drag: 'free',
+            focus: 'center',
+            perPage: mobile ? 2 : 7,
+            arrows: false,
+            pagination: false,
+            autoScroll: {
+                speed: 1,
+            },
+        }).mount({ AutoScroll });
+    }, []); // 通过空数组作为依赖项，确保只在组件挂载时执行一次初始化
+
     return (
-        <div className="w-full px-[104px] py-6 bg-white shadow flex justify-center items-center">
-            <div className="md:justify-between justify-center items-center inline-flex w-full md:w-content m-auto flex-wrap gap-6">
-                <a href="https://moledao.io" target='_blank'><img className="w-[134px] h-[24px]" src={BybitWeb3} /></a>
-                <a href="https://moledao.io" target='_blank'><img className="w-[128px] h-[26px]" src={moledao} /></a>
-                <a href="https://moledao.io" target='_blank'><img className="w-[152px] h-[38px]" src={Harvard} /></a>
-                <a href="https://moledao.io" target='_blank'><img className="w-[90px] h-[38px]" src={solanaVerticalLogo} /></a>
-                <a href="https://moledao.io" target='_blank'><img className="w-[98.5px] h-[56px]" src={DFINITY} /></a>
-                <a href="https://moledao.io" target='_blank'><img className="w-[193px] h-[22px]" src={AUS} /></a>
-                <a href="https://moledao.io" target='_blank'><img className="w-[103.7px] h-[17px]" src={CoinEasy} /></a>
+        <section className="splide" aria-label="Splide Basic HTML Example">
+            <div className="splide__track">
+                <ul className="splide__list" style={{ height: 88 }}>
+                    {logos.map((logo, index) => (
+                        <li key={index} className={`splide__slide flex justify-center items-center bg-white rounded-lg mx-1 cursor-pointer`} style={{
+                            width: `${logo.width}`,
+                            height: `${logo.height}`,
+                        }} onClick={() => {
+                            if (!logo.href) return
+                            window.open(logo.href, "_blank")
+                        }}>
+                            <img src={logo.src} alt={logo.alt} style={{
+                                width: `${logo.width}`,
+                                height: `${logo.height}`,
+                            }} />
+                        </li>
+                    ))}
+                </ul>
             </div>
-        </div>
+        </section>
     )
 }

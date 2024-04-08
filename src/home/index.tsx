@@ -12,7 +12,7 @@ export const RowSpace = ()=> <div className='h-3 w-full'></div>
 
 export const Home = () => {
     return (
-        <div className="w-full z-10">
+        <div className="w-full z-10 border">
             <Header />
             <Hero />
             <div className="flex-col justify-start items-center gap-24 inline-flex w-full">

@@ -11,6 +11,9 @@
     "push": "git add . && git commit -m 'update' && git push origin main"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

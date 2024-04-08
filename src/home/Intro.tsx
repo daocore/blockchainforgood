@@ -5,6 +5,7 @@ import WhatBag from '../assets/What BGA can offer 1.png'
 import HowCanHelp from '../assets/How you can help 1.png'
 import { ApplyLink } from '../components/Const'
 import { RowSpace } from '.'
+import { JoinUs } from './Hero'
 
 const forces = [
     {
@@ -70,11 +71,11 @@ export const Intro = () => {
                         <div className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">Join our mission to leverage blockchain for global good through our pioneering initiatives.<RowSpace />Together, we’re building a collaborative ecosystem for change.</div>
                     </div>
                 </div>
-                <div className="justify-start items-start flex w-full gap-4 md:gap-0 md:w-1/2 flex-wrap">
+                <div className="justify-start items-start flex w-full gap-4 xs:gap-0 md:w-1/2 flex-wrap">
                     {
                         forces?.map((force, index) => {
                             return (
-                                <div key={index} className="flex-col justify-center md:justify-start items-start gap-2 inline-flex w-full md:w-1/3 px-2">
+                                <div key={index} className="flex-col justify-center md:justify-start items-start gap-2 inline-flex w-full xs:w-1/3 px-2">
                                     <img className="w-40 h-[97.88px] m-auto" src={force?.img} />
                                     <div className="flex-col justify-start items-start flex w-full">
                                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
@@ -90,8 +91,8 @@ export const Intro = () => {
                     }
                 </div>
             </div>
-            <div className="w-full justify-start items-center md:gap-[214px] inline-flex flex-wrap mt-10 md:mt-0">
-                <img className="w-4/5 md:w-[410px] md:h-[364px]" src={WhatBag} />
+            <div className="w-full justify-start items-center md:gap-[214px] inline-flex flex-wrap mt-8 xs:mt-10 md:mt-0">
+                <img className="w-[208px] md:w-[410px] m-auto md:m-0" src={WhatBag} />
                 <div className="w-full md:w-[608px] flex-col justify-start items-start gap-2 inline-flex flex-wrap">
                     <div className="self-stretch md:h-[42px] flex-col justify-start items-start flex">
                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
@@ -114,7 +115,7 @@ export const Intro = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full md:h-[364px] flex justify-center md:justify-between flex-wrap">
+            <div className="w-full md:h-[364px] flex flex-col-reverse md:flex-col justify-center md:justify-between flex-wrap">
                 <div className="w-full md:w-[499px] md:h-[298px] flex-col justify-start items-start gap-2 inline-flex">
                     <div className="self-stretch h-[42px] flex-col justify-start items-start flex">
                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
@@ -139,13 +140,9 @@ export const Intro = () => {
                             })
                         }
                     </div>
-                    <div className="w-full md:w-auto px-6 py-3 justify-center transform items-center inline-flex button cursor-pointer mt-4" onClick={() => {
-                        window.open(ApplyLink, "_blank")
-                    }}>
-                        Join Us
-                    </div>
+                    <JoinUs />
                 </div>
-                <img className="w-full h-[220px] md:w-[604px] md:h-[364px] mt-10 md:mt-0" src={HowCanHelp} />
+                <img className="w-[330px] md:w-[604px] m-auto mt-10 md:mt-0" src={HowCanHelp} />
             </div>
         </div>
     )

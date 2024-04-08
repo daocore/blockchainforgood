@@ -23,7 +23,7 @@ const navs = [
     }
 ]
 
-export const Header = () => {
+export const useToTop = () => {
     const [top, setTop] = useState<number>(0);
 
     useEffect(() => {
@@ -38,6 +38,12 @@ export const Header = () => {
             document?.removeEventListener("scroll", () => { });
         };
     }, [])
+
+    return top
+}
+
+export const Header = () => {
+    const top = useToTop();
 
     return (
         <div className="fixed z-50 w-full px-4 md:px-0" style={{
@@ -72,13 +78,13 @@ export const Header = () => {
                     <path d="M22.5765 9.15076H21.6873V16.2171H22.5765V9.15076Z" fill="black" />
                 </svg>
 
-                <div className="justify-end items-center gap-4 md:gap-12 flex">
-                    <div className="justify-end items-start gap-4 md:gap-12 flex">
+                <div className="justify-end items-center gap-0 md:gap-12 flex">
+                    <div className="justify-end items-start gap-0 md:gap-1 flex">
                         {
                             navs?.map((nav, index) => {
                                 return (
-                                    <div key={index} className="justify-center items-center gap-2.5 flex">
-                                        <div className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer hover:text-main" onClick={(e => {
+                                    <div key={index} className="justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6">
+                                        <div className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer" onClick={(e => {
                                             hashClick(e, nav.id)
                                         })}>{nav.name}</div>
                                     </div>
@@ -86,10 +92,10 @@ export const Header = () => {
                             })
                         }
                     </div>
-                    <div className="w-[60px] md:w-[87px] h-[24px] md:h-8 px-6 border border-text justify-center items-center gap-2.5 inline-flex hover:border-main group cursor-pointer" onClick={() => {
+                    <div className="w-[60px] md:w-[87px] h-[24px] md:h-8 px-6 border border-text justify-center items-center gap-2.5 inline-flex hover:border-text hover:bg-text group cursor-pointer" onClick={() => {
                         window.open(ApplyLink, "_blank")
                     }}>
-                        <div className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-main">Apply</div>
+                        <div className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-white">Apply</div>
                     </div>
                 </div>
             </div>
