@@ -24,7 +24,21 @@ const videos: IVideo[] = [
         title: "‘That makes a community stronger’",
         from: "MMM",
         name: "XXX"
-    }
+    },
+    {
+        src: mov,
+        width: "280px",
+        title: "‘That makes a community stronger’",
+        from: "FFF",
+        name: "XXX"
+    },
+    {
+        src: mov,
+        width: "280px",
+        title: "‘That makes a community stronger’",
+        from: "FFF",
+        name: "XXX"
+    },
 ];
 
 const MyVideo = ({ video }: { video: IVideo }) => {
@@ -45,12 +59,14 @@ const MyVideo = ({ video }: { video: IVideo }) => {
     };
 
     return (
-        <div className="relative " style={{ width: video?.width, height: "100%" }}>
-            <video width={video.width} className="absolute top-0" ref={videoRef}>
+        <div className="relative" style={{ width: video?.width, height: "100%" }}>
+            <video width={video.width} className="absolute top-0" ref={videoRef} onEnded={() => {
+                setIsPlaying(false)
+            }}>
                 <source src={video.src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-            {!isPlaying && <><div className="absolute left-4 top-4 right-4 z-20">
+            {!isPlaying && <><div className="absolute left-6 top-3 right-6 z-20">
                 {video?.title}
             </div>
                 <div className="absolute w-full h-full z-10 top-0 bg-opacity-0 hover:bg-opacity-30 bg-black flex justify-center items-center">
@@ -60,8 +76,8 @@ const MyVideo = ({ video }: { video: IVideo }) => {
                         </g>
                     </svg>}
                 </div>
-                <div className="absolute bottom-10 left-4 right-4 z-20 font-bold font-['Inter']">{video?.name}</div>
-                <div className="absolute bottom-4 left-4 right-4 z-20 text-xs">{video?.from}</div></>}
+                <div className="absolute bottom-8 left-6 right-6 z-20 font-bold font-['Inter']">{video?.name}</div>
+                <div className="absolute bottom-3 left-6 right-6 z-20 text-xs">{video?.from}</div></>}
         </div>
     )
 }

@@ -77,7 +77,7 @@ export const Journey = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full md:w-content md:h-[65px] left-6 top-1 relative hidden md:block">
+                <div className="w-content h-[65px] left-6 top-1 relative hidden md:block overflow-hidden">
                     <Line className='top-8' style={{ left: 0, width: linew }} />
                     <Icon icon={Q1} style={{ left: linew - iconw }} />
                     <Line className='top-8' style={{ left: linew + 56, width: linew * 2 + gapw }} />
