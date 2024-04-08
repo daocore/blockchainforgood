@@ -44,7 +44,7 @@ export const Journey = () => {
 
     return (
         <div className="py-6 bg-white shadow flex-col justify-start items-center gap-0 md:gap-4 flex w-full md:w-content">
-            <div className="w-full md:w-content justify-center items-center gap-2.5 inline-flex">
+            <div className="w-full md:w-content justify-center items-center gap-2.5 inline-flex pl-4 md:pl-0">
                 <div className="grow shrink basis-0 text-left md:text-center text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">2024 Journey Towards Impact</div>
             </div>
             <div className="w-full h-[67vh] xs:h-[65vh] md:w-content md:h-[260px] relative">
@@ -90,7 +90,7 @@ export const Journey = () => {
                 </div>
                 <div className="w-[100px] top-1 absolute block md:hidden">
                     <Icon icon={Q1} style={{ top: 20 }} />
-                    <Line className='top-8' style={{ top: 80, left: 39, height: 144 }} />
+                    <Line className='top-8' style={{ top: 80, left: 39, height: 145 }} />
                     <Icon icon={Q2} style={{ top: 220 }} />
                     <Icon icon={Q3} style={{ top: 276 }} />
                     <Line className='top-8' style={{ top: 336, left: 39, height: 69 }} />
