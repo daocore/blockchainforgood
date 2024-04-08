@@ -19,7 +19,7 @@ const list = [
 
 export const HowJoin = () => {
     return (
-        <div className="w-full md:w-content px-4 md:px-0 justify-between md:items-center inline-flex flex-col-reverse md:flex-row flex-wrap">
+        <div className="w-full md:w-content px-4 md:px-0 justify-between md:items-center inline-flex flex-col-reverse md:flex-row flex-wrap gap-4 md:gap-0">
             <div className="w-full md:w-[709px] flex-col justify-start items-start inline-flex">
                 <div className="self-stretch flex-col justify-center md:justify-start items-start gap-2 flex">
                     <div className="self-stretch md:h-[74px] flex-col justify-start items-start gap-2 flex">

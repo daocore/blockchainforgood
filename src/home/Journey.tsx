@@ -43,9 +43,9 @@ export const Journey = () => {
     const gapw = 24;
 
     return (
-        <div className="py-6 bg-white shadow flex-col justify-start items-center gap-4 flex w-full md:w-content">
-            <div className="w-full md:w-content justify-center items-center gap-2.5 inline-flex">
-                <div className="grow shrink basis-0 text-center text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">2024 Journey Towards Impact</div>
+        <div className="py-6 bg-white shadow flex-col justify-start items-center gap-0 md:gap-4 flex w-full md:w-content">
+            <div className="w-full md:w-content justify-center items-center gap-2.5 inline-flex pl-4 md:pl-0">
+                <div className="grow shrink basis-0 text-left md:text-center text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">2024 Journey Towards Impact</div>
             </div>
             <div className="w-full h-[67vh] xs:h-[65vh] md:w-content md:h-[260px] relative">
                 <div className="w-[80vw] md:w-[1185px] md:h-[220px] left-[20vw] md:left-[24px] md:top-[36px] absolute justify-start items-start gap-10 md:gap-6 inline-flex flex-wrap">
