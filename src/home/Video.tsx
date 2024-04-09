@@ -7,6 +7,7 @@ import Coineasy from "../assets/video/Jaden_Co-founderofCoineasy.mov";
 import { isMobile } from "../helpers";
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import poster from '../assets/video/1712656559247.jpg'
 
 interface IVideo {
     src: string;
@@ -151,7 +152,7 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
         onMouseEnter={() => { setEnter(true) }} 
         onMouseDown={() => { setEnter(true) }}
         onMouseLeave={() => { setEnter(false) }}>
-            <video ref={videoRef} onEnded={togglePlayback}>
+            <video ref={videoRef} controls={isMobile()} poster={poster} onEnded={togglePlayback}>
                 <source src={video?.src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
@@ -160,14 +161,14 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
                 <div className="font-bold font-['Inter']">{video?.name}</div>
                 <div className="text-xs">{video?.from}</div>
             </div>
-            <div className={`absolute w-full h-full z-10 top-0 ${enter ? "bg-videoHover" : "bg-video"} flex justify-center items-center`}>
+            <div className={`absolute w-full h-full z-10 top-0 ${enter ? "bg-videoHover" : "bg-video"} md:flex justify-center items-center hidden`}>
                 {!isPlaying && <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" className="cursor-pointer" onClick={togglePlayback}>
                     <g opacity="0.75">
                         <path d="M6 5.89355V38.0897C6 41.208 9.46904 43.079 12.0416 41.325L36.2084 25.2269C38.5081 23.6677 38.5081 20.2766 36.2084 18.7564L12.0416 2.65826C9.46904 0.94321 6 2.77527 6 5.89355Z" fill="white" />
                     </g>
                 </svg>}
             </div>
-            {enter && isPlaying !== undefined && <div className="absolute left-4 right-4 bottom-3 z-20">
+            {enter && isPlaying !== undefined && <div className="absolute left-4 right-4 bottom-3 z-20 hidden md:block">
                 <div style={{
                     height: '4px',
                     background: `linear-gradient(to right, #DC2626 0%, #DC2626 ${calculateProgress()}%, rgba(255, 255, 255, 0.35) ${calculateProgress()}%, rgba(255, 255, 255, 0.35) 100%)`,
