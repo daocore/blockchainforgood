@@ -63,6 +63,8 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
     const [volume, setVolume] = useState(1);
     const [isMuted, setMuted] = useState(false);
     const [enter, setEnter] = useState(false);
+    const [posterUrl, setPoster] = useState(poster);
+    const mobile = isMobile();
 
     useEffect(() => {
         const video = videoRef.current;
@@ -85,15 +87,15 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
         };
     }, []);
 
-    useEffect(()=>{
-        let timer:any;
+    useEffect(() => {
+        let timer: any;
         const mobile = isMobile();
-        if(isPlaying && mobile){
-            timer = setTimeout(()=>{
+        if (isPlaying && mobile) {
+            timer = setTimeout(() => {
                 setEnter(false)
             }, 1000);
         }
-        return ()=>{
+        return () => {
             clearTimeout(timer);
         }
     }, [isPlaying])
@@ -147,12 +149,30 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
         return 0;
     };
 
+    useEffect(() => {
+        const dom = videoRef.current;
+        if (!dom) return
+        // 取出视频第一贞的图片作为视频的预览图
+        // dom.addEventListener('loadeddata', () => {
+        //     const canvas = document.createElement('canvas');
+        //     canvas.width = dom.videoWidth;
+        //     canvas.height = dom.videoHeight;
+        //     const ctx = canvas.getContext('2d');
+        //     if (ctx) {
+        //         ctx.drawImage(dom, 0, 0, canvas.width, canvas.height);
+        //         const dataURL = canvas.toDataURL();
+        //         setPoster(dataURL);
+        //         console.log(dataURL);
+        //     }
+        // });
+    }, [videoRef])
+
     return (
-        <div className="relative" style={{ width: video?.width, height: "100%" }} 
-        onMouseEnter={() => { setEnter(true) }} 
-        onMouseDown={() => { setEnter(true) }}
-        onMouseLeave={() => { setEnter(false) }}>
-            <video ref={videoRef} controls={isMobile()} poster={poster} onEnded={togglePlayback}>
+        <div className="relative" style={{ width: mobile ? "100%" : video?.width, height: "100%" }}
+            onMouseEnter={() => { setEnter(true) }}
+            onMouseDown={() => { setEnter(true) }}
+            onMouseLeave={() => { setEnter(false) }}>
+            <video ref={videoRef} controls={mobile} poster={poster} onEnded={togglePlayback}>
                 <source src={video?.src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
