@@ -128,7 +128,7 @@ export const Partner = () => {
             <div className="splide__track">
                 <ul className="splide__list" style={{ height: 88 }}>
                     {logos.map((logo, index) => (
-                        <li key={index} className={`splide__slide flex justify-center items-center bg-white rounded-lg mx-1 cursor-pointer`} style={{
+                        <li key={index} className={`splide__slide flex justify-center items-center bg-white mx-1 cursor-pointer`} style={{
                             width: `${logo.width}`,
                             height: `${logo.height}`,
                         }} onClick={() => {

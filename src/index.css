@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -165,4 +169,58 @@ body {
   100% {
     transform: translateX(calc(var(--scale) * 200%)) rotate(var(--rotation)) scale(var(--scale)) scaleY(var(--scaleX));
   }
+}
+
+.custom-video-player {
+  position: relative;
+}
+
+.custom-video-player video {
+  width: 100%;
+}
+
+.custom-video-player .controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.custom-video-player .progress-bar {
+  flex: 1;
+  height: 8px;
+  background: linear-gradient(to right, red 0%, red 33%, blue 33%, blue 66%, #ccc 66%, #ccc 100%);
+  margin-right: 10px;
+}
+
+.custom-video-player .playback-controls button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.custom-video-player .time-display {
+  margin-right: 10px;
+}
+
+.custom-video-player .volume-controls button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.custom-video-player .volume-controls input[type="range"] {
+  width: 80px;
+  margin-left: 5px;
 }
