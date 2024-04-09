@@ -1,6 +1,12 @@
-import { VideoHTMLAttributes, useEffect, useRef, useState } from "react";
-import mov from "../assets/IMG_7431.mov"
-import WhatsApp from "../assets/WhatsApp Video 2024-04-02 at 18.40.22.mp4"
+import { useEffect, useRef, useState } from "react";
+import libera from "../assets/video/MaxCEOofLibera.mp4";
+import moledao from "../assets/video/YH.mp4";
+import icp from "../assets/video/IMG_7431.mov";
+import xuedao from "../assets/video/JenniferCo-founderofXueDAO.mov";
+import Coineasy from "../assets/video/Jaden_Co-founderofCoineasy.mov";
+import { isMobile } from "../helpers";
+import Splide from '@splidejs/splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 interface IVideo {
     src: string;
@@ -12,86 +18,41 @@ interface IVideo {
 
 const videos: IVideo[] = [
     {
-        src: mov,
-        width: "280px",
+        src: Coineasy,
+        width: "400px",
         title: "‘That makes a community stronger’",
-        from: "FFF",
-        name: "XXX"
+        from: "COO of ICP.Hub UAE",
+        name: "Saed"
     },
     {
-        src: WhatsApp,
-        width: "342px",
+        src: Coineasy,
+        width: "400px",
         title: "‘That makes a community stronger’",
-        from: "MMM",
-        name: "XXX"
+        from: "Co-founder of XueDAO",
+        name: "Jenifer"
     },
     {
-        src: mov,
-        width: "280px",
+        src: Coineasy,
+        width: "400px",
         title: "‘That makes a community stronger’",
-        from: "FFF",
-        name: "XXX"
+        from: "CEO of Libera",
+        name: "Max"
     },
     {
-        src: mov,
-        width: "280px",
+        src: Coineasy,
+        width: "400px",
         title: "‘That makes a community stronger’",
-        from: "FFF",
-        name: "XXX"
+        from: "Web3 Lead of Moledao",
+        name: "YH"
+    },
+    {
+        src: Coineasy,
+        width: "400px",
+        title: "‘That makes a community stronger’",
+        from: "Co-founder of Coineasy",
+        name: "Jaden"
     },
 ];
-
-const MyVideo = ({ video }: { video: IVideo }) => {
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [enter, setEnter] = useState(false);
-
-    // 播放/暂停切换
-    const togglePlay = () => {
-        if (videoRef.current) {
-            if (videoRef.current.paused) {
-                videoRef.current.play();
-                setIsPlaying(true);
-            } else {
-                videoRef.current.pause();
-                setIsPlaying(false);
-            }
-        }
-    };
-
-    return (
-        <div className="relative custom-video-player" style={{ width: video?.width, height: "100%" }} onMouseEnter={() => { setEnter(true) }} onMouseLeave={() => { setEnter(false) }}>
-            <video width={video.width} className="absolute top-0" controls ref={videoRef} onEnded={() => {
-                setIsPlaying(false)
-            }}>
-                <source src={video.src} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            {/* <div className="absolute w-full h-full top-0 group z-20">
-                {isPlaying && <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" className="cursor-pointer group-hover:block hidden" onClick={togglePlay}>
-                    <rect x="10" y="8" width="8" height="28" fill="white" />
-                    <rect x="26" y="8" width="8" height="28" fill="white" />
-                </svg>}
-            </div> */}
-            <div className={`absolute w-full h-full z-10 top-0 ${enter ? "bg-videoHover" : "bg-video"} flex justify-center items-center`}>
-                {isPlaying ? <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" className={`cursor-pointer ${enter ? "block" : "hidden"}`} onClick={togglePlay}>
-                    <rect x="10" y="8" width="8" height="28" fill="white" />
-                    <rect x="26" y="8" width="8" height="28" fill="white" />
-                </svg>
-                    : <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none" className="cursor-pointer" onClick={togglePlay}>
-                        <g opacity="0.75">
-                            <path d="M6 5.89355V38.0897C6 41.208 9.46904 43.079 12.0416 41.325L36.2084 25.2269C38.5081 23.6677 38.5081 20.2766 36.2084 18.7564L12.0416 2.65826C9.46904 0.94321 6 2.77527 6 5.89355Z" fill="white" />
-                        </g>
-                    </svg>}
-            </div>
-            <div className="absolute left-0 right-0 z-20 pt-3 px-4">
-                <div className="font-bold font-['Inter'] mb-1">{video?.title}</div>
-                <div className="font-bold font-['Inter']">{video?.name}</div>
-                <div className="text-xs">{video?.from}</div>
-            </div>
-        </div>
-    )
-}
 
 const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -122,6 +83,19 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
             video.removeEventListener('durationchange', handleDurationChange);
         };
     }, []);
+
+    useEffect(()=>{
+        let timer:any;
+        const mobile = isMobile();
+        if(isPlaying && mobile){
+            timer = setTimeout(()=>{
+                setEnter(false)
+            }, 1000);
+        }
+        return ()=>{
+            clearTimeout(timer);
+        }
+    }, [isPlaying])
 
     const togglePlayback = () => {
         const video = videoRef.current;
@@ -173,13 +147,16 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
     };
 
     return (
-        <div className="relative" style={{ width: video?.width, height: "100%" }} onMouseEnter={() => { setEnter(true) }} onMouseLeave={() => { setEnter(false) }}>
+        <div className="relative" style={{ width: video?.width, height: "100%" }} 
+        onMouseEnter={() => { setEnter(true) }} 
+        onMouseDown={() => { setEnter(true) }}
+        onMouseLeave={() => { setEnter(false) }}>
             <video ref={videoRef} onEnded={togglePlayback}>
                 <source src={video?.src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
             <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
-                <div className="font-bold font-['Inter'] mb-1">{video?.title}</div>
+                {/* <div className="font-bold font-['Inter'] mb-1">{video?.title}</div> */}
                 <div className="font-bold font-['Inter']">{video?.name}</div>
                 <div className="text-xs">{video?.from}</div>
             </div>
@@ -243,9 +220,18 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
 };
 
 export const Videos = () => {
-    return <div className="hidden md:flex items-center justify-center gap-4 w-full md:w-content m-auto mb-16 h-[498px]">
-        {videos.map((video, index) => {
-            return <CustomVideoPlayer key={index} video={video} />
-        })}
+    const ref = useRef<any>();
+
+    useEffect(() => {
+        if (ref.current) return
+        const mobile = isMobile();
+    }, []); // 通过空数组作为依赖项，确保只在组件挂载时执行一次初始化
+
+    return <div className="w-full md:w-content m-auto mt-10 mb-16 z-30 relative overflow-x-scroll" ref={ref}>
+        <div className="flex items-center gap-[15px] w-full md:w-[2060px] flex-wrap md:flex-nowrap">
+            {videos.map((video, index) => (
+                <CustomVideoPlayer key={index} video={video} />
+            ))}
+        </div>
     </div>
 }

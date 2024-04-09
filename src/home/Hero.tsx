@@ -3,8 +3,8 @@ import HeroImageRubixcubewText from '../assets/HeroImage-RubixcubewText.png'
 import { RowSpace } from '.'
 import { ApplyLink } from '../components/Const'
 import Cubes from "../assets/CubesPatterns.svg"
-import { useToTop } from '../components/Header'
 import { useEffect, useState } from 'react'
+import { Videos } from './Video'
 
 export const JoinUs = ({ text }: { text?: string }) => {
     return (
@@ -22,7 +22,7 @@ export const Hero = () => {
     useEffect(() => {
         if (!document?.getElementById) return
         document?.addEventListener("scroll", () => {
-            if (window?.scrollY <= 400) {
+            if (window?.scrollY <= 1000) {
                 setTop(window.scrollY)
             }
         });
@@ -44,6 +44,7 @@ export const Hero = () => {
                 </div>
                 <img className="w-full md:w-[605px] mr-0 md:-mr-[92px] mt-4 md:mt-0" src={HeroImg} />
             </div>
+            <Videos />
             <div className="flex flex-col-reverse md:flex-row justify-center md:justify-between items-center pb-0 md:pb-16 flex-wrap mt-8 xs:mt-12 md:mt-0 relative gap-4">
                 <img className="w-[300px] md:w-[340px] ml-0 md:ml-[37px] mb-10 md:mb-0" src={HeroImageRubixcubewText} />
                 <div className="w-full md:w-[604px] flex-col justify-start items-start gap-2 inline-flex">

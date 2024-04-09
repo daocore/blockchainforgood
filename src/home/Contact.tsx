@@ -9,7 +9,7 @@ export const Contact = () => {
     return (
         <div id="contact" className="items-start justify-between gap-6 inline-flex w-full md:w-content m-auto flex-wrap px-4 md:px-0">
             <div className="flex-col justify-start items-start gap-2 md:gap-8 inline-flex">
-                <div className="h-[66px] flex-col justify-start items-start flex">
+                <div className="flex-col justify-start items-start flex">
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
                         <div className="grow shrink basis-0 text-text text-[32px] font-bold font-['Inter'] leading-[41.60px]">Contact Us</div>
                     </div>
@@ -17,7 +17,7 @@ export const Contact = () => {
                         <div className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">Join us to drive meaningful change together</div>
                     </div>
                 </div>
-                <div className="self-stretch h-12 flex-col justify-start items-start flex">
+                <div className="self-stretch flex-col justify-start items-start flex">
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
                         <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Chat with us</div>
                     </div>
@@ -41,7 +41,7 @@ export const Contact = () => {
                     </div>
                 </div>
                 <div className="self-stretch flex-col justify-start items-start gap-2 flex">
-                    <div className="self-stretch h-[62px] flex-col justify-start items-start gap-1 flex">
+                    {/* <div className="self-stretch h-[62px] flex-col justify-start items-start gap-1 flex">
                         <div className="self-stretch justify-center items-center gap-2 inline-flex">
                             <div className="grow shrink basis-0 text-neutral-400 text-xs font-normal font-['Inter'] leading-[18px]">Name*</div>
                         </div>
@@ -50,7 +50,7 @@ export const Contact = () => {
                                 setName(e.target.value)
                             }} />
                         </div>
-                    </div>
+                    </div> */}
                     <div className="self-stretch h-[62px] flex-col justify-start items-start gap-1 flex">
                         <div className="self-stretch justify-center items-center gap-2 inline-flex">
                             <div className="grow shrink basis-0 text-neutral-400 text-xs font-normal font-['Inter'] leading-[18px]">Subject*</div>

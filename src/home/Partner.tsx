@@ -1,5 +1,5 @@
 import AUS from '../assets/partner/AUS Logo 1.png'
-import DFINITY from '../assets/partner/DFINITY Logo.png'
+import DFINITY from '../assets/partner/AE _ full color blck.png'
 import Harvard from '../assets/partner/Harvard Blockchain Logo.png'
 import moledao from '../assets/partner/moledao Logo (H) 1.png'
 import BybitWeb3 from '../assets/partner/Bybit Web3.png'
@@ -50,8 +50,8 @@ const logos = [
     {
         src: DFINITY,
         alt: "DFINITY",
-        width: "98.5px",
-        height: "56px",
+        width: "160px",
+        height: "30px",
         href: "http://internetcomputer.org/"
     },
     {
@@ -128,7 +128,7 @@ export const Partner = () => {
             <div className="splide__track">
                 <ul className="splide__list" style={{ height: 88 }}>
                     {logos.map((logo, index) => (
-                        <li key={index} className={`splide__slide flex justify-center items-center bg-white mx-1 cursor-pointer`} style={{
+                        <li key={index} className={`splide__slide flex justify-center items-center bg-white mx-1 px-1 cursor-pointer`} style={{
                             width: `${logo.width}`,
                             height: `${logo.height}`,
                         }} onClick={() => {

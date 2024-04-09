@@ -16,7 +16,6 @@ export const Home = () => {
         <div className="w-full z-10 border">
             <Header />
             <Hero />
-            <Videos />
             <div className="flex-col justify-start items-center gap-8 xs:gap-12 md:gap-24 inline-flex w-full">
                 <Partner />
                 <Intro />
