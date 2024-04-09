@@ -11,7 +11,8 @@ export default {
         videoHover: "linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);"
       },
       screens: {
-        xs: "480px"
+        xs: "480px",
+        mac: "1440px",
       },
       width: {
         content: 1232

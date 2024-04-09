@@ -172,7 +172,7 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
             onMouseEnter={() => { setEnter(true) }}
             onMouseDown={() => { setEnter(true) }}
             onMouseLeave={() => { setEnter(false) }}>
-            <video ref={videoRef} controls={mobile} poster={poster} onEnded={togglePlayback}>
+            <video ref={videoRef} controls={mobile} poster={mobile ? poster : undefined} onEnded={togglePlayback}>
                 <source src={video?.src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
@@ -248,7 +248,7 @@ export const Videos = () => {
         const mobile = isMobile();
     }, []); // 通过空数组作为依赖项，确保只在组件挂载时执行一次初始化
 
-    return <div className="w-full md:w-content m-auto mt-10 mb-16 z-30 relative overflow-x-scroll" ref={ref}>
+    return <div className="w-full md:w-content m-auto mt-10 mb-16 z-30 relative overflow-x-scroll h-[]" ref={ref}>
         <div className="flex items-center gap-[15px] w-full md:w-[2060px] flex-wrap md:flex-nowrap">
             {videos.map((video, index) => (
                 <CustomVideoPlayer key={index} video={video} />
