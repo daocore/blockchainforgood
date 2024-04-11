@@ -5,7 +5,7 @@ import Jaden from "../assets/video/4 Jaden, Co-founder of Coineasy - Trimmed.mp4
 import Saed from "../assets/video/5 Saed, Co-founder of ICP.Hub UAE - Trimmed.mp4";
 import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
 import Helen from "../assets/video/7 Helen, COO of Bybit - Trimmed.mp4";
-import Kaskyrbek from "../assets/video/Aidana Kaskyrbek, Founder of Hayya Venture Studio.mp4";
+import Kaskyrbek from "../assets/video/1 Aidana Kaskyrbek, Founder of Hayya Venture Studio.mp4";
 import { isMobile } from "../helpers";
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
@@ -199,7 +199,7 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
                 <source src={video?.src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-            {!videoLoaded && <img src={video?.poster} alt="" className="absolute top-0 left-0 z-10 border border-red-500 h-full w-full"/>}
+            {!videoLoaded && <img src={video?.poster} alt="" className="absolute top-0 left-0 z-10 h-full w-full"/>}
             <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
                 {/* <div className="font-bold font-['Inter'] mb-1">{video?.title}</div> */}
                 <div className="font-bold font-['Inter']">{video?.name}</div>
