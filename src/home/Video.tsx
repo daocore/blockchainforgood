@@ -31,17 +31,9 @@ const videos: IVideo[] = [
         src: Helen,
         width: 400,
         title: "‘That makes a community stronger’",
-        from: "Co-founder of Coineasy",
-        name: "Jaden",
+        from: "COO of Bybit",
+        name: "Helen",
         poster: posterHelen
-    },
-    {
-        src: Jennifer,
-        width: 400,
-        title: "‘That makes a community stronger’",
-        from: "Co-founder of XueDAO",
-        name: "Jennifer",
-        poster: posterJennifer
     },
     {
         src: Kaskyrbek,
@@ -52,10 +44,26 @@ const videos: IVideo[] = [
         poster: posterKaskyrbek
     },
     {
+        src: Jennifer,
+        width: 400,
+        title: "‘That makes a community stronger’",
+        from: "Co-founder of XueDAO",
+        name: "Jennifer",
+        poster: posterJennifer
+    },
+    {
+        src: YH,
+        width: 400,
+        title: "‘That makes a community stronger’",
+        from: "Web3 Lead of Moledao",
+        name: "YH",
+        poster: posterYH
+    },
+    {
         src: Saed,
         width: 400,
         title: "‘That makes a community stronger’",
-        from: "COO of ICP.Hub UAE",
+        from: "Co-founder of ICP.Hub UAE",
         name: "Saed",
         poster: posterSaed
     },
@@ -66,14 +74,6 @@ const videos: IVideo[] = [
         from: "CEO of Libera",
         name: "Max",
         poster: posterMax
-    },
-    {
-        src: YH,
-        width: 400,
-        title: "‘That makes a community stronger’",
-        from: "Web3 Lead of Moledao",
-        name: "YH",
-        poster: posterYH
     },
     {
         src: Jaden,
