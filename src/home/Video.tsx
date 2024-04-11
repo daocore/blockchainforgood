@@ -196,7 +196,7 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
             onMouseEnter={() => { setEnter(true) }}
             onMouseDown={() => { setEnter(true) }}
             onMouseLeave={() => { setEnter(false) }}>
-            <video ref={videoRef} controls={mobile} poster={mobile ? video?.poster : undefined} onEnded={togglePlayback}>
+            <video ref={videoRef} className="m-auto" controls={mobile} poster={mobile ? video?.poster : undefined} onEnded={togglePlayback}>
                 <source src={video?.src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
@@ -321,7 +321,7 @@ export const Videos = () => {
                     ))}
                 </div>
             </div>
-            {!mobile && <><div className="absolute -left-16 top-[100px] rounded-full bg-white">
+            {!mobile && <><div className="absolute -left-16 top-[92.5px] rounded-full bg-white">
                 <ArrowImg
                     css={`w-10 h-10 p-3  rounded-full bg-gray-300 bg-opacity-25 scale-175 rotate-180 cursor-pointer`}
                     color={"#283344"}
@@ -332,7 +332,7 @@ export const Videos = () => {
                     }}
                 />
             </div>
-                <div className="absolute -right-16 top-[100px] rounded-full bg-white">
+                <div className="absolute -right-16 top-[92.5px] rounded-full bg-white">
                     <ArrowImg
                         css={`w-10 h-10 p-3 rounded-full bg-gray-300 bg-opacity-25 scale-175 rotate-9 cursor-pointer`}
                         color={"#283344"}
