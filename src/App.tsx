@@ -1,7 +1,7 @@
 import { Home } from './home'
 
 function App() {
-  return ( <div className='min-h-screen flex justify-center relative'>
+  return ( <div className='min-h-screen flex justify-center relative select-none'>
     <div className='h-10 w-full absolute bg-main' style={{ filter: "blur(80px)" }}></div>
     <Home />
   </div> )
