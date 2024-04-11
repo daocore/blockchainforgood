@@ -72,7 +72,7 @@ export const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <a className="w-[87px] h-8 px-6 border border-text justify-center items-center gap-2.5 inline-flex hover:border-text hover:bg-text group cursor-pointer" href={`mailto:${email}?name=${name}&subject=${subject}&body=${bodytext}`} rel="noopener noreferrer">
+                <a className="w-[87px] h-8 px-6 border border-text justify-center items-center gap-2.5 inline-flex hover:border-text hover:bg-text group cursor-pointer" href={`mailto:${email}?subject=${subject}&body=${bodytext}`} rel="noopener noreferrer">
                     <div className="text-center text-text text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-white">Send</div>
                 </a>
             </div>

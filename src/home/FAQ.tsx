@@ -34,7 +34,7 @@ const FAQItem = ({ question, answer, index }: { question: string, answer: string
 
 const faqs = [
   {
-    question: 'What is the Blockchain for Good Allience (BGA)?',
+    question: 'What is the Blockchain for Good Alliance (BGA)?',
     answer: 'The Blockchain for Good Alliance is a collaborative network of organizations, projects, and individuals committed to leveraging blockchain technology to solve global social, environmental, and economic challenges.',
   },
   {

@@ -1,57 +1,87 @@
 import { useEffect, useRef, useState } from "react";
-import libera from "../assets/video/MaxCEOofLibera.mp4";
-import moledao from "../assets/video/YH.mp4";
-import icp from "../assets/video/IMG_7431.mov";
-import xuedao from "../assets/video/JenniferCo-founderofXueDAO.mov";
-import Coineasy from "../assets/video/Jaden_Co-founderofCoineasy.mov";
+import YH from "../assets/video/2 YH - Trimmed.mp4";
+import Jennifer from "../assets/video/3 Jennifer, Co-founder of XueDAO Trimmed.mp4";
+import Jaden from "../assets/video/4 Jaden, Co-founder of Coineasy - Trimmed.mp4";
+import Saed from "../assets/video/5 Saed, Co-founder of ICP.Hub UAE - Trimmed.mp4";
+import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
+import Helen from "../assets/video/7 Helen, COO of Bybit - Trimmed.mp4";
+import Kaskyrbek from "../assets/video/Aidana Kaskyrbek, Founder of Hayya Venture Studio.mp4";
 import { isMobile } from "../helpers";
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-import poster from '../assets/video/1712656559247.jpg'
+import posterYH from '../assets/video/YH.jpg'
+import posterHelen from '../assets/video/Helen.jpg'
+import posterJaden from '../assets/video/Jaden.jpg'
+import posterJennifer from '../assets/video/Jennifer.jpg'
+import posterMax from '../assets/video/Max.jpg'
+import posterSaed from '../assets/video/Saed.jpg'
+import posterKaskyrbek from '../assets/video/Kaskyrbek.png'
 
 interface IVideo {
     src: string;
-    width: string;
+    width: number;
     title: string;
     from?: string;
     name?: string;
+    poster: string
 }
 
 const videos: IVideo[] = [
     {
-        src: Coineasy,
-        width: "400px",
-        title: "‘That makes a community stronger’",
-        from: "COO of ICP.Hub UAE",
-        name: "Saed"
-    },
-    {
-        src: Coineasy,
-        width: "400px",
-        title: "‘That makes a community stronger’",
-        from: "Co-founder of XueDAO",
-        name: "Jenifer"
-    },
-    {
-        src: Coineasy,
-        width: "400px",
-        title: "‘That makes a community stronger’",
-        from: "CEO of Libera",
-        name: "Max"
-    },
-    {
-        src: Coineasy,
-        width: "400px",
-        title: "‘That makes a community stronger’",
-        from: "Web3 Lead of Moledao",
-        name: "YH"
-    },
-    {
-        src: Coineasy,
-        width: "400px",
+        src: Helen,
+        width: 400,
         title: "‘That makes a community stronger’",
         from: "Co-founder of Coineasy",
-        name: "Jaden"
+        name: "Jaden",
+        poster: posterHelen
+    },
+    {
+        src: Jennifer,
+        width: 400,
+        title: "‘That makes a community stronger’",
+        from: "Co-founder of XueDAO",
+        name: "Jennifer",
+        poster: posterJennifer
+    },
+    {
+        src: Kaskyrbek,
+        width: 400,
+        title: "‘That makes a community stronger’",
+        from: "Founder of Hayya Venture Studio",
+        name: "Aidana Kaskyrbek",
+        poster: posterKaskyrbek
+    },
+    {
+        src: Saed,
+        width: 400,
+        title: "‘That makes a community stronger’",
+        from: "COO of ICP.Hub UAE",
+        name: "Saed",
+        poster: posterSaed
+    },
+    {
+        src: Max,
+        width: 400,
+        title: "‘That makes a community stronger’",
+        from: "CEO of Libera",
+        name: "Max",
+        poster: posterMax
+    },
+    {
+        src: YH,
+        width: 400,
+        title: "‘That makes a community stronger’",
+        from: "Web3 Lead of Moledao",
+        name: "YH",
+        poster: posterYH
+    },
+    {
+        src: Jaden,
+        width: 400,
+        title: "‘That makes a community stronger’",
+        from: "Co-founder of Coineasy",
+        name: "Jaden",
+        poster: posterJaden
     },
 ];
 
@@ -63,7 +93,7 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
     const [volume, setVolume] = useState(1);
     const [isMuted, setMuted] = useState(false);
     const [enter, setEnter] = useState(false);
-    const [posterUrl, setPoster] = useState(poster);
+    const [videoLoaded, setVideoLoaded] = useState(false);
     const mobile = isMobile();
 
     useEffect(() => {
@@ -152,30 +182,24 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
     useEffect(() => {
         const dom = videoRef.current;
         if (!dom) return
-        // 取出视频第一贞的图片作为视频的预览图
-        // dom.addEventListener('loadeddata', () => {
-        //     const canvas = document.createElement('canvas');
-        //     canvas.width = dom.videoWidth;
-        //     canvas.height = dom.videoHeight;
-        //     const ctx = canvas.getContext('2d');
-        //     if (ctx) {
-        //         ctx.drawImage(dom, 0, 0, canvas.width, canvas.height);
-        //         const dataURL = canvas.toDataURL();
-        //         setPoster(dataURL);
-        //         console.log(dataURL);
-        //     }
-        // });
+        dom.addEventListener('loadeddata', () => {
+            setVideoLoaded(true);
+        });
     }, [videoRef])
 
     return (
-        <div className="relative" style={{ width: mobile ? "100%" : video?.width, height: "100%" }}
+        <div className="relative" style={{
+            width: mobile ? "88vw" : 400,
+            height: mobile ? `${88 / 16 * 9}vw` : 225
+        }}
             onMouseEnter={() => { setEnter(true) }}
             onMouseDown={() => { setEnter(true) }}
             onMouseLeave={() => { setEnter(false) }}>
-            <video ref={videoRef} controls={mobile} poster={mobile ? poster : undefined} onEnded={togglePlayback}>
+            <video ref={videoRef} controls={mobile} poster={mobile ? video?.poster : undefined} onEnded={togglePlayback}>
                 <source src={video?.src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
+            {!videoLoaded && <img src={video?.poster} alt="" className="absolute top-0 left-0 z-10 border border-red-500 h-full w-full"/>}
             <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
                 {/* <div className="font-bold font-['Inter'] mb-1">{video?.title}</div> */}
                 <div className="font-bold font-['Inter']">{video?.name}</div>
@@ -242,14 +266,19 @@ const CustomVideoPlayer = ({ video }: { video: IVideo }) => {
 
 export const Videos = () => {
     const ref = useRef<any>();
+    const mobile = isMobile();
 
     useEffect(() => {
         if (ref.current) return
         const mobile = isMobile();
     }, []); // 通过空数组作为依赖项，确保只在组件挂载时执行一次初始化
 
-    return <div className="w-full md:w-content m-auto mt-10 mb-16 z-30 relative overflow-x-scroll h-[]" ref={ref}>
-        <div className="flex items-center gap-[15px] w-full md:w-[2060px] flex-wrap md:flex-nowrap">
+    return <div className="w-full md:w-content m-auto mt-10 mb-16 z-30 relative overflow-x-scroll" ref={ref} style={{
+        height: mobile ? `calc(${videos?.length * 88 / 16 * 9}vw + ${videos?.length * 15 - 15}px)` : 225
+    }}>
+        <div className="flex items-center m-auto gap-[15px] flex-wrap md:flex-nowrap" style={{
+            width: isMobile() ? `calc(88vw)` : videos?.length * (400 + 15) - 15
+        }}>
             {videos.map((video, index) => (
                 <CustomVideoPlayer key={index} video={video} />
             ))}
