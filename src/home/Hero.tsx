@@ -101,13 +101,17 @@ export const Hero = () => {
                     <JoinUs />
                 </div>
                 <div className='relative w-full md:w-[605px] mr-0 mac:-mr-[92px] mt-4 md:mt-0 h-full'>
-                    <LogoDialog className='absolute left-[32vw] bottom-[8.5vw] md:left-[192px] md:bottom-[56px] logo-up-down-move' project={{
-                        logo: Liberalogo,
-                        video: {
-                            src: Max,
-                            poster: posterMax
-                        }
-                    }} />
+                    <LogoDialog className='absolute left-[32vw] bottom-[8.5vw] md:left-[192px] md:bottom-[56px] logo-up-down-move'
+                        style={{
+                            animationDelay: "0.1s"
+                        }}
+                        project={{
+                            logo: Liberalogo,
+                            video: {
+                                src: Max,
+                                poster: posterMax
+                            }
+                        }} />
 
                     <LogoDialog className='absolute right-[33.5vw] bottom-[5vw] md:right-[200px] md:bottom-[34px] logo-up-down-move' style={{
                         animationDelay: "1s"
