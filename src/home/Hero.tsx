@@ -1,10 +1,18 @@
-import HeroImg from '../assets/HeroImage.png'
+import HeroImg from '../assets/KV.webp'
+import Edu3Labslogo from '../assets/Edu3Labs Globe.webp'
+import Liberalogo from '../assets/Libera Globe.webp'
 import HeroImageRubixcubewText from '../assets/HeroImage-RubixcubewText.png'
 import { RowSpace } from '.'
 import { ApplyLink } from '../components/Const'
 import Cubes from "../assets/CubesPatterns.svg"
-import { useEffect, useState } from 'react'
+import { HTMLAttributes, useEffect, useState } from 'react'
 import { Videos } from './Video'
+import { DialogsWithFooterAndTitle } from '../components/Dialog'
+import { CustomVideoPlayer, IVideo } from '../components/Video'
+import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
+import posterMax from '../assets/video/Max.jpg'
+import { isMobile } from '../helpers'
+import playicon from "../assets/play.svg"
 
 export const JoinUs = ({ text }: { text?: string }) => {
     return (
@@ -14,6 +22,56 @@ export const JoinUs = ({ text }: { text?: string }) => {
             {text || "Join Us"}
         </div>
     )
+}
+
+const LogoDialog = ({ project, ...props }: { project: { logo: string, video?: IVideo, link?: string } } & HTMLAttributes<HTMLImageElement>) => {
+    const { logo, video, link } = project;
+    const [isOpen, setIsOpen] = useState(false);
+    const mobile = isMobile();
+    const width = 1000;
+
+    return (
+        <>
+            <img {...props} src={logo} alt="" className={`w-[12vw] md:w-20 md:h-20 cursor-pointer ${props?.className}`} onClick={() => {
+                if (video) {
+                    setIsOpen(true)
+                } else {
+                    window.open(link, "_blank")
+                }
+            }} />
+            {video && <DialogsWithFooterAndTitle
+                open={isOpen}
+                setOpen={() => {
+                    setIsOpen(false)
+                }}
+                width={width + 300}
+                close={() => {
+                    setIsOpen(false)
+                }}
+            >
+                <CustomVideoPlayer video={{
+                    src: video?.src,
+                    poster: video?.poster
+                }} style={{
+                    width: mobile ? "88vw" : width,
+                    height: mobile ? `${88 / 16 * 9}vw` : (width / 16 * 9),
+                    margin: "-10px auto 20px auto"
+                }} >
+                    {({ isPlaying, togglePlayback }) => {
+                        return (<div className={`absolute w-full h-full z-10 top-0 md:flex justify-center items-center hidden`}>
+                            {!isPlaying && <img src={playicon} alt="" className="w-[80px] h-[80px] cursor-pointer z-20" onClick={togglePlayback} />}
+                            <div className='absolute h-full w-full -mb-[2px] hidden md:block' style={{
+                                background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 81.72%, rgba(0, 0, 0, 0.75) 110%)`
+                            }}>
+                            </div>
+                        </div>
+                        )
+                    }}
+                </CustomVideoPlayer>
+            </DialogsWithFooterAndTitle>}
+        </>
+    )
+
 }
 
 export const Hero = () => {
@@ -33,19 +91,35 @@ export const Hero = () => {
     }, [])
 
     return (
-        <div className="w-full md:w-content m-auto mt-16 p-4 md:p-0">
-            <div className="items-center justify-between inline-flex w-full flex-wrap">
-                <div className="w-full md:w-[499px] flex-col justify-start items-start inline-flex">
+        <div className="w-full md:w-content m-auto mt-16">
+            <div className="items-center justify-between inline-flex w-full flex-wrap mb-4">
+                <div className="w-full md:w-[499px] flex-col justify-start items-start inline-flex px-4 md:px-0">
                     <div className="self-stretch flex-col justify-start items-start gap-2 md:gap-4 flex md:text-left text-center">
                         <div className="self-stretch text-black text-[40px] xs:text-[64px] md:text-[82px] font-extrabold font-['Inter'] leading-[36px] xs:leading-[48px] md:leading-[82px]">Blockchain <br className='md:block hidden' />for Good</div>
                         <div className="self-stretch text-text text-[20px] xs:text-[32px] md:text-[26px] font-normal font-['Inter'] leading-loose">Your Key to Web3</div>
                     </div>
                     <JoinUs />
                 </div>
-                <img className="w-full md:w-[605px] mr-0 mac:-mr-[92px] mt-4 md:mt-0" src={HeroImg} />
+                <div className='relative w-full md:w-[605px] mr-0 mac:-mr-[92px] mt-4 md:mt-0 h-full'>
+                    <LogoDialog className='absolute left-[32vw] bottom-[8.5vw] md:left-[192px] md:bottom-[56px] logo-up-down-move' project={{
+                        logo: Liberalogo,
+                        video: {
+                            src: Max,
+                            poster: posterMax
+                        }
+                    }} />
+
+                    <LogoDialog className='absolute right-[33.5vw] bottom-[5vw] md:right-[200px] md:bottom-[34px] logo-up-down-move' style={{
+                        animationDelay: "1s"
+                    }} project={{
+                        logo: Edu3Labslogo,
+                        link: "https://edu3labs.com/"
+                    }} />
+                    <img src={HeroImg} />
+                </div>
             </div>
             <Videos />
-            <div className="flex flex-col-reverse md:flex-row justify-center md:justify-between items-center pb-0 md:pb-16 flex-wrap mt-8 xs:mt-12 md:mt-0 relative gap-4 mac:overflow-hidden overflow-visible">
+            <div className="flex flex-col-reverse md:flex-row justify-center md:justify-between items-center pb-0 md:pb-16 flex-wrap mt-8 xs:mt-12 md:mt-0 relative gap-4 mac:overflow-hidden overflow-visible px-4 md:px-0">
                 <img className="w-[300px] md:w-[340px] ml-0 md:ml-[37px] mb-10 md:mb-0" src={HeroImageRubixcubewText} />
                 <div className="w-full md:w-[604px] flex-col justify-start items-start gap-2 inline-flex">
                     <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px] text-center md:text-left w-full md:w-auto">Care. Create. Change.</div>

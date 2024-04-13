@@ -103,6 +103,7 @@ body {
 .button:hover {
   background: linear-gradient(0deg, #04BEAA 0%, #30D0C0 51.51%, #8DF7EC 114.47%);
 }
+
 /* Partner.css */
 
 .partner-container {
@@ -111,18 +112,22 @@ body {
 
 .partner-content {
   display: flex;
-  animation: scroll 30s linear infinite; /* 轮播滚动动画，30秒一次循环，根据内容数量和滚动速度调整 */
+  animation: scroll 30s linear infinite;
+  /* 轮播滚动动画，30秒一次循环，根据内容数量和滚动速度调整 */
 }
 
 .partner-item {
   flex-shrink: 0;
-  margin-right: 20px; /* 图片之间的间距 */
+  margin-right: 20px;
+  /* 图片之间的间距 */
 }
+
 .cloud {
   width: 200px;
   position: absolute;
   top: 0;
-  left: -200px; /* 初始位置在左侧屏幕外 */
+  left: -200px;
+  /* 初始位置在左侧屏幕外 */
   animation: moveCloud var(--time) ease-in-out infinite;
 }
 
@@ -223,4 +228,21 @@ body {
 .custom-video-player .volume-controls input[type="range"] {
   width: 80px;
   margin-left: 5px;
+}
+
+.logo-up-down-move {
+  animation: logo-up-down-move-bounce 5s infinite;
+}
+
+@keyframes logo-up-down-move-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-in-out;
+  }
+
+  50% {
+    transform: translateY(-30%);
+    animation-timing-function: ease-in-out;
+  }
 }
