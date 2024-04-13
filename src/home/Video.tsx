@@ -5,7 +5,9 @@ import Jaden from "../assets/video/4 Jaden, Co-founder of Coineasy - Trimmed.mp4
 import Saed from "../assets/video/5 Saed, Co-founder of ICP.Hub UAE - Trimmed.mp4";
 import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
 import Helen from "../assets/video/7 Helen, COO of Bybit - Trimmed.mp4";
+import Jason from "../assets/video/1 Jason Dou, Harvard Blockchain Club 2 - Trimmed.mp4";
 import Kaskyrbek from "../assets/video/1 Aidana Kaskyrbek, Founder of Hayya Venture Studio.mp4";
+
 import { isMobile } from "../helpers";
 import posterYH from '../assets/video/YH.jpg'
 import posterHelen from '../assets/video/Helen.jpg'
@@ -14,11 +16,18 @@ import posterJennifer from '../assets/video/Jennifer.jpg'
 import posterMax from '../assets/video/Max.jpg'
 import posterSaed from '../assets/video/Saed.jpg'
 import posterKaskyrbek from '../assets/video/Kaskyrbek.png'
+import posterJasonDou from '../assets/video/JasonDou.jpeg'
 import { ArrowImg } from "../components/Arrow";
 import { CustomVideoPlayer, IVideo } from "../components/Video";
 import playicon from "../assets/play.svg"
 
 const videos: IVideo[] = [
+    {
+        src: Jason,
+        from: "Harvard Blockchain",
+        name: "Jason Dou",
+        poster: posterJasonDou
+    },
     {
         src: Helen,
         from: "COO of Bybit",
