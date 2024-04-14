@@ -17,6 +17,7 @@ import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 // 导入 Splide 的样式文件（根据你的项目配置可能会有所不同）
 import '@splidejs/splide/css';
 import { isMobile } from '../helpers'
+import sensors from 'sa-sdk-javascript'
 
 const logos = [
     {
@@ -42,7 +43,7 @@ const logos = [
     },
     {
         src: solanaVerticalLogo,
-        alt: "solanaVerticalLogo",
+        alt: "solana",
         width: "90px",
         height: "38px",
         href: "https://solana.com/"
@@ -70,7 +71,7 @@ const logos = [
     },
     {
         src: Aptos_Primary_BLK,
-        alt: "Aptos_Primary_BLK",
+        alt: "Aptos",
         width: "90px",
         height: "22px",
         href: "https://aptosfoundation.org/"
@@ -91,7 +92,7 @@ const logos = [
     },
     {
         src: Libera_logo_new_3a,
-        alt: "Libera_logo_new_3a",
+        alt: "Libera",
         width: "60px",
         height: "60px",
         href: "https://liberaglobal.ai/"
@@ -134,6 +135,10 @@ export const Partner = () => {
                         }} onClick={() => {
                             if (!logo.href) return
                             window.open(logo.href, "_blank")
+                            sensors.track('ButtonClicked', {
+                                buttonName: `Partern ${logo?.alt} Logo Button`,
+                                // 其他自定义属性
+                            });
                         }}>
                             <img src={logo.src} alt={logo.alt} style={{
                                 width: `${logo.width}`,

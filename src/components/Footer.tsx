@@ -1,3 +1,4 @@
+import sensors from 'sa-sdk-javascript';
 import BlockchainForGoodLogo from '../assets/Blockchain For Good Logo Black.png'
 
 export const Footer = () => {
@@ -8,6 +9,10 @@ export const Footer = () => {
                     <img className="w-[159px] h-[42.91px]" src={BlockchainForGoodLogo} />
                     <div className="justify-center items-center gap-2 inline-flex cursor-pointer" onClick={() => {
                         window.open("https://drive.google.com/drive/folders/1YbdwZWnbVCwsUN_YKq9XiZlhOPeJDCpw", "_blank")
+                        sensors.track('ButtonClicked', {
+                            buttonName: `Media Kit Button`,
+                            // 其他自定义属性
+                        });
                     }}>
                         <div className="text-black text-base font-bold font-['Inter'] leading-normal">Media Kit</div>
                     </div>

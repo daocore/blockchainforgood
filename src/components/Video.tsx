@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, DetailedHTMLProps, ReactNode, HTMLAttributes } from "react";
 import { isMobile } from "../helpers";
 import playicon from "../assets/play.svg"
+import sensors from "sa-sdk-javascript";
 
 export interface IVideo {
     src: string;

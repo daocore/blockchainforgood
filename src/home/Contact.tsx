@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import sensors from 'sa-sdk-javascript';
 
 export const Contact = () => {
     const [name, setName] = useState("");
@@ -27,7 +28,11 @@ export const Contact = () => {
                 </div>
                 <div className="self-stretch h-6 flex-col justify-start items-start flex">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="cursor-pointer" onClick={() => {
-                        window.open("https://twitter.com/chainforgood", "_blank")
+                        window.open("https://twitter.com/chainforgood", "_blank");
+                        sensors.track('ButtonClicked', {
+                            buttonName: `Twitter Button`,
+                            // 其他自定义属性
+                        });
                     }}>
                         <rect width="24" height="24" transform="translate(0 0.000976562)" fill="#283344" />
                         <path d="M13.143 11.0827L17.6107 6.00098H16.5522L12.6711 10.4124L9.5735 6.00098H6L10.6852 12.6725L6 18.001H7.05857L11.1546 13.3412L14.4265 18.001H18L13.143 11.0827ZM11.6926 12.731L11.2172 12.0663L7.44032 6.78186H9.06651L12.1155 11.0482L12.5889 11.7129L16.5517 17.2581H14.9255L11.6926 12.731Z" fill="white" />

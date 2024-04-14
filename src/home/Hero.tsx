@@ -18,9 +18,9 @@ import sensors from "sa-sdk-javascript"
 export const JoinUs = ({ text }: { text?: string }) => {
     return (
         <div className="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-3 text-[16px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold mt-4 xs:mt-6 md:mt-8" onClick={() => {
-            // window.open(ApplyLink, "_blank");
+            window.open(ApplyLink, "_blank");
             sensors.track('ButtonClicked', {
-                buttonName: 'Example Button',
+                buttonName: 'Join Us Button',
                 // 其他自定义属性
             });
         }}>
@@ -29,8 +29,8 @@ export const JoinUs = ({ text }: { text?: string }) => {
     )
 }
 
-const LogoDialog = ({ project, ...props }: { project: { logo: string, video?: IVideo, link?: string } } & HTMLAttributes<HTMLImageElement>) => {
-    const { logo, video, link } = project;
+const LogoDialog = ({ project, ...props }: { project: { logo: string, video?: IVideo, link?: string, name: string } } & HTMLAttributes<HTMLImageElement>) => {
+    const { logo, video, link, name } = project;
     const [isOpen, setIsOpen] = useState(false);
     const mobile = isMobile();
     const width = 1000;
@@ -40,6 +40,10 @@ const LogoDialog = ({ project, ...props }: { project: { logo: string, video?: IV
             <img {...props} src={logo} alt="" className={`w-[12vw] md:w-20 md:h-20 cursor-pointer ${props?.className}`} onClick={() => {
                 if (video) {
                     setIsOpen(true)
+                    sensors.track('ButtonClicked', {
+                        buttonName: `Hero ${name} Logo Button`,
+                        // 其他自定义属性
+                    });
                 } else {
                     window.open(link, "_blank")
                 }
@@ -115,14 +119,16 @@ export const Hero = () => {
                             video: {
                                 src: Max,
                                 poster: posterMax
-                            }
+                            },
+                            name: "Libera"
                         }} />
 
                     <LogoDialog className='absolute right-[33.5vw] bottom-[5vw] md:right-[200px] md:bottom-[34px] logo-up-down-move' style={{
                         animationDelay: "1s"
                     }} project={{
                         logo: Edu3Labslogo,
-                        link: "https://edu3labs.com/"
+                        link: "https://edu3labs.com/",
+                        name: "Edu3Labs"
                     }} />
                     <img src={HeroImg} />
                 </div>
