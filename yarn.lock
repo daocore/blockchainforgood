@@ -1886,6 +1886,11 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
+sa-sdk-javascript@^1.26.11:
+  version "1.26.11"
+  resolved "https://registry.yarnpkg.com/sa-sdk-javascript/-/sa-sdk-javascript-1.26.11.tgz#93f208c5650078e97b8a29657e81eddebb91eed6"
+  integrity sha512-7feSTUoqAY60+sI9ESp9yskQbT+73v97JY6E4T8CB1jyIwRqpnlBrhuuBXe88mYJjzK8KfATmgRGWCcKyy2oYA==
+
 scheduler@^0.23.0:
   version "0.23.0"
   resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.23.0.tgz"

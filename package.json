@@ -16,7 +16,8 @@
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sa-sdk-javascript": "^1.26.11"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

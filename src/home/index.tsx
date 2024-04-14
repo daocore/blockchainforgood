@@ -8,10 +8,17 @@ import { HowJoin } from './HowJoin'
 import { Contact } from './Contact'
 import { FAQ } from './FAQ'
 import { Videos } from './Video'
+import { useEffect } from 'react'
+import sensors from "sa-sdk-javascript"
 
-export const RowSpace = ()=> <div className='h-3 w-full'></div>
+export const RowSpace = () => <div className='h-3 w-full'></div>
 
 export const Home = () => {
+    useEffect(() => {
+        sensors.track('$pageview', {
+            // 页面相关属性
+        });
+    }, [])
     return (
         <div className="w-full z-10 border">
             <Header />

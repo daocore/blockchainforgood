@@ -13,11 +13,16 @@ import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
 import posterMax from '../assets/video/Max.jpg'
 import { isMobile } from '../helpers'
 import playicon from "../assets/play.svg"
+import sensors from "sa-sdk-javascript"
 
 export const JoinUs = ({ text }: { text?: string }) => {
     return (
         <div className="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-3 text-[16px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold mt-4 xs:mt-6 md:mt-8" onClick={() => {
-            window.open(ApplyLink, "_blank")
+            // window.open(ApplyLink, "_blank");
+            sensors.track('ButtonClicked', {
+                buttonName: 'Example Button',
+                // 其他自定义属性
+            });
         }}>
             {text || "Join Us"}
         </div>
