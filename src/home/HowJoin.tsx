@@ -19,6 +19,8 @@ const list = [
 ]
 
 export const HowJoin = () => {
+    console.log(2222)
+
     return (
         <div className="w-full md:w-content px-4 md:px-0 justify-between md:items-center inline-flex flex-col-reverse md:flex-row flex-wrap gap-4 md:gap-0">
             <div className="w-full md:w-[709px] flex-col justify-start items-start inline-flex">

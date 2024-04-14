@@ -7,6 +7,7 @@ import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
 import Helen from "../assets/video/7 Helen, COO of Bybit - Trimmed.mp4";
 import Jason from "../assets/video/1 Jason Dou, Harvard Blockchain Club 2 - Trimmed.mp4";
 import Kaskyrbek from "../assets/video/1 Aidana Kaskyrbek, Founder of Hayya Venture Studio.mp4";
+import BGA from "../assets/video/BGA.mp4";
 
 import { isMobile } from "../helpers";
 import posterYH from '../assets/video/YH.jpg'
@@ -17,16 +18,15 @@ import posterMax from '../assets/video/Max.jpg'
 import posterSaed from '../assets/video/Saed.jpg'
 import posterKaskyrbek from '../assets/video/Kaskyrbek.png'
 import posterJasonDou from '../assets/video/JasonDou.jpeg'
+import posterBGA from '../assets/video/BGA.png'
 import { ArrowImg } from "../components/Arrow";
 import { CustomVideoPlayer, IVideo } from "../components/Video";
 import playicon from "../assets/play.svg"
 
 const videos: IVideo[] = [
     {
-        src: Jason,
-        from: "Harvard Blockchain",
-        name: "Jason Dou",
-        poster: posterJasonDou
+        src: BGA,
+        poster: posterBGA
     },
     {
         src: Helen,
@@ -39,6 +39,12 @@ const videos: IVideo[] = [
         from: "Founder of Hayya Venture Studio",
         name: "Aidana Kaskyrbek",
         poster: posterKaskyrbek
+    },
+    {
+        src: Jason,
+        from: "Harvard Blockchain",
+        name: "Jason Dou",
+        poster: posterJasonDou
     },
     {
         src: Jennifer,
@@ -113,6 +119,13 @@ export const Videos = () => {
         }, 16);
     };
 
+    const videoStyle = {
+        width: mobile ? "88vw" : 400,
+        height: mobile ? `${88 / 16 * 9}vw` : 225
+    }
+
+    console.log(1111)
+
     return (
         <div className="relative px-4 md:px-0">
             <div className="w-full md:w-content m-auto mt-10 mb-16 z-30 relative overflow-x-scroll" ref={ref} style={{
@@ -121,26 +134,27 @@ export const Videos = () => {
                 <div className="flex items-center m-auto gap-[15px] flex-wrap md:flex-nowrap" style={{
                     width: isMobile() ? `calc(88vw)` : videos?.length * (400 + 15) - 15
                 }}>
-                    {videos.map((video, index) => (
-                        <CustomVideoPlayer key={index} video={video} style={{
-                            width: mobile ? "88vw" : 400,
-                            height: mobile ? `${88 / 16 * 9}vw` : 225
-                        }} >
-                            {({ enter, isPlaying, togglePlayback }) => {
-                                return (
-                                    <>
-                                        <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
-                                            <div className="font-bold font-['Inter']">{video?.name}</div>
-                                            <div className="text-xs">{video?.from}</div>
-                                        </div>
-                                        <div className={`absolute w-full h-full z-10 top-0 ${enter ? "bg-videoHover" : "bg-video"} md:flex justify-center items-center hidden`}>
-                                            {!isPlaying && <img src={playicon} alt="" className="w-[80px] h-[80px] cursor-pointer z-20" onClick={togglePlayback} />}
-                                        </div>
-                                    </>
-                                )
-                            }}
-                        </CustomVideoPlayer>
-                    ))}
+                    {videos.map((video, index) => {
+                        const { src, poster, width, from, name } = video;
+
+                        return (
+                            <CustomVideoPlayer key={index} src={src} poster={poster} width={width} from={from} name={name} style={videoStyle} >
+                                {({ enter, isPlaying, togglePlayback }) => {
+                                    return (
+                                        <>
+                                            <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                                                <div className="font-bold font-['Inter']">{video?.name}</div>
+                                                <div className="text-xs">{video?.from}</div>
+                                            </div>
+                                            <div className={`absolute w-full h-full z-10 top-0 ${enter ? "bg-videoHover" : "bg-video"} md:flex justify-center items-center hidden`}>
+                                                {!isPlaying && <img src={playicon} alt="" className="w-[80px] h-[80px] cursor-pointer z-20" onClick={togglePlayback} />}
+                                            </div>
+                                        </>
+                                    )
+                                }}
+                            </CustomVideoPlayer>
+                        )
+                    })}
                 </div>
             </div>
             {!mobile && <><div className="absolute -left-16 top-[92.5px] rounded-full bg-white">

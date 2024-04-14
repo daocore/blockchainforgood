@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, DetailedHTMLProps, ReactNode, HTMLAttributes } from "react";
+import { useRef, useState, useEffect, DetailedHTMLProps, ReactNode, HTMLAttributes, memo } from "react";
 import { isMobile } from "../helpers";
 import playicon from "../assets/play.svg"
 import sensors from "sa-sdk-javascript";
@@ -7,14 +7,52 @@ export interface IVideo {
     src: string;
     from?: string;
     name?: string;
-    poster: string
+    poster: string;
+    width?: number,
 }
 
-type TVideoPlayer = Omit<HTMLAttributes<HTMLDivElement>, "children"> & { video: IVideo, children?: (props: { enter: boolean, isPlaying?: boolean, togglePlayback: () => void }) => ReactNode; }
+type TVideoPlayer = Omit<HTMLAttributes<HTMLDivElement>, "children"> & { children?: (props: { enter: boolean, isPlaying?: boolean, togglePlayback: () => void }) => ReactNode } & IVideo 
 
-export const CustomVideoPlayer: React.FC<TVideoPlayer> = (props) => {
-    const { video, children, ...divprops } = props;
+export const LoadVideo = ({ defaultUrl, ...props }: { defaultUrl?: string } & DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>) => {
+    const ref = useRef<HTMLDivElement>(null)
+    const [isLoad, setIsLoad] = useState(false);
+    const [isVisible, setIsVisible] = useState(false)
+    useEffect(() => {
+        const dom = ref.current;
+        if (!dom) return
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(item => {
+                setIsVisible(item.isIntersecting);
+            })
+        }, {
+            root: null,
+            threshold: 0.3,
+        })
+
+        io.observe(dom)
+    }, [props.src, ref])
+
+    useEffect(() => {
+        if (!(props.src && isVisible && !isLoad)) return
+        const img = new Image();
+        img.onload = () => {
+            setIsLoad(true);
+        }
+        img.src = props.src;
+    }, [isVisible, props.src, isLoad])
+
+    return (
+        isLoad
+            ? <img alt="img" {...props} style={props.style || {}} />
+            : <div className={`animate-pulse bg-gray-400 ${props.className || ""}`} ref={ref} style={props.style || {}} onClick={props?.onClick}>
+            </div>
+    )
+}
+
+export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
+    const { src, poster, width, from, name, children, ...divprops } = props;
     const videoRef = useRef<HTMLVideoElement>(null);
+    const divRef = useRef<HTMLDivElement>(null);
     const [isPlaying, setPlaying] = useState<boolean>();
     const [enter, setEnter] = useState(false);
     const [videoLoaded, setVideoLoaded] = useState(false);
@@ -23,6 +61,24 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = (props) => {
     const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(1);
     const [isMuted, setMuted] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const dom = divRef.current;
+        console.log(dom)
+        if (!dom || isVisible) return
+        const io = new IntersectionObserver((entries, observer) => {
+            entries.forEach(item => {
+                // setIsVisible(item.isIntersecting);
+                // observer.unobserve(item.target)
+            })
+        }, {
+            root: null,
+            threshold: 0.3,
+        })
+
+        io.observe(dom);
+    }, [src, isVisible])
 
     useEffect(() => {
         const video = videoRef.current;
@@ -43,7 +99,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = (props) => {
             video.removeEventListener('timeupdate', handleTimeUpdate);
             video.removeEventListener('durationchange', handleDurationChange);
         };
-    }, []);
+    }, [videoRef]);
 
     useEffect(() => {
         let timer: any;
@@ -118,15 +174,16 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = (props) => {
     return (
         <div
             {...divprops}
-            className={`relative ${props?.className}`}
+            className={`relative bg-black ${props?.className}`}
             onMouseEnter={() => { setEnter(true) }}
             onMouseDown={() => { setEnter(true) }}
-            onMouseLeave={() => { setEnter(false) }}>
-            <video ref={videoRef} className="m-auto" controls={mobile} poster={mobile ? video?.poster : undefined} onEnded={togglePlayback}>
-                <source src={video?.src} type="video/mp4" />
+            onMouseLeave={() => { setEnter(false) }}
+            ref={divRef}>
+            {<video ref={videoRef} className="m-auto" controls={mobile} poster={mobile ? poster : undefined} onEnded={togglePlayback} style={{ width: width || "100%" }}>
+                <source src={src} type="video/mp4" />
                 Your browser does not support the video tag.
-            </video>
-            {!videoLoaded && !mobile && <img src={video?.poster} alt="" className="absolute top-0 left-0 z-10 h-full w-full" />}
+            </video>}
+            {!videoLoaded && !mobile && <img src={poster} alt="" className="absolute top-0 left-0 z-10 h-full w-full" />}
             {children?.({ enter, isPlaying, togglePlayback })}
             {enter && isPlaying !== undefined && <div className={`absolute left-4 right-4 bottom-3 z-20 hidden md:block ${props?.className}`}>
                 <div style={{
@@ -176,4 +233,4 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = (props) => {
             </div>}
         </div>
     );
-};
+});

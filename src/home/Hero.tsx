@@ -9,8 +9,8 @@ import { HTMLAttributes, useEffect, useState } from 'react'
 import { Videos } from './Video'
 import { DialogsWithFooterAndTitle } from '../components/Dialog'
 import { CustomVideoPlayer, IVideo } from '../components/Video'
-import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
-import posterMax from '../assets/video/Max.jpg'
+import Max from "../assets/video/Max, CEO of Libera (1).mp4";
+import posterMax from '../assets/video/1713084084649.jpg'
 import { isMobile } from '../helpers'
 import playicon from "../assets/play.svg"
 import sensors from "sa-sdk-javascript"
@@ -33,11 +33,11 @@ const LogoDialog = ({ project, ...props }: { project: { logo: string, video?: IV
     const { logo, video, link, name } = project;
     const [isOpen, setIsOpen] = useState(false);
     const mobile = isMobile();
-    const width = 1000;
+    const w = 1000;
 
     return (
         <>
-            <img {...props} src={logo} alt="" className={`w-[12vw] md:w-20 md:h-20 cursor-pointer ${props?.className}`} onClick={() => {
+            <img {...props} src={logo} alt="" className={`w-[18vw] md:w-[107px] md:h-[107px] cursor-pointer ${props?.className}`} onClick={() => {
                 if (video) {
                     setIsOpen(true)
                     sensors.track('ButtonClicked', {
@@ -53,17 +53,15 @@ const LogoDialog = ({ project, ...props }: { project: { logo: string, video?: IV
                 setOpen={() => {
                     setIsOpen(false)
                 }}
-                width={width + 300}
+                css={{ height: video?.width ? video?.width / 9 * 18 : "auto" }}
+                width={w + 300}
                 close={() => {
                     setIsOpen(false)
                 }}
             >
-                <CustomVideoPlayer video={{
-                    src: video?.src,
-                    poster: video?.poster
-                }} style={{
-                    width: mobile ? "88vw" : width,
-                    height: mobile ? `${88 / 16 * 9}vw` : (width / 16 * 9),
+                <CustomVideoPlayer src={video?.src} poster={video?.poster} width={video?.width} name={name} style={{
+                    width: mobile ? "88vw" : w,
+                    height: mobile ? `${88 / 16 * 9}vw` : (w / 16 * 9),
                     margin: "-10px auto 20px auto"
                 }} >
                     {({ isPlaying, togglePlayback }) => {
@@ -110,7 +108,7 @@ export const Hero = () => {
                     <JoinUs />
                 </div>
                 <div className='relative w-full md:w-[605px] mr-0 mac:-mr-[92px] mt-4 md:mt-0 h-full'>
-                    <LogoDialog className='absolute left-[32vw] bottom-[8.5vw] md:left-[192px] md:bottom-[56px] logo-up-down-move'
+                    <LogoDialog className='absolute left-[28.9vw] bottom-[8.5vw] md:left-[176px] md:bottom-[56px] logo-up-down-move'
                         style={{
                             animationDelay: "0.1s"
                         }}
@@ -118,12 +116,13 @@ export const Hero = () => {
                             logo: Liberalogo,
                             video: {
                                 src: Max,
-                                poster: posterMax
+                                poster: posterMax,
+                                width: 316,
                             },
                             name: "Libera"
                         }} />
 
-                    <LogoDialog className='absolute right-[33.5vw] bottom-[5vw] md:right-[200px] md:bottom-[34px] logo-up-down-move' style={{
+                    <LogoDialog className='absolute right-[30.5vw] bottom-[5vw] md:right-[186px] md:bottom-[34px] logo-up-down-move' style={{
                         animationDelay: "1s"
                     }} project={{
                         logo: Edu3Labslogo,
