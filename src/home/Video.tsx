@@ -6,17 +6,17 @@ import Saed from "../assets/video/5 Saed, Co-founder of ICP.Hub UAE - Trimmed.mp
 import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
 import Helen from "../assets/video/7 Helen, COO of Bybit - Trimmed.mp4";
 import Jason from "../assets/video/1 Jason Dou, Harvard Blockchain Club 2 - Trimmed.mp4";
-import Kaskyrbek from "../assets/video/1 Aidana Kaskyrbek, Founder of Hayya Venture Studio.mp4";
+import Kaskyrbek from "../assets/video/1-Aidana-Kaskyrbek_-Founder-of-Hayya-Venture-Studio.webm";
 import BGA from "../assets/video/BGA.mp4";
 
 import { isMobile } from "../helpers";
-import posterYH from '../assets/video/YH.jpg'
+import posterYH from '../assets/video/YH.webp'
 import posterHelen from '../assets/video/Helen.jpg'
-import posterJaden from '../assets/video/Jaden.jpg'
-import posterJennifer from '../assets/video/Jennifer.jpg'
-import posterMax from '../assets/video/Max.jpg'
-import posterSaed from '../assets/video/Saed.jpg'
-import posterKaskyrbek from '../assets/video/Kaskyrbek.png'
+import posterJaden from '../assets/video/Jaden.webp'
+import posterJennifer from '../assets/video/Jennifer.webp'
+import posterMax from '../assets/video/Max.webp'
+import posterSaed from '../assets/video/Saed.webp'
+import posterKaskyrbek from '../assets/video/Kaskyrbek.webp'
 import posterJasonDou from '../assets/video/JasonDou.jpeg'
 import posterBGA from '../assets/video/BGA.png'
 import { ArrowImg } from "../components/Arrow";
