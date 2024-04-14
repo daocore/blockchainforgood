@@ -7,7 +7,7 @@ import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
 import Helen from "../assets/video/7 Helen, COO of Bybit - Trimmed.mp4";
 import Jason from "../assets/video/1 Jason Dou, Harvard Blockchain Club 2 - Trimmed.mp4";
 import Kaskyrbek from "../assets/video/1 Aidana Kaskyrbek, Founder of Hayya Venture Studio.mp4";
-import BGA from "../assets/video/BGA.mp4";
+// import BGA from "../assets/video/BGA.mp4";
 
 import { isMobile } from "../helpers";
 import posterYH from '../assets/video/YH.jpg'
@@ -18,16 +18,16 @@ import posterMax from '../assets/video/Max.jpg'
 import posterSaed from '../assets/video/Saed.jpg'
 import posterKaskyrbek from '../assets/video/Kaskyrbek.png'
 import posterJasonDou from '../assets/video/JasonDou.jpeg'
-import posterBGA from '../assets/video/BGA.png'
+// import posterBGA from '../assets/video/BGA.png'
 import { ArrowImg } from "../components/Arrow";
 import { CustomVideoPlayer, IVideo } from "../components/Video";
 import playicon from "../assets/play.svg"
 
 const videos: IVideo[] = [
-    {
-        src: BGA,
-        poster: posterBGA
-    },
+    // {
+    //     src: BGA,
+    //     poster: posterBGA
+    // },
     {
         src: Helen,
         from: "COO of Bybit",
