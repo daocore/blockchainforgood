@@ -174,7 +174,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
     return (
         <div
             {...divprops}
-            className={`relative bg-black ${props?.className}`}
+            className={`relative ${width ? "md:bg-black" : ""} ${props?.className}`}
             onMouseEnter={() => { setEnter(true) }}
             onMouseDown={() => { setEnter(true) }}
             onMouseLeave={() => { setEnter(false) }}
