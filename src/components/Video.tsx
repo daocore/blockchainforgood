@@ -67,9 +67,9 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
         const dom = divRef.current;
         console.log(dom)
         if (!dom || isVisible) return
-        const io = new IntersectionObserver((entries, observer) => {
+        const io = new IntersectionObserver((entries) => {
             entries.forEach(item => {
-                // setIsVisible(item.isIntersecting);
+                setIsVisible(item.isIntersecting);
                 // observer.unobserve(item.target)
             })
         }, {
