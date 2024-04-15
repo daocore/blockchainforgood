@@ -196,7 +196,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
                 }}>
 
                 </div>
-                <div className="flex items-center select-none">
+                <div className="flex items-center">
                     <div className="h-[40px] w-[40px] cursor-pointer" onClick={togglePlayback}>
                         {isPlaying ? <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="14" y="11" width="4" height="18" fill="white" />

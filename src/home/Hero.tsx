@@ -135,7 +135,7 @@ export const Hero = () => {
             <Videos />
             <div className="flex flex-col-reverse md:flex-row justify-center md:justify-between items-center pb-0 md:pb-16 flex-wrap mt-8 xs:mt-12 md:mt-0 relative gap-4 mac:overflow-hidden overflow-visible px-4 md:px-0">
                 <img className="w-[300px] md:w-[340px] ml-0 md:ml-[37px] mb-10 md:mb-0" src={HeroImageRubixcubewText} />
-                <div className="w-full md:w-[604px] flex-col justify-start items-start gap-2 inline-flex">
+                <div className="w-full md:w-[604px] flex-col justify-start items-start gap-2 inline-flex z-20">
                     <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px] text-center md:text-left w-full md:w-auto">Care. Create. Change.</div>
                     <div className="self-stretch justify-center items-center inline-flex">
                         <div className="grow shrink basis-0 text-[#576172] text-sm md:text-base font-normal font-['Inter'] leading-normal  text-center md:text-left w-full md:w-auto">At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain technology to address some of the most pressing challenges facing our society.
