@@ -10,6 +10,7 @@ import BZD from '../assets/partner/BZD.jpeg'
 import Edu3Labs from '../assets/partner/Edu3Labs.jpeg'
 import Libera_logo_new_3a from '../assets/partner/Libera_logo_new_3a.png'
 import XueDAO from '../assets/partner/XueDAO logo 去背.png'
+import Alchemy from '../assets/partner/Alchemy Pay Logo Horizontal_Black.svg'
 import { useEffect, useRef } from 'react'
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
@@ -103,7 +104,15 @@ const logos = [
         width: "120px",
         height: "60px",
         href: ""
-    }]
+    },
+    {
+        src: Alchemy,
+        alt: "Alchemy",
+        width: "200px",
+        height: "100px",
+        href: "https://www.alchemypay.org"
+    }
+]
 
 export const Partner = () => {
     const ref = useRef<any>();
@@ -129,22 +138,23 @@ export const Partner = () => {
             <div className="splide__track">
                 <ul className="splide__list" style={{ height: 88 }}>
                     {logos.map((logo, index) => (
-                        <li key={index} className={`splide__slide flex justify-center items-center bg-white mx-1 px-1 cursor-pointer`} style={{
+                        <a key={index} className={`splide__slide flex justify-center items-center bg-white mx-1 px-1 cursor-pointer`} style={{
                             width: `${logo.width}`,
                             height: `${logo.height}`,
-                        }} onClick={() => {
-                            if (!logo.href) return
-                            window.open(logo.href, "_blank")
-                            sensors.track('ButtonClicked', {
-                                buttonName: `Partner ${logo?.alt} Logo Button`,
-                                // 其他自定义属性
-                            });
-                        }}>
+                        }}
+                            target='_blank'
+                            href={logo.href || `javascript:void(0);`}
+                            onClick={() => {
+                                sensors.track('ButtonClicked', {
+                                    buttonName: `Partner ${logo?.alt} Logo Button`,
+                                    // 其他自定义属性
+                                });
+                            }}>
                             <img src={logo.src} alt={logo.alt} style={{
                                 width: `${logo.width}`,
                                 height: `${logo.height}`,
                             }} />
-                        </li>
+                        </a>
                     ))}
                 </ul>
             </div>
