@@ -136,7 +136,7 @@ export const Partner = () => {
                             if (!logo.href) return
                             window.open(logo.href, "_blank")
                             sensors.track('ButtonClicked', {
-                                buttonName: `Partern ${logo?.alt} Logo Button`,
+                                buttonName: `Partner ${logo?.alt} Logo Button`,
                                 // 其他自定义属性
                             });
                         }}>

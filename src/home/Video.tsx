@@ -1,14 +1,13 @@
 import { RefObject, useRef, useState } from "react";
-import YH from "../assets/video/2 YH - Trimmed.mp4";
-import Jennifer from "../assets/video/3 Jennifer, Co-founder of XueDAO Trimmed.mp4";
-import Jaden from "../assets/video/4 Jaden, Co-founder of Coineasy - Trimmed.mp4";
-import Saed from "../assets/video/5 Saed, Co-founder of ICP.Hub UAE - Trimmed.mp4";
-import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
-import Helen from "../assets/video/7 Helen, COO of Bybit - Trimmed.mp4";
-import Jason from "../assets/video/1 Jason Dou, Harvard Blockchain Club 2 - Trimmed.mp4";
-import Kaskyrbek from "../assets/video/1-Aidana-Kaskyrbek_-Founder-of-Hayya-Venture-Studio.webm";
-import BGA from "../assets/video/BGA.mp4";
-
+// import YH from "../assets/video/2 YH - Trimmed.mp4";
+// import Jennifer from "../assets/video/3 Jennifer, Co-founder of XueDAO Trimmed.mp4";
+// import Jaden from "../assets/video/4 Jaden, Co-founder of Coineasy - Trimmed.mp4";
+// import Saed from "../assets/video/5 Saed, Co-founder of ICP.Hub UAE - Trimmed.mp4";
+// import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
+// import Helen from "../assets/video/7 Helen, COO of Bybit - Trimmed.mp4";
+// import Jason from "../assets/video/1 Jason Dou, Harvard Blockchain Club 2 - Trimmed.mp4";
+// import Kaskyrbek from "../assets/video/1-Aidana-Kaskyrbek_-Founder-of-Hayya-Venture-Studio.webm";
+// import BGA from "../assets/video/BGA.mp4";
 import { isMobile } from "../helpers";
 import posterYH from '../assets/video/YH.webp'
 import posterHelen from '../assets/video/Helen.jpg'
@@ -25,53 +24,53 @@ import playicon from "../assets/play.svg"
 
 const videos: IVideo[] = [
     {
-        src: BGA,
+        src: "https://www.blockchainforgood.xyz/assets/BGA-C_ZSF_kF.mp4",
         poster: posterBGA
     },
     {
-        src: Helen,
+        src: "https://www.blockchainforgood.xyz/assets/7%20Helen_%20COO%20of%20Bybit%20-%20Trimmed-uw0o9KdU.mp4",
         from: "COO of Bybit",
         name: "Helen",
         poster: posterHelen
     },
     {
-        src: Kaskyrbek,
+        src: "https://www.blockchainforgood.xyz/assets/1-Aidana-Kaskyrbek_-Founder-of-Hayya-Venture-Studio-CYdngXgG.webm",
         from: "Founder of Hayya Venture Studio",
         name: "Aidana Kaskyrbek",
         poster: posterKaskyrbek
     },
     {
-        src: Jason,
+        src: "https://www.blockchainforgood.xyz/assets/1%20Jason%20Dou_%20Harvard%20Blockchain%20Club%202%20-%20Trimmed-BNAnyvY0.mp4",
         from: "Harvard Blockchain",
         name: "Jason Dou",
         poster: posterJasonDou
     },
     {
-        src: Jennifer,
+        src: "https://www.blockchainforgood.xyz/assets/3%20Jennifer_%20Co-founder%20of%20XueDAO%20Trimmed-BW2VtFfg.mp4",
         from: "Co-founder of XueDAO",
         name: "Jennifer",
         poster: posterJennifer
     },
     {
-        src: YH,
+        src: "https://www.blockchainforgood.xyz/assets/2%20YH%20-%20Trimmed-C827AM1R.mp4",
         from: "Web3 Lead of Moledao",
         name: "YH",
         poster: posterYH
     },
     {
-        src: Saed,
+        src: "https://www.blockchainforgood.xyz/assets/5%20Saed_%20Co-founder%20of%20ICP.Hub%20UAE%20-%20Trimmed-A2OBJY6U.mp4",
         from: "Co-founder of ICP.Hub UAE",
         name: "Saed",
         poster: posterSaed
     },
     {
-        src: Max,
+        src: "https://www.blockchainforgood.xyz/assets/6%20Max%20Ward_%20CEO%20of%20Libera%20-%20Trimmed-htq7wRT3.mp4",
         from: "CEO of Libera",
         name: "Max",
         poster: posterMax
     },
     {
-        src: Jaden,
+        src: "https://www.blockchainforgood.xyz/assets/4%20Jaden_%20Co-founder%20of%20Coineasy%20-%20Trimmed-_kf-iR04.mp4",
         from: "Co-founder of Coineasy",
         name: "Jaden",
         poster: posterJaden
@@ -123,8 +122,6 @@ export const Videos = () => {
         width: mobile ? "88vw" : 400,
         height: mobile ? `${88 / 16 * 9}vw` : 225
     }
-
-    console.log(1111)
 
     return (
         <div className="relative px-4 md:px-0">

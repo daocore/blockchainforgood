@@ -65,7 +65,6 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
 
     useEffect(() => {
         const dom = divRef.current;
-        console.log(dom)
         if (!dom || isVisible) return
         const io = new IntersectionObserver((entries) => {
             entries.forEach(item => {

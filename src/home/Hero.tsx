@@ -9,7 +9,6 @@ import { HTMLAttributes, useEffect, useState } from 'react'
 import { Videos } from './Video'
 import { DialogsWithFooterAndTitle } from '../components/Dialog'
 import { CustomVideoPlayer, IVideo } from '../components/Video'
-import Max from "../assets/video/Max, CEO of Libera (1).mp4";
 import posterMax from '../assets/video/1713084084649.jpg'
 import { isMobile } from '../helpers'
 import playicon from "../assets/play.svg"
@@ -115,7 +114,7 @@ export const Hero = () => {
                         project={{
                             logo: Liberalogo,
                             video: {
-                                src: Max,
+                                src: "https://www.blockchainforgood.xyz/assets/Max_%20CEO%20of%20Libera%20(1)-CjP0JBA5.mp4",
                                 poster: posterMax,
                                 width: 316,
                             },
