@@ -13,6 +13,7 @@ import posterMax from '../assets/video/1713084084649.jpg'
 import { isMobile } from '../helpers'
 import playicon from "../assets/play.svg"
 import sensors from "sa-sdk-javascript"
+import Max from "../assets/video/Max, CEO of Libera (1).mp4"
 
 export const JoinUs = ({ text }: { text?: string }) => {
     return (
@@ -114,7 +115,7 @@ export const Hero = () => {
                         project={{
                             logo: Liberalogo,
                             video: {
-                                src: "https://www.blockchainforgood.xyz/assets/Max_%20CEO%20of%20Libera%20(1)-CjP0JBA5.mp4",
+                                src: Max,
                                 poster: posterMax,
                                 width: 316,
                             },

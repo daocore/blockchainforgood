@@ -5,6 +5,7 @@ import sensors from "sa-sdk-javascript";
 
 export interface IVideo {
     src: string;
+    srcmb?: string;
     from?: string;
     name?: string;
     poster: string;
