@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect, DetailedHTMLProps, ReactNode, HTMLAttributes, memo } from "react";
 import { isMobile } from "../helpers";
 import playicon from "../assets/play.svg"
-import sensors from "sa-sdk-javascript";
 
 export interface IVideo {
     src: string;
@@ -62,23 +61,21 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
     const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(1);
     const [isMuted, setMuted] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const dom = divRef.current;
-        if (!dom || isVisible) return
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(item => {
-                setIsVisible(item.isIntersecting);
-                // observer.unobserve(item.target)
-            })
-        }, {
-            root: null,
-            threshold: 0.3,
-        })
-
-        io.observe(dom);
-    }, [src, isVisible])
+    // const [isVisible, setIsVisible] = useState(false);
+    // useEffect(() => {
+    //     const dom = divRef.current;
+    //     if (!dom || isVisible) return
+    //     const io = new IntersectionObserver((entries) => {
+    //         entries.forEach(item => {
+    //             setIsVisible(item.isIntersecting);
+    //             // observer.unobserve(item.target)
+    //         })
+    //     }, {
+    //         root: null,
+    //         threshold: 0.3,
+    //     })
+    //     io.observe(dom);
+    // }, [src, isVisible])
 
     useEffect(() => {
         const video = videoRef.current;
