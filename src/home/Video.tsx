@@ -17,14 +17,14 @@ import posterMax from '../assets/video/Max.webp'
 import posterSaed from '../assets/video/Saed.webp'
 import posterKaskyrbek from '../assets/video/Kaskyrbek.webp'
 import posterJasonDou from '../assets/video/JasonDou.jpeg'
-import posterBGA from '../assets/video/BGA.png'
+import posterBGA from '../assets/video/BGA.jpg'
 import { ArrowImg } from "../components/Arrow";
 import { CustomVideoPlayer, IVideo } from "../components/Video";
 import playicon from "../assets/play.svg"
 
 const videos: IVideo[] = [
     {
-        src: "https://www.blockchainforgood.xyz/assets/BGA-C_ZSF_kF.mp4",
+        src: "https://www.blockchainforgood.xyz/assets/BGA.webm",
         poster: posterBGA
     },
     {
