@@ -1,13 +1,4 @@
 import { RefObject, useRef, useState } from "react";
-// import YH from "../assets/video/2 YH - Trimmed.mp4";
-// import Jennifer from "../assets/video/3 Jennifer, Co-founder of XueDAO Trimmed.mp4";
-// import Jaden from "../assets/video/4 Jaden, Co-founder of Coineasy - Trimmed.mp4";
-// import Saed from "../assets/video/5 Saed, Co-founder of ICP.Hub UAE - Trimmed.mp4";
-// import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
-// import Helen from "../assets/video/7 Helen, COO of Bybit - Trimmed.mp4";
-// import Jason from "../assets/video/1 Jason Dou, Harvard Blockchain Club 2 - Trimmed.mp4";
-// import Kaskyrbek from "../assets/video/1-Aidana-Kaskyrbek_-Founder-of-Hayya-Venture-Studio.webm";
-// import BGA from "../assets/video/BGA.mp4";
 import { isMobile } from "../helpers";
 import posterYH from '../assets/video/YH.webp'
 import posterHelen from '../assets/video/Helen.jpg'
@@ -24,7 +15,7 @@ import playicon from "../assets/play.svg"
 
 const videos: IVideo[] = [
     {
-        src: "https://www.blockchainforgood.xyz/assets/BGA.webm",
+        src: "https://www.blockchainforgood.xyz/assets/BGA-C_ZSF_kF.mp4",
         poster: posterBGA
     },
     {
@@ -34,7 +25,7 @@ const videos: IVideo[] = [
         poster: posterHelen
     },
     {
-        src: "https://www.blockchainforgood.xyz/assets/1-Aidana-Kaskyrbek_-Founder-of-Hayya-Venture-Studio-CYdngXgG.webm",
+        src: "https://www.blockchainforgood.xyz/assets/1-Aidana-Kaskyrbek_-Founder-of-Hayya-Venture-Studio.mp4",
         from: "Founder of Hayya Venture Studio",
         name: "Aidana Kaskyrbek",
         poster: posterKaskyrbek
