@@ -1,17 +1,1011 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Blockchain for Good, At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain technology to address some of the most pressing challenges facing our society.  Our alliance serves as a collaborative hub, bringing together a diverse range of stakeholders to collectively explore, innovate and implement blockchain solutions for social good." />
-    <meta name="keywords" content="Web3, Care. Create. Change, BGA" />
-    <meta name="author" content="blockchainforgood" />
-    <meta name="copyright" content="© 2024 Blockchain For Good Alliance. All rights reserved." />
-    <title>Blockchain for Good</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description"
+    content="Blockchain for Good, At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain technology to address some of the most pressing challenges facing our society.  Our alliance serves as a collaborative hub, bringing together a diverse range of stakeholders to collectively explore, innovate and implement blockchain solutions for social good." />
+  <meta name="keywords" content="Web3, Care. Create. Change, BGA" />
+  <meta name="author" content="blockchainforgood" />
+  <meta name="copyright" content="© 2024 Blockchain For Good Alliance. All rights reserved." />
+  <title>Blockchain for Good</title>
+  <link rel="stylesheet" href="/prerender/index.css" />
+</head>
+
+<body>
+  <div id="root">
+    <!-- prerende，通过vite-plugin-seo-prerender构建出来的。 -->
+    <div class="min-h-screen flex justify-center relative">
+      <div class="h-10 w-full absolute bg-main" style="filter: blur(80px);"></div>
+      <div class="w-full z-10 border">
+        <div class="fixed z-50 w-full px-4 md:px-0 -mt-[2px]"
+          style="background: rgba(243, 244, 246, 0); backdrop-filter: none;">
+          <div class="py-3 md:py-4 justify-between items-center flex w-full md:w-content m-auto"><svg width="89"
+              height="24" viewBox="0 0 89 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0 0.729889H4.71878C7.00555 0.729889 8.01407 1.86364 8.01407 3.19599C8.01407 4.20747 7.48277 4.92996 6.72323 5.24267C7.43386 5.49536 8.27639 6.16079 8.27639 7.38643C8.27639 8.94108 7.11524 10.2127 4.74991 10.2127H0V0.729889ZM4.24825 4.38606C5.01371 4.38606 5.32198 3.99258 5.32198 3.47831C5.32198 2.88995 4.89515 2.60169 4.22675 2.60169H2.69655V4.38606H4.2475H4.24825ZM2.69729 8.3453H4.11783C5.0315 8.3453 5.41978 7.94812 5.41978 7.26935C5.41978 6.67357 5.05224 6.25194 4.16895 6.25194H2.69729V8.34456V8.3453Z"
+                fill="black"></path>
+              <path
+                d="M38.075 0.729889H40.8345V4.5802C41.4547 3.7147 42.8552 1.97924 43.7904 0.729889H47.0813L43.597 4.61577L47.2005 10.2134H43.9445L41.6733 6.40977L40.8345 7.27454V10.2134H38.075V0.729889Z"
+                fill="black"></path>
+              <path
+                d="M55.4279 7.03519C55.093 8.94701 53.6902 10.2127 51.1811 10.2127C48.1867 10.2127 46.7402 8.19191 46.7402 5.53834C46.7402 2.88476 48.1704 0.729889 51.3108 0.729889C53.9977 0.729889 55.2211 2.29195 55.4012 3.87476H52.7425C52.6209 3.21451 52.2393 2.61281 51.2493 2.61281C49.9474 2.61281 49.5027 3.84882 49.5027 5.44497C49.5027 6.8944 49.8725 8.32604 51.279 8.32604C52.3445 8.32604 52.6424 7.55242 52.7565 7.03593H55.4286L55.4279 7.03519Z"
+                fill="black"></path>
+              <path
+                d="M37.1115 7.03519C36.7766 8.94701 35.3738 10.2127 32.8647 10.2127C29.8703 10.2127 28.4238 8.19191 28.4238 5.53834C28.4238 2.88476 29.854 0.729889 32.9944 0.729889C35.6813 0.729889 36.9047 2.29195 37.0848 3.87476H34.4261C34.3045 3.21451 33.9229 2.61281 32.9329 2.61281C31.6309 2.61281 31.1863 3.84882 31.1863 5.44497C31.1863 6.8944 31.5561 8.32604 32.9625 8.32604C34.0281 8.32604 34.326 7.55242 34.4401 7.03593H37.1122L37.1115 7.03519Z"
+                fill="black"></path>
+              <path
+                d="M56.3474 0.729889H59.1559V4.30603H62.0732V0.729889H64.8869V10.2868H62.0732V6.38087H59.1559V10.2868H56.3474V0.729889Z"
+                fill="black"></path>
+              <path
+                d="M68.9469 8.36827L68.3978 10.2127H65.6909L68.6876 0.729889H72.2852L75.4004 10.2127H72.4986L71.9229 8.36827H68.9469ZM71.4353 6.30899C70.9899 4.81881 70.6253 3.49388 70.4104 2.56983H70.3726C70.1533 3.59169 69.7909 4.94478 69.4064 6.30899H71.436H71.4353Z"
+                fill="black"></path>
+              <path d="M78.9032 0.729889V10.2868H76.0947V0.729889H78.9032Z" fill="black"></path>
+              <path
+                d="M80.3052 10.2127V0.729889H83.6309C84.6283 2.86549 86.0732 5.75101 86.4719 6.91959H86.5186C86.4134 5.93478 86.3889 4.26009 86.3889 2.74767V0.729889H88.9217V10.2127H85.7539C84.9491 8.49573 83.2337 4.93737 82.7883 3.6858H82.7513C82.8394 4.57798 82.8476 6.41348 82.8476 8.08298V10.2127H80.3059H80.3052Z"
+                fill="black"></path>
+              <path d="M0 13.6065H1.54354V13.8311H0.251196V14.7077H1.46351V14.9322H0.251196V16.0875H0V13.6065Z"
+                fill="black"></path>
+              <path
+                d="M3.9784 14.8315C3.9784 15.511 3.60716 16.123 2.83502 16.123C2.12217 16.123 1.7146 15.5591 1.7146 14.847C1.7146 14.1349 2.11847 13.571 2.86097 13.571C3.54937 13.571 3.9784 14.1016 3.9784 14.8307V14.8315ZM1.98286 14.8366C1.98286 15.3917 2.28 15.8993 2.84687 15.8993C3.45895 15.8993 3.71017 15.3976 3.71017 14.8352C3.71017 14.2727 3.42561 13.7948 2.85132 13.7948C2.2474 13.7948 1.98286 14.2898 1.98286 14.8359V14.8366Z"
+                fill="black"></path>
+              <path
+                d="M4.53346 14.9589V16.0882H4.2793V13.6073H5.20482C5.70353 13.6073 5.96807 13.8763 5.96807 14.2646C5.96807 14.5832 5.78134 14.784 5.52272 14.847C5.75392 14.9048 5.92731 15.0641 5.92731 15.4902V15.591C5.92731 15.7637 5.91619 15.9897 5.95991 16.089H5.70872C5.66278 15.9823 5.67018 15.7859 5.67018 15.5643V15.5058C5.67018 15.1227 5.55903 14.9604 5.09738 14.9604H4.5342L4.53346 14.9589ZM4.53346 14.7366H5.10552C5.51604 14.7366 5.70204 14.5832 5.70204 14.2779C5.70204 13.9919 5.51531 13.8289 5.15147 13.8289H4.53346V14.7366Z"
+                fill="black"></path>
+              <path
+                d="M16.2238 23.0545H14.1423C14.1423 22.6128 14.275 22.2416 14.275 22.0371C13.7585 22.7166 12.7715 23.0545 11.5036 23.0545C8.70921 23.0545 7.2998 20.9419 7.2998 18.4098C7.2998 15.611 8.93078 13.5717 11.9719 13.5717C14.7292 13.5717 15.9949 15.1464 16.1601 16.5484H13.511C13.3798 16.0645 13.0397 15.4554 11.96 15.4554C10.4328 15.4554 10.0579 16.8581 10.0579 18.3172C10.0579 19.7762 10.4936 21.1538 11.9682 21.1538C13.3161 21.1538 13.4487 20.1875 13.4487 19.5851H11.8296V17.7347H16.2327L16.2246 23.0545H16.2238Z"
+                fill="black"></path>
+              <path
+                d="M38.075 13.571H42.1483C45.1665 13.571 46.9175 15.4806 46.9175 18.2083C46.9175 20.9359 45.2124 23.0545 42.1053 23.0545H38.075V13.5717V13.571ZM40.8567 21.0419H41.9216C43.4303 21.0419 44.0475 19.9845 44.0475 18.2083C44.0475 16.638 43.471 15.5836 41.9542 15.5836H40.8567V21.0412V21.0419Z"
+                fill="black"></path>
+              <path d="M16.2318 8.15338H12.0814V0.729889H9.29443V10.2127H16.2318V8.15338Z" fill="black"></path>
+              <path
+                d="M22.132 10.492L17.5889 7.86884V2.62319L22.132 0L26.6752 2.62319V7.86958L22.132 10.4928V10.492ZM18.4781 7.35606L22.132 9.46573L25.786 7.35606V3.13672L22.132 1.02705L18.4781 3.13672V7.35606Z"
+                fill="black"></path>
+              <path
+                d="M22.1319 5.92665L17.811 3.43239L18.2556 2.66248L22.1319 4.90034L26.0081 2.66248L26.4527 3.43239L22.1319 5.92665Z"
+                fill="black"></path>
+              <path d="M22.5765 5.40347H21.6873V9.7888H22.5765V5.40347Z" fill="black"></path>
+              <path
+                d="M22.132 24L17.5889 21.3768V16.1304L22.132 13.5072L26.6752 16.1304V21.3768L22.132 24ZM18.4781 20.8633L22.132 22.973L25.786 20.8633V16.644L22.132 14.5343L18.4781 16.644V20.8633Z"
+                fill="black"></path>
+              <path
+                d="M22.1319 19.4346L17.811 16.9396L18.2556 16.1697L22.1319 18.4076L26.0081 16.1697L26.4527 16.9396L22.1319 19.4346Z"
+                fill="black"></path>
+              <path d="M22.5765 18.9114H21.6873V23.2968H22.5765V18.9114Z" fill="black"></path>
+              <path
+                d="M32.1416 24L27.5984 21.3768V16.1304L32.1416 13.5072L36.6847 16.1304V21.3768L32.1416 24ZM28.4876 20.8633L32.1416 22.973L35.7955 20.8633V16.644L32.1416 14.5343L28.4876 16.644V20.8633Z"
+                fill="black"></path>
+              <path
+                d="M32.1417 19.4346L27.8208 16.9396L28.2654 16.1697L32.1417 18.4076L36.0179 16.1697L36.4625 16.9396L32.1417 19.4346Z"
+                fill="black"></path>
+              <path d="M32.5862 18.9114H31.697V23.2968H32.5862V18.9114Z" fill="black"></path>
+              <path d="M22.5765 9.15076H21.6873V16.2171H22.5765V9.15076Z" fill="black"></path>
+            </svg>
+            <div class="justify-end items-center gap-2 md:gap-12 flex">
+              <div class="justify-end items-start gap-2 md:gap-1 flex">
+                <div
+                  class="justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6">
+                  <div
+                    class="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer">
+                    About</div>
+                </div>
+                <div
+                  class="justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6">
+                  <div
+                    class="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer">
+                    FAQ</div>
+                </div>
+                <div
+                  class="justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6">
+                  <div
+                    class="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer">
+                    Contact</div>
+                </div>
+              </div>
+              <div
+                class="w-[60px] md:w-[87px] h-[24px] md:h-8 px-6 border border-text justify-center items-center gap-2.5 inline-flex hover:border-text hover:bg-text group cursor-pointer">
+                <div
+                  class="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-white">
+                  Apply</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-content m-auto mt-16">
+          <div class="items-center justify-between inline-flex w-full flex-wrap mb-4">
+            <div class="w-full md:w-[499px] flex-col justify-start items-start inline-flex px-4 md:px-0">
+              <div class="self-stretch flex-col justify-start items-start gap-2 md:gap-4 flex md:text-left text-center">
+                <div
+                  class="self-stretch text-black text-[40px] xs:text-[64px] md:text-[82px] font-extrabold font-['Inter'] leading-[36px] xs:leading-[48px] md:leading-[82px]">
+                  Blockchain <br class="md:block hidden">for Good</div>
+                <div
+                  class="self-stretch text-text text-[20px] xs:text-[32px] md:text-[26px] font-normal font-['Inter'] leading-loose">
+                  Your Key to Web3</div>
+              </div>
+              <div
+                class="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-3 text-[16px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold mt-4 xs:mt-6 md:mt-8">
+                Join Us</div>
+            </div>
+            <div class="relative w-full md:w-[605px] mr-0 mac:-mr-[92px] mt-4 md:mt-0 h-full"><img
+                class="w-[18vw] md:w-[107px] md:h-[107px] cursor-pointer absolute left-[28.9vw] bottom-[8.5vw] md:left-[176px] md:bottom-[56px] logo-up-down-move"
+                src="/prerender/Libera%20Globe-BQ94eQyk.webp" alt="" style="animation-delay: 0.1s;"><img
+                class="w-[18vw] md:w-[107px] md:h-[107px] cursor-pointer absolute right-[30.5vw] bottom-[5vw] md:right-[186px] md:bottom-[34px] logo-up-down-move"
+                src="/prerender/Edu3Labs%20Globe-D5z3tlsC.webp" alt="" style="animation-delay: 1s;"><img
+                src="/prerender/KV-BwdDeEyo.webp"></div>
+          </div>
+          <div class="relative px-4 md:px-0">
+            <div class="w-full md:w-content m-auto mt-10 mb-16 z-30 relative overflow-x-scroll" style="height: 225px;">
+              <div class="flex items-center m-auto gap-[15px] flex-wrap md:flex-nowrap" style="width: 3720px;">
+                <div class="relative  undefined" style="width: 400px; height: 225px;"><video class="m-auto"
+                    style="width: 100%;">
+                    <source src="/assets/BGA-BRr_bCkd.webm" type="video/mp4">Your browser does not support the video
+                    tag.
+                  </video>
+                  <div class="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                    <div class="font-bold font-['Inter']"></div>
+                    <div class="text-xs"></div>
+                  </div>
+                  <div class="absolute w-full h-full z-10 top-0 bg-video md:flex justify-center items-center hidden">
+                    <img
+                      src="data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13%2012.7069V26.8222C13%2028.1893%2014.5209%2029.0096%2015.6487%2028.2406L26.2438%2021.183C27.2521%2020.4994%2027.2521%2019.0127%2026.2438%2018.3462L15.6487%2011.2885C14.5209%2010.5366%2013%2011.3398%2013%2012.7069Z'%20fill='white'%20/%3e%3c/svg%3e"
+                      alt="" class="w-[80px] h-[80px] cursor-pointer z-20">
+                  </div>
+                </div>
+                <div class="relative  undefined" style="width: 400px; height: 225px;"><video class="m-auto"
+                    style="width: 100%;">
+                    <source src="/assets/7%20Helen_%20COO%20of%20Bybit%20-%20Trimmed-uw0o9KdU.mp4" type="video/mp4">Your
+                    browser does not support the video tag.
+                  </video>
+                  <div class="absolute top-0 z-10 h-full w-full flex items-center justify-center"><img
+                      src="/assets/Helen-BFtMVG-N.jpg" alt="" class="" style="width: 100%;"></div>
+                  <div class="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                    <div class="font-bold font-['Inter']">Helen</div>
+                    <div class="text-xs">COO of Bybit</div>
+                  </div>
+                  <div class="absolute w-full h-full z-10 top-0 bg-video md:flex justify-center items-center hidden">
+                    <img
+                      src="data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13%2012.7069V26.8222C13%2028.1893%2014.5209%2029.0096%2015.6487%2028.2406L26.2438%2021.183C27.2521%2020.4994%2027.2521%2019.0127%2026.2438%2018.3462L15.6487%2011.2885C14.5209%2010.5366%2013%2011.3398%2013%2012.7069Z'%20fill='white'%20/%3e%3c/svg%3e"
+                      alt="" class="w-[80px] h-[80px] cursor-pointer z-20">
+                  </div>
+                </div>
+                <div class="relative  undefined" style="width: 400px; height: 225px;"><video class="m-auto"
+                    style="width: 100%;">
+                    <source src="/assets/1-Aidana-Kaskyrbek_-Founder-of-Hayya-Venture-Studio-CYdngXgG.webm"
+                      type="video/mp4">Your browser does not support the video tag.
+                  </video>
+                  <div class="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                    <div class="font-bold font-['Inter']">Aidana Kaskyrbek</div>
+                    <div class="text-xs">Founder of Hayya Venture Studio</div>
+                  </div>
+                  <div class="absolute w-full h-full z-10 top-0 bg-video md:flex justify-center items-center hidden">
+                    <img
+                      src="data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13%2012.7069V26.8222C13%2028.1893%2014.5209%2029.0096%2015.6487%2028.2406L26.2438%2021.183C27.2521%2020.4994%2027.2521%2019.0127%2026.2438%2018.3462L15.6487%2011.2885C14.5209%2010.5366%2013%2011.3398%2013%2012.7069Z'%20fill='white'%20/%3e%3c/svg%3e"
+                      alt="" class="w-[80px] h-[80px] cursor-pointer z-20">
+                  </div>
+                </div>
+                <div class="relative  undefined" style="width: 400px; height: 225px;"><video class="m-auto"
+                    style="width: 100%;">
+                    <source src="/assets/1%20Jason%20Dou_%20Harvard%20Blockchain%20Club%202%20-%20Trimmed-BNAnyvY0.mp4"
+                      type="video/mp4">Your browser does not support the video tag.
+                  </video>
+                  <div class="absolute top-0 z-10 h-full w-full flex items-center justify-center"><img
+                      src="/assets/JasonDou-DF_6udJb.jpeg" alt="" class="" style="width: 100%;"></div>
+                  <div class="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                    <div class="font-bold font-['Inter']">Jason Dou</div>
+                    <div class="text-xs">Harvard Blockchain</div>
+                  </div>
+                  <div class="absolute w-full h-full z-10 top-0 bg-video md:flex justify-center items-center hidden">
+                    <img
+                      src="data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13%2012.7069V26.8222C13%2028.1893%2014.5209%2029.0096%2015.6487%2028.2406L26.2438%2021.183C27.2521%2020.4994%2027.2521%2019.0127%2026.2438%2018.3462L15.6487%2011.2885C14.5209%2010.5366%2013%2011.3398%2013%2012.7069Z'%20fill='white'%20/%3e%3c/svg%3e"
+                      alt="" class="w-[80px] h-[80px] cursor-pointer z-20">
+                  </div>
+                </div>
+                <div class="relative  undefined" style="width: 400px; height: 225px;"><video class="m-auto"
+                    style="width: 100%;">
+                    <source src="/assets/3%20Jennifer_%20Co-founder%20of%20XueDAO%20Trimmed-BW2VtFfg.mp4"
+                      type="video/mp4">Your browser does not support the video tag.
+                  </video>
+                  <div class="absolute top-0 z-10 h-full w-full flex items-center justify-center"><img
+                      src="/assets/Jennifer-CaJGahAM.webp" alt="" class="" style="width: 100%;"></div>
+                  <div class="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                    <div class="font-bold font-['Inter']">Jennifer</div>
+                    <div class="text-xs">Co-founder of XueDAO</div>
+                  </div>
+                  <div class="absolute w-full h-full z-10 top-0 bg-video md:flex justify-center items-center hidden">
+                    <img
+                      src="data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13%2012.7069V26.8222C13%2028.1893%2014.5209%2029.0096%2015.6487%2028.2406L26.2438%2021.183C27.2521%2020.4994%2027.2521%2019.0127%2026.2438%2018.3462L15.6487%2011.2885C14.5209%2010.5366%2013%2011.3398%2013%2012.7069Z'%20fill='white'%20/%3e%3c/svg%3e"
+                      alt="" class="w-[80px] h-[80px] cursor-pointer z-20">
+                  </div>
+                </div>
+                <div class="relative  undefined" style="width: 400px; height: 225px;"><video class="m-auto"
+                    style="width: 100%;">
+                    <source src="/assets/2%20YH%20-%20Trimmed-C827AM1R.mp4" type="video/mp4">Your browser does not
+                    support the video tag.
+                  </video>
+                  <div class="absolute top-0 z-10 h-full w-full flex items-center justify-center"><img
+                      src="/assets/YH-C3SYrC1L.webp" alt="" class="" style="width: 100%;"></div>
+                  <div class="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                    <div class="font-bold font-['Inter']">YH</div>
+                    <div class="text-xs">Web3 Lead of Moledao</div>
+                  </div>
+                  <div class="absolute w-full h-full z-10 top-0 bg-video md:flex justify-center items-center hidden">
+                    <img
+                      src="data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13%2012.7069V26.8222C13%2028.1893%2014.5209%2029.0096%2015.6487%2028.2406L26.2438%2021.183C27.2521%2020.4994%2027.2521%2019.0127%2026.2438%2018.3462L15.6487%2011.2885C14.5209%2010.5366%2013%2011.3398%2013%2012.7069Z'%20fill='white'%20/%3e%3c/svg%3e"
+                      alt="" class="w-[80px] h-[80px] cursor-pointer z-20">
+                  </div>
+                </div>
+                <div class="relative  undefined" style="width: 400px; height: 225px;"><video class="m-auto"
+                    style="width: 100%;">
+                    <source src="/assets/5%20Saed_%20Co-founder%20of%20ICP.Hub%20UAE%20-%20Trimmed-A2OBJY6U.mp4"
+                      type="video/mp4">Your browser does not support the video tag.
+                  </video>
+                  <div class="absolute top-0 z-10 h-full w-full flex items-center justify-center"><img
+                      src="/assets/Saed-Cxi4ZLB_.webp" alt="" class="" style="width: 100%;"></div>
+                  <div class="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                    <div class="font-bold font-['Inter']">Saed</div>
+                    <div class="text-xs">Co-founder of ICP.Hub UAE</div>
+                  </div>
+                  <div class="absolute w-full h-full z-10 top-0 bg-video md:flex justify-center items-center hidden">
+                    <img
+                      src="data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13%2012.7069V26.8222C13%2028.1893%2014.5209%2029.0096%2015.6487%2028.2406L26.2438%2021.183C27.2521%2020.4994%2027.2521%2019.0127%2026.2438%2018.3462L15.6487%2011.2885C14.5209%2010.5366%2013%2011.3398%2013%2012.7069Z'%20fill='white'%20/%3e%3c/svg%3e"
+                      alt="" class="w-[80px] h-[80px] cursor-pointer z-20">
+                  </div>
+                </div>
+                <div class="relative  undefined" style="width: 400px; height: 225px;"><video class="m-auto"
+                    style="width: 100%;">
+                    <source src="/assets/6%20Max%20Ward_%20CEO%20of%20Libera%20-%20Trimmed-htq7wRT3.mp4"
+                      type="video/mp4">Your browser does not support the video tag.
+                  </video>
+                  <div class="absolute top-0 z-10 h-full w-full flex items-center justify-center"><img
+                      src="/assets/Max-BdXzYhDL.webp" alt="" class="" style="width: 100%;"></div>
+                  <div class="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                    <div class="font-bold font-['Inter']">Max</div>
+                    <div class="text-xs">CEO of Libera</div>
+                  </div>
+                  <div class="absolute w-full h-full z-10 top-0 bg-video md:flex justify-center items-center hidden">
+                    <img
+                      src="data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13%2012.7069V26.8222C13%2028.1893%2014.5209%2029.0096%2015.6487%2028.2406L26.2438%2021.183C27.2521%2020.4994%2027.2521%2019.0127%2026.2438%2018.3462L15.6487%2011.2885C14.5209%2010.5366%2013%2011.3398%2013%2012.7069Z'%20fill='white'%20/%3e%3c/svg%3e"
+                      alt="" class="w-[80px] h-[80px] cursor-pointer z-20">
+                  </div>
+                </div>
+                <div class="relative  undefined" style="width: 400px; height: 225px;"><video class="m-auto"
+                    style="width: 100%;">
+                    <source src="/assets/4%20Jaden_%20Co-founder%20of%20Coineasy%20-%20Trimmed-_kf-iR04.mp4"
+                      type="video/mp4">Your browser does not support the video tag.
+                  </video>
+                  <div class="absolute top-0 z-10 h-full w-full flex items-center justify-center"><img
+                      src="/assets/Jaden-MCalcEn0.webp" alt="" class="" style="width: 100%;"></div>
+                  <div class="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                    <div class="font-bold font-['Inter']">Jaden</div>
+                    <div class="text-xs">Co-founder of Coineasy</div>
+                  </div>
+                  <div class="absolute w-full h-full z-10 top-0 bg-video md:flex justify-center items-center hidden">
+                    <img
+                      src="data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13%2012.7069V26.8222C13%2028.1893%2014.5209%2029.0096%2015.6487%2028.2406L26.2438%2021.183C27.2521%2020.4994%2027.2521%2019.0127%2026.2438%2018.3462L15.6487%2011.2885C14.5209%2010.5366%2013%2011.3398%2013%2012.7069Z'%20fill='white'%20/%3e%3c/svg%3e"
+                      alt="" class="w-[80px] h-[80px] cursor-pointer z-20">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -left-16 top-[92.5px] rounded-full bg-white"><svg width="9" height="16"
+                viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="transition-all duration-500 transform w-10 h-10 p-3  rounded-full bg-gray-300 bg-opacity-25 scale-175 rotate-180 cursor-pointer">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L8.70711 7.29289C9.09763 7.68342 9.09763 8.31658 8.70711 8.70711L1.70711 15.7071C1.31658 16.0976 0.683417 16.0976 0.292893 15.7071C-0.0976311 15.3166 -0.0976311 14.6834 0.292893 14.2929L6.58579 8L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                  fill="#283344"></path>
+              </svg></div>
+            <div class="absolute -right-16 top-[92.5px] rounded-full bg-white"><svg width="9" height="16"
+                viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="transition-all duration-500 transform w-10 h-10 p-3 rounded-full bg-gray-300 bg-opacity-25 scale-175 rotate-9 cursor-pointer">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L8.70711 7.29289C9.09763 7.68342 9.09763 8.31658 8.70711 8.70711L1.70711 15.7071C1.31658 16.0976 0.683417 16.0976 0.292893 15.7071C-0.0976311 15.3166 -0.0976311 14.6834 0.292893 14.2929L6.58579 8L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"
+                  fill="#283344"></path>
+              </svg></div>
+          </div>
+          <div
+            class="flex flex-col-reverse md:flex-row justify-center md:justify-between items-center pb-0 md:pb-16 flex-wrap mt-8 xs:mt-12 md:mt-0 relative gap-4 mac:overflow-hidden overflow-visible px-4 md:px-0">
+            <img class="w-[300px] md:w-[340px] ml-0 md:ml-[37px] mb-10 md:mb-0"
+              src="/assets/HeroImage-RubixcubewText-p3pVbdMi.png">
+            <div class="w-full md:w-[604px] flex-col justify-start items-start gap-2 inline-flex z-20">
+              <div
+                class="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px] text-center md:text-left w-full md:w-auto">
+                Care. Create. Change.</div>
+              <div class="self-stretch justify-center items-center inline-flex">
+                <div
+                  class="grow shrink basis-0 text-[#576172] text-sm md:text-base font-normal font-['Inter'] leading-normal  text-center md:text-left w-full md:w-auto">
+                  At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain
+                  technology to address some of the most pressing challenges facing our society.<div class="h-3 w-full">
+                  </div>Our alliance serves as a collaborative hub, bringing together a diverse range of stakeholders to
+                  collectively explore, innovate and implement blockchain solutions for social good.</div>
+              </div>
+            </div><img
+              src="data:image/svg+xml,%3csvg%20width='1325'%20height='434'%20viewBox='0%200%201325%20434'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20opacity='0.5'%20x='77'%20y='214'%20width='19'%20height='19'%20fill='white'/%3e%3crect%20opacity='0.5'%20x='557'%20y='204'%20width='19'%20height='19'%20fill='white'/%3e%3crect%20opacity='0.5'%20x='153'%20y='78'%20width='11'%20height='11'%20fill='white'/%3e%3crect%20opacity='0.5'%20x='20'%20y='163'%20width='5'%20height='5'%20fill='white'/%3e%3crect%20opacity='0.5'%20y='371'%20width='17'%20height='17'%20fill='white'/%3e%3crect%20opacity='0.5'%20x='1300'%20y='187'%20width='17'%20height='17'%20fill='white'/%3e%3crect%20opacity='0.5'%20x='1317'%20y='204'%20width='8'%20height='8'%20fill='white'/%3e%3crect%20opacity='0.5'%20x='17'%20y='364'%20width='7'%20height='7'%20fill='white'/%3e%3crect%20opacity='0.5'%20x='50'%20y='426'%20width='8'%20height='8'%20fill='white'/%3e%3crect%20opacity='0.5'%20x='9'%20width='12'%20height='12'%20fill='white'/%3e%3c/svg%3e"
+              class="absolute" alt="" style="transform: scale(1) translateY(0px);">
+          </div>
+        </div>
+        <div class="flex-col justify-start items-center gap-8 xs:gap-12 md:gap-24 inline-flex w-full">
+          <div id="about"
+            class="flex-col justify-start items-center gap-8 md:gap-4 flex w-full md:w-content flex-wrap px-4 md:px-0 text-center md:text-left">
+            <div class="justify-center md:justify-between items-center inline-flex flex-wrap border">
+              <div class="w-full md:w-[499px] flex-col md:justify-start items-start gap-2 inline-flex md:mt-0 mt-4">
+                <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                  <div class="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">
+                    Force for Good</div>
+                </div>
+                <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                  <div class="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
+                    Join our mission to leverage blockchain for global good through our pioneering initiatives.<div
+                      class="h-3 w-full"></div>Together, we’re building a collaborative ecosystem for change.</div>
+                </div>
+              </div>
+              <div class="justify-start items-start flex w-full gap-4 xs:gap-0 md:w-1/2 flex-wrap">
+                <div
+                  class="flex-col justify-center md:justify-start items-start gap-2 inline-flex w-full xs:w-1/3 px-2">
+                  <img class="w-40 h-[97.88px] m-auto" src="/assets/Force%20for%20good%20Icon-HjCf6UAj.png">
+                  <div class="flex-col justify-start items-start flex w-full">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                        Global Hackathons</div>
+                    </div>
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div
+                        class="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
+                        Solving pressing issues together</div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex-col justify-center md:justify-start items-start gap-2 inline-flex w-full xs:w-1/3 px-2">
+                  <img class="w-40 h-[97.88px] m-auto" src="/assets/Force%20for%20good%20Icon%20(1)-D25M3KcZ.png">
+                  <div class="flex-col justify-start items-start flex w-full">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Web3
+                        Oscar</div>
+                    </div>
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div
+                        class="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
+                        Honoring achievements in addressing social issue through Web3</div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex-col justify-center md:justify-start items-start gap-2 inline-flex w-full xs:w-1/3 px-2">
+                  <img class="w-40 h-[97.88px] m-auto" src="/assets/Force%20for%20good%20Icon%20(3)-DOkun9kL.png">
+                  <div class="flex-col justify-start items-start flex w-full">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                        Education</div>
+                    </div>
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div
+                        class="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
+                        Supporting education initiatives such as blockchain research, workshops and more</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full justify-start items-center md:gap-[214px] inline-flex flex-wrap mt-8 xs:mt-10 md:mt-0">
+              <img class="w-[208px] md:w-[410px] m-auto md:m-0" src="/assets/What%20BGA%20can%20offer%201-kvRfxd4n.png">
+              <div class="w-full md:w-[608px] flex-col justify-start items-start gap-2 inline-flex flex-wrap">
+                <div class="self-stretch md:h-[42px] flex-col justify-start items-start flex">
+                  <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                    <div class="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">
+                      What BGA can offer</div>
+                  </div>
+                </div>
+                <div class="self-stretch md:h-[228px] flex-col justify-start items-start gap-4 md:gap-3 flex">
+                  <div class="self-stretch md:h-[72px] flex-col justify-start items-start flex">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                        Communities</div>
+                    </div>
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div
+                        class="grow shrink basis-0 text-[#576172] text-[15px] font-normal font-['Inter'] leading-normal">
+                        Resources such as mentors, funding, education material, meetup support, venue</div>
+                    </div>
+                  </div>
+                  <div class="self-stretch md:h-[72px] flex-col justify-start items-start flex">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                        Builders</div>
+                    </div>
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div
+                        class="grow shrink basis-0 text-[#576172] text-[15px] font-normal font-['Inter'] leading-normal">
+                        Resources such as mentors, funding, connections</div>
+                    </div>
+                  </div>
+                  <div class="self-stretch md:h-[72px] flex-col justify-start items-start flex">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                        Corporates</div>
+                    </div>
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div
+                        class="grow shrink basis-0 text-[#576172] text-[15px] font-normal font-['Inter'] leading-normal">
+                        Resources such as Web 3.0 consultancy, connections, community activation</div>
+                    </div>
+                  </div>
+                  <div class="self-stretch md:h-[72px] flex-col justify-start items-start flex">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                        Hackathon/ Event organizers</div>
+                    </div>
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div
+                        class="grow shrink basis-0 text-[#576172] text-[15px] font-normal font-['Inter'] leading-normal">
+                        Resources such as funding, community activation, connections</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-full md:h-[364px] flex flex-col-reverse md:flex-col justify-center md:justify-between flex-wrap">
+              <div class="w-full md:w-[499px] md:h-[298px] flex-col justify-start items-start gap-2 inline-flex">
+                <div class="self-stretch h-[42px] flex-col justify-start items-start flex">
+                  <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                    <div class="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">
+                      How you can help</div>
+                  </div>
+                </div>
+                <div class="self-stretch flex-col justify-start items-start gap-4 md:gap-3 flex">
+                  <div class="self-stretch flex-col justify-start items-start flex">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                        Organizer / Builder</div>
+                    </div>
+                    <div class="text-[#576172] text-base font-normal font-['Inter'] leading-normal w-full px-2">
+                      <div class="w-full">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>Actively
+                        contribute to organizing and initiating activities that advance our mission
+                      </div>
+                      <div class="w-full">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>E.g.
+                        running demo days, hackathons, workshops
+                      </div>
+                    </div>
+                  </div>
+                  <div class="self-stretch flex-col justify-start items-start flex">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                        Connector</div>
+                    </div>
+                    <div class="text-[#576172] text-base font-normal font-['Inter'] leading-normal w-full px-2">
+                      <div class="w-full">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>Be the
+                        bridge between partners and valuable resources
+                      </div>
+                      <div class="w-full">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>E.g.
+                        Mentors, speakers, talent pool
+                      </div>
+                    </div>
+                  </div>
+                  <div class="self-stretch flex-col justify-start items-start flex">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                        Funder</div>
+                    </div>
+                    <div class="text-[#576172] text-base font-normal font-['Inter'] leading-normal w-full px-2">
+                      <div class="w-full">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>Fund BGA
+                        initiatives
+                      </div>
+                      <div class="w-full">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>Invest
+                        in impactful solutions
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-3 text-[16px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold mt-4 xs:mt-6 md:mt-8">
+                  Join Us</div>
+              </div><img class="w-[330px] md:w-[604px] m-auto" src="/assets/How%20you%20can%20help%201-iWQRpKZH.png">
+            </div>
+          </div>
+          <div class="py-6 bg-white shadow flex-col justify-start items-center gap-0 md:gap-4 flex w-full md:w-content">
+            <div class="w-full md:w-content justify-center items-center gap-2.5 inline-flex pl-4 md:pl-0">
+              <div
+                class="grow shrink basis-0 text-left md:text-center text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">
+                2024 Journey Towards Impact</div>
+            </div>
+            <div class="w-full h-[67vh] xs:h-[65vh] md:w-content md:h-[260px] relative">
+              <div
+                class="w-[80vw] md:w-[1185px] md:h-[220px] left-[20vw] md:left-[24px] md:top-[36px] absolute justify-start items-start gap-10 md:gap-6 inline-flex flex-wrap">
+                <div class="w-full md:w-[266px] h-[160px] md:h-[199px] relative"><img
+                    class="w-full md:w-[266px] h-[160px] md:h-[220px] hidden md:block"
+                    src="/assets/Asset%2061%201-CUJsChAn.png">
+                  <div
+                    class="w-full md:w-[266px] md:h-[199px] px-2 pt-10 left-0 top-0 absolute flex-col justify-start items-start gap-1 inline-flex">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div
+                        class="grow shrink basis-0 text-black text-base md:text-center font-bold font-['Inter'] leading-normal">
+                        BGA launch</div>
+                    </div>
+                    <div class="text-[#576172] text-base font-normal font-['Inter'] leading-normal w-full px-2">
+                      <div class="md:text-center w-full mb-[6px]">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>Launch
+                        at Blockchain Life event on 15/4
+                      </div>
+                      <div class="md:text-center w-full mb-[6px]">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>Launch
+                        of “Blockchain for Good” hackathon track at ICP Hack to the Future Hackathon
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full md:w-[604px] h-[140px] md:h-[199px] relative"><img
+                    class="w-full md:w-[604px] md:h-[220px] hidden md:block" src="/assets/Asset%2061%202-CnpSU98M.png">
+                  <div
+                    class="w-full md:w-[604px] md:h-[220px] px-2 pt-10 left-0 top-0 absolute flex-col justify-start items-start gap-1 inline-flex">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div
+                        class="grow shrink basis-0 md:text-center text-black text-base font-bold font-['Inter'] leading-normal">
+                        BGA partner-led initiatives</div>
+                    </div>
+                    <div class="text-[#576172] text-base font-normal font-['Inter'] leading-normal w-full px-2">
+                      <div class="md:text-center w-full mb-[6px]">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>
+                        Blockchain for Good hackathon/demo day tracks
+                      </div>
+                      <div class="md:text-center w-full mb-[6px]">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>
+                        Education, workshops, meetups, others
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full md:w-[267px] h-[180px] md:h-[199px] relative"><img
+                    class="w-full md:w-[267px] h-[160px] md:h-[220px] hidden md:block"
+                    src="/assets/Asset%2061%201-CUJsChAn.png">
+                  <div
+                    class="w-full md:w-[267px] md:h-[199px] px-2 pt-10 left-0 top-0 absolute flex-col justify-start items-start gap-1 inline-flex">
+                    <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                      <div
+                        class="grow shrink basis-0 md:text-center text-black text-base font-bold font-['Inter'] leading-normal">
+                        BGA events</div>
+                    </div>
+                    <div class="text-[#576172] text-base font-normal font-['Inter'] leading-normal w-full px-2">
+                      <div class="md:text-center w-full mb-[6px]">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>Finale
+                        Hackathon
+                      </div>
+                      <div class="md:text-center w-full mb-[6px]">
+                        <div class="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>Web3
+                        Oscar
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-content h-[65px] left-6 top-1 relative hidden md:block overflow-hidden">
+                <div class="top-8"
+                  style="height: 2px; background: linear-gradient(to right, rgb(253, 255, 180), rgb(0, 213, 191)); position: absolute; left: 0px; width: 105px;">
+                </div>
+                <div class="relative -top-[2px] undefined" style="left: 93px;"><img
+                    class="w-[80px] h-[65px] left-0 top-0 absolute" src="/assets/Asset%2047%201-wdHgi53R.png"><img
+                    class="w-14 h-12 left-[8px] top-[16px] absolute mix-blend-overlay" src="/assets/Q1-BkeBCChy.png">
+                </div>
+                <div class="top-8"
+                  style="height: 2px; background: linear-gradient(to right, rgb(253, 255, 180), rgb(0, 213, 191)); position: absolute; left: 161px; width: 234px;">
+                </div>
+                <div class="relative -top-[2px] undefined" style="left: 383px;"><img
+                    class="w-[80px] h-[65px] left-0 top-0 absolute" src="/assets/Asset%2047%201-wdHgi53R.png"><img
+                    class="w-14 h-12 left-[8px] top-[16px] absolute mix-blend-overlay" src="/assets/Q2-P72YCxQP.png">
+                </div>
+                <div class="top-8"
+                  style="height: 2px; background: linear-gradient(to right, rgb(253, 255, 180), rgb(0, 213, 191)); position: absolute; left: 451px; width: 283px;">
+                </div>
+                <div class="relative -top-[2px] undefined" style="left: 722px;"><img
+                    class="w-[80px] h-[65px] left-0 top-0 absolute" src="/assets/Asset%2047%201-wdHgi53R.png"><img
+                    class="w-14 h-12 left-[8px] top-[16px] absolute mix-blend-overlay" src="/assets/Q3-DdEMq9CG.png">
+                </div>
+                <div class="top-8"
+                  style="height: 2px; background: linear-gradient(to right, rgb(253, 255, 180), rgb(0, 213, 191)); position: absolute; left: 790px; width: 234px;">
+                </div>
+                <div class="relative -top-[2px] undefined" style="left: 1012px;"><img
+                    class="w-[80px] h-[65px] left-0 top-0 absolute" src="/assets/Asset%2047%201-wdHgi53R.png"><img
+                    class="w-14 h-12 left-[8px] top-[16px] absolute mix-blend-overlay" src="/assets/Q4-CmvHK1cH.png">
+                </div>
+                <div class="top-8"
+                  style="height: 2px; background: linear-gradient(to right, rgb(253, 255, 180), rgb(0, 213, 191)); position: absolute; left: 1080px; width: 105px;">
+                </div>
+              </div>
+              <div class="w-[100px] top-1 absolute block md:hidden">
+                <div class="relative -top-[2px] undefined" style="top: 20px;"><img
+                    class="w-[80px] h-[65px] left-0 top-0 absolute" src="/assets/Asset%2047%201-wdHgi53R.png"><img
+                    class="w-14 h-12 left-[8px] top-[16px] absolute mix-blend-overlay" src="/assets/Q1-BkeBCChy.png">
+                </div>
+                <div class="top-8"
+                  style="height: 145px; background: linear-gradient(rgb(253, 255, 180), rgb(0, 213, 191)); position: absolute; top: 80px; left: 39px; width: 2px;">
+                </div>
+                <div class="relative -top-[2px] undefined" style="top: 220px;"><img
+                    class="w-[80px] h-[65px] left-0 top-0 absolute" src="/assets/Asset%2047%201-wdHgi53R.png"><img
+                    class="w-14 h-12 left-[8px] top-[16px] absolute mix-blend-overlay" src="/assets/Q2-P72YCxQP.png">
+                </div>
+                <div class="relative -top-[2px] undefined" style="top: 276px;"><img
+                    class="w-[80px] h-[65px] left-0 top-0 absolute" src="/assets/Asset%2047%201-wdHgi53R.png"><img
+                    class="w-14 h-12 left-[8px] top-[16px] absolute mix-blend-overlay" src="/assets/Q3-DdEMq9CG.png">
+                </div>
+                <div class="top-8"
+                  style="height: 69px; background: linear-gradient(rgb(253, 255, 180), rgb(0, 213, 191)); position: absolute; top: 336px; left: 39px; width: 2px;">
+                </div>
+                <div class="relative -top-[2px] undefined" style="top: 400px;"><img
+                    class="w-[80px] h-[65px] left-0 top-0 absolute" src="/assets/Asset%2047%201-wdHgi53R.png"><img
+                    class="w-14 h-12 left-[8px] top-[16px] absolute mix-blend-overlay" src="/assets/Q4-CmvHK1cH.png">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-full md:w-content px-4 md:px-0 justify-between md:items-center inline-flex flex-col-reverse md:flex-row flex-wrap gap-4 md:gap-0">
+            <div class="w-full md:w-[709px] flex-col justify-start items-start inline-flex">
+              <div class="self-stretch flex-col justify-center md:justify-start items-start gap-2 flex">
+                <div class="self-stretch md:h-[74px] flex-col justify-start items-start gap-2 flex">
+                  <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                    <div class="grow shrink basis-0 text-text text-[32px] font-bold font-['Inter'] leading-[41.60px]">
+                      How to Begin Your Journey </div>
+                  </div>
+                  <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                    <div class="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
+                      Join us on our mission to harness the power of blockchain for positive change</div>
+                  </div>
+                </div>
+                <div class="self-stretch  w-full md:w-[476px] flex-col justify-start items-start gap-4 md:gap-3 flex">
+                  <div class="justify-start items-start gap-3 inline-flex">
+                    <div class="bg-cyan-500 mt-[6px]" style="min-height: 11px; min-width: 11px;"></div>
+                    <div>
+                      <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                        <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                          Express Your Interest</div>
+                      </div>
+                      <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                        <div
+                          class="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
+                          Submit the form in the button below. We’re excited to hear from organizations curious about
+                          leveraging blockchain for social good</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="justify-start items-start gap-3 inline-flex">
+                    <div class="bg-cyan-500 mt-[6px]" style="min-height: 11px; min-width: 11px;"></div>
+                    <div>
+                      <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                        <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                          Let’s Chat</div>
+                      </div>
+                      <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                        <div
+                          class="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
+                          We’ll schedule a call to explore how your organization can contribute to the alliance and
+                          discuss the resources you might need. This is an opportunity for us to learn about your goals
+                          and how we can support them</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="justify-start items-start gap-3 inline-flex">
+                    <div class="bg-cyan-500 mt-[6px]" style="min-height: 11px; min-width: 11px;"></div>
+                    <div>
+                      <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                        <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+                          Join the Adventure</div>
+                      </div>
+                      <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+                        <div
+                          class="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
+                          Once we’ve identified how you can best engage with the alliance, we’ll guide you through the
+                          application process. From there, you’ll embark on an exciting journey of collaboration,
+                          innovation, and positive impact with like-minded organizations</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="w-full xs:w-[240px] z-10 md:w-auto px-6 py-3 text-[16px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold mt-4 xs:mt-6 md:mt-8">
+                Apply Now</div>
+            </div><img class="w-[174px] md:w-[441px] md:h-[604px]" src="/assets/Graphics-C8khEu6L.png">
+          </div>
+          <div id="faq" class="w-full md:w-content flex-col justify-start items-start gap-4 inline-flex px-4 md:px-0">
+            <div class="self-stretch justify-center items-center gap-2.5 inline-flex">
+              <div class="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">FAQ
+              </div>
+            </div>
+            <div class="self-stretch flex-col justify-start items-center flex">
+              <div class="w-full"><svg xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 1232 2" fill="none"
+                  class="w-full md:w-content">
+                  <path d="M0 1.00024L1232 1.00035" stroke="#283344" stroke-dasharray="1 2"></path>
+                </svg>
+                <div class="w-full">
+                  <div class="flex justify-between items-center w-full py-4 focus:outline-none cursor-pointer">
+                    <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">1.
+                      What is the Blockchain for Good Alliance (BGA)?</div><svg xmlns="http://www.w3.org/2000/svg"
+                      width="24" height="24" viewBox="0 0 24 24" fill="none" class="w-5 h-5 transition-transform ">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M6.23249 14.7935C6.53229 15.0793 7.00703 15.068 7.29285 14.7682L12.25 9.56838L17.2072 14.7682C17.493 15.068 17.9677 15.0793 18.2675 14.7935C18.5673 14.5077 18.5787 14.033 18.2928 13.7332L12.7928 7.96393C12.6513 7.81546 12.4551 7.73145 12.25 7.73145C12.0449 7.73145 11.8487 7.81546 11.7072 7.96393L6.20716 13.7332C5.92134 14.033 5.93268 14.5077 6.23249 14.7935Z"
+                        fill="#283344"></path>
+                    </svg>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-300 h-0">
+                    <div class="pb-4 text-[#576172]">
+                      <p>The Blockchain for Good Alliance is a collaborative network of organizations, projects, and
+                        individuals committed to leveraging blockchain technology to solve global social, environmental,
+                        and economic challenges.</p>
+                    </div>
+                  </div>
+                </div><svg xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 1232 2" fill="none"
+                  class="w-full md:w-content">
+                  <path d="M0 1.00024L1232 1.00035" stroke="#283344" stroke-dasharray="1 2"></path>
+                </svg>
+              </div>
+              <div class="w-full">
+                <div class="w-full">
+                  <div class="flex justify-between items-center w-full py-4 focus:outline-none cursor-pointer">
+                    <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">2. Who
+                      can apply for grants or partnership</div><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                      height="24" viewBox="0 0 24 24" fill="none" class="w-5 h-5 transition-transform ">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M6.23249 14.7935C6.53229 15.0793 7.00703 15.068 7.29285 14.7682L12.25 9.56838L17.2072 14.7682C17.493 15.068 17.9677 15.0793 18.2675 14.7935C18.5673 14.5077 18.5787 14.033 18.2928 13.7332L12.7928 7.96393C12.6513 7.81546 12.4551 7.73145 12.25 7.73145C12.0449 7.73145 11.8487 7.81546 11.7072 7.96393L6.20716 13.7332C5.92134 14.033 5.93268 14.5077 6.23249 14.7935Z"
+                        fill="#283344"></path>
+                    </svg>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-300 h-0">
+                    <div class="pb-4 text-[#576172]">
+                      <p>We welcome applications from projects, communities, startups, nonprofits, social enterprises,
+                        and research institutions that are using blockchain technology for social good. Both early-stage
+                        ideas and established projects seeking to scale can apply.</p>
+                    </div>
+                  </div>
+                </div><svg xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 1232 2" fill="none"
+                  class="w-full md:w-content">
+                  <path d="M0 1.00024L1232 1.00035" stroke="#283344" stroke-dasharray="1 2"></path>
+                </svg>
+              </div>
+              <div class="w-full">
+                <div class="w-full">
+                  <div class="flex justify-between items-center w-full py-4 focus:outline-none cursor-pointer">
+                    <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">3.
+                      What types of partners/ projects do you support?</div><svg xmlns="http://www.w3.org/2000/svg"
+                      width="24" height="24" viewBox="0 0 24 24" fill="none" class="w-5 h-5 transition-transform ">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M6.23249 14.7935C6.53229 15.0793 7.00703 15.068 7.29285 14.7682L12.25 9.56838L17.2072 14.7682C17.493 15.068 17.9677 15.0793 18.2675 14.7935C18.5673 14.5077 18.5787 14.033 18.2928 13.7332L12.7928 7.96393C12.6513 7.81546 12.4551 7.73145 12.25 7.73145C12.0449 7.73145 11.8487 7.81546 11.7072 7.96393L6.20716 13.7332C5.92134 14.033 5.93268 14.5077 6.23249 14.7935Z"
+                        fill="#283344"></path>
+                    </svg>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-300 h-0">
+                    <div class="pb-4 text-[#576172]">
+                      <p>We support a wide range of partners/projects that align with our mission, including but not
+                        limited to financial inclusion, environmental conservation, healthcare innovation, educational
+                        advancement, and humanitarian aid.</p>
+                    </div>
+                  </div>
+                </div><svg xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 1232 2" fill="none"
+                  class="w-full md:w-content">
+                  <path d="M0 1.00024L1232 1.00035" stroke="#283344" stroke-dasharray="1 2"></path>
+                </svg>
+              </div>
+              <div class="w-full">
+                <div class="w-full">
+                  <div class="flex justify-between items-center w-full py-4 focus:outline-none cursor-pointer">
+                    <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">4. How
+                      does the application process work?</div><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                      height="24" viewBox="0 0 24 24" fill="none" class="w-5 h-5 transition-transform ">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M6.23249 14.7935C6.53229 15.0793 7.00703 15.068 7.29285 14.7682L12.25 9.56838L17.2072 14.7682C17.493 15.068 17.9677 15.0793 18.2675 14.7935C18.5673 14.5077 18.5787 14.033 18.2928 13.7332L12.7928 7.96393C12.6513 7.81546 12.4551 7.73145 12.25 7.73145C12.0449 7.73145 11.8487 7.81546 11.7072 7.96393L6.20716 13.7332C5.92134 14.033 5.93268 14.5077 6.23249 14.7935Z"
+                        fill="#283344"></path>
+                    </svg>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-300 h-0">
+                    <div class="pb-4 text-[#576172]">
+                      <p>Applicants must submit an online application <a
+                          href="https://2no3tjoltg5.typeform.com/to/auwXAmjW" target="blank"
+                          style="color: #00d5bf">link</a> and will be contacted within 2 weeks for next steps.</p>
+                    </div>
+                  </div>
+                </div><svg xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 1232 2" fill="none"
+                  class="w-full md:w-content">
+                  <path d="M0 1.00024L1232 1.00035" stroke="#283344" stroke-dasharray="1 2"></path>
+                </svg>
+              </div>
+              <div class="w-full">
+                <div class="w-full">
+                  <div class="flex justify-between items-center w-full py-4 focus:outline-none cursor-pointer">
+                    <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">5.
+                      What kind of support does BGA offer?</div><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                      height="24" viewBox="0 0 24 24" fill="none" class="w-5 h-5 transition-transform ">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M6.23249 14.7935C6.53229 15.0793 7.00703 15.068 7.29285 14.7682L12.25 9.56838L17.2072 14.7682C17.493 15.068 17.9677 15.0793 18.2675 14.7935C18.5673 14.5077 18.5787 14.033 18.2928 13.7332L12.7928 7.96393C12.6513 7.81546 12.4551 7.73145 12.25 7.73145C12.0449 7.73145 11.8487 7.81546 11.7072 7.96393L6.20716 13.7332C5.92134 14.033 5.93268 14.5077 6.23249 14.7935Z"
+                        fill="#283344"></path>
+                    </svg>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-300 h-0">
+                    <div class="pb-4 text-[#576172]">
+                      <p>Our support ranges from financial grants, technical assistance, and mentorship, to networking
+                        opportunities with industry leaders and access to our member ecosystem for collaborations.</p>
+                    </div>
+                  </div>
+                </div><svg xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 1232 2" fill="none"
+                  class="w-full md:w-content">
+                  <path d="M0 1.00024L1232 1.00035" stroke="#283344" stroke-dasharray="1 2"></path>
+                </svg>
+              </div>
+              <div class="w-full">
+                <div class="w-full">
+                  <div class="flex justify-between items-center w-full py-4 focus:outline-none cursor-pointer">
+                    <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">6. Are
+                      there any geographical restrictions for applicants?</div><svg xmlns="http://www.w3.org/2000/svg"
+                      width="24" height="24" viewBox="0 0 24 24" fill="none" class="w-5 h-5 transition-transform ">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M6.23249 14.7935C6.53229 15.0793 7.00703 15.068 7.29285 14.7682L12.25 9.56838L17.2072 14.7682C17.493 15.068 17.9677 15.0793 18.2675 14.7935C18.5673 14.5077 18.5787 14.033 18.2928 13.7332L12.7928 7.96393C12.6513 7.81546 12.4551 7.73145 12.25 7.73145C12.0449 7.73145 11.8487 7.81546 11.7072 7.96393L6.20716 13.7332C5.92134 14.033 5.93268 14.5077 6.23249 14.7935Z"
+                        fill="#283344"></path>
+                    </svg>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-300 h-0">
+                    <div class="pb-4 text-[#576172]">
+                      <p>While we aim to support projects with a global impact, certain grants or partnership programs
+                        may have geographical focuses depending on the strategic objectives of our partners and the
+                        specific needs of the communities we aim to serve.</p>
+                    </div>
+                  </div>
+                </div><svg xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 1232 2" fill="none"
+                  class="w-full md:w-content">
+                  <path d="M0 1.00024L1232 1.00035" stroke="#283344" stroke-dasharray="1 2"></path>
+                </svg>
+              </div>
+              <div class="w-full">
+                <div class="w-full">
+                  <div class="flex justify-between items-center w-full py-4 focus:outline-none cursor-pointer">
+                    <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">7. How
+                      can partners collaborate with BGA?</div><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                      height="24" viewBox="0 0 24 24" fill="none" class="w-5 h-5 transition-transform ">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M6.23249 14.7935C6.53229 15.0793 7.00703 15.068 7.29285 14.7682L12.25 9.56838L17.2072 14.7682C17.493 15.068 17.9677 15.0793 18.2675 14.7935C18.5673 14.5077 18.5787 14.033 18.2928 13.7332L12.7928 7.96393C12.6513 7.81546 12.4551 7.73145 12.25 7.73145C12.0449 7.73145 11.8487 7.81546 11.7072 7.96393L6.20716 13.7332C5.92134 14.033 5.93268 14.5077 6.23249 14.7935Z"
+                        fill="#283344"></path>
+                    </svg>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-300 h-0">
+                    <div class="pb-4 text-[#576172]">
+                      <p>Potential partners can collaborate through co-funding projects, providing expertise and
+                        mentorship, offering technological resources, or by joining as a member to support the
+                        Alliance's mission.
+                        <br>We encourage interested organizations to contact us directly to explore potential
+                        collaboration opportunities.
+                      </p>
+                    </div>
+                  </div>
+                </div><svg xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 1232 2" fill="none"
+                  class="w-full md:w-content">
+                  <path d="M0 1.00024L1232 1.00035" stroke="#283344" stroke-dasharray="1 2"></path>
+                </svg>
+              </div>
+              <div class="w-full">
+                <div class="w-full">
+                  <div class="flex justify-between items-center w-full py-4 focus:outline-none cursor-pointer">
+                    <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">8.
+                      What are the reporting and accountability requirements for grant recipients?</div><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      class="w-5 h-5 transition-transform ">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M6.23249 14.7935C6.53229 15.0793 7.00703 15.068 7.29285 14.7682L12.25 9.56838L17.2072 14.7682C17.493 15.068 17.9677 15.0793 18.2675 14.7935C18.5673 14.5077 18.5787 14.033 18.2928 13.7332L12.7928 7.96393C12.6513 7.81546 12.4551 7.73145 12.25 7.73145C12.0449 7.73145 11.8487 7.81546 11.7072 7.96393L6.20716 13.7332C5.92134 14.033 5.93268 14.5077 6.23249 14.7935Z"
+                        fill="#283344"></path>
+                    </svg>
+                  </div>
+                  <div class="overflow-hidden transition-all duration-300 h-0">
+                    <div class="pb-4 text-[#576172]">
+                      <p>Grant recipients are required to provide regular progress reports, financial accounting of
+                        grant usage, and demonstrate measurable outcomes.
+                        <br>Specific requirements will be outlined in the grant agreement.
+                      </p>
+                    </div>
+                  </div>
+                </div><svg xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 1232 2" fill="none"
+                  class="w-full md:w-content">
+                  <path d="M0 1.00024L1232 1.00035" stroke="#283344" stroke-dasharray="1 2"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div id="contact"
+            class="items-start justify-between gap-6 inline-flex w-full md:w-content m-auto flex-wrap px-4 md:px-0">
+            <div class="flex-col justify-start items-start gap-2 md:gap-8 inline-flex">
+              <div class="flex-col justify-start items-start flex">
+                <div class="self-stretch justify-center items-center gap-2 inline-flex">
+                  <div class="grow shrink basis-0 text-text text-[32px] font-bold font-['Inter'] leading-[41.60px]">
+                    Contact Us</div>
+                </div>
+                <div class="self-stretch justify-center items-center gap-2 inline-flex">
+                  <div class="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
+                    Join us to drive meaningful change together</div>
+                </div>
+              </div>
+              <div class="self-stretch flex-col justify-start items-start flex">
+                <div class="self-stretch justify-center items-center gap-2 inline-flex">
+                  <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Chat
+                    with us</div>
+                </div>
+                <div class="self-stretch justify-center items-center gap-2 inline-flex"><a
+                    class="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal"
+                    href="mailto:hello@blockchainforgood.xyz" rel="noopener noreferrer">hello@blockchainforgood.xyz</a>
+                </div>
+              </div>
+              <div class="self-stretch h-6 flex-col justify-start items-start flex"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  class="cursor-pointer">
+                  <rect width="24" height="24" transform="translate(0 0.000976562)" fill="#283344"></rect>
+                  <path
+                    d="M13.143 11.0827L17.6107 6.00098H16.5522L12.6711 10.4124L9.5735 6.00098H6L10.6852 12.6725L6 18.001H7.05857L11.1546 13.3412L14.4265 18.001H18L13.143 11.0827ZM11.6926 12.731L11.2172 12.0663L7.44032 6.78186H9.06651L12.1155 11.0482L12.5889 11.7129L16.5517 17.2581H14.9255L11.6926 12.731Z"
+                    fill="white"></path>
+                </svg></div>
+            </div>
+            <div class="w-[604px] p-6 bg-white shadow flex-col justify-start items-start gap-4 inline-flex z-20">
+              <div class="self-stretch h-6 flex-col justify-start items-start flex">
+                <div class="self-stretch justify-center items-center gap-2 inline-flex">
+                  <div class="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Send
+                    Message</div>
+                </div>
+              </div>
+              <div class="self-stretch flex-col justify-start items-start gap-2 flex">
+                <div class="self-stretch h-[62px] flex-col justify-start items-start gap-1 flex">
+                  <div class="self-stretch justify-center items-center gap-2 inline-flex">
+                    <div class="grow shrink basis-0 text-neutral-400 text-xs font-normal font-['Inter'] leading-[18px]">
+                      Subject*</div>
+                  </div>
+                  <div
+                    class="self-stretch h-10 bg-white shadow-inner border border-neutral-400 flex-col justify-center items-start gap-2.5 flex">
+                    <input maxlength="100"
+                      class="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black focus:outline-none"
+                      placeholder="Please input" value="">
+                  </div>
+                </div>
+                <div class="self-stretch flex-col justify-start items-start gap-1 flex">
+                  <div class="self-stretch justify-center items-center gap-2 inline-flex">
+                    <div class="grow shrink basis-0 text-neutral-400 text-xs font-normal font-['Inter'] leading-[18px]">
+                      Message*</div>
+                  </div>
+                  <div
+                    class="self-stretch h-20 bg-white shadow-inner border border-neutral-400 flex-col justify-center items-start gap-2.5 flex">
+                    <textarea maxlength="1000" cols="4"
+                      class="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black focus:outline-none"
+                      placeholder="Please input"></textarea>
+                  </div>
+                </div>
+              </div><a
+                class="w-[87px] h-8 px-6 border border-text justify-center items-center gap-2.5 inline-flex hover:border-text hover:bg-text group cursor-pointer"
+                href="mailto:hello@blockchainforgood.xyz?subject=&amp;body=" rel="noopener noreferrer">
+                <div
+                  class="text-center text-text text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-white">
+                  Send</div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="w-full h-[197px] bg-zinc-300 flex justify-center items-center mt-4 md:-mt-16">
+          <div
+            class="w-full md:w-content h-[196.91px] py-8 flex-col justify-start items-start gap-8 inline-flex px-4 md:px-0">
+            <div class="flex-col justify-start items-start gap-4 flex w-full"><img class="w-[159px] h-[42.91px]"
+                src="/assets/Blockchain%20For%20Good%20Logo%20Black-igxO6NvZ.png">
+              <div class="justify-center items-center gap-2 inline-flex cursor-pointer">
+                <div class="text-black text-base font-bold font-['Inter'] leading-normal">Media Kit</div>
+              </div>
+            </div>
+            <div class="w-full md:w-[604px] justify-center items-center gap-2 inline-flex">
+              <div class="grow shrink basis-0 text-text text-xs font-normal font-['Inter'] leading-[18px]">© 2024
+                Blockchain For Good Alliance. All rights reserved.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

@@ -143,7 +143,7 @@ export const Partner = () => {
                             height: `${logo.height}`,
                         }}
                             target='_blank'
-                            href={logo.href || `javascript:void(0);`}
+                            href={logo.href}
                             onClick={() => {
                                 sensors.track('ButtonClicked', {
                                     buttonName: `Partner ${logo?.alt} Logo Button`,
