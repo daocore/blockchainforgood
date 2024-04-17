@@ -9,6 +9,7 @@ export interface IVideo {
     name?: string;
     poster: string;
     width?: number,
+    format?: string,
 }
 
 type TVideoPlayer = Omit<HTMLAttributes<HTMLDivElement>, "children"> & { children?: (props: { enter: boolean, isPlaying?: boolean, togglePlayback: () => void }) => ReactNode } & IVideo
@@ -50,7 +51,7 @@ export const LoadVideo = ({ defaultUrl, ...props }: { defaultUrl?: string } & De
 }
 
 export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
-    const { src, poster, width, from, name, children, ...divprops } = props;
+    const { src, poster, width, from, name, format, children, ...divprops } = props;
     const videoRef = useRef<HTMLVideoElement>(null);
     const divRef = useRef<HTMLDivElement>(null);
     const [isPlaying, setPlaying] = useState<boolean>();
@@ -177,7 +178,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
             onMouseLeave={() => { setEnter(false) }}
             ref={divRef}>
             {<video ref={videoRef} className="m-auto" controls={mobile} poster={mobile ? poster : undefined} onEnded={togglePlayback} style={{ width: width || "100%" }}>
-                <source src={src} type="video/mp4" />
+                <source src={src} type={format || "video/mp4"} />
                 Your browser does not support the video tag.
             </video>}
             {!videoLoaded && !mobile && <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">

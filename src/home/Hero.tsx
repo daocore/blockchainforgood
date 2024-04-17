@@ -13,7 +13,7 @@ import posterMax from '../assets/video/1713084084649.jpg'
 import { isMobile } from '../helpers'
 import playicon from "../assets/play.svg"
 import sensors from "sa-sdk-javascript"
-import Max from "../assets/video/Max, CEO of Libera (1).mp4"
+import Max from "../assets/video/Max_CEO_of_Libera_logo.mp4"
 
 export const JoinUs = ({ text }: { text?: string }) => {
     return (

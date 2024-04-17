@@ -1,14 +1,14 @@
 import { RefObject, useRef, useState } from "react";
 import { isMobile } from "../helpers";
-import YH from "../assets/video/2 YH - Trimmed.mp4";
-import Jennifer from "../assets/video/3 Jennifer, Co-founder of XueDAO Trimmed.mp4";
-import Jaden from "../assets/video/4 Jaden, Co-founder of Coineasy - Trimmed.mp4";
-import Saed from "../assets/video/5 Saed, Co-founder of ICP.Hub UAE - Trimmed.mp4";
-import Max from "../assets/video/6 Max Ward, CEO of Libera - Trimmed.mp4";
-import Helen from "../assets/video/7 Helen, COO of Bybit - Trimmed.mp4";
-import Jason from "../assets/video/1 Jason Dou, Harvard Blockchain Club 2 - Trimmed.mp4";
-import Kaskyrbek from "../assets/video/1-Aidana-Kaskyrbek_-Founder-of-Hayya-Venture-Studio.webm";
-import Kaskyrbekmb from "../assets/video/1-Aidana-Kaskyrbek_-Founder-of-Hayya-Venture-Studio.mp4";
+import YH from "../assets/video/2_YH.mp4";
+import Jennifer from "../assets/video/3_Jennifer_Co_founder_of_XueDAO.mp4";
+import Jaden from "../assets/video/4_Jaden_Co_founder_of_Coineasy.mp4";
+import Saed from "../assets/video/5_Saed_Co_founder_of_ICPHub_UAE.mp4";
+import Max from "../assets/video/6_Max_Ward_CEO_of_Libera.mp4";
+import Helen from "../assets/video/7_Helen_COO_of_Bybit.mp4";
+import Jason from "../assets/video/1_Jason_Dou_Harvard_Blockchain_Club.mp4";
+import Kaskyrbek from "../assets/video/1_Aidana_Kaskyrbek_Founder_of_Hayya_Venture_Studio.webm";
+import Kaskyrbekmb from "../assets/video/1_Aidana_Kaskyrbek_Founder_of_Hayya_Venture_Studio.mp4";
 import BGAmb from "../assets/video/BGA.mp4";
 import BGA from "../assets/video/BGA.webm";
 import posterYH from '../assets/video/YH.webp'
@@ -28,7 +28,8 @@ const videos: IVideo[] = [
     {
         src: BGA,
         srcmb: BGAmb,
-        poster: posterBGA
+        poster: posterBGA,
+        format: "video/webm",
     },
     {
         src: Helen,
@@ -41,7 +42,8 @@ const videos: IVideo[] = [
         srcmb: Kaskyrbekmb,
         from: "Founder of Hayya Venture Studio",
         name: "Aidana Kaskyrbek",
-        poster: posterKaskyrbek
+        poster: posterKaskyrbek,
+        format: "video/webm",
     },
     {
         src: Jason,
