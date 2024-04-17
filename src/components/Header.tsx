@@ -47,7 +47,7 @@ export const Header = () => {
     const top = useToTop();
 
     return (
-        <div className="fixed z-50 w-full px-4 md:px-0 -mt-[2px]" style={{
+        <header className="fixed z-50 w-full px-4 md:px-0 -mt-[2px]" style={{
             background: `rgb(243,244,246,${top / 260})`,
             backdropFilter: top <= 50 ? "none" : `blur(${top / 10}px)`
         }}>
@@ -85,9 +85,9 @@ export const Header = () => {
                             navs?.map((nav, index) => {
                                 return (
                                     <div key={index} className="justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6">
-                                        <div className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer" onClick={(e => {
+                                        <nav className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer" onClick={(e => {
                                             hashClick(e, nav.id)
-                                        })}>{nav.name}</div>
+                                        })}>{nav.name}</nav>
                                     </div>
                                 )
                             })
@@ -104,6 +104,6 @@ export const Header = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }

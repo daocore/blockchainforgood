@@ -3,7 +3,6 @@ import Force1 from '../assets/Force for good Icon (1).png'
 import Force2 from '../assets/Force for good Icon (3).png'
 import WhatBag from '../assets/What BGA can offer 1.png'
 import HowCanHelp from '../assets/How you can help 1.png'
-import { ApplyLink } from '../components/Const'
 import { RowSpace } from '.'
 import { JoinUs } from './Hero'
 
@@ -65,10 +64,10 @@ export const Intro = () => {
             <div className="justify-center md:justify-between items-center inline-flex flex-wrap border">
                 <div className="w-full md:w-[499px] flex-col md:justify-start items-start gap-2 inline-flex md:mt-0 mt-4">
                     <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                        <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">Force for Good</div>
+                        <h3 className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">Force for Good</h3>
                     </div>
                     <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                        <div className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">Join our mission to leverage blockchain for global good through our pioneering initiatives.<RowSpace />Together, we’re building a collaborative ecosystem for change.</div>
+                        <p className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">Join our mission to leverage blockchain for global good through our pioneering initiatives.<RowSpace />Together, we’re building a collaborative ecosystem for change.</p>
                     </div>
                 </div>
                 <div className="justify-start items-start flex w-full gap-4 xs:gap-0 md:w-1/2 flex-wrap">
@@ -79,10 +78,10 @@ export const Intro = () => {
                                     <img className="w-40 h-[97.88px] m-auto" src={force?.img} />
                                     <div className="flex-col justify-start items-start flex w-full">
                                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                            <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{force?.title}</div>
+                                            <h4 className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{force?.title}</h4>
                                         </div>
                                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                            <div className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">{force?.desc}</div>
+                                            <p className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">{force?.desc}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +95,7 @@ export const Intro = () => {
                 <div className="w-full md:w-[608px] flex-col justify-start items-start gap-2 inline-flex flex-wrap">
                     <div className="self-stretch md:h-[42px] flex-col justify-start items-start flex">
                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                            <div className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">What BGA can offer</div>
+                            <h3 className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">What BGA can offer</h3>
                         </div>
                     </div>
                     <div className="self-stretch md:h-[228px] flex-col justify-start items-start gap-4 md:gap-3 flex">
@@ -104,10 +103,10 @@ export const Intro = () => {
                             return (
                                 <div key={index} className="self-stretch md:h-[72px] flex-col justify-start items-start flex">
                                     <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                        <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{what?.title}</div>
+                                        <h4 className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{what?.title}</h4>
                                     </div>
                                     <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                        <div className="grow shrink basis-0 text-[#576172] text-[15px] font-normal font-['Inter'] leading-normal">{what?.desc}</div>
+                                        <p className="grow shrink basis-0 text-[#576172] text-[15px] font-normal font-['Inter'] leading-normal">{what?.desc}</p>
                                     </div>
                                 </div>
                             )

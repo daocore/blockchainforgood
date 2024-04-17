@@ -26,10 +26,10 @@ export const HowJoin = () => {
                 <div className="self-stretch flex-col justify-center md:justify-start items-start gap-2 flex">
                     <div className="self-stretch md:h-[74px] flex-col justify-start items-start gap-2 flex">
                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                            <div className="grow shrink basis-0 text-text text-[32px] font-bold font-['Inter'] leading-[41.60px]">How to Begin Your Journey </div>
+                            <h3 className="grow shrink basis-0 text-text text-[32px] font-bold font-['Inter'] leading-[41.60px]">How to Begin Your Journey </h3>
                         </div>
                         <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                            <div className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">Join us on our mission to harness the power of blockchain for positive change</div>
+                            <p className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">Join us on our mission to harness the power of blockchain for positive change</p>
                         </div>
                     </div>
                     <div className="self-stretch  w-full md:w-[476px] flex-col justify-start items-start gap-4 md:gap-3 flex">
@@ -40,10 +40,10 @@ export const HowJoin = () => {
                                         <div className="bg-cyan-500 mt-[6px]" style={{ minHeight: 11, minWidth: 11 }} />
                                         <div>
                                             <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                                <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{item?.title}</div>
+                                                <h4 className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">{item?.title}</h4>
                                             </div>
                                             <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                                <div className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">{item?.description}</div>
+                                                <p className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">{item?.description}</p>
                                             </div>
                                         </div>
                                     </div>

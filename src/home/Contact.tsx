@@ -12,15 +12,15 @@ export const Contact = () => {
             <div className="flex-col justify-start items-start gap-2 md:gap-8 inline-flex">
                 <div className="flex-col justify-start items-start flex">
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
-                        <div className="grow shrink basis-0 text-text text-[32px] font-bold font-['Inter'] leading-[41.60px]">Contact Us</div>
+                        <h2 className="grow shrink basis-0 text-text text-[32px] font-bold font-['Inter'] leading-[41.60px]">Contact Us</h2>
                     </div>
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
-                        <div className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">Join us to drive meaningful change together</div>
+                        <p className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">Join us to drive meaningful change together</p>
                     </div>
                 </div>
                 <div className="self-stretch flex-col justify-start items-start flex">
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
-                        <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Chat with us</div>
+                        <h3 className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">Chat with us</h3>
                     </div>
                     <div className="self-stretch justify-center items-center gap-2 inline-flex">
                         <a className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal" href={`mailto:${email}`} rel="noopener noreferrer">{email}</a>

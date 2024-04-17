@@ -11,7 +11,7 @@ const Item = ({ texts }: { texts: string[] }) => {
     return (
         <div className="text-[#576172] text-base font-normal font-['Inter'] leading-normal w-full px-2">
             {texts.map((text, index) => (
-                <div key={index} className='md:text-center w-full mb-[6px]'><div className="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>{text}</div>
+                <p key={index} className='md:text-center w-full mb-[6px]'><div className="w-[5px] h-[5px] inline-block rounded-full bg-[#576172] mb-[3px] mr-1"></div>{text}</p>
             ))}
         </div>
     )
@@ -45,7 +45,7 @@ export const Journey = () => {
     return (
         <div className="py-6 bg-white shadow flex-col justify-start items-center gap-0 md:gap-4 flex w-full md:w-content">
             <div className="w-full md:w-content justify-center items-center gap-2.5 inline-flex pl-4 md:pl-0">
-                <div className="grow shrink basis-0 text-left md:text-center text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">2024 Journey Towards Impact</div>
+                <h2 className="grow shrink basis-0 text-left md:text-center text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">2024 Journey Towards Impact</h2>
             </div>
             <div className="w-full h-[67vh] xs:h-[65vh] md:w-content md:h-[260px] relative">
                 <div className="w-[80vw] md:w-[1185px] md:h-[220px] left-[20vw] md:left-[24px] md:top-[36px] absolute justify-start items-start gap-10 md:gap-6 inline-flex flex-wrap">
@@ -53,7 +53,7 @@ export const Journey = () => {
                         <img className="w-full md:w-[266px] h-[160px] md:h-[220px] hidden md:block" src={Asset} />
                         <div className="w-full md:w-[266px] md:h-[199px] px-2 pt-10 left-0 top-0 absolute flex-col justify-start items-start gap-1 inline-flex">
                             <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 text-black text-base md:text-center font-bold font-['Inter'] leading-normal">BGA launch</div>
+                                <h3 className="grow shrink basis-0 text-black text-base md:text-center font-bold font-['Inter'] leading-normal">BGA launch</h3>
                             </div>
                             <Item texts={["Launch at Blockchain Life event on 15/4", "Launch of “Blockchain for Good” hackathon track at ICP Hack to the Future Hackathon"]} />
                         </div>
@@ -62,7 +62,7 @@ export const Journey = () => {
                         <img className="w-full md:w-[604px] md:h-[220px] hidden md:block" src={Asset2} />
                         <div className="w-full md:w-[604px] md:h-[220px] px-2 pt-10 left-0 top-0 absolute flex-col justify-start items-start gap-1 inline-flex">
                             <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 md:text-center text-black text-base font-bold font-['Inter'] leading-normal">BGA partner-led initiatives</div>
+                                <h3 className="grow shrink basis-0 md:text-center text-black text-base font-bold font-['Inter'] leading-normal">BGA partner-led initiatives</h3>
                             </div>
                             <Item texts={["Blockchain for Good hackathon/demo day tracks", "Education, workshops, meetups, others"]} />
                         </div>
@@ -71,7 +71,7 @@ export const Journey = () => {
                         <img className="w-full md:w-[267px] h-[160px] md:h-[220px] hidden md:block" src={Asset} />
                         <div className="w-full md:w-[267px] md:h-[199px] px-2 pt-10 left-0 top-0 absolute flex-col justify-start items-start gap-1 inline-flex">
                             <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-                                <div className="grow shrink basis-0 md:text-center text-black text-base font-bold font-['Inter'] leading-normal">BGA events</div>
+                                <h3 className="grow shrink basis-0 md:text-center text-black text-base font-bold font-['Inter'] leading-normal">BGA events</h3>
                             </div>
                             <Item texts={["Finale Hackathon", "Web3 Oscar"]} />
                         </div>

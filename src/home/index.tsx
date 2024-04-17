@@ -7,7 +7,6 @@ import { Journey } from './Journey'
 import { HowJoin } from './HowJoin'
 import { Contact } from './Contact'
 import { FAQ } from './FAQ'
-import { Videos } from './Video'
 import { useEffect } from 'react'
 import sensors from "sa-sdk-javascript"
 
@@ -19,19 +18,20 @@ export const Home = () => {
             // 页面相关属性
         });
     }, [])
+
     return (
-        <div className="w-full z-10 border">
+        <main className="w-full z-10 border">
             <Header />
             <Hero />
-            <div className="flex-col justify-start items-center gap-8 xs:gap-12 md:gap-24 inline-flex w-full">
+            <section className="flex-col justify-start items-center gap-8 xs:gap-12 md:gap-24 inline-flex w-full">
                 <Partner />
                 <Intro />
                 <Journey />
                 <HowJoin />
                 <FAQ />
                 <Contact />
-            </div>
+            </section>
             <Footer />
-        </div>
+        </main>
     )
 }
