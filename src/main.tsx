@@ -4,10 +4,9 @@ import App from './App.tsx'
 import './index.css'
 import sensors from "sa-sdk-javascript"
 
-
 try {
   sensors.init({
-      server_url: 'https://sc-datasink.ffe390afd658c19dcbf707e0597b846d.de/sa?project=default', // project=production 为线上 serverr_url为必填参数不填会无效
+      server_url: 'https://sc-datasink.ffe390afd658c19dcbf707e0597b846d.de/sa?project=production', // project=production 为线上 serverr_url为必填参数不填会无效
       is_track_single_page: true, //SPA
       use_client_time: true,
       send_type: 'beacon',
