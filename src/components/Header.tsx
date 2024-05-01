@@ -6,7 +6,7 @@ export const hashClick = (e?: any, id?: string) => {
     e && e.preventDefault();
     if (!id) return
     const element = document.getElementById(id);
-    element && element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    element?.scrollIntoView({ block: 'start', behavior: 'smooth' });
 }
 
 const navs = [
@@ -24,7 +24,7 @@ const navs = [
     }
 ]
 
-export const useToTop = () => {
+export const Header = () => {
     const [top, setTop] = useState<number>(0);
 
     useEffect(() => {
@@ -39,12 +39,6 @@ export const useToTop = () => {
             document?.removeEventListener("scroll", () => { });
         };
     }, [])
-
-    return top
-}
-
-export const Header = () => {
-    const top = useToTop();
 
     return (
         <header className="fixed z-50 w-full px-4 md:px-0 -mt-[2px]" style={{

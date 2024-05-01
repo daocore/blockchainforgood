@@ -21,8 +21,7 @@ const FAQItem = ({ question, answer, index }: { question: string, answer: string
         </svg>
       </div>
       <div
-        className={`overflow-hidden transition-all duration-300 ${isOpen ? 'h-auto' : 'h-0'
-          }`}
+        className={`overflow-hidden transition-all duration-300 ${isOpen ? 'h-auto' : 'h-0'}`}
       >
         <div className="pb-4 text-[#576172]">
           <p dangerouslySetInnerHTML={{ __html: answer }} />

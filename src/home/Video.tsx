@@ -9,8 +9,8 @@ import Helen from "../assets/video/7_Helen_COO_of_Bybit.mp4";
 import Jason from "../assets/video/1_Jason_Dou_Harvard_Blockchain_Club.mp4";
 import Kaskyrbek from "../assets/video/1_Aidana_Kaskyrbek_Founder_of_Hayya_Venture_Studio.webm";
 import Kaskyrbekmb from "../assets/video/1_Aidana_Kaskyrbek_Founder_of_Hayya_Venture_Studio.mp4";
-import BGAmb from "../assets/video/BGA.mp4";
-import BGA from "../assets/video/BGA.webm";
+import BGAmb from "../assets/video/BGA2.mp4";
+import BGA from "../assets/video/BGA2.webm";
 import posterYH from '../assets/video/YH.webp'
 import posterHelen from '../assets/video/Helen.jpg'
 import posterJaden from '../assets/video/Jaden.webp'
