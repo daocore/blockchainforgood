@@ -9,9 +9,12 @@ import Helen from "../assets/video/7_Helen_COO_of_Bybit.mp4";
 import Jason from "../assets/video/1_Jason_Dou_Harvard_Blockchain_Club.mp4";
 import Kaskyrbek from "../assets/video/1_Aidana_Kaskyrbek_Founder_of_Hayya_Venture_Studio.webm";
 import Kaskyrbekmb from "../assets/video/1_Aidana_Kaskyrbek_Founder_of_Hayya_Venture_Studio.mp4";
-import BGAmb from "../assets/video/BGA2.mp4";
-import BGA from "../assets/video/BGA2.webm";
+import BGAmb from "../assets/video/BGA3.mp4";
+import BGA from "../assets/video/BGA3.webm";
+import SOLANA from "../assets/video/8_solana_lilyliu.mp4";
+import SOLANAmb from "../assets/video/8_solana_lilyliu.webm";
 import posterYH from '../assets/video/YH.webp'
+import solana from '../assets/video/solana.jpeg'
 import posterHelen from '../assets/video/Helen.jpg'
 import posterJaden from '../assets/video/Jaden.webp'
 import posterJennifer from '../assets/video/Jennifer.webp'
@@ -80,6 +83,14 @@ const videos: IVideo[] = [
         from: "Co-founder of Coineasy",
         name: "Jaden",
         poster: posterJaden
+    },
+    {
+        src: SOLANA,
+        srcmb: SOLANAmb,
+        from: "President at Solana fundation",
+        name: "Lily Liu",
+        poster: solana,
+        format: "video/webm",
     },
 ];
 

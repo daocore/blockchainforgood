@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>第一个three.js文件_WebGL三维场景</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #canvas-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .text-sprite {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .text-sprite:hover {
+            transform: scale(2);
+            cursor: pointer;
+        }
+    </style>
+    <!--引入three.js三维引擎-->
+    <script src="https://cdn.bootcdn.net/ajax/libs/three.js/100/three.js"></script>
+    <script src="https://wow.techbrood.com/uploads/150501/OrbitControls.js"></script>
+</head>
+
+<body>
+    <div id="canvas-container"></div>
+    <script>
+        /**
+         * 创建场景对象Scene
+         */
+        var scene = new THREE.Scene();
+
+        /**
+         * 光源设置
+         */
+        //点光源
+        var point = new THREE.PointLight(0xffffff);
+        point.position.set(400, 200, 300); //点光源位置
+        //scene.add(point); //点光源添加到场景中
+        //环境光
+        var ambient = new THREE.AmbientLight(0x444444);
+        scene.add(ambient);
+
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
+        var selectedSprite = null;
+
+        /**
+         * 相机设置
+         */
+        var width = window.innerWidth; //窗口宽度
+        var height = window.innerHeight; //窗口高度
+
+        var camera = new THREE.PerspectiveCamera(40, width / height, 1, 10000);
+        camera.position.set(0, 0, 3000);
+
+        function createTextSprite(text, size) {
+            var canvas = document.createElement("canvas");
+            var context = canvas.getContext("2d");
+
+            var fontSize = size * 0.25;
+            context.font = "bold " + fontSize + "px Arial";
+            var textWidth = context.measureText(text).width;
+
+            canvas.width = textWidth;
+            canvas.height = size;
+
+            context.font = "bold " + fontSize + "px Arial";
+            context.textBaseline = "middle";
+            context.textAlign = "center";
+            context.fillStyle = "#ffffff";
+            context.fillText(text, textWidth / 2, size / 2);
+
+            var texture = new THREE.CanvasTexture(canvas);
+            texture.generateMipmaps = false;
+            texture.minFilter = THREE.LinearFilter;
+            texture.magFilter = THREE.LinearFilter;
+
+            var material = new THREE.SpriteMaterial({ map: texture });
+            var sprite = new THREE.Sprite(material);
+            sprite.scale.set(textWidth, size, 1);
+
+            sprite.userData = {
+                text: text,
+                size: size,
+                originalScale: sprite.scale.clone(),
+                // onClick: function () {
+                //     window.location.href = "https://www.baidu.com";
+                // }
+            };
+
+            return sprite;
+        }
+
+        var group = new THREE.Group();
+
+        function addText(text, size, position) {
+            var sprite = createTextSprite(text, size);
+            sprite.position.copy(position);
+            sprite.onmouseenter = function () {
+                controls.enabled = false;
+            };
+            sprite.onmouseleave = function () {
+                controls.enabled = true;
+            };
+            
+            group.add(sprite);
+
+            var dotSize = 10;
+            var dotGeometry = new THREE.CircleGeometry(dotSize, 32);
+            var dotColor = Math.random() * 0xffffff; // 随机颜色
+            var dotMaterial = new THREE.MeshBasicMaterial({ color: dotColor });
+            var dotMesh = new THREE.Mesh(dotGeometry, dotMaterial);
+            dotMesh.position.copy(position);
+            dotMesh.position.y -= (size + dotSize) / 2; // 放置在文字下方的正中间
+            group.add(dotMesh);
+
+            dotMesh.userData = {
+                originalColor: dotColor,
+                // onClick: function () {
+                //     window.location.href = "https://www.baidu.com";
+                // }
+            };
+
+            scene.add(group);
+        }
+
+        for (var i = 0, l = 100; i < l; i++) {
+            var phi = Math.acos(-1 + (2 * i) / l);
+            var theta = Math.sqrt(l * Math.PI) * phi;
+
+            var text = [...Array(Math.floor(Math.random() * 18) + 3)]
+                .map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26)))
+                .join('');
+            var size = Math.floor(Math.random() * 60) + 40;
+            var position = new THREE.Vector3().setFromSphericalCoords(800, phi, theta);
+
+            addText(text, size, position);
+        }
+
+        scene.add(group);
+
+        /**
+         * 创建渲染器对象
+         */
+        var renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(width, height); //设置渲染区域尺寸
+        renderer.shadowMap.enabled = false;
+        //renderer.setClearColor(0xb9d3ff, 1); //设置背景颜色
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.getElementById("canvas-container").appendChild(renderer.domElement); //将 canvas 添加到容器中
+
+        /**
+         * 创建控制器对象
+         */
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableRotate = false; // 禁止相机旋转
+
+        /**
+         * 鼠标事件处理
+         */
+        function onMouseMove(event) {
+            // 计算鼠标的归一化设备坐标
+            mouse.x = (event.clientX / width) * 2 - 1;
+            mouse.y = -(event.clientY / height) * 2 + 1;
+
+            // 通过射线法进行碰撞检测
+            raycaster.setFromCamera(mouse, camera);
+            var intersects = raycaster.intersectObjects(group.children);
+
+            if (intersects.length > 0) {
+                if (selectedSprite) {
+                    selectedSprite.scale.copy(selectedSprite.userData.originalScale);
+                    selectedSprite = null;
+                }
+
+                var intersect = intersects[0];
+                var sprite = intersect.object;
+
+                sprite.scale.multiplyScalar(2);
+                selectedSprite = sprite;
+            } else if (selectedSprite) {
+                selectedSprite.scale.copy(selectedSprite.userData.originalScale);
+                selectedSprite = null;
+            }
+        }
+
+        function onWindowResize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(width, height);
+        }
+
+        window.addEventListener('mousemove', onMouseMove, false);
+        window.addEventListener('resize', onWindowResize, false);
+
+        /**
+         * 渲染函数
+         */
+        function render() {
+            renderer.render(scene, camera); //执行渲染操作
+            group.rotateY(-0.001); //每次绕y轴旋转0.01弧度
+            group.rotateX(0.001);
+            controls.update();
+            requestAnimationFrame(render); //请求再次执行渲染函数render
+        }
+
+        // function onMouseClick(event) {
+        //     console.log(event)
+        //     // ...
+        //     if (intersects.length > 0) {
+        //         var intersect = intersects[0];
+        //         var sprite = intersect.object;
+
+        //         if (sprite.userData && sprite.userData.onClick) {
+        //             sprite.userData.onClick();
+        //         }
+        //     }
+        //     // ...
+        // }
+        // window.addEventListener('click', onMouseClick, false);
+
+        render();
+    </script>
+</body>
+
+</html>
