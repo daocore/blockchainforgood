@@ -87,7 +87,7 @@ const videos: IVideo[] = [
     {
         src: SOLANA,
         srcmb: SOLANAmb,
-        from: "President at Solana fundation",
+        from: "President at Solana foundation",
         name: "Lily Liu",
         poster: solana,
         format: "video/webm",
