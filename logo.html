@@ -63,7 +63,8 @@
         var camera = new THREE.PerspectiveCamera(40, width / height, 1, 10000);
         camera.position.set(0, 0, 3000);
 
-        function createTextSprite(text, size) {
+        function createTextSprite(text) {
+            var size = 100;
             var canvas = document.createElement("canvas");
             var context = canvas.getContext("2d");
 
@@ -78,6 +79,9 @@
             context.textBaseline = "middle";
             context.textAlign = "center";
             context.fillStyle = "#ffffff";
+
+            // hover上去鼠标为point
+
             context.fillText(text, textWidth / 2, size / 2);
 
             var texture = new THREE.CanvasTexture(canvas);
@@ -93,9 +97,7 @@
                 text: text,
                 size: size,
                 originalScale: sprite.scale.clone(),
-                // onClick: function () {
-                //     window.location.href = "https://www.baidu.com";
-                // }
+                link: `https://www.moledao.io/#/event/${text}`
             };
 
             return sprite;
@@ -103,8 +105,8 @@
 
         var group = new THREE.Group();
 
-        function addText(text, size, position) {
-            var sprite = createTextSprite(text, size);
+        function addText(text, position) {
+            var sprite = createTextSprite(text);
             sprite.position.copy(position);
             sprite.onmouseenter = function () {
                 controls.enabled = false;
@@ -112,39 +114,32 @@
             sprite.onmouseleave = function () {
                 controls.enabled = true;
             };
-            
+
             group.add(sprite);
-
-            var dotSize = 10;
-            var dotGeometry = new THREE.CircleGeometry(dotSize, 32);
-            var dotColor = Math.random() * 0xffffff; // 随机颜色
-            var dotMaterial = new THREE.MeshBasicMaterial({ color: dotColor });
-            var dotMesh = new THREE.Mesh(dotGeometry, dotMaterial);
-            dotMesh.position.copy(position);
-            dotMesh.position.y -= (size + dotSize) / 2; // 放置在文字下方的正中间
-            group.add(dotMesh);
-
-            dotMesh.userData = {
-                originalColor: dotColor,
-                // onClick: function () {
-                //     window.location.href = "https://www.baidu.com";
-                // }
-            };
-
-            scene.add(group);
         }
 
-        for (var i = 0, l = 100; i < l; i++) {
+        function addCircle(position) {
+            var geometry = new THREE.CircleGeometry(8, 60);
+            // 生成一个随机颜色
+            var color = Math.random() * 0xffffff;
+            var material = new THREE.MeshBasicMaterial({ color });
+            var circle = new THREE.Mesh(geometry, material);
+            circle.position.copy(position);
+            circle.position.y -= 25;
+            group.add(circle);
+        }
+
+        for (var i = 0, l = 40; i < l; i++) {
             var phi = Math.acos(-1 + (2 * i) / l);
             var theta = Math.sqrt(l * Math.PI) * phi;
 
             var text = [...Array(Math.floor(Math.random() * 18) + 3)]
                 .map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26)))
                 .join('');
-            var size = Math.floor(Math.random() * 60) + 40;
             var position = new THREE.Vector3().setFromSphericalCoords(800, phi, theta);
 
-            addText(text, size, position);
+            addText(text, position);
+            // addCircle(position);
         }
 
         scene.add(group);
@@ -214,24 +209,45 @@
             renderer.render(scene, camera); //执行渲染操作
             group.rotateY(-0.001); //每次绕y轴旋转0.01弧度
             group.rotateX(0.001);
+
+            group.children.forEach(function (child) {
+                // 如果是圆点对象，更新其朝向
+                // const circle = child.children[1];
+                // circle.lookAt(camera.position);
+                if (child instanceof THREE.Mesh) {
+                    child.lookAt(camera.position);
+                }
+                // var textPos = child.children[0].position.clone();
+                // circle.position.copy(textPos);
+                // console.log(textPos)
+                // circle的y始终都是面对着摄像机的时候的文字的正下方中间
+                // circle.position.y = textPos.y  - 40
+
+            });
+
             controls.update();
             requestAnimationFrame(render); //请求再次执行渲染函数render
         }
 
-        // function onMouseClick(event) {
-        //     console.log(event)
-        //     // ...
-        //     if (intersects.length > 0) {
-        //         var intersect = intersects[0];
-        //         var sprite = intersect.object;
+        function onMouseClick(event) {
+            mouse.x = (event.clientX / width) * 2 - 1;
+            mouse.y = -(event.clientY / height) * 2 + 1;
 
-        //         if (sprite.userData && sprite.userData.onClick) {
-        //             sprite.userData.onClick();
-        //         }
-        //     }
-        //     // ...
-        // }
-        // window.addEventListener('click', onMouseClick, false);
+            // 通过射线法进行碰撞检测
+            raycaster.setFromCamera(mouse, camera);
+            var intersects = raycaster.intersectObjects(group.children);
+
+            if (intersects.length > 0) {
+                var intersect = intersects[0];
+                var sprite = intersect.object;
+
+                if (sprite?.userData && sprite?.userData?.link) {
+                    window.open(sprite.userData.link, "_blank")
+                }
+            }
+            // ...
+        }
+        window.addEventListener('click', onMouseClick, false);
 
         render();
     </script>
