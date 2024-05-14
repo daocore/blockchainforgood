@@ -1,110 +1,64 @@
-import AUS from '../assets/partner/AUS Logo 1.png'
-import DFINITY from '../assets/partner/AE _ full color blck.png'
-import Harvard from '../assets/partner/Harvard Blockchain Logo.png'
-import moledao from '../assets/partner/moledao Logo (H) 1.png'
-import BybitWeb3 from '../assets/partner/Bybit Web3.png'
-import CoinEasy from '../assets/partner/CoinEasy Logo 1.png'
-import solanaVerticalLogo from '../assets/partner/solanaVerticalLogo.png'
-import Aptos_Primary_BLK from '../assets/partner/Aptos_Primary_BLK.png'
-import BZD from '../assets/partner/BZD.jpeg'
-import Edu3Labs from '../assets/partner/Edu3Labs.jpeg'
-import Libera_logo_new_3a from '../assets/partner/Libera_logo_new_3a.png'
-import XueDAO from '../assets/partner/XueDAO logo 去背.png'
-import Alchemy from '../assets/partner/Alchemy Pay Logo Horizontal_Black.svg'
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { isMobile } from '../helpers'
 
-const logos = [
+interface PartnerProps {
+    name: string;
+    href: string;
+}
+
+const logos: PartnerProps[] = [
     {
-        src: BybitWeb3,
-        alt: "Bybit Web3",
-        width: "134px",
-        height: "24px",
+        name: "Bybit Web3",
         href: "https://www.bybit.com/en/web3/home"
     },
     {
-        src: moledao,
-        alt: "moledao",
-        width: "128px",
-        height: "26px",
+        name: "Moledao",
         href: "https://moledao.io"
     },
     {
-        src: Harvard,
-        alt: "Harvard",
-        width: "152px",
-        height: "38px",
+        name: "Harvard",
         href: "https://harvardblockchainclub.com/"
     },
     {
-        src: solanaVerticalLogo,
-        alt: "solana",
-        width: "90px",
-        height: "38px",
+        name: "Solana",
         href: "https://solana.com/"
     },
     {
-        src: DFINITY,
-        alt: "DFINITY",
-        width: "160px",
-        height: "30px",
+        name: "Dfinity",
         href: "http://internetcomputer.org/"
     },
     {
-        src: CoinEasy,
-        alt: "CoinEasy",
-        width: "103.7px",
-        height: "17px",
+        name: "CoinEasy",
         href: "https://www.coineasy.xyz/"
     },
     {
-        src: AUS,
-        alt: "AUS",
-        width: "193px",
-        height: "22px",
+        name: "AUS",
         href: "https://www.aus.edu/"
     },
     {
-        src: Aptos_Primary_BLK,
-        alt: "Aptos",
-        width: "90px",
-        height: "22px",
+        name: "Aptos",
         href: "https://aptosfoundation.org/"
     },
     {
-        src: BZD,
-        alt: "BZD",
-        width: "60px",
-        height: "60px",
+        name: "BZD",
         href: "https://www.buzhidao.tw/"
     },
     {
-        src: Edu3Labs,
-        alt: "Edu3Labs",
-        width: "120px",
-        height: "60px",
+        name: "Edu3Labs",
         href: "https://edu3labs.com/"
     },
     {
-        src: Libera_logo_new_3a,
-        alt: "Libera",
-        width: "60px",
-        height: "60px",
+        name: "Libera",
         href: "https://liberaglobal.ai/"
     },
     {
-        src: XueDAO,
-        alt: "XueDAO",
-        width: "120px",
-        height: "60px",
+        name: "XueDAO",
         href: ""
     },
     {
-        src: Alchemy,
-        alt: "Alchemy",
-        width: "200px",
-        height: "100px",
+        name: "Alchemy",
         href: "https://www.alchemypay.org"
     }
 ]
@@ -137,26 +91,34 @@ const useHandleMouseEnter = (ref: React.RefObject<HTMLDivElement>) => {
 }
 
 const useCreateTextSprite = () => {
-    return useCallback((text: string) => {
+    return useCallback((partner: PartnerProps) => {
         const size = 160;
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d");
         if (!context) return
-        canvas.style.cursor = 'pointer';
 
         const fontSize = size * 0.25;
         context.font = "bold " + fontSize + "px Arial";
-        const textWidth = context.measureText(text).width;
+        const textWidth = context.measureText(partner.name).width;
 
         canvas.width = textWidth;
         canvas.height = size;
-        canvas.style.cursor = "pointer";
+
+        const circleRadius = size * 0.05; // 圆形半径
+        const circleX = textWidth / 2; // 圆心的X坐标
+        const circleY = fontSize + circleRadius + 60; // 圆心的Y坐标
 
         context.font = "bold " + fontSize + "px Arial";
         context.textBaseline = "middle";
         context.textAlign = "center";
         context.fillStyle = "#283344";
-        context.fillText(text, textWidth / 2, size / 2);
+        context.fillText(partner.name, textWidth / 2, size / 2);
+
+        // 绘制圆形
+        context.beginPath();
+        context.arc(circleX, circleY, circleRadius, 0, 2 * Math.PI);
+        context.fillStyle = `#${Math.random().toString(16).slice(2, 8)?.padEnd(6, '0')}`;
+        context.fill();
 
         const texture = new THREE.CanvasTexture(canvas);
         texture.generateMipmaps = false;
@@ -168,11 +130,10 @@ const useCreateTextSprite = () => {
         sprite.scale.set(textWidth, size, 1);
 
         sprite.userData = {
-            text: text,
+            text: partner.name,
             size: size,
             originalScale: sprite.scale.clone(),
-            link: `https://www.moledao.io/#/event/${text}`,
-            canvas: canvas,
+            link: partner?.href
         };
 
         return sprite;
@@ -184,6 +145,7 @@ export const Partner = memo(() => {
     const [scene, setScene] = useState<THREE.Scene | null>(null)
     const handleMouseEnter = useHandleMouseEnter(ref);
     const createTextSprite = useCreateTextSprite();
+    const mobile = isMobile();
 
     useEffect(() => {
         const dom = ref.current;
@@ -206,8 +168,6 @@ export const Partner = memo(() => {
         const ambient = new THREE.AmbientLight(0x444444);
         scene.add(ambient);
 
-
-
         const width = dom.clientWidth;
         const height = dom.clientHeight;
 
@@ -222,36 +182,21 @@ export const Partner = memo(() => {
         renderer.setClearColor(0xe5e7eb, 1); //设置背景颜色
         renderer.setPixelRatio(window.devicePixelRatio);
 
-        dom.appendChild(renderer.domElement); //将 canvas 添加到容器中
-        let controls = new OrbitControls(camera, renderer.domElement), selectedSprite: any = null;;
-
-        function addText(text: string, position: THREE.Vector3) {
-            const sprite = createTextSprite(text);
-            if (!sprite) return
-            sprite.position.copy(position);
-            group.add(sprite);
-        }
-
-        function addCircle(position: THREE.Vector3) {
-            const geometry = new THREE.CircleGeometry(8, 60);
-            const color = Math.random() * 0xffffff;
-            const material = new THREE.MeshBasicMaterial({ color });
-            const circle = new THREE.Mesh(geometry, material);
-            circle.position.copy(position);
-            circle.position.y -= 35;
-            group.add(circle);
-        }
+        dom.appendChild(renderer.domElement);
+        let controls = new OrbitControls(camera, renderer.domElement), selectedSprite: any = null;
+        // controls.enableRotate = false;
 
         const list = logos.concat(logos, logos)
 
         for (let i = 0, l = list?.length; i < l; i++) {
-            const logo = list[i];
             const phi = Math.acos(-1 + (2 * i) / l);
             const theta = Math.sqrt(l * Math.PI) * phi;
             const position = new THREE.Vector3().setFromSphericalCoords(800, phi, theta);
 
-            addText(logo?.alt, position);
-            addCircle(position);
+            const sprite = createTextSprite(list[i]);
+            if (!sprite) return
+            sprite.position.copy(position);
+            group.add(sprite);
         }
 
         function onMouseMove(event: MouseEvent) {
@@ -317,6 +262,6 @@ export const Partner = memo(() => {
     }, [scene])
 
     return (
-        <div style={{ width: 800, height: 500 }} ref={ref} />
+        <div style={{ width: mobile ? "100vw" : 800, height: 500 }} ref={ref} />
     )
 })
