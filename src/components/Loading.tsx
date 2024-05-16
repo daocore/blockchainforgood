@@ -1,0 +1,24 @@
+import { useEffect, useState } from "react";
+
+export const Loading = (props: { size?: number, color?: string }) => {
+  const { size = 20, color = "#00d5bf" } = props;
+  const [isLoading, setIsOpen] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(()=>{
+      setIsOpen(false);
+    }, 2500);
+    return ()=>{
+      clearTimeout(timer);
+    }
+  }, [])
+
+  if (!isLoading) return null;
+
+  return (<div className="absolute z-10 bg-black opacity-20 w-screen h-screen flex justify-center items-center">
+    <div className="small-loading inline-block" style={{
+      width: size,
+      height: size,
+      background: `conic-gradient(from 114.04deg at 50% 50%, ${color} -3.75deg, rgba(22, 93, 255, 0) 331.83deg, ${color} 339.88deg, ${color} 356.25deg, rgba(22, 93, 255, 0) 691.83deg)`
+    }}></div>
+  </div>)
+}
