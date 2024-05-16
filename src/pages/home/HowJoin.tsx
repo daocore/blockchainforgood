@@ -50,8 +50,8 @@ export const HowJoin = () => {
                         }
                     </div>
                 </div>
-                <div className='flex gap-4'>
-                    <JoinUs text="Apply Now (Organizational Channel)" link={"/form-organizational"} />
+                <div className='flex gap-4 justify-start md:justify-center md:flex-row flex-col mt-4 xs:mt-6 md:mt-8 w-full md:w-auto'>
+                    <JoinUs text="Apply Now (Organizational Channel)" link={"/form-organization"} />
                     <JoinUs text="Apply Now (Personal Channel)" link={"/form-person"} />
                 </div>
             </div>

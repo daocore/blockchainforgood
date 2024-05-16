@@ -5,7 +5,7 @@ import { OrgForm, PersonForm } from "../pages/form";
 
 export const routes = [
   { path: "/home", component: <Home /> },
-  { path: "/form-organizational", component: <OrgForm /> },
+  { path: "/form-organization", component: <OrgForm /> },
   { path: "/form-person", component: <PersonForm /> },
 ]
 

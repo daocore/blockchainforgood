@@ -19,7 +19,7 @@ export const JoinUs = ({ text, link }: { text?: string, link: string }) => {
     const navigate = useNavigate();
 
     return (
-        <div className="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-2 text-[14px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold mt-4 xs:mt-6 md:mt-8" onClick={() => {
+        <div className="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-2 text-[14px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold" onClick={() => {
             navigate(link);
         }}>
             {text || "Join Us"}
@@ -103,8 +103,8 @@ export const Hero = () => {
                         <h1 className="self-stretch text-black text-[40px] xs:text-[64px] md:text-[82px] font-extrabold font-['Inter'] leading-[36px] xs:leading-[48px] md:leading-[82px]">Blockchain <br className='md:block hidden' />for Good</h1>
                         <h2 className="self-stretch text-text text-[20px] xs:text-[32px] md:text-[26px] font-normal font-['Inter'] leading-loose">Your Key to Web3</h2>
                     </div>
-                    <div className='flex gap-4 flex-1'>
-                        <JoinUs text="Join Us (Organizational Channel)" link={"/form-organizational"} />
+                    <div className='flex gap-4 justify-start md:justify-center md:flex-row flex-col mt-4 xs:mt-6 md:mt-8 w-full md:w-auto'>
+                        <JoinUs text="Join Us (Organizational Channel)" link={"/form-organization"} />
                         <JoinUs text="Join Us (Personal Channel)" link={"/form-person"} />
                     </div>
                 </div>
