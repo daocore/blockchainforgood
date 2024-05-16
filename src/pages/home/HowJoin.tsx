@@ -51,8 +51,8 @@ export const HowJoin = () => {
                     </div>
                 </div>
                 <div className='flex gap-4 justify-start md:justify-center md:flex-row flex-col mt-4 xs:mt-6 md:mt-8 w-full md:w-auto'>
-                    <JoinUs text="Apply Now (Organizational Channel)" link={"/form-organization"} />
-                    <JoinUs text="Apply Now (Personal Channel)" link={"/form-person"} />
+                    <JoinUs text="Join as an Organization" link={"/form-organization"} />
+                    <JoinUs text="Join as an Individual" link={"/form-person"} />
                 </div>
             </div>
             <img className="w-[174px] md:w-[441px] md:h-[604px]" src={Graphics} />

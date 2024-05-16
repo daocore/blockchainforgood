@@ -98,7 +98,7 @@ export const Header = () => {
                         <div className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-white">Apply</div>
                     </div> */}
                 </div> : <div className="justify-end items-start gap-2 md:gap-1 flex"><div className="justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6">
-                    <nav className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer" onClick={(e => {
+                    <nav className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer" onClick={(() => {
                         navigate("/home")
                     })}>Home</nav>
                 </div>

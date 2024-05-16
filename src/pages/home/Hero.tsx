@@ -104,8 +104,8 @@ export const Hero = () => {
                         <h2 className="self-stretch text-text text-[20px] xs:text-[32px] md:text-[26px] font-normal font-['Inter'] leading-loose">Your Key to Web3</h2>
                     </div>
                     <div className='flex gap-4 justify-start md:justify-center md:flex-row flex-col mt-4 xs:mt-6 md:mt-8 w-full md:w-auto'>
-                        <JoinUs text="Join Us (Organizational Channel)" link={"/form-organization"} />
-                        <JoinUs text="Join Us (Personal Channel)" link={"/form-person"} />
+                        <JoinUs text="Join as an Organization" link={"/form-organization"} />
+                        <JoinUs text="Join as an Individual" link={"/form-person"} />
                     </div>
                 </div>
                 <div className='relative w-full md:w-[605px] mr-0 mac:-mr-[92px] mt-4 md:mt-0 h-full'>
