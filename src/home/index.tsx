@@ -1,7 +1,7 @@
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Hero } from './Hero'
-import { Partner } from './Partner2'
+import { Partner } from './Partner'
 import { Intro } from './Intro'
 import { Journey } from './Journey'
 import { HowJoin } from './HowJoin'

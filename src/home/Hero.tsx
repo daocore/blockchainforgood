@@ -15,10 +15,10 @@ import playicon from "../assets/play.svg"
 import sensors from "sa-sdk-javascript"
 import Max from "../assets/video/Max_CEO_of_Libera_logo.mp4"
 
-export const JoinUs = ({ text }: { text?: string }) => {
+export const JoinUs = ({ text, link }: { text?: string, link: string }) => {
     return (
-        <div className="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-3 text-[16px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold mt-4 xs:mt-6 md:mt-8" onClick={() => {
-            window.open(ApplyLink, "_blank");
+        <div className="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-2 text-[14px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold mt-4 xs:mt-6 md:mt-8" onClick={() => {
+            window.open(link, "_blank");
             sensors.track('ButtonClicked', {
                 buttonName: 'Join Us Button',
                 // 其他自定义属性
@@ -100,12 +100,15 @@ export const Hero = () => {
     return (
         <div className="w-full md:w-content m-auto mt-16">
             <div className="items-center justify-between inline-flex w-full flex-wrap mb-4">
-                <div className="w-full md:w-[499px] flex-col justify-start items-start inline-flex px-4 md:px-0">
-                    <div className="self-stretch flex-col justify-start items-start gap-2 md:gap-4 flex md:text-left text-center">
+                <div className="w-full md:w-[600px] flex-col justify-start items-start inline-flex px-4 md:px-0">
+                    <div className=" md:w-[499px] self-stretch flex-col justify-start items-start gap-2 md:gap-4 flex md:text-left text-center">
                         <h1 className="self-stretch text-black text-[40px] xs:text-[64px] md:text-[82px] font-extrabold font-['Inter'] leading-[36px] xs:leading-[48px] md:leading-[82px]">Blockchain <br className='md:block hidden' />for Good</h1>
                         <h2 className="self-stretch text-text text-[20px] xs:text-[32px] md:text-[26px] font-normal font-['Inter'] leading-loose">Your Key to Web3</h2>
                     </div>
-                    <JoinUs />
+                    <div className='flex gap-4 flex-1'>
+                        <JoinUs text="Join Us (Organizational Channel)" link="https://www.moledao.io/#/form/project/create/230ac677-083f-4240-8f61-6a3e0d504ffd?redirect=blockchainforgood.xyz" />
+                        <JoinUs text="Join Us (Personal Channel)" link="https://www.moledao.io/#/form/individual/create/230ac677-083f-4240-8f61-6a3e0d504ffd?redirect=blockchainforgood.xyz" />
+                    </div>
                 </div>
                 <div className='relative w-full md:w-[605px] mr-0 mac:-mr-[92px] mt-4 md:mt-0 h-full'>
                     <LogoDialog className='absolute left-[28.9vw] bottom-[8.5vw] md:left-[176px] md:bottom-[56px] logo-up-down-move'

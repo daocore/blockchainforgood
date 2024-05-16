@@ -52,14 +52,9 @@ export const HowJoin = () => {
                         }
                     </div>
                 </div>
-                <div className="w-full xs:w-[240px] z-10 md:w-auto px-6 py-3 text-[16px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold mt-4 xs:mt-6 md:mt-8" onClick={() => {
-                    window.open(ApplyLink, "_blank");
-                    sensors.track('ButtonClicked', {
-                        buttonName: 'Apply Now Button',
-                        // 其他自定义属性
-                    });
-                }}>
-                    Apply Now
+                <div className='flex gap-4'>
+                    <JoinUs text="Apply Now (Organizational Channel)" link="https://www.moledao.io/#/form/project/create/230ac677-083f-4240-8f61-6a3e0d504ffd?redirect=blockchainforgood.xyz" />
+                    <JoinUs text="Apply Now (Personal Channel)" link="https://www.moledao.io/#/form/individual/create/230ac677-083f-4240-8f61-6a3e0d504ffd?redirect=blockchainforgood.xyz" />
                 </div>
             </div>
             <img className="w-[174px] md:w-[441px] md:h-[604px]" src={Graphics} />
