@@ -8,8 +8,8 @@ export const personalChannel = isProduction ? `https://www.moledao.io/#/form/ind
 export const OrgForm = () => {
     return (
         <>
-            <Loading size={60}/>
-            <iframe src={organizationalChannel} style={{
+            <Loading size={60} id={"organization"}/>
+            <iframe id={"organization"} src={organizationalChannel} style={{
                 width: "100vw"
             }} />
         </>
@@ -20,8 +20,8 @@ export const OrgForm = () => {
 export const PersonForm = () => {
     return (
         <>
-            <Loading size={60}/>
-            <iframe src={personalChannel} style={{
+            <Loading size={60} id="person"/>
+            <iframe id={"person"} src={personalChannel} style={{
                 width: "100vw"
             }} />
         </>

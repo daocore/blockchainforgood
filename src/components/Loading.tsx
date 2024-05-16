@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 
-export const Loading = (props: { size?: number, color?: string }) => {
-  const { size = 20, color = "#00d5bf" } = props;
+export const Loading = (props: { size?: number, color?: string, id: string}) => {
+  const { size = 20, color = "#00d5bf", id } = props;
   const [isLoading, setIsOpen] = useState(true);
   useEffect(() => {
-    const timer = setTimeout(()=>{
+    const iframe = document.getElementById(id);
+    if(!iframe) return
+
+    iframe.onload = function () {
+      console.log('Iframe has loaded');
       setIsOpen(false);
-    }, 2500);
-    return ()=>{
-      clearTimeout(timer);
-    }
+    };
+    // const timer = setTimeout(() => {
+      
+    // }, 2500);
   }, [])
 
   if (!isLoading) return null;
