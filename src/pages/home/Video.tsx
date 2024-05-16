@@ -1,31 +1,31 @@
 import { RefObject, useRef, useState } from "react";
-import { isMobile } from "../helpers";
-import YH from "../assets/video/2_YH.mp4";
-import Jennifer from "../assets/video/3_Jennifer_Co_founder_of_XueDAO.mp4";
-import Jaden from "../assets/video/4_Jaden_Co_founder_of_Coineasy.mp4";
-import Saed from "../assets/video/5_Saed_Co_founder_of_ICPHub_UAE.mp4";
-import Max from "../assets/video/6_Max_Ward_CEO_of_Libera.mp4";
-import Helen from "../assets/video/7_Helen_COO_of_Bybit.mp4";
-import Jason from "../assets/video/1_Jason_Dou_Harvard_Blockchain_Club.mp4";
-import Kaskyrbek from "../assets/video/1_Aidana_Kaskyrbek_Founder_of_Hayya_Venture_Studio.webm";
-import Kaskyrbekmb from "../assets/video/1_Aidana_Kaskyrbek_Founder_of_Hayya_Venture_Studio.mp4";
-import BGAmb from "../assets/video/BGA3.mp4";
-import BGA from "../assets/video/BGA3.webm";
-import SOLANA from "../assets/video/8_solana_lilyliu.mp4";
-import SOLANAmb from "../assets/video/8_solana_lilyliu.webm";
-import posterYH from '../assets/video/YH.webp'
-import solana from '../assets/video/solana.jpeg'
-import posterHelen from '../assets/video/Helen.jpg'
-import posterJaden from '../assets/video/Jaden.webp'
-import posterJennifer from '../assets/video/Jennifer.webp'
-import posterMax from '../assets/video/Max.webp'
-import posterSaed from '../assets/video/Saed.webp'
-import posterKaskyrbek from '../assets/video/Kaskyrbek.webp'
-import posterJasonDou from '../assets/video/JasonDou.jpeg'
-import posterBGA from '../assets/video/BGA.jpg'
-import { ArrowImg } from "../components/Arrow";
-import { CustomVideoPlayer, IVideo } from "../components/Video";
-import playicon from "../assets/play.svg"
+import { isMobile } from "../../helpers";
+import YH from "../../assets/video/2_YH.mp4";
+import Jennifer from "../../assets/video/3_Jennifer_Co_founder_of_XueDAO.mp4";
+import Jaden from "../../assets/video/4_Jaden_Co_founder_of_Coineasy.mp4";
+import Saed from "../../assets/video/5_Saed_Co_founder_of_ICPHub_UAE.mp4";
+import Max from "../../assets/video/6_Max_Ward_CEO_of_Libera.mp4";
+import Helen from "../../assets/video/7_Helen_COO_of_Bybit.mp4";
+import Jason from "../../assets/video/1_Jason_Dou_Harvard_Blockchain_Club.mp4";
+import Kaskyrbek from "../../assets/video/1_Aidana_Kaskyrbek_Founder_of_Hayya_Venture_Studio.webm";
+import Kaskyrbekmb from "../../assets/video/1_Aidana_Kaskyrbek_Founder_of_Hayya_Venture_Studio.mp4";
+import BGAmb from "../../assets/video/BGA3.mp4";
+import BGA from "../../assets/video/BGA3.webm";
+import SOLANA from "../../assets/video/8_solana_lilyliu.mp4";
+import SOLANAmb from "../../assets/video/8_solana_lilyliu.webm";
+import posterYH from '../../assets/video/YH.webp'
+import solana from '../../assets/video/solana.jpeg'
+import posterHelen from '../../assets/video/Helen.jpg'
+import posterJaden from '../../assets/video/Jaden.webp'
+import posterJennifer from '../../assets/video/Jennifer.webp'
+import posterMax from '../../assets/video/Max.webp'
+import posterSaed from '../../assets/video/Saed.webp'
+import posterKaskyrbek from '../../assets/video/Kaskyrbek.webp'
+import posterJasonDou from '../../assets/video/JasonDou.jpeg'
+import posterBGA from '../../assets/video/BGA.jpg'
+import { ArrowImg } from "../../components/Arrow";
+import { CustomVideoPlayer, IVideo } from "../../components/Video";
+import playicon from "../../assets/play.svg"
 
 const videos: IVideo[] = [
     {

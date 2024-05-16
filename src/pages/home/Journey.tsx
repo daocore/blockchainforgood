@@ -1,10 +1,10 @@
-import Asset from '../assets/journey/Asset 61 1.png'
-import Asset2 from '../assets/journey/Asset 61 2.png'
-import Asset3 from '../assets/journey/Asset 47 1.png'
-import Q1 from '../assets/journey/Q1.png'
-import Q2 from '../assets/journey/Q2.png'
-import Q3 from '../assets/journey/Q3.png'
-import Q4 from '../assets/journey/Q4.png'
+import Asset from '../../assets/journey/Asset 61 1.png'
+import Asset2 from '../../assets/journey/Asset 61 2.png'
+import Asset3 from '../../assets/journey/Asset 47 1.png'
+import Q1 from '../../assets/journey/Q1.png'
+import Q2 from '../../assets/journey/Q2.png'
+import Q3 from '../../assets/journey/Q3.png'
+import Q4 from '../../assets/journey/Q4.png'
 import { HTMLAttributes } from 'react'
 
 const Item = ({ texts }: { texts: string[] }) => {

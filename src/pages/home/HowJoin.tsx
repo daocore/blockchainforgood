@@ -1,6 +1,4 @@
-import sensors from 'sa-sdk-javascript'
-import Graphics from '../assets/Graphics.png'
-import { ApplyLink } from '../components/Const'
+import Graphics from '../../assets/Graphics.png'
 import { JoinUs } from './Hero'
 
 const list = [
@@ -53,8 +51,8 @@ export const HowJoin = () => {
                     </div>
                 </div>
                 <div className='flex gap-4'>
-                    <JoinUs text="Apply Now (Organizational Channel)" link="https://www.moledao.io/#/form/project/create/230ac677-083f-4240-8f61-6a3e0d504ffd?redirect=blockchainforgood.xyz" />
-                    <JoinUs text="Apply Now (Personal Channel)" link="https://www.moledao.io/#/form/individual/create/230ac677-083f-4240-8f61-6a3e0d504ffd?redirect=blockchainforgood.xyz" />
+                    <JoinUs text="Apply Now (Organizational Channel)" link={"/form-organizational"} />
+                    <JoinUs text="Apply Now (Personal Channel)" link={"/form-person"} />
                 </div>
             </div>
             <img className="w-[174px] md:w-[441px] md:h-[604px]" src={Graphics} />

@@ -1,23 +1,23 @@
-import AUS from '../assets/partner/AUS Logo 1.png'
-import DFINITY from '../assets/partner/AE _ full color blck.png'
-import Harvard from '../assets/partner/Harvard Blockchain Logo.png'
-import moledao from '../assets/partner/moledao Logo (H) 1.png'
-import BybitWeb3 from '../assets/partner/Bybit Web3.png'
-import CoinEasy from '../assets/partner/CoinEasy Logo 1.png'
-import solanaVerticalLogo from '../assets/partner/solanaVerticalLogo.png'
-import Aptos_Primary_BLK from '../assets/partner/Aptos_Primary_BLK.png'
-import BZD from '../assets/partner/BZD.jpeg'
-import Edu3Labs from '../assets/partner/Edu3Labs.jpeg'
-import Libera_logo_new_3a from '../assets/partner/Libera_logo_new_3a.png'
-import XueDAO from '../assets/partner/XueDAO logo 去背.png'
-import Alchemy from '../assets/partner/Alchemy Pay Logo Horizontal_Black.svg'
+import AUS from '../../assets/partner/AUS Logo 1.png'
+import DFINITY from '../../assets/partner/AE _ full color blck.png'
+import Harvard from '../../assets/partner/Harvard Blockchain Logo.png'
+import moledao from '../../assets/partner/moledao Logo (H) 1.png'
+import BybitWeb3 from '../../assets/partner/Bybit Web3.png'
+import CoinEasy from '../../assets/partner/CoinEasy Logo 1.png'
+import solanaVerticalLogo from '../../assets/partner/solanaVerticalLogo.png'
+import Aptos_Primary_BLK from '../../assets/partner/Aptos_Primary_BLK.png'
+import BZD from '../../assets/partner/BZD.jpeg'
+import Edu3Labs from '../../assets/partner/Edu3Labs.jpeg'
+import Libera_logo_new_3a from '../../assets/partner/Libera_logo_new_3a.png'
+import XueDAO from '../../assets/partner/XueDAO logo 去背.png'
+import Alchemy from '../../assets/partner/Alchemy Pay Logo Horizontal_Black.svg'
 import { useEffect, useRef } from 'react'
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 // 导入 Splide 的样式文件（根据你的项目配置可能会有所不同）
 import '@splidejs/splide/css';
-import { isMobile } from '../helpers'
+import { isMobile } from '../../helpers'
 import sensors from 'sa-sdk-javascript'
 
 const logos = [

@@ -1,28 +1,26 @@
-import HeroImg from '../assets/KV.webp'
-import Edu3Labslogo from '../assets/Edu3Labs Globe.webp'
-import Liberalogo from '../assets/Libera Globe.webp'
-import HeroImageRubixcubewText from '../assets/HeroImage-RubixcubewText.png'
+import HeroImg from '../../assets/KV.webp'
+import Edu3Labslogo from '../../assets/Edu3Labs Globe.webp'
+import Liberalogo from '../../assets/Libera Globe.webp'
+import HeroImageRubixcubewText from '../../assets/HeroImage-RubixcubewText.png'
 import { RowSpace } from '.'
-import { ApplyLink } from '../components/Const'
-import Cubes from "../assets/CubesPatterns.svg"
+import Cubes from "../../assets/CubesPatterns.svg"
 import { HTMLAttributes, useEffect, useState } from 'react'
 import { Videos } from './Video'
-import { DialogsWithFooterAndTitle } from '../components/Dialog'
-import { CustomVideoPlayer, IVideo } from '../components/Video'
-import posterMax from '../assets/video/1713084084649.jpg'
-import { isMobile } from '../helpers'
-import playicon from "../assets/play.svg"
+import { DialogsWithFooterAndTitle } from '../../components/Dialog'
+import { CustomVideoPlayer, IVideo } from '../../components/Video'
+import posterMax from '../../assets/video/1713084084649.jpg'
+import { isMobile } from '../../helpers'
+import playicon from "../../assets/play.svg"
 import sensors from "sa-sdk-javascript"
-import Max from "../assets/video/Max_CEO_of_Libera_logo.mp4"
+import Max from "../../assets/video/Max_CEO_of_Libera_logo.mp4"
+import { useNavigate } from 'react-router-dom'
 
 export const JoinUs = ({ text, link }: { text?: string, link: string }) => {
+    const navigate = useNavigate();
+
     return (
         <div className="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-2 text-[14px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold mt-4 xs:mt-6 md:mt-8" onClick={() => {
-            window.open(link, "_blank");
-            sensors.track('ButtonClicked', {
-                buttonName: 'Join Us Button',
-                // 其他自定义属性
-            });
+            navigate(link);
         }}>
             {text || "Join Us"}
         </div>
@@ -106,8 +104,8 @@ export const Hero = () => {
                         <h2 className="self-stretch text-text text-[20px] xs:text-[32px] md:text-[26px] font-normal font-['Inter'] leading-loose">Your Key to Web3</h2>
                     </div>
                     <div className='flex gap-4 flex-1'>
-                        <JoinUs text="Join Us (Organizational Channel)" link="https://www.moledao.io/#/form/project/create/230ac677-083f-4240-8f61-6a3e0d504ffd?redirect=blockchainforgood.xyz" />
-                        <JoinUs text="Join Us (Personal Channel)" link="https://www.moledao.io/#/form/individual/create/230ac677-083f-4240-8f61-6a3e0d504ffd?redirect=blockchainforgood.xyz" />
+                        <JoinUs text="Join Us (Organizational Channel)" link={"/form-organizational"} />
+                        <JoinUs text="Join Us (Personal Channel)" link={"/form-person"} />
                     </div>
                 </div>
                 <div className='relative w-full md:w-[605px] mr-0 mac:-mr-[92px] mt-4 md:mt-0 h-full'>
