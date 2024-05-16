@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { ApplyLink } from "./Const";
-import sensors from "sa-sdk-javascript";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const hashClick = (e?: any, id?: string) => {
     e && e.preventDefault();
@@ -26,6 +25,8 @@ const navs = [
 
 export const Header = () => {
     const [top, setTop] = useState<number>(0);
+    const { pathname } = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!document?.getElementById) return
@@ -73,7 +74,7 @@ export const Header = () => {
                     <path d="M22.5765 9.15076H21.6873V16.2171H22.5765V9.15076Z" fill="black" />
                 </svg>
 
-                <div className="justify-end items-center gap-2 md:gap-12 flex">
+                {pathname?.includes("home") ? <div className="justify-end items-center gap-2 md:gap-12 flex">
                     <div className="justify-end items-start gap-2 md:gap-1 flex">
                         {
                             navs?.map((nav, index) => {
@@ -96,7 +97,12 @@ export const Header = () => {
                     }}>
                         <div className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] group-hover:text-white">Apply</div>
                     </div> */}
+                </div> : <div className="justify-end items-start gap-2 md:gap-1 flex"><div className="justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6">
+                    <nav className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer" onClick={(e => {
+                        navigate("/home")
+                    })}>Home</nav>
                 </div>
+                </div>}
             </div>
         </header>
     )
