@@ -146,21 +146,21 @@ const useCreateTextSprite = () => {
 
         const color = partner?.color || `#${ Math.random().toString(16).slice(2, 8)?.padEnd(6, '0')}`;
 
-        const fontSize = size * 0.25;
+        const fontSize = size * 0.2;
         context.font = "bold " + fontSize + "px Arial";
         const textWidth = context.measureText(partner.name).width;
 
         canvas.width = textWidth;
         canvas.height = size;
 
-        const circleRadius = size * 0.075; // 圆形半径
+        const circleRadius = size * 0.1; // 圆形半径
         const circleX = textWidth / 2; // 圆心的X坐标
-        const circleY = fontSize + circleRadius + 60; // 圆心的Y坐标
+        const circleY = fontSize + circleRadius + 70; // 圆心的Y坐标
 
         context.font = "bold " + fontSize + "px Arial";
         context.textBaseline = "middle";
         context.textAlign = "center";
-        context.fillStyle = color;
+        context.fillStyle = "#e5e7eb"//color;
         context.fillText(partner.name, textWidth / 2, size / 2);
 
         context.beginPath();
@@ -174,8 +174,8 @@ const useCreateTextSprite = () => {
         texture.magFilter = THREE.LinearFilter;
 
         const material = new THREE.SpriteMaterial({ map: texture });
-        material.color.set(color);
-        // material.color.set("#FFFFFF");
+        // material.color.set(color);
+        material.color.set("#FFFFFF");
 
         const sprite = new THREE.Sprite(material);
         sprite.scale.set(textWidth, size, 1);
@@ -211,14 +211,6 @@ export const Partner = memo(() => {
         if (!dom) return
         if (!scene) return
 
-        // 光源设置
-        // const point = new THREE.PointLight(0xffffff);
-        // point.position.set(400, 200, 300); //点光源位置
-
-        //环境光
-        // const ambient = new THREE.AmbientLight(0x444444);
-        // scene.add(ambient);
-
         const width = dom.clientWidth;
         const height = dom.clientHeight;
 
@@ -228,16 +220,16 @@ export const Partner = memo(() => {
         const group = new THREE.Group();
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(width, height); //设置渲染区域尺寸
+        renderer.setSize(width, height);
         renderer.shadowMap.enabled = false;
-        renderer.setClearColor(0xe5e7eb, 1); //设置背景颜色
+        renderer.setClearColor(0x0000025, 1);
         renderer.setPixelRatio(window.devicePixelRatio);
 
         dom.appendChild(renderer.domElement);
         let controls = new OrbitControls(camera, renderer.domElement), selectedSprite: any = null;
         // controls.enableRotate = false;
 
-        const list = logos.concat(logos)
+        const list = logos.concat(logos, logos, logos)?.slice(0, 53)
 
         for (let i = 0, l = list?.length; i < l; i++) {
             const phi = Math.acos(-1 + (2 * i) / l);
@@ -323,6 +315,6 @@ export const Partner = memo(() => {
     }, [scene])
 
     return (
-        <div style={{ width: mobile ? "100vw" : 800, height: 500 }} ref={ref} />
+        <div style={{ width: mobile ? "100vw" : 1232, height: 800 }} ref={ref} />
     )
 })
