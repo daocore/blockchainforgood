@@ -146,21 +146,21 @@ const useCreateTextSprite = () => {
 
         const color = partner?.color || `#${ Math.random().toString(16).slice(2, 8)?.padEnd(6, '0')}`;
 
-        const fontSize = size * 0.2;
+        const fontSize = size * 0.3;
         context.font = "bold " + fontSize + "px Arial";
         const textWidth = context.measureText(partner.name).width;
 
         canvas.width = textWidth;
         canvas.height = size;
 
-        const circleRadius = size * 0.1; // 圆形半径
+        const circleRadius = size * 0.17; // 圆形半径
         const circleX = textWidth / 2; // 圆心的X坐标
-        const circleY = fontSize + circleRadius + 70; // 圆心的Y坐标
+        const circleY = fontSize + circleRadius + 50; // 圆心的Y坐标
 
         context.font = "bold " + fontSize + "px Arial";
         context.textBaseline = "middle";
         context.textAlign = "center";
-        context.fillStyle = "#e5e7eb"//color;
+        context.fillStyle = "#000000"//color;
         context.fillText(partner.name, textWidth / 2, size / 2);
 
         context.beginPath();
@@ -222,7 +222,7 @@ export const Partner = memo(() => {
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(width, height);
         renderer.shadowMap.enabled = false;
-        renderer.setClearColor(0x0000025, 1);
+        renderer.setClearColor(0xe5e7eb, 1);
         renderer.setPixelRatio(window.devicePixelRatio);
 
         dom.appendChild(renderer.domElement);
@@ -315,6 +315,6 @@ export const Partner = memo(() => {
     }, [scene])
 
     return (
-        <div style={{ width: mobile ? "100vw" : 1232, height: 800 }} ref={ref} />
+        <div style={{ width: mobile ? "100vw" : 1232, height: 600 }} ref={ref} />
     )
 })

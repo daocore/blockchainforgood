@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ApplyLink } from '../../components/Const';
 
 const FAQItem = ({ question, answer, index }: { question: string, answer: string, index: number }) => {
