@@ -4,6 +4,7 @@ import { HashRouter } from "react-router-dom";
 import App from './App.tsx'
 import './index.css'
 import sensors from "sa-sdk-javascript"
+import { SWRConfig } from 'swr';
 
 try {
   sensors.init({
@@ -24,7 +25,11 @@ try {
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <HashRouter>
-      <App />
+      <SWRConfig value={{
+        suspense: true,
+      }}>
+        <App />
+      </SWRConfig>
     </HashRouter>
   </React.StrictMode>,
 )

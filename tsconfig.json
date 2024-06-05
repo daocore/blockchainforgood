@@ -23,6 +23,12 @@
     "noFallthroughCasesInSwitch": true,
     "allowUnusedLabels": true,
     "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
     "src"

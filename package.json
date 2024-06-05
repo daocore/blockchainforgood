@@ -6,20 +6,33 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:staging": "tsc && vite build --mode staging",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "push": "git add . && git commit -m 'update' && git push origin main"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
+    "@radix-ui/react-slot": "^1.0.2",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@vercel/analytics": "^1.2.2",
+    "axios": "^1.7.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "daisyui": "^4.11.1",
+    "dayjs": "^1.11.11",
+    "lucide-react": "^0.383.0",
+    "query-string": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.13",
     "react-router-dom": "^6.23.1",
     "sa-sdk-javascript": "^1.26.11",
+    "swr": "^2.2.5",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7",
     "three": "^0.164.1"
   },
   "devDependencies": {

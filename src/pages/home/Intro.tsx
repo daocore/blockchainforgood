@@ -59,7 +59,7 @@ const helps = [
 
 export const Intro = () => {
     return (
-        <div id="about" className="flex-col justify-start items-center gap-8 md:gap-4 flex w-full md:w-content flex-wrap px-4 md:px-0 text-center md:text-left">
+        <div id="about" className="flex-col justify-start items-center gap-8 md:gap-4 flex md:w-content flex-wrap px-4 md:px-0 text-center md:text-left">
             <div className="justify-center md:justify-between items-center inline-flex flex-wrap border">
                 <div className="w-full md:w-[499px] flex-col md:justify-start items-start gap-2 inline-flex md:mt-0 mt-4">
                     <div className="self-stretch justify-center items-center gap-2.5 inline-flex">

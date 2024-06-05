@@ -96,7 +96,7 @@ export const Hero = () => {
     }, [])
 
     return (
-        <div className="w-full md:w-content m-auto mt-16">
+        <div className="md:w-content m-auto mt-16">
             <div className="items-center justify-between inline-flex w-full flex-wrap mb-4">
                 <div className="w-full md:w-[600px] flex-col justify-start items-start inline-flex px-4 md:px-0">
                     <div className=" md:w-[499px] self-stretch flex-col justify-start items-start gap-2 md:gap-4 flex md:text-left text-center">

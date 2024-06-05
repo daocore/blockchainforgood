@@ -43,7 +43,7 @@ export const Journey = () => {
     const gapw = 24;
 
     return (
-        <div className="py-6 bg-white shadow flex-col justify-start items-center gap-0 md:gap-4 flex w-full md:w-content">
+        <div className="py-6 bg-white shadow flex-col justify-start items-center gap-0 md:gap-4 flex md:w-content">
             <div className="w-full md:w-content justify-center items-center gap-2.5 inline-flex pl-4 md:pl-0">
                 <h2 className="grow shrink basis-0 text-left md:text-center text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">2024 Journey Towards Impact</h2>
             </div>
