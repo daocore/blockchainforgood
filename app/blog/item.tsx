@@ -2,7 +2,7 @@
 
 import { postDate } from "@/lib";
 import type { IBlog } from "./types";
-import { IMAGE_URL } from "@/constants";
+import { IMAGE_URL, ROUTER_PATH } from "@/constants";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -11,7 +11,7 @@ export function BlogItem({ item }: { item: IBlog }) {
 
   const router = useRouter();
   const onIntoDetail = () => {
-    router.push(`/blog/${id}`);
+    router.push(`${ROUTER_PATH.BLOG.ROOT}/${id}`);
   };
 
   return (

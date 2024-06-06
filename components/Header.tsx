@@ -3,6 +3,7 @@ import { cn } from "@/lib";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { ROUTER_PATH } from "@/constants";
 
 export const hashClick = (e?: any, id?: string) => {
   e && e.preventDefault();
@@ -29,11 +30,11 @@ const hashNavs = [
 const menuNavs = [
   {
     name: "Home",
-    route: "/",
+    route: ROUTER_PATH.HOME,
   },
   {
     name: "Blogs",
-    route: "/blog",
+    route: ROUTER_PATH.BLOG.ROOT,
   },
 ];
 
@@ -223,9 +224,9 @@ export const Header = () => {
               key={nav.name}
               className={cn(
                 "justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6",
-                (nav.route === "/"
+                (nav.route === ROUTER_PATH.HOME
                   ? pathname === nav.route
-                  : pathname.startsWith(nav.route)) && "border-b-main"
+                  : pathname!.startsWith(nav.route)) && "border-b-main"
               )}
             >
               <nav

@@ -14,6 +14,7 @@ import playicon from "@/assets/play.svg";
 import sensors from "sa-sdk-javascript";
 import { useRouter } from "next/navigation";
 import Image, { StaticImageData } from "next/image";
+import { ROUTER_PATH } from "@/constants";
 
 export const JoinUs = ({ text, link }: { text?: string; link: string }) => {
   const router = useRouter();
@@ -149,9 +150,12 @@ export const Hero = () => {
           <div className="flex gap-4 justify-start md:justify-center md:flex-row flex-col mt-4 xs:mt-6 md:mt-8 w-full md:w-auto">
             <JoinUs
               text="Join as an Organization"
-              link={"/form/organization"}
+              link={ROUTER_PATH.FORM.ORGANIZATION}
             />
-            <JoinUs text="Join as an Individual" link={"/form/person"} />
+            <JoinUs
+              text="Join as an Individual"
+              link={ROUTER_PATH.FORM.PERSON}
+            />
           </div>
         </div>
         <div className="relative w-full md:w-[605px] mr-0 mac:-mr-[92px] mt-4 md:mt-0 h-full">

@@ -3,11 +3,12 @@ import sensors from "sa-sdk-javascript";
 import BlockchainForGoodLogo from "@/assets/Blockchain For Good Logo Black.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { ROUTER_PATH } from "@/constants";
 
 export const Footer = () => {
   const pathname = usePathname();
 
-  const shouldHidden = pathname.startsWith("/form/");
+  const shouldHidden = pathname?.startsWith(ROUTER_PATH.FORM.ROOT);
   if (shouldHidden) {
     return null;
   }
