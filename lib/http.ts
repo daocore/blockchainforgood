@@ -23,13 +23,7 @@ export const Q = async <T>(
 	return new Promise<T>((resolve, reject) => {
 		axiosPromise
 			.then((response) => {
-				const result = response.data;
-				
-				if (result?.code === HTTP_STATUS.OK) {
-					resolve(result.data);
-				} else {
-					reject(result.message);
-				}
+				return response;
 			})
 			.catch((error) => {
 				

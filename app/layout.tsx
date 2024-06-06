@@ -4,6 +4,7 @@ import { Analytics } from "./analytics";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SWRProvider } from "./swr-provider";
+import type { Viewport } from "next";
 
 export const metadata: Metadata = {
   title: "Blockchain for Good",
@@ -53,6 +54,10 @@ export const metadata: Metadata = {
       url: "/logo.png",
     },
   ],
+};
+
+export const viewport: Viewport = {
+  themeColor: "black",
 };
 
 function RootLayout({

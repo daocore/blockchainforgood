@@ -28,7 +28,7 @@ const config = {
         mac: "1440px",
       },
       width: {
-        content: 1232
+        content: "1232px"
       },
       colors: {
         main: "#00d5bf",

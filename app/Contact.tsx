@@ -1,8 +1,7 @@
 import { useState } from "react";
-import sensors from "sa-sdk-javascript";
+// import sensors from "sa-sdk-javascript";
 
 export const Contact = () => {
-  const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
   const [bodytext, setBodyText] = useState("");
   const email = "hello@blockchainforgood.xyz";
@@ -51,10 +50,10 @@ export const Contact = () => {
             className="cursor-pointer"
             onClick={() => {
               window.open("https://twitter.com/chainforgood", "_blank");
-              sensors.track("ButtonClicked", {
-                buttonName: `Twitter Button`,
-                // 其他自定义属性
-              });
+              // sensors.track("ButtonClicked", {
+              //   buttonName: `Twitter Button`,
+              //   // 其他自定义属性
+              // });
             }}
           >
             <rect

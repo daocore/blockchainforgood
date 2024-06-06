@@ -2,7 +2,7 @@ import HeroImg from "@/assets/KV.webp";
 import Edu3Labslogo from "@/assets/Edu3Labs Globe.webp";
 import Liberalogo from "@/assets/Libera Globe.webp";
 import HeroImageRubixcubewText from "@/assets/HeroImage-RubixcubewText.png";
-import { RowSpace } from "./page";
+import { RowSpace } from "@/components/RowSpace";
 import Cubes from "@/assets/CubesPatterns.svg";
 import { HTMLAttributes, useEffect, useState } from "react";
 import { Videos } from "./Video";
@@ -11,7 +11,7 @@ import { DialogsWithFooterAndTitle } from "@/components/Dialog";
 import posterMax from "@/assets/video/1713084084649.jpg";
 import { isMobile } from "@/lib";
 import playicon from "@/assets/play.svg";
-import sensors from "sa-sdk-javascript";
+// import sensors from "sa-sdk-javascript";
 import { useRouter } from "next/navigation";
 import Image, { StaticImageData } from "next/image";
 import { ROUTER_PATH } from "@/constants";
@@ -57,10 +57,10 @@ const LogoDialog = ({
         onClick={() => {
           if (video) {
             setIsOpen(true);
-            sensors.track("ButtonClicked", {
-              buttonName: `Hero ${name} Logo Button`,
-              // 其他自定义属性
-            });
+            // sensors.track("ButtonClicked", {
+            //   buttonName: `Hero ${name} Logo Button`,
+            //   // 其他自定义属性
+            // });
           } else {
             window.open(link, "_blank");
           }

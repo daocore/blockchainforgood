@@ -1,5 +1,5 @@
 "use client";
-import sensors from "sa-sdk-javascript";
+// import sensors from "sa-sdk-javascript";
 import BlockchainForGoodLogo from "@/assets/Blockchain For Good Logo Black.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -29,10 +29,10 @@ export const Footer = () => {
                 "https://drive.google.com/drive/folders/1YbdwZWnbVCwsUN_YKq9XiZlhOPeJDCpw",
                 "_blank"
               );
-              sensors.track("ButtonClicked", {
-                buttonName: `Media Kit Button`,
-                // 其他自定义属性
-              });
+              // sensors.track("ButtonClicked", {
+              //   buttonName: `Media Kit Button`,
+              //   // 其他自定义属性
+              // });
             }}
           >
             <h3 className="text-black text-base font-bold font-['Inter'] leading-normal">

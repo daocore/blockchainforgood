@@ -2,10 +2,14 @@
 import type { IBlogDetail } from "../types";
 import { useAPIGetBlogDetail } from "../api";
 import { postDate } from "@/lib";
+import { Spin } from "@/components/Spin";
 
 export function BlogDetailImpl({ id }: { id: string }) {
-  const { data = {} as IBlogDetail } = useAPIGetBlogDetail(id);
-  console.log("🚀 ~ BlogDetailImpl ~ data:", data);
+  const { data = {} as IBlogDetail, isLoading } = useAPIGetBlogDetail(id);
+
+  if (isLoading) {
+    return <Spin />;
+  }
 
   const { name, content, updateDate } = data;
   return (

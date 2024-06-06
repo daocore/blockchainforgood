@@ -1,4 +1,5 @@
 import { type ClassValue, clsx } from "clsx"
+import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
@@ -7,7 +8,8 @@ export function cn(...inputs: ClassValue[]) {
 
 
 export function isMobile(): boolean {
-  let mobile: boolean = false;
+
+  const [mobile, setMobile] = useState<boolean>(false);
 
   function hasTouchEvent(): boolean {
       try {
@@ -34,7 +36,11 @@ export function isMobile(): boolean {
       return false;
   }
 
-  mobile = hasMobileUserAgent();
+//   mobile = hasMobileUserAgent();
+
+  useEffect(() => {
+    setMobile(hasMobileUserAgent());
+  }, [])
 
   return mobile;
 }

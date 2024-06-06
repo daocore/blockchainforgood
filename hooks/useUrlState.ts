@@ -4,7 +4,7 @@ import { useMemoizedFn } from "./useMemoizedFn";
 import { useUpdate } from "./useUpdate";
 import type { ParseOptions, StringifyOptions } from "query-string";
 import qs from "query-string";
-import type * as React from "react";
+import { useEffect } from "react";
 import { useMemo, useRef } from "react";
 import { useRouter } from "next/navigation";
 
@@ -43,7 +43,6 @@ export const useUrlState = <S extends UrlState = UrlState>(
 		...stringifyOptions,
 	};
 
-	const location = window.location;
 
 	const router = useRouter();
 
@@ -55,9 +54,15 @@ export const useUrlState = <S extends UrlState = UrlState>(
 			: initialState || {} as S,
 	);
 
+	const locationRef = useRef<Location>();
+
+	useEffect(() => {
+		locationRef.current = window.location;
+	})
+
 	const queryFromUrl = useMemo(() => {
-		return qs.parse(location.search, mergedParseOptions);
-	}, [location.search]);
+		return qs.parse(locationRef.current?.search ?? "", mergedParseOptions);
+	}, [locationRef.current?.search]);
 
 	const targetQuery: State = useMemo(
 		() => ({

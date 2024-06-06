@@ -6,13 +6,5 @@ export const SWRProvider = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  return (
-    <SWRConfig
-      value={{
-        suspense: true,
-      }}
-    >
-      {children}
-    </SWRConfig>
-  );
+  return <SWRConfig>{children}</SWRConfig>;
 };

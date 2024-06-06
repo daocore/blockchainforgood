@@ -3,7 +3,7 @@ import Force1 from "@/assets/Force for good Icon (1).png";
 import Force2 from "@/assets/Force for good Icon (3).png";
 import WhatBag from "@/assets/What BGA can offer 1.png";
 import HowCanHelp from "@/assets/How you can help 1.png";
-import { RowSpace } from "./page";
+import { RowSpace } from "@/components/RowSpace";
 import Image from "next/image";
 
 const forces = [

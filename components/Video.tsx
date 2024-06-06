@@ -130,7 +130,6 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
 
   useEffect(() => {
     let timer: any;
-    const mobile = isMobile();
     if (isPlaying && mobile) {
       timer = setTimeout(() => {
         setEnter(false);
@@ -139,7 +138,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [isPlaying]);
+  }, [isPlaying, mobile]);
 
   const togglePlayback = () => {
     const video = videoRef.current;
