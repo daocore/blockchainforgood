@@ -1,0 +1,103 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import { Analytics } from "./analytics";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { SWRProvider } from "./swr-provider";
+
+export const metadata: Metadata = {
+  title: "Blockchain for Good",
+  description:
+    "At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain technology to address some of the most pressing challenges facing our society.  Our alliance serves as a collaborative hub, bringing together a diverse range of stakeholders to collectively explore, innovate and implement blockchain solutions for social good.",
+  keywords:
+    "Blockchain for Good, Blockchain for Good Alliance, BGA, wallet users, inclusive financial system,  public infrastructure,  crypto exchanges,  bybit web3,  blockchain life dubai,  helium and hivemapper,  harvard blockchain club,  impactful projects,  lily liu,  creating a more inclusive,  coo helen liu, cross border remittances, solana foundation",
+  authors: {
+    name: "Blockchain for Good Alliance",
+  },
+  viewport:
+    "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+  robots:
+    "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  twitter: {
+    card: "summary_large_image",
+    title: "Blockchain for Good Alliance",
+    creator: "@chainforgood",
+    site: "@chainforgood",
+    description:
+      "At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain technology to address some of the most pressing challenges facing our society.  Our alliance serves as a collaborative hub, bringing together a diverse range of stakeholders to collectively explore, innovate and implement blockchain solutions for social good.",
+    images: [
+      {
+        url: "https://www.blockchainforgood.xyz/share.jpg",
+        alt: "Blockchain for Good Alliance",
+      },
+    ],
+  },
+  openGraph: {
+    title: "Blockchain for Good Alliance",
+    description:
+      "At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain technology to address some of the most pressing challenges facing our society.  Our alliance serves as a collaborative hub, bringing together a diverse range of stakeholders to collectively explore, innovate and implement blockchain solutions for social good.",
+    url: "https://www.blockchainforgood.xyz/",
+    siteName: "Blockchain for Good",
+    images: [
+      {
+        url: "https://www.blockchainforgood.xyz/share.jpg",
+        alt: "Blockchain for Good Alliance",
+      },
+    ],
+    type: "website",
+  },
+  icons: [
+    {
+      rel: "icon",
+      type: "image/svg+xml",
+      url: "/logo.png",
+    },
+  ],
+};
+
+function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/logo.png" />
+        <link rel="stylesheet" href="/prerender/index.css" />
+        <meta
+          name="copyright"
+          content="© 2024 Blockchain For Good Alliance. All rights reserved."
+        />
+      </head>
+      {/* Google tag (gtag.js) */}
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-5197XPR1BB"
+      />
+
+      <body>
+        <SWRProvider>
+          <div className="min-h-screen flex flex-col relative">
+            <div
+              className="h-10 w-full absolute bg-main"
+              style={{ filter: "blur(80px)" }}
+            ></div>
+            <Analytics />
+            <Header />
+            <div
+              // 减去header：72px和footer的高度:197px和1rem的margin
+              className="flex justify-center h-auto grow shrink-0 basis-[calc(100vh - 72px - 197px - 1rem)]"
+            >
+              {children}
+            </div>
+            <Footer />
+          </div>
+        </SWRProvider>
+      </body>
+    </html>
+  );
+}
+
+export default RootLayout;
