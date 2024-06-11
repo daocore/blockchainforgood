@@ -32,7 +32,7 @@ export function NewsCard({
   linkTarget,
 }: {
   item: INews;
-  linkTarget: HTMLAttributeAnchorTarget;
+  linkTarget?: HTMLAttributeAnchorTarget;
 }) {
   const { cover, intro, views, updateDate, name, tags } = item;
   return (
