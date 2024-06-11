@@ -85,10 +85,6 @@ function RootLayout({
       <body>
         <SWRProvider>
           <div className="min-h-screen flex flex-col relative">
-            <div
-              className="h-10 w-full absolute bg-main"
-              style={{ filter: "blur(80px)" }}
-            ></div>
             <Analytics />
             <Header />
             <div

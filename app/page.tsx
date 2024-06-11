@@ -6,7 +6,7 @@ import { Journey } from "./Journey";
 import { HowJoin } from "./HowJoin";
 import { Contact } from "./Contact";
 import { FAQ } from "./FAQ";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 // import sensors from "sa-sdk-javascript";
 
 export default function Home() {

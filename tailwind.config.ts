@@ -28,10 +28,12 @@ const config = {
         mac: "1440px",
       },
       width: {
-        content: "1232px"
+        content: "1232px",
+        page: '800px'
       },
       colors: {
         main: "#00d5bf",
+        turqoise: "#00d5bf",
         // text: "#283344",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

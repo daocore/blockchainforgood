@@ -75,8 +75,23 @@
   }
 }
 
-*::-webkit-scrollbar {
-  display: none;
+*  {
+  scrollbar-width: thin; /* 设置滚动条宽度 */
+  scrollbar-color: rgba(255, 255, 255, 0.67) transparent; /* 设置滚动条颜色 */
+}
+
+*:-webkit-scrollbar {
+  width: 6px; /* 设置滚动条宽度 */
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.67); 
 }
 
 html {

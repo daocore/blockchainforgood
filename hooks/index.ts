@@ -1,3 +1,4 @@
 export * from './useMemoizedFn'
 export * from './useUpdate'
-export * from './useUrlState'
+export * from './useSearchParams'
+export * from './useIsMobile'

@@ -1,3 +1,7 @@
 export function Spin() {
-  return <span className="loading loading-spinner loading-lg"></span>;
+  return (
+    <div className="flex justify-center items-center h-full">
+      <span className="loading loading-spinner loading-lg" />
+    </div>
+  );
 }
