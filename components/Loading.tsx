@@ -35,3 +35,7 @@ export const Loading = (props: {
     </div>
   );
 };
+
+export function LoadingMore() {
+  return <div className="text-center my-2">Loading...</div>;
+}

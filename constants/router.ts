@@ -5,7 +5,7 @@ export const ROUTER_PATH = {
     ORGANIZATION: '/form/organization',
     PERSON: '/form/person'
   },
-  BLOG: {
-    ROOT: '/blog',
+  NEWS: {
+    ROOT: '/news',
   }
 }

@@ -10,3 +10,7 @@ dayjs.extend(timezone);
 export function postDate(utcTime: string) {
   return dayjs.utc(utcTime).local().fromNow();
 }
+
+export function publishDate(utcTime: string) {
+  return dayjs.utc(utcTime).local().format("MMMM D, YYYY");
+}

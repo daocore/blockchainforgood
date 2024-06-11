@@ -21,7 +21,7 @@ export const JoinUs = ({ text, link }: { text?: string; link: string }) => {
 
   return (
     <div
-      className="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-2 text-[14px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold"
+      className="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-2 text-white text-[14px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold"
       onClick={() => {
         router.push(link);
       }}

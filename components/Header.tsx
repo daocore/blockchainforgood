@@ -33,8 +33,8 @@ const menuNavs = [
     route: ROUTER_PATH.HOME,
   },
   {
-    name: "Blogs",
-    route: ROUTER_PATH.BLOG.ROOT,
+    name: "News",
+    route: ROUTER_PATH.NEWS.ROOT,
   },
 ];
 
@@ -57,13 +57,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header
-      className="w-full px-4 md:px-0 -mt-[2px] z-50 sticky top-0"
-      style={{
-        background: `rgb(243,244,246,${top / 260})`,
-        backdropFilter: top <= 50 ? "none" : `blur(${top / 10}px)`,
-      }}
-    >
+    <header className="w-full px-4 md:px-0 z-50 sticky top-0 bg-white border-b border-black">
       <div className="py-3 md:py-4 justify-between items-center flex md:w-content m-auto">
         <Link href="/" className="flex items-center gap-2 cursor-pointer">
           <svg

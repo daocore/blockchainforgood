@@ -44,3 +44,10 @@ export function isMobile(): boolean {
 
   return mobile;
 }
+
+export function queryStrings(query: Record<string, any>) {
+    const quertString = Object.keys(query)
+        .map((key) => key + "=" + query[key])
+        .join("&");
+        return quertString;
+}
