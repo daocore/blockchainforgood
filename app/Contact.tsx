@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import sensors from "sa-sdk-javascript";
+import { trackSensors } from "@/lib/sensors";
 
 export const Contact = () => {
   const [subject, setSubject] = useState("");
@@ -50,10 +50,10 @@ export const Contact = () => {
             className="cursor-pointer"
             onClick={() => {
               window.open("https://twitter.com/chainforgood", "_blank");
-              // sensors.track("ButtonClicked", {
-              //   buttonName: `Twitter Button`,
-              //   // 其他自定义属性
-              // });
+              trackSensors("ButtonClicked", {
+                buttonName: `Twitter Button`,
+                // 其他自定义属性
+              });
             }}
           >
             <rect

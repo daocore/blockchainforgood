@@ -10,11 +10,11 @@ import { CustomVideoPlayer, IVideo } from "@/components/Video";
 import { DialogsWithFooterAndTitle } from "@/components/Dialog";
 import posterMax from "@/assets/video/1713084084649.jpg";
 import playicon from "@/assets/play.svg";
-// import sensors from "sa-sdk-javascript";
 import { useRouter } from "next/navigation";
 import Image, { StaticImageData } from "next/image";
 import { ROUTER_PATH } from "@/constants";
 import { useIsMobile } from "@/hooks";
+import { trackSensors } from "@/lib/sensors";
 
 export const JoinUs = ({ text, link }: { text?: string; link: string }) => {
   const router = useRouter();
@@ -57,10 +57,9 @@ const LogoDialog = ({
         onClick={() => {
           if (video) {
             setIsOpen(true);
-            // sensors.track("ButtonClicked", {
-            //   buttonName: `Hero ${name} Logo Button`,
-            //   // 其他自定义属性
-            // });
+            trackSensors("ButtonClicked", {
+              buttonName: `Hero ${name} Logo Button`,
+            });
           } else {
             window.open(link, "_blank");
           }

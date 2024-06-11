@@ -6,15 +6,13 @@ import { Journey } from "./Journey";
 import { HowJoin } from "./HowJoin";
 import { Contact } from "./Contact";
 import { FAQ } from "./FAQ";
-// import { useEffect } from "react";
-// import sensors from "sa-sdk-javascript";
+import { useEffect } from "react";
+import { trackSensors } from "@/lib/sensors";
 
 export default function Home() {
-  // useEffect(() => {
-  //   sensors.track("$pageview", {
-  //     // 页面相关属性
-  //   });
-  // }, []);
+  useEffect(() => {
+    trackSensors("$pageview", {});
+  }, []);
 
   return (
     <main className="w-full">

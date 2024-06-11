@@ -1,9 +1,9 @@
 "use client";
-// import sensors from "sa-sdk-javascript";
 import BlockchainForGoodLogo from "@/assets/Blockchain For Good Logo Black.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ROUTER_PATH } from "@/constants";
+import { trackSensors } from "@/lib/sensors";
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -29,10 +29,9 @@ export const Footer = () => {
                 "https://drive.google.com/drive/folders/1YbdwZWnbVCwsUN_YKq9XiZlhOPeJDCpw",
                 "_blank"
               );
-              // sensors.track("ButtonClicked", {
-              //   buttonName: `Media Kit Button`,
-              //   // 其他自定义属性
-              // });
+              trackSensors("ButtonClicked", {
+                buttonName: `Media Kit Button`,
+              });
             }}
           >
             <h3 className="text-black text-base font-bold font-['Inter'] leading-normal">

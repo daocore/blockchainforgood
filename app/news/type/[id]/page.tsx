@@ -2,12 +2,12 @@
 import { ChevronLeft } from "lucide-react";
 import { NEWS_TYPE_NAME, PAGE_SIZE } from "../../constants";
 import { useAPIGetNewsInfinete } from "../../api";
-import { Spin } from "@/components/Spin";
 import { NewsList } from "../../main/news-card";
 import { useRouter } from "next/navigation";
 import { ROUTER_PATH } from "@/constants";
 import { useEffect, useRef } from "react";
 import { LoadingMore } from "@/components/Loading";
+import { NewsSkeletonList } from "../../skeleton";
 
 export default function SubTypePage({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -69,7 +69,7 @@ export default function SubTypePage({ params }: { params: { id: string } }) {
       <h2 className="font-semibold text-lg cursor-pointer flex items-center mb-3">
         {typeName}
       </h2>
-      {isLoading && <Spin />}
+      {isLoading && <NewsSkeletonList />}
       {!isLoading && <NewsList list={list} />}
       {isLoadingMore && !isReachingEnd && <LoadingMore />}
       <div ref={loader} />

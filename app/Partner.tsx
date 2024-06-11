@@ -14,12 +14,11 @@ import Alchemy from "@/assets/partner/Alchemy Pay Logo Horizontal_Black.svg";
 import { useEffect, useRef } from "react";
 import Splide from "@splidejs/splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-
 // 导入 Splide 的样式文件（根据你的项目配置可能会有所不同）
 import "@splidejs/splide/css";
-// import sensors from "sa-sdk-javascript";
 import Image from "next/image";
 import { useIsMobile } from "@/hooks";
+import { trackSensors } from "@/lib/sensors";
 
 const logos = [
   {
@@ -150,10 +149,9 @@ export const Partner = () => {
               target="_blank"
               href={logo.href}
               onClick={() => {
-                // sensors.track("ButtonClicked", {
-                //   buttonName: `Partner ${logo?.alt} Logo Button`,
-                //   // 其他自定义属性
-                // });
+                trackSensors("ButtonClicked", {
+                  buttonName: `Partner ${logo.alt} Logo Button`,
+                });
               }}
             >
               <Image
