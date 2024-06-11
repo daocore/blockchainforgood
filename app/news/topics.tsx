@@ -1,11 +1,11 @@
-import { Spin } from "@/components/Spin";
 import { useAPIGetTopics } from "./api";
 import { useContext } from "react";
 import { TopicContext } from "./context";
 import { cn } from "@/lib";
+import { TopicSkeleton } from "./skeleton";
 
 export default function Topics() {
-  const { data: { list = [], total = 0 } = {}, isLoading } = useAPIGetTopics();
+  const { data: { list = [] } = {}, isLoading } = useAPIGetTopics();
 
   const { activeTopic, setActiveTopic } = useContext(TopicContext)!;
 
@@ -13,7 +13,7 @@ export default function Topics() {
     setActiveTopic((prev) => (prev === id ? null : id));
   };
   if (isLoading) {
-    return <Spin />;
+    return <TopicSkeleton />;
   }
 
   return (

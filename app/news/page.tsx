@@ -2,8 +2,6 @@
 
 import { useMemo, useState } from "react";
 import { TopicContext } from "./context";
-import { LatestNews } from "./main/latest-news";
-import { SubArticles } from "./main/sub-news";
 import Topics from "./topics";
 import { Main } from "./main";
 

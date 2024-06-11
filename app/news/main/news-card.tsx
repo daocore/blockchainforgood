@@ -1,15 +1,15 @@
 "use client";
 
 import { IMAGE_URL } from "@/constants";
-import { IArticle } from "../types";
-import { isMobile, postDate } from "@/lib";
+import { INews } from "../types";
+import { postDate } from "@/lib";
 import { Eye } from "lucide-react";
 import Link from "next/link";
 import { Empty } from "@/components/Empty";
 import { useIsMobile } from "@/hooks";
 import { HTMLAttributeAnchorTarget } from "react";
 
-export function ArticleList({ list }: { list: IArticle[] }) {
+export function NewsList({ list }: { list: INews[] }) {
   const isMobile = useIsMobile();
   const linkTarget = isMobile ? "__self" : "__blank";
 
@@ -20,18 +20,18 @@ export function ArticleList({ list }: { list: IArticle[] }) {
     <div>
       <div className="grid grid-cols-3 gap-3">
         {list.map((item) => (
-          <ArticleCard linkTarget={linkTarget} key={item.id} item={item} />
+          <NewsCard linkTarget={linkTarget} key={item.id} item={item} />
         ))}
       </div>
     </div>
   );
 }
 
-export function ArticleCard({
+export function NewsCard({
   item,
   linkTarget,
 }: {
-  item: IArticle;
+  item: INews;
   linkTarget: HTMLAttributeAnchorTarget;
 }) {
   const { cover, intro, views, updateDate, name, tags } = item;
@@ -65,11 +65,11 @@ export function ArticleCard({
   );
 }
 
-export function ArticleCardLatest({
+export function NewsCardLatest({
   item,
   linkTarget,
 }: {
-  item: IArticle;
+  item: INews;
   linkTarget: HTMLAttributeAnchorTarget;
 }) {
   const { cover, intro, views, content, name, tags } = item;

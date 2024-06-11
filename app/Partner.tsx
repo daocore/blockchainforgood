@@ -17,9 +17,9 @@ import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 
 // 导入 Splide 的样式文件（根据你的项目配置可能会有所不同）
 import "@splidejs/splide/css";
-import { isMobile } from "@/lib";
 // import sensors from "sa-sdk-javascript";
 import Image from "next/image";
+import { useIsMobile } from "@/hooks";
 
 const logos = [
   {
@@ -118,7 +118,7 @@ const logos = [
 export const Partner = () => {
   const ref = useRef<any>();
 
-  const mobile = isMobile();
+  const mobile = useIsMobile();
 
   useEffect(() => {
     if (ref.current) return;

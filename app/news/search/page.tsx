@@ -4,12 +4,12 @@ import { ROUTER_PATH } from "@/constants";
 import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useAPIGetNewsInfinete } from "../api";
-import { Spin } from "@/components/Spin";
-import { ArticleList } from "../main/article-card";
+import { NewsList } from "../main/news-card";
 import { useSearchParams } from "@/hooks";
 import { useEffect, useRef } from "react";
 import { PAGE_SIZE } from "../constants";
 import { LoadingMore } from "@/components/Loading";
+import { NewsSkeletonList } from "../skeleton";
 
 export default function SearchPage() {
   const { q } = useSearchParams<"q">();
@@ -79,7 +79,7 @@ export default function SearchPage() {
       <h2 className="font-semibold text-lg cursor-pointer flex items-center mb-3 mt-6">
         Results for {q}
       </h2>
-      {isLoading && <Spin />}
+      {isLoading && <NewsSkeletonList />}
       {!isLoading && isEmpty && (
         <div className="text-text text-xs">
           <p>Make sure all words are spelled correctly</p>
@@ -87,7 +87,7 @@ export default function SearchPage() {
           <p>Try more general keywords</p>
         </div>
       )}
-      {!isLoading && !isEmpty && <ArticleList list={list} />}
+      {!isLoading && !isEmpty && <NewsList list={list} />}
       {isLoadingMore && !isReachingEnd && <LoadingMore />}
       <div ref={loader} />
     </div>

@@ -1,15 +1,15 @@
 "use client";
-import { postDate, publishDate } from "@/lib";
-import { useAPIGetArticleDetail } from "../../api";
-import { Spin } from "@/components/Spin";
+import { publishDate } from "@/lib";
+import { useAPIGetNewsDetail } from "../../api";
 import { useRouter } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { IMAGE_URL } from "@/constants";
 import { useIsMobile } from "@/hooks";
+import { NewsDetailSkeleton } from "../../skeleton";
 
 export default function Detail({ params }: { params: { id: string } }) {
   const { id } = params;
-  const { data, isLoading } = useAPIGetArticleDetail(id);
+  const { data, isLoading } = useAPIGetNewsDetail(id);
 
   const router = useRouter();
   const onBackToIndex = () => {
@@ -18,7 +18,11 @@ export default function Detail({ params }: { params: { id: string } }) {
   const isMobile = useIsMobile();
 
   if (isLoading) {
-    return <Spin />;
+    return (
+      <div className="w-content mx-auto">
+        <NewsDetailSkeleton />
+      </div>
+    );
   }
   const {
     name,

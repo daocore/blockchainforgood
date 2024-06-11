@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { isMobile } from "@/lib";
+import { useIsMobile } from "@/hooks";
 
 interface PartnerProps {
   name: string;
@@ -205,7 +205,7 @@ export const Partner = memo(() => {
   const [scene, setScene] = useState<THREE.Scene | null>(null);
   const handleMouseEnter = useHandleMouseEnter(ref);
   const createTextSprite = useCreateTextSprite();
-  const mobile = isMobile();
+  const mobile = useIsMobile();
 
   useEffect(() => {
     const dom = ref.current;

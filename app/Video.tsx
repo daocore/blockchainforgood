@@ -1,5 +1,4 @@
 import { RefObject, useRef, useState } from "react";
-import { isMobile } from "@/lib";
 import { CustomVideoPlayer, IVideo } from "@/components/Video";
 import { ArrowImg } from "@/components/Arrow";
 import playicon from "@/assets/play.svg";
@@ -14,6 +13,7 @@ import posterKaskyrbek from "@/assets/video/Kaskyrbek.webp";
 import posterJasonDou from "@/assets/video/JasonDou.jpeg";
 import posterBGA from "@/assets/video/BGA.jpg";
 import Image from "next/image";
+import { useIsMobile } from "@/hooks";
 
 const videos: IVideo[] = [
   {
@@ -84,7 +84,7 @@ const videos: IVideo[] = [
 
 export const Videos = () => {
   const ref = useRef<any>();
-  const mobile = isMobile();
+  const mobile = useIsMobile();
   let timer: any;
 
   const [currentTab, setTab] = useState(0);
@@ -149,7 +149,7 @@ export const Videos = () => {
         <div
           className="flex items-center m-auto gap-[15px] flex-wrap md:flex-nowrap"
           style={{
-            width: isMobile() ? `calc(88vw)` : videos?.length * (400 + 15) - 15,
+            width: mobile ? `calc(88vw)` : videos?.length * (400 + 15) - 15,
           }}
         >
           {videos.map((video, index) => {

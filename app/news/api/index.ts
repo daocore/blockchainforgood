@@ -1,25 +1,25 @@
 import useSWR from "swr";
 import { http, queryStrings } from "@/lib";
-import type { IArticle, IArticleDetail, IArticleQuery, IPageData, ITopic, ITopicQuery } from "../types";
+import type { INews, INewsDetail, INewsQuery, IPageData, ITopic, ITopicQuery } from "../types";
 import useSWRInfinite from "swr/infinite";
 import { PUBLISHED } from "../enums";
 
 
 export const API_PATH = {
-  GET_ARTICLE_DETAIL: "/article/details",
+  GET_NEWS_DETAIL: "/article/details",
   GET_TOPICS: "/tag/list",
-  GET_ARITCLES: "/article/list",
+  GET_NEWS: "/article/list",
 }
 
 
-export const INITIAL_QUERY: IArticleQuery = {
+export const INITIAL_QUERY: INewsQuery = {
   current: 1,
   pageSize: 10,
 };
 
-export function useAPIGetArticleDetail(id: string) {
-  const url = API_PATH.GET_ARTICLE_DETAIL;
-  return useSWR<IArticleDetail>([url, id], () => http.get(url, {
+export function useAPIGetNewsDetail(id: string) {
+  const url = API_PATH.GET_NEWS_DETAIL;
+  return useSWR<INewsDetail>([url, id], () => http.get(url, {
     params: {
       id,
     },
@@ -34,9 +34,9 @@ export function useAPIGetTopics(querys: ITopicQuery = { current: 1, pageSize: 10
 }
 
 
-export function useAPIGetNews(querys: IArticleQuery) {
-  const url = API_PATH.GET_ARITCLES;
-  return useSWR<IPageData<IArticle>>([url, querys], () => http.get(url, {
+export function useAPIGetNews(querys: INewsQuery) {
+  const url = API_PATH.GET_NEWS;
+  return useSWR<IPageData<INews>>([url, querys], () => http.get(url, {
     params: {
       ...querys,
       publish: PUBLISHED.PUBLISHED
@@ -44,8 +44,8 @@ export function useAPIGetNews(querys: IArticleQuery) {
   }))
 }
 
-export function useAPIGetNewsInfinete(querys: IArticleQuery) {
-  const url = API_PATH.GET_ARITCLES;
+export function useAPIGetNewsInfinete(querys: INewsQuery) {
+  const url = API_PATH.GET_NEWS;
   return useSWRInfinite((index, previousPageData) => {    
     if (previousPageData && previousPageData.length < querys.pageSize) return null
     return  `${url}?${queryStrings({
@@ -54,7 +54,7 @@ export function useAPIGetNewsInfinete(querys: IArticleQuery) {
       publish: PUBLISHED.PUBLISHED
     })}`
   }, async (url: string) => {
-    const res = await http.get(url) as IPageData<IArticle>
+    const res = await http.get(url) as IPageData<INews>
     return res.list
   }, {
     revalidateFirstPage: false

@@ -1,12 +1,13 @@
 "use client";
-import { Spin } from "@/components/Spin";
 import { useAPIGetNews } from "../api";
-import { IArticle } from "../types";
-import { ArticleCard, ArticleCardLatest } from "./article-card";
+import { INews } from "../types";
+import { NewsCard, NewsCardLatest } from "./news-card";
 import { Empty } from "@/components/Empty";
+import { NewsSkeletonList } from "../skeleton";
+import { useIsMobile } from "@/hooks";
 
 export function LatestNews() {
-  const { data: { list = [], total = 0 } = {}, isLoading } = useAPIGetNews({
+  const { data: { list = [] } = {}, isLoading } = useAPIGetNews({
     current: 1,
     pageSize: 3,
   });
@@ -14,12 +15,14 @@ export function LatestNews() {
   return (
     <div>
       <h2 className="font-semibold text-lg">Latest</h2>
-      {isLoading ? <Spin /> : <ArticleList list={list} />}
+      {isLoading ? <NewsSkeletonList /> : <ArticleList list={list} />}
     </div>
   );
 }
 
-function ArticleList({ list }: { list: IArticle[] }) {
+function ArticleList({ list }: { list: INews[] }) {
+  const isMobile = useIsMobile();
+  const linkTarget = isMobile ? "__self" : "__blank";
   if (list.length === 0) {
     return <Empty />;
   }
@@ -27,7 +30,7 @@ function ArticleList({ list }: { list: IArticle[] }) {
     const [item] = list;
     return (
       <div className="grid grid-cols-1">
-        <ArticleCardLatest key={item.id} item={item} />
+        <NewsCardLatest linkTarget={linkTarget} key={item.id} item={item} />
       </div>
     );
   }
@@ -40,15 +43,23 @@ function ArticleList({ list }: { list: IArticle[] }) {
           gridTemplateColumns: "2fr 1fr",
         }}
       >
-        <ArticleCardLatest key={firstArticle.id} item={firstArticle} />
-        <ArticleCard key={sencodeArticle.id} item={sencodeArticle} />
+        <NewsCardLatest
+          linkTarget={linkTarget}
+          key={firstArticle.id}
+          item={firstArticle}
+        />
+        <NewsCard
+          linkTarget={linkTarget}
+          key={sencodeArticle.id}
+          item={sencodeArticle}
+        />
       </div>
     );
   }
   return (
     <div className="grid grid-cols-3 gap-3">
       {list.map((item) => (
-        <ArticleCard key={item.id} item={item} />
+        <NewsCard linkTarget={linkTarget} key={item.id} item={item} />
       ))}
     </div>
   );

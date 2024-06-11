@@ -7,9 +7,9 @@ import {
   HTMLAttributes,
   memo,
 } from "react";
-import { isMobile } from "@/lib";
 import playicon from "../assets/play.svg";
 import NextImage, { StaticImageData } from "next/image";
+import { useIsMobile } from "@/hooks";
 
 export interface IVideo {
   src: string;
@@ -86,7 +86,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
   const [isPlaying, setPlaying] = useState<boolean>();
   const [enter, setEnter] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const mobile = isMobile();
+  const mobile = useIsMobile();
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);

@@ -1,31 +1,29 @@
 "use client";
-import { Spin } from "@/components/Spin";
 import { useAPIGetNews } from "../api";
-import { ARTICLE_TYPE_NAME } from "../constants";
-import { ChevronRight, Eye } from "lucide-react";
+import { NEWS_TYPE_NAME } from "../constants";
+import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { ArticleList } from "./article-card";
+import { NewsList } from "./news-card";
+import { NewsSkeletonList } from "../skeleton";
 
-const ARTICLE_TYPE_LIST = Object.entries(ARTICLE_TYPE_NAME).map(
-  ([id, name]) => {
-    return {
-      id: +id,
-      name,
-    };
-  }
-);
+const NEWS_TYPE_LIST = Object.entries(NEWS_TYPE_NAME).map(([id, name]) => {
+  return {
+    id: +id,
+    name,
+  };
+});
 
-export function SubArticles() {
+export function SubTypeNews() {
   return (
     <div>
-      {ARTICLE_TYPE_LIST.map((item) => {
-        return <SubArticlesItem key={item.id} id={item.id} name={item.name} />;
+      {NEWS_TYPE_LIST.map((item) => {
+        return <SubTypeNewsItem key={item.id} id={item.id} name={item.name} />;
       })}
     </div>
   );
 }
 
-function SubArticlesItem({ id, name }: { id: number; name: string }) {
+function SubTypeNewsItem({ id, name }: { id: number; name: string }) {
   const { data: { list = [], total = 0 } = {}, isLoading } = useAPIGetNews({
     current: 1,
     pageSize: 3,
@@ -45,7 +43,7 @@ function SubArticlesItem({ id, name }: { id: number; name: string }) {
         {name}
         <ChevronRight size={18} className="text-main" />
       </h2>
-      {isLoading ? <Spin /> : <ArticleList list={list} />}
+      {isLoading ? <NewsSkeletonList /> : <NewsList list={list} />}
     </div>
   );
 }

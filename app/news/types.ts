@@ -1,6 +1,6 @@
 import { PLATFORM, PUBLISHED } from "./enums";
 
-export interface IArticle {
+export interface INews {
   id: string;
   name: string;
   cover: string;
@@ -24,7 +24,7 @@ export interface IPageData<T> {
   list: T[];
 }
 
-export interface IArticleDetail extends IArticle {
+export interface INewsDetail extends INews {
   author: {
     avatar: string
     id: number
@@ -33,7 +33,7 @@ export interface IArticleDetail extends IArticle {
   }
 }
 
-export interface IArticleQuery {
+export interface INewsQuery {
   current: number;
   pageSize: number;
   keyword?: string;

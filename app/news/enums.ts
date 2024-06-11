@@ -8,7 +8,7 @@ export enum PLATFORM {
   BGA
 }
 
-export enum ARTICLE_TYPE {
+export enum NEWS_TYPE {
   BYBIT_BGA = 1,
   RREAL_TALK_CASE_STUDY = 2,
   BGA_WEEKLY_PROGRESS_PULSE = 3,

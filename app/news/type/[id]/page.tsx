@@ -1,18 +1,18 @@
 "use client";
 import { ChevronLeft } from "lucide-react";
-import { ARTICLE_TYPE_NAME, PAGE_SIZE } from "../../constants";
+import { NEWS_TYPE_NAME, PAGE_SIZE } from "../../constants";
 import { useAPIGetNewsInfinete } from "../../api";
 import { Spin } from "@/components/Spin";
-import { ArticleList } from "../../main/article-card";
+import { NewsList } from "../../main/news-card";
 import { useRouter } from "next/navigation";
 import { ROUTER_PATH } from "@/constants";
 import { useEffect, useRef } from "react";
 import { LoadingMore } from "@/components/Loading";
 
-export default function TypePage({ params }: { params: { id: string } }) {
+export default function SubTypePage({ params }: { params: { id: string } }) {
   const { id } = params;
   const typeName =
-    ARTICLE_TYPE_NAME[+id as unknown as keyof typeof ARTICLE_TYPE_NAME];
+    NEWS_TYPE_NAME[+id as unknown as keyof typeof NEWS_TYPE_NAME];
 
   const loader = useRef(null);
   const {
@@ -70,7 +70,7 @@ export default function TypePage({ params }: { params: { id: string } }) {
         {typeName}
       </h2>
       {isLoading && <Spin />}
-      {!isLoading && <ArticleList list={list} />}
+      {!isLoading && <NewsList list={list} />}
       {isLoadingMore && !isReachingEnd && <LoadingMore />}
       <div ref={loader} />
     </div>

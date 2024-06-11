@@ -6,7 +6,7 @@ import {
   useRef,
 } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { isMobile } from "@/lib";
+import { useIsMobile } from "@/hooks";
 
 export const Dialogs = ({
   open,
@@ -18,7 +18,7 @@ export const Dialogs = ({
   children: ReactNode;
 }) => {
   const cancelButtonRef = useRef(null);
-  const mobile = isMobile();
+  const mobile = useIsMobile();
 
   return (
     <Transition.Root show={open} as={Fragment}>

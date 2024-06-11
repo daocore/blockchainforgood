@@ -1,12 +1,12 @@
 import { useContext, useEffect, useRef } from "react";
 import { TopicContext } from "../context";
 import { useAPIGetNewsInfinete } from "../api";
-import { Spin } from "@/components/Spin";
-import { ArticleList } from "./article-card";
+import { NewsList } from "./news-card";
 import { PAGE_SIZE } from "../constants";
 import { LoadingMore } from "@/components/Loading";
+import { NewsSkeletonList } from "../skeleton";
 
-export function TopicFilterList() {
+export function TopicFilterNews() {
   const { activeTopic } = useContext(TopicContext)!;
 
   const loader = useRef(null);
@@ -45,11 +45,11 @@ export function TopicFilterList() {
   }, [isLoading]);
 
   if (isLoading) {
-    return <Spin />;
+    return <NewsSkeletonList />;
   }
   return (
     <div>
-      <ArticleList list={list} />
+      <NewsList list={list} />
       {isLoadingMore && !isReachingEnd && <LoadingMore />}
       <div ref={loader} />
     </div>

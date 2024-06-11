@@ -9,12 +9,12 @@ import { Videos } from "./Video";
 import { CustomVideoPlayer, IVideo } from "@/components/Video";
 import { DialogsWithFooterAndTitle } from "@/components/Dialog";
 import posterMax from "@/assets/video/1713084084649.jpg";
-import { isMobile } from "@/lib";
 import playicon from "@/assets/play.svg";
 // import sensors from "sa-sdk-javascript";
 import { useRouter } from "next/navigation";
 import Image, { StaticImageData } from "next/image";
 import { ROUTER_PATH } from "@/constants";
+import { useIsMobile } from "@/hooks";
 
 export const JoinUs = ({ text, link }: { text?: string; link: string }) => {
   const router = useRouter();
@@ -44,7 +44,7 @@ const LogoDialog = ({
 } & HTMLAttributes<HTMLImageElement>) => {
   const { logo, video, link, name } = project;
   const [isOpen, setIsOpen] = useState(false);
-  const mobile = isMobile();
+  const mobile = useIsMobile();
   const w = 1000;
 
   return (
