@@ -32,7 +32,7 @@ export function ArticleCard({
   linkTarget,
 }: {
   item: IArticle;
-  linkTarget: HTMLAttributeAnchorTarget;
+  linkTarget?: HTMLAttributeAnchorTarget;
 }) {
   const { cover, intro, views, updateDate, name, tags } = item;
   return (
@@ -70,7 +70,7 @@ export function ArticleCardLatest({
   linkTarget,
 }: {
   item: IArticle;
-  linkTarget: HTMLAttributeAnchorTarget;
+  linkTarget?: HTMLAttributeAnchorTarget;
 }) {
   const { cover, intro, views, content, name, tags } = item;
   const { updateDate } = content;
