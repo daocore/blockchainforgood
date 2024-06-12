@@ -7,10 +7,11 @@ import { HowJoin } from "./HowJoin";
 import { Contact } from "./Contact";
 import { FAQ } from "./FAQ";
 import { useEffect } from "react";
-import { trackSensors } from "@/lib/sensors";
+import { initSensors, trackSensors } from "@/lib/sensors";
 
 export default function Home() {
   useEffect(() => {
+    initSensors();
     trackSensors("$pageview", {});
   }, []);
 
