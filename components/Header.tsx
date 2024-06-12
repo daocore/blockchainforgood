@@ -57,8 +57,8 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="w-full px-4 md:px-0 z-50 sticky top-0 bg-white border-b border-black">
-      <div className="py-3 md:py-4 justify-between items-center flex md:w-content m-auto">
+    <header className="w-full box-border px-4 md:px-0 z-50 sticky top-0 bg-white border-b border-black">
+      <div className="py-3 md:py-4 justify-between items-center flex w-full md:w-content m-auto">
         <Link href="/" className="flex items-center gap-2 cursor-pointer">
           <svg
             width="89"
