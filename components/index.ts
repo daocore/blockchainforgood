@@ -1,4 +1,3 @@
-export * from './Spin'
 export * from './Pagination'
 export * from './Header'
 export * from './Footer'
