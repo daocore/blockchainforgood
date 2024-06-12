@@ -2,12 +2,13 @@
 
 import { IMAGE_URL } from "@/constants";
 import { INews } from "../types";
-import { postDate } from "@/lib";
+import { cn, postDate } from "@/lib";
 import { Eye } from "lucide-react";
 import Link from "next/link";
 import { Empty } from "@/components/Empty";
 import { useIsMobile } from "@/hooks";
 import { HTMLAttributeAnchorTarget } from "react";
+import { NEWS_TYPE_NAME } from "../constants";
 
 export function NewsList({ list }: { list: INews[] }) {
   const isMobile = useIsMobile();
@@ -18,7 +19,7 @@ export function NewsList({ list }: { list: INews[] }) {
   }
   return (
     <div>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {list.map((item) => (
           <NewsCard linkTarget={linkTarget} key={item.id} item={item} />
         ))}
@@ -30,30 +31,35 @@ export function NewsList({ list }: { list: INews[] }) {
 export function NewsCard({
   item,
   linkTarget,
+  className,
 }: {
   item: INews;
   linkTarget?: HTMLAttributeAnchorTarget;
+  className?: string;
 }) {
-  const { cover, intro, views, updateDate, name, tags } = item;
+  const { cover, intro, views, updateDate, name, type } = item;
   return (
     <Link
       target={linkTarget}
       href={`/news/detail/${item.id}`}
-      className="p-2 bg-white cursor-pointer"
+      className={cn(
+        "p-3 bg-white cursor-pointer inline-flex flex-col justify-between gap-4 w-full max-w-[100vw]",
+        className
+      )}
     >
       <img
-        className="w-full aspect-video"
+        className="w-full aspect-video flex-initial"
         src={`${IMAGE_URL}${cover}`}
         alt={name}
       />
-      <p className="text-xs my-3 flex gap-2">
-        {tags.map((tag) => (
-          <span key={tag.id}>{tag.name}</span>
-        ))}
-      </p>
-      <h4 className="line-clamp-2 font-bold leading-snug">{name}</h4>
-      <p className="line-clamp-2 text-xs leading-normal">{intro}</p>
-      <p className="flex items-center gap-4 text-xs mt-3 opacity-80">
+      <div className="flex-auto flex flex-col justify-start">
+        <p className="text-newsTag text-xs font-semibold mb-2">
+          {NEWS_TYPE_NAME[type]?.toUpperCase()}
+        </p>
+        <h4 className="line-clamp-2 font-bold leading-snug">{name}</h4>
+        <p className="line-clamp-2 text-xs leading-normal">{intro}</p>
+      </div>
+      <p className="flex-initial flex items-center gap-4 text-xs opacity-60">
         <span>{postDate(updateDate)}</span>
         <span className="inline-flex items-center gap-1">
           <Eye size={16} />
@@ -72,13 +78,13 @@ export function NewsCardLatest({
   item: INews;
   linkTarget: HTMLAttributeAnchorTarget;
 }) {
-  const { cover, intro, views, content, name, tags } = item;
+  const { cover, intro, views, content, name, type } = item;
   const { updateDate } = content;
   return (
     <Link
       target={linkTarget}
       href={`/news/detail/${item.id}`}
-      className="p-2 bg-white flex gap-3"
+      className="p-3 bg-white gap-3 hidden md:flex"
     >
       <img
         className="w-2/3 aspect-video"
@@ -86,13 +92,14 @@ export function NewsCardLatest({
         alt={name}
       />
       <div className="w-1/3">
-        <p className="text-xs mb-3 flex gap-2">
-          {tags.map((tag) => (
-            <span key={tag.id}>{tag.name}</span>
-          ))}
-        </p>
-        <h4 className="line-clamp-2 font-bold leading-snug">{name}</h4>
-        <p className="line-clamp-2 text-xs leading-normal">{intro}</p>
+        <div>
+          <p className="text-newsTag text-xs font-semibold mb-2">
+            {NEWS_TYPE_NAME[type]?.toUpperCase()}
+          </p>
+          <h4 className="line-clamp-2 font-bold leading-snug">{name}</h4>
+          <p className="line-clamp-4 text-xs leading-normal">{intro}</p>
+        </div>
+
         <p className="flex items-center gap-4 text-xs mt-3 opacity-80">
           <span>{postDate(updateDate)}</span>
           <span className="inline-flex items-center gap-1">

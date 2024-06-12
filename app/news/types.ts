@@ -1,4 +1,4 @@
-import { PLATFORM, PUBLISHED } from "./enums";
+import { NEWS_TYPE, PLATFORM, PUBLISHED } from "./enums";
 
 export interface INews {
   id: string;
@@ -7,7 +7,7 @@ export interface INews {
   updateDate: string;
   intro: string;
   publish: PUBLISHED.DRAFT | PUBLISHED.PUBLISHED;
-  type: number
+  type: NEWS_TYPE.BGA_WEEKLY_PROGRESS_PULSE | NEWS_TYPE.BYBIT_BGA | NEWS_TYPE.RREAL_TALK_CASE_STUDY;
   platform: PLATFORM.MOLEDAO | PLATFORM.BGA
   views: number
   tags: ITopic[]

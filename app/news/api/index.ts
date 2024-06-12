@@ -23,14 +23,18 @@ export function useAPIGetNewsDetail(id: string) {
     params: {
       id,
     },
-  }))
+  }),{
+    errorRetryCount: 2,
+  })
 }
 
 export function useAPIGetTopics(querys: ITopicQuery = { current: 1, pageSize: 100 , categoryName: 'BGA' }) {
   const url = API_PATH.GET_TOPICS
   return useSWR<IPageData<ITopic>>([url, querys], () => http.get(API_PATH.GET_TOPICS, {
     params: querys,
-  }))
+  }), {
+    errorRetryCount: 2,
+  })
 }
 
 
@@ -41,7 +45,9 @@ export function useAPIGetNews(querys: INewsQuery) {
       ...querys,
       publish: PUBLISHED.PUBLISHED
     },
-  }))
+  }),{
+    errorRetryCount: 2,
+  })
 }
 
 export function useAPIGetNewsInfinete(querys: INewsQuery) {

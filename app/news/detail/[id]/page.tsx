@@ -6,6 +6,8 @@ import { ChevronLeft } from "lucide-react";
 import { IMAGE_URL } from "@/constants";
 import { useIsMobile } from "@/hooks";
 import { NewsDetailSkeleton } from "../../skeleton";
+import { NEWS_TYPE_NAME } from "../../constants";
+import Link from "next/link";
 
 export default function Detail({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -28,11 +30,11 @@ export default function Detail({ params }: { params: { id: string } }) {
     name,
     content: { content, updateDate },
     author,
-    tags,
+    type,
   } = data!;
 
   return (
-    <div className="w-content mx-auto">
+    <div className="w-full md:w-content mx-auto">
       {isMobile && (
         <div>
           <span
@@ -45,8 +47,8 @@ export default function Detail({ params }: { params: { id: string } }) {
         </div>
       )}
 
-      <div className="w-page mx-auto">
-        <div className="flex">
+      <div className="w-full md:w-page mx-auto">
+        <Link href={author.link} target="_blank" className="flex">
           <img
             src={`${IMAGE_URL}${author.avatar}`}
             alt={author.name}
@@ -58,17 +60,12 @@ export default function Detail({ params }: { params: { id: string } }) {
               {publishDate(updateDate)}
             </span>
           </div>
-        </div>
+        </Link>
         <h1 className="text-text font-bold text-2xl my-3">{name}</h1>
         <div className="flex gap-2 mb-2">
-          {tags.map((tag) => (
-            <span
-              key={tag.id}
-              className="text-xs text-turqoise px-2 py-0.5 border-turqoise border"
-            >
-              {tag.name}
-            </span>
-          ))}
+          <span className="text-xs text-turqoise px-2 py-0.5 border-turqoise border">
+            {NEWS_TYPE_NAME[type]?.toUpperCase()}
+          </span>
         </div>
         <div
           className="content"

@@ -8,8 +8,8 @@ import { ROUTER_PATH } from "@/constants";
 export function Header() {
   return (
     <header className="bg-white relative">
-      <div className="flex justify-between items-center w-content mx-auto py-2 h-10">
-        <h2 className="font-bold text-xl">
+      <div className="flex justify-between items-center w-full md:w-content mx-auto py-4 h-14">
+        <h2 className="w-full font-bold text-3xl text-center md:text-left">
           <Link href={ROUTER_PATH.NEWS.ROOT}>BGA NEWS</Link>
         </h2>
         <Search />
