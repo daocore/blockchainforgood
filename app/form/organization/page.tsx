@@ -14,7 +14,7 @@ const OrgForm = () => {
   useEffect(() => {
     const isProduction = window?.location?.href?.includes(PRODUCTION_DOMAIN);
     const isBeta = window?.location?.href?.includes(BETA_DOMAIN);
-    const devUrl = isBeta ? BETA_URL : LOCAL_URL;
+    const devUrl = !isBeta ? BETA_URL : LOCAL_URL;
 
     setOrganizationalChannel(
       isProduction

@@ -8,6 +8,7 @@ import { useIsMobile } from "@/hooks";
 import { NewsDetailSkeleton } from "../../skeleton";
 import { NEWS_TYPE_NAME } from "../../constants";
 import Link from "next/link";
+import 'braft-editor/dist/output.css'
 
 export default function Detail({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -74,7 +75,7 @@ export default function Detail({ params }: { params: { id: string } }) {
           </span>
         </div>
         <div
-          className="content"
+          className="content braft-output-content"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>

@@ -358,3 +358,11 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.braft-output-content img,
+.braft-output-content audio,
+.braft-output-content video {
+  max-width: 100% !important;
+  height: auto;
+  margin: auto !important;
+}
