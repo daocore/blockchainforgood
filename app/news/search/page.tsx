@@ -66,7 +66,7 @@ export default function SearchPage() {
 
   const isEmpty = list.length === 0;
   return (
-    <div className="w-content mx-auto">
+    <div className="w-full md:w-content mx-auto">
       <div>
         <span
           className="text-xs inline-flex cursor-pointer"

@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      gridTemplateColumns: {
+        '2/1': '2fr 1fr'
+      },
       backgroundImage: {
         video: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 51.72%, rgba(0, 0, 0, 0.75) 104.14%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.26) 22.41%, rgba(0, 0, 0, 0.00) 34.48%);`,
         videoHover: "linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);"
@@ -33,6 +36,7 @@ const config = {
       },
       colors: {
         main: "#00d5bf",
+        newsTag: "#7D8CA3",
         turqoise: "#00d5bf",
         // text: "#283344",
         border: "hsl(var(--border))",

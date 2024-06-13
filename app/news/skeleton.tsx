@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export function NewsSkeletonList() {
   return (
-    <div className="grid grid-cols-3 gap-3">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
       <NewsSkeleton />
       <NewsSkeleton />
       <NewsSkeleton />
@@ -26,7 +26,7 @@ function NewsSkeleton() {
 export function TopicSkeleton() {
   const list = Array.from({ length: 10 }, (_, i) => i);
   return (
-    <div className="flex gap-2">
+    <div className="hidden md:flex gap-2">
       {list.map((i) => (
         <Skeleton key={i} className="h-6 w-12 rounded-full" />
       ))}
@@ -36,7 +36,7 @@ export function TopicSkeleton() {
 
 export function NewsDetailSkeleton() {
   return (
-    <div>
+    <div className="w-full md:w-page mx-auto">
       <div className="flex items-center space-x-4 mb-4">
         <Skeleton className="h-12 w-12 rounded-full" />
         <div className="space-y-2">

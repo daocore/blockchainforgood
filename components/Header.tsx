@@ -43,6 +43,8 @@ export const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
 
+  const isHomePage = pathname === ROUTER_PATH.HOME;
+
   useEffect(() => {
     if (!document?.getElementById) return;
     document?.addEventListener("scroll", () => {
@@ -57,9 +59,12 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="w-full px-4 md:px-0 z-50 sticky top-0 bg-white border-b border-black">
-      <div className="py-3 md:py-4 justify-between items-center flex md:w-content m-auto">
-        <Link href="/" className="flex items-center gap-2 cursor-pointer">
+    <header className="w-full h-12 md:h-auto box-border px-4 md:px-0 z-40 sticky top-0 bg-white border-b border-black">
+      <div className="py-3 justify-between items-center flex w-full md:w-content m-auto">
+        <Link
+          href={ROUTER_PATH.HOME}
+          className="flex items-center gap-2 cursor-pointer"
+        >
           <svg
             width="89"
             height="24"
@@ -212,27 +217,34 @@ export const Header = () => {
             </div>
           </div>
         )} */}
-        <div className="justify-end items-start gap-2 md:gap-1 flex">
-          {menuNavs?.map((nav) => (
-            <div
-              key={nav.name}
-              className={cn(
-                "justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6",
-                (nav.route === ROUTER_PATH.HOME
-                  ? pathname === nav.route
-                  : pathname!.startsWith(nav.route)) && "border-b-main"
-              )}
-            >
-              <nav
-                className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer"
-                onClick={() => {
-                  router.push(nav.route);
-                }}
+        <div>
+          <div
+            className={cn(
+              isHomePage ? "flex" : "hidden md:flex",
+              "justify-end items-start gap-2 md:gap-1"
+            )}
+          >
+            {menuNavs?.map((nav) => (
+              <div
+                key={nav.name}
+                className={cn(
+                  "justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6",
+                  (nav.route === ROUTER_PATH.HOME
+                    ? pathname === nav.route
+                    : pathname!.startsWith(nav.route)) && "border-b-main"
+                )}
               >
-                {nav.name}
-              </nav>
-            </div>
-          ))}
+                <nav
+                  className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer"
+                  onClick={() => {
+                    router.push(nav.route);
+                  }}
+                >
+                  {nav.name}
+                </nav>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </header>

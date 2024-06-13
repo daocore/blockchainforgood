@@ -35,10 +35,10 @@ function SubTypeNewsItem({ id, name }: { id: number; name: string }) {
     router.push(`/news/type/${id}`);
   };
   return (
-    <div className="mt-3">
+    <div className="mt-6">
       <h2
         onClick={onShowAllSubArticles}
-        className="font-semibold text-lg cursor-pointer flex items-center mb-3"
+        className="font-bold text-2xl cursor-pointer flex items-center mb-3"
       >
         {name}
         <ChevronRight size={18} className="text-main" />
