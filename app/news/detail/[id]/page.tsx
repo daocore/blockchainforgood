@@ -75,7 +75,7 @@ export default function Detail({ params }: { params: { id: string } }) {
           </span>
         </div>
         <div
-          className="content braft-output-content bg-white p-4"
+          className="content braft-output-content"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
