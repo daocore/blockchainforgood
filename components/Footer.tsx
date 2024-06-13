@@ -14,7 +14,7 @@ export const Footer = () => {
   }
 
   return (
-    <footer className="w-full h-[197px] py-8 bg-zinc-300 flex justify-center items-center mt-4">
+    <footer className="w-full h-[197px] py-8 bg-zinc-300 flex justify-center items-center">
       <div className="w-full md:w-content flex-col justify-start items-start gap-8 inline-flex px-4 md:px-0">
         <div className="flex-col justify-start items-start gap-4 flex w-full">
           <Image

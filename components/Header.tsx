@@ -59,7 +59,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="w-full h-12 md:h-auto box-border px-4 md:px-0 z-40 sticky top-0 bg-white border-b border-black">
+    <header className="w-full h-12 md:h-[64px] box-border px-4 md:px-0 z-40 sticky top-0 bg-white border-b border-black">
       <div className="py-3 justify-between items-center flex w-full md:w-content m-auto">
         <Link
           href={ROUTER_PATH.HOME}
@@ -228,10 +228,10 @@ export const Header = () => {
               <div
                 key={nav.name}
                 className={cn(
-                  "justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6",
+                  "justify-center items-center gap-2.5 flex hover:text-main py-2 px-2 md:px-6",
                   (nav.route === ROUTER_PATH.HOME
                     ? pathname === nav.route
-                    : pathname!.startsWith(nav.route)) && "border-b-main"
+                    : pathname!.startsWith(nav.route)) && "text-main"
                 )}
               >
                 <nav

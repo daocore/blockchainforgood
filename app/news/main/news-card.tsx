@@ -1,6 +1,6 @@
 "use client";
 
-import { IMAGE_URL } from "@/constants";
+import { IMAGE_URL, ROUTER_PATH } from "@/constants";
 import { INews } from "../types";
 import { cn, postDate } from "@/lib";
 import { Eye } from "lucide-react";
@@ -19,7 +19,7 @@ export function NewsList({ list }: { list: INews[] }) {
   }
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {list.map((item) => (
           <NewsCard linkTarget={linkTarget} key={item.id} item={item} />
         ))}
@@ -41,9 +41,9 @@ export function NewsCard({
   return (
     <Link
       target={linkTarget}
-      href={`/news/detail/${item.id}`}
+      href={`${ROUTER_PATH.NEWS.DETAIL}${item.id}`}
       className={cn(
-        "p-3 bg-white cursor-pointer inline-flex flex-col justify-between gap-4 w-full max-w-[100vw]",
+        "p-4 bg-halfWhite cursor-pointer inline-flex flex-col justify-between gap-4 w-full max-w-[100vw]",
         className
       )}
     >
@@ -56,10 +56,10 @@ export function NewsCard({
         <p className="text-newsTag text-xs font-semibold mb-2">
           {NEWS_TYPE_NAME[type]?.toUpperCase()}
         </p>
-        <h4 className="line-clamp-2 font-bold leading-snug">{name}</h4>
-        <p className="line-clamp-2 text-xs leading-normal">{intro}</p>
+        <h4 className="line-clamp-2 font-bold">{name}</h4>
+        <p className="line-clamp-2 text-xs text-typography">{intro}</p>
       </div>
-      <p className="flex-initial flex items-center gap-4 text-xs opacity-60">
+      <p className="flex-initial flex items-center gap-4 text-xs text-decsription">
         <span>{postDate(updateDate)}</span>
         <span className="inline-flex items-center gap-1">
           <Eye size={16} />
@@ -83,8 +83,8 @@ export function NewsCardLatest({
   return (
     <Link
       target={linkTarget}
-      href={`/news/detail/${item.id}`}
-      className="p-3 bg-white gap-3 hidden md:flex"
+      href={`${ROUTER_PATH.NEWS.DETAIL}${item.id}`}
+      className="p-4 bg-halfWhite gap-3 hidden md:flex"
     >
       <img
         className="w-2/3 aspect-video"
