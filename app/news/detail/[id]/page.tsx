@@ -6,6 +6,7 @@ import { ChevronLeft } from "lucide-react";
 import { IMAGE_URL } from "@/constants";
 import { useIsMobile } from "@/hooks";
 import { NewsDetailSkeleton } from "../../skeleton";
+import 'braft-editor/dist/index.css'
 
 export default function Detail({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -71,7 +72,7 @@ export default function Detail({ params }: { params: { id: string } }) {
           ))}
         </div>
         <div
-          className="content"
+          className="content braft-output-content"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
