@@ -6,13 +6,22 @@ import { useRouter } from "next/navigation";
 import { NewsList } from "./news-card";
 import { NewsSkeletonList } from "../skeleton";
 import { ROUTER_PATH } from "@/constants";
+import { NEWS_TYPE } from "../enums";
 
-const NEWS_TYPE_LIST = Object.entries(NEWS_TYPE_NAME).map(([id, name]) => {
-  return {
-    id: +id,
-    name,
-  };
-});
+const NEWS_TYPE_LIST = [
+  {
+    id: NEWS_TYPE.RREAL_TALK_CASE_STUDY,
+    name: NEWS_TYPE_NAME[NEWS_TYPE.RREAL_TALK_CASE_STUDY],
+  },
+  {
+    id: NEWS_TYPE.BGA_WEEKLY_PROGRESS_PULSE,
+    name: NEWS_TYPE_NAME[NEWS_TYPE.BGA_WEEKLY_PROGRESS_PULSE],
+  },
+  { id: NEWS_TYPE.BFG_BGA, name: NEWS_TYPE_NAME[NEWS_TYPE.BFG_BGA] },
+  { id: NEWS_TYPE.BYBIT_BGA, name: NEWS_TYPE_NAME[NEWS_TYPE.BYBIT_BGA] },
+];
+
+console.log(NEWS_TYPE_LIST);
 
 export function SubTypeNews() {
   return (
