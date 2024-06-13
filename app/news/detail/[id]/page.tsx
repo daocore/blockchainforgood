@@ -8,7 +8,7 @@ import { useIsMobile } from "@/hooks";
 import { NewsDetailSkeleton } from "../../skeleton";
 import { NEWS_TYPE_NAME } from "../../constants";
 import Link from "next/link";
-import 'braft-editor/dist/output.css'
+import "braft-editor/dist/output.css";
 
 export default function Detail({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -49,23 +49,25 @@ export default function Detail({ params }: { params: { id: string } }) {
       )}
 
       <div className={cn("w-full md:w-page mx-auto", !isMobile && "mt-12")}>
-        <Link
-          href={author.link}
-          target="_blank"
-          className="flex hover:text-main"
-        >
+        <div className="flex">
           <img
             src={`${IMAGE_URL}${author.avatar}`}
             alt={author.name}
             className="w-11 h-11 rounded-full"
           />
           <div className="ml-2 flex flex-col justify-between">
-            <span className="font-bold text-black">{author.name}</span>
+            <Link
+              href={author.link}
+              target="_blank"
+              className="font-bold text-black hover:text-main"
+            >
+              {author.name}
+            </Link>
             <span className="text-description text-xs opacity-70">
               {publishDate(updateDate)}
             </span>
           </div>
-        </Link>
+        </div>
         <h1 className="text-black font-bold text-3xl my-4 leading-snug">
           {name}
         </h1>

@@ -16,7 +16,9 @@ export default function Layout({
   return (
     <div className="w-full mx-auto">
       <Header />
-      <main className={cn("p-4", isNewsDetail && "bg-white")}>{children}</main>
+      <main className={cn("p-4 pb-8 md:pb-16", isNewsDetail && "bg-white")}>
+        {children}
+      </main>
     </div>
   );
 }
