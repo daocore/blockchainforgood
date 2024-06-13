@@ -14,7 +14,7 @@ export function LatestNews() {
   });
 
   return (
-    <div className="mt-3 md:mt-6">
+    <div className="mt-4 md:mt-8">
       <h2 className="font-bold text-2xl mb-3">Latest</h2>
       {isLoading ? <NewsSkeletonList /> : <LatestNewsList list={list} />}
     </div>
@@ -34,7 +34,7 @@ function LatestNewsList({ list }: { list: INews[] }) {
     const [firstArticle, sencodeArticle] = list;
     return (
       <div
-        className="grid gap-3 grid-cols-1 md:grid-cols-2/1"
+        className="grid gap-6 grid-cols-1 md:grid-cols-2/1"
         // style={{
         //   gridTemplateColumns: isMobile ? "1fr" : "2fr 1fr",
         // }}

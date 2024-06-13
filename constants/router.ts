@@ -7,5 +7,8 @@ export const ROUTER_PATH = {
   },
   NEWS: {
     ROOT: '/news',
+    DETAIL: '/news/detail/',
+    SEARCH: '/news/search',
+    TYPE: '/news/type/'
   }
 }

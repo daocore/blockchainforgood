@@ -1,6 +1,7 @@
 "use client";
 
 import { Input } from "@/components/Input";
+import { ROUTER_PATH } from "@/constants";
 import { SearchIcon, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
@@ -23,7 +24,7 @@ export function Search() {
     if (e.key === "Enter") {
       const searchValue = (e.target as HTMLInputElement).value;
       if (searchValue === "") return;
-      router.push(`/news/search?q=${searchValue}`);
+      router.push(`${ROUTER_PATH.NEWS.SEARCH}?q=${searchValue}`);
       onCloseSearch();
     }
   };

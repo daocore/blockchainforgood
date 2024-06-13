@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { NewsList } from "./news-card";
 import { NewsSkeletonList } from "../skeleton";
+import { ROUTER_PATH } from "@/constants";
 
 const NEWS_TYPE_LIST = Object.entries(NEWS_TYPE_NAME).map(([id, name]) => {
   return {
@@ -24,7 +25,7 @@ export function SubTypeNews() {
 }
 
 function SubTypeNewsItem({ id, name }: { id: number; name: string }) {
-  const { data: { list = [], total = 0 } = {}, isLoading } = useAPIGetNews({
+  const { data: { list = [] } = {}, isLoading } = useAPIGetNews({
     current: 1,
     pageSize: 3,
     type: id,
@@ -32,10 +33,10 @@ function SubTypeNewsItem({ id, name }: { id: number; name: string }) {
 
   const router = useRouter();
   const onShowAllSubArticles = () => {
-    router.push(`/news/type/${id}`);
+    router.push(`${ROUTER_PATH.NEWS.TYPE}${id}`);
   };
   return (
-    <div className="mt-6">
+    <div className="mt-8">
       <h2
         onClick={onShowAllSubArticles}
         className="font-bold text-2xl cursor-pointer flex items-center mb-3"

@@ -9,7 +9,7 @@ export const Contact = () => {
   return (
     <div
       id="contact"
-      className="items-start justify-between gap-6 inline-flex w-full md:w-content m-auto flex-wrap px-4 md:px-0"
+      className="items-start justify-between gap-6 inline-flex w-full md:w-content m-auto flex-wrap px-4 md:px-0 mb-4"
     >
       <div className="flex-col justify-start items-start gap-2 md:gap-8 inline-flex">
         <div className="flex-col justify-start items-start flex">

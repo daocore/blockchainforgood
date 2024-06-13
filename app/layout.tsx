@@ -89,7 +89,7 @@ function RootLayout({
             <Header />
             <div
               // 减去header：72px和footer的高度:197px和1rem的margin
-              className="flex justify-center h-auto grow shrink-0 basis-[calc(100vh - 72px - 197px - 1rem)]"
+              className="flex justify-center flex-auto"
             >
               {children}
             </div>
