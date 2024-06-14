@@ -32,6 +32,7 @@ export default function Detail({ params }: { params: { id: string } }) {
     content: { content, updateDate },
     author,
     type,
+    tags,
   } = data!;
 
   return (
@@ -48,7 +49,7 @@ export default function Detail({ params }: { params: { id: string } }) {
         </div>
       )}
 
-      <div className={cn("w-full md:w-page mx-auto", !isMobile && "mt-12")}>
+      <div className={cn("w-full md:w-page mx-auto")}>
         <div className="flex">
           <img
             src={`${IMAGE_URL}${author.avatar}`}
@@ -80,6 +81,18 @@ export default function Detail({ params }: { params: { id: string } }) {
           className="content braft-output-content"
           dangerouslySetInnerHTML={{ __html: content }}
         />
+        <div className="flex flex-wrap gap-2 mt-8">
+          {tags.map((item) => (
+            <div
+              key={item.id}
+              className={cn(
+                "w-max whitespace-nowrap px-2 cursor-pointer py-1 text-xs rounded-full bg-white box-border border border-black"
+              )}
+            >
+              {item.name}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

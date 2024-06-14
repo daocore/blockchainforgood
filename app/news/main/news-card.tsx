@@ -2,7 +2,7 @@
 
 import { IMAGE_URL, ROUTER_PATH } from "@/constants";
 import { INews } from "../types";
-import { cn, postDate } from "@/lib";
+import { cn, publishDate } from "@/lib";
 import { Eye } from "lucide-react";
 import Link from "next/link";
 import { Empty } from "@/components/Empty";
@@ -25,6 +25,55 @@ export function NewsList({ list }: { list: INews[] }) {
         ))}
       </div>
     </div>
+  );
+}
+
+export function LatestNewsList({ list }: { list: INews[] }) {
+  const isMobile = useIsMobile();
+  const linkTarget = isMobile ? "_self" : "_blank";
+  if (list.length === 0) {
+    return <Empty />;
+  }
+  if (list.length === 1) {
+    return <SpecialNewsList item={list[0]} linkTarget={linkTarget} />;
+  }
+  if (list.length === 2) {
+    const [firstArticle, sencodeArticle] = list;
+    return (
+      <div
+        className="grid gap-6 grid-cols-1 md:grid-cols-2/1"
+        // style={{
+        //   gridTemplateColumns: isMobile ? "1fr" : "2fr 1fr",
+        // }}
+      >
+        <SpecialNewsList
+          linkTarget={linkTarget}
+          key={firstArticle.id}
+          item={firstArticle}
+        />
+        <NewsCard
+          linkTarget={linkTarget}
+          key={sencodeArticle.id}
+          item={sencodeArticle}
+        />
+      </div>
+    );
+  }
+  return <NewsList list={list} />;
+}
+
+function SpecialNewsList({
+  item,
+  linkTarget,
+}: {
+  item: INews;
+  linkTarget: HTMLAttributeAnchorTarget;
+}) {
+  return (
+    <>
+      <NewsCardLatest linkTarget={linkTarget} key={item.id} item={item} />
+      <NewsCard className="md:hidden" linkTarget={linkTarget} item={item} />
+    </>
   );
 }
 
@@ -60,7 +109,7 @@ export function NewsCard({
         <p className="line-clamp-2 text-xs text-typography">{intro}</p>
       </div>
       <p className="flex-initial flex items-center gap-4 text-xs text-decsription">
-        <span>{postDate(updateDate)}</span>
+        <span>{publishDate(updateDate)}</span>
         <span className="inline-flex items-center gap-1">
           <Eye size={16} />
           <span>{views}</span>
@@ -101,7 +150,7 @@ export function NewsCardLatest({
         </div>
 
         <p className="flex items-center gap-4 text-xs mt-3 opacity-80">
-          <span>{postDate(updateDate)}</span>
+          <span>{publishDate(updateDate)}</span>
           <span className="inline-flex items-center gap-1">
             <Eye size={16} />
             <span>{views}</span>

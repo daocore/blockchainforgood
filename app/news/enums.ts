@@ -11,7 +11,7 @@ export enum PLATFORM {
 export enum NEWS_TYPE {
   BYBIT_BGA = 1,
   RREAL_TALK_CASE_STUDY = 2,
-  BGA_WEEKLY_PROGRESS_PULSE = 3,
+  BGA_PROGRESS_PULSE = 3,
   BFG_BGA = 4,
 }
 
