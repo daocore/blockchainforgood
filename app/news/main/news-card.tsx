@@ -12,7 +12,7 @@ import { NEWS_TYPE_NAME } from "../constants";
 
 export function NewsList({ list }: { list: INews[] }) {
   const isMobile = useIsMobile();
-  const linkTarget = isMobile ? "__self" : "__blank";
+  const linkTarget = isMobile ? "_self" : "_blank";
 
   if (list.length === 0) {
     return <Empty />;
