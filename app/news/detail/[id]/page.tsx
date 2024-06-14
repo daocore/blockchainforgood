@@ -49,7 +49,7 @@ export default function Detail({ params }: { params: { id: string } }) {
         </div>
       )}
 
-      <div className={cn("w-full md:w-page mx-auto")}>
+      <div className={cn("w-full md:w-page mx-auto", !isMobile && "mt-12")}>
         <div className="flex">
           <img
             src={`${IMAGE_URL}${author.avatar}`}
