@@ -11,6 +11,12 @@ export const API_PATH = {
   GET_NEWS: "/article/list",
 }
 
+export const SWR_OPTIONS = {
+  errorRetryCount: 2,
+  revalidateIfStale: false,
+  dedupingInterval: 1000 * 60 * 5
+}
+
 
 export const INITIAL_QUERY: INewsQuery = {
   current: 1,
@@ -23,18 +29,14 @@ export function useAPIGetNewsDetail(id: string) {
     params: {
       id,
     },
-  }),{
-    errorRetryCount: 2,
-  })
+  }),SWR_OPTIONS)
 }
 
 export function useAPIGetTopics(querys: ITopicQuery = { current: 1, pageSize: 100 , categoryName: 'BGA' }) {
   const url = API_PATH.GET_TOPICS
   return useSWR<IPageData<ITopic>>([url, querys], () => http.get(API_PATH.GET_TOPICS, {
     params: querys,
-  }), {
-    errorRetryCount: 2,
-  })
+  }), SWR_OPTIONS)
 }
 
 
@@ -45,9 +47,7 @@ export function useAPIGetNews(querys: INewsQuery) {
       ...querys,
       publish: PUBLISHED.PUBLISHED
     },
-  }),{
-    errorRetryCount: 2,
-  })
+  }),SWR_OPTIONS)
 }
 
 export function useAPIGetNewsInfinete(querys: INewsQuery) {
