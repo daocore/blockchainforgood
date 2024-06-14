@@ -3,7 +3,7 @@ import { useAPIGetNews } from "../api";
 import { NEWS_TYPE_NAME } from "../constants";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { NewsList } from "./news-card";
+import { LatestNewsList } from "./news-card";
 import { NewsSkeletonList } from "../skeleton";
 import { ROUTER_PATH } from "@/constants";
 import { NEWS_TYPE } from "../enums";
@@ -14,14 +14,12 @@ const NEWS_TYPE_LIST = [
     name: NEWS_TYPE_NAME[NEWS_TYPE.RREAL_TALK_CASE_STUDY],
   },
   {
-    id: NEWS_TYPE.BGA_WEEKLY_PROGRESS_PULSE,
-    name: NEWS_TYPE_NAME[NEWS_TYPE.BGA_WEEKLY_PROGRESS_PULSE],
+    id: NEWS_TYPE.BGA_PROGRESS_PULSE,
+    name: NEWS_TYPE_NAME[NEWS_TYPE.BGA_PROGRESS_PULSE],
   },
   { id: NEWS_TYPE.BFG_BGA, name: NEWS_TYPE_NAME[NEWS_TYPE.BFG_BGA] },
   { id: NEWS_TYPE.BYBIT_BGA, name: NEWS_TYPE_NAME[NEWS_TYPE.BYBIT_BGA] },
 ];
-
-console.log(NEWS_TYPE_LIST);
 
 export function SubTypeNews() {
   return (
@@ -53,7 +51,7 @@ function SubTypeNewsItem({ id, name }: { id: number; name: string }) {
         {name}
         <ChevronRight size={18} className="text-main" />
       </h2>
-      {isLoading ? <NewsSkeletonList /> : <NewsList list={list} />}
+      {isLoading ? <NewsSkeletonList /> : <LatestNewsList list={list} />}
     </div>
   );
 }
