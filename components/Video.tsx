@@ -316,7 +316,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
       }}
       ref={divRef}
     >
-      {isVisible && mouseEnterEd && <video
+      {(isVisible && mouseEnterEd || mobile) && <video
         ref={videoRef}
         className="m-auto"
         preload="auto"
