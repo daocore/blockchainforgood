@@ -144,7 +144,9 @@ export const Partner = () => {
               className={`splide__slide flex justify-center items-center bg-white mx-1 px-1 cursor-pointer`}
               style={{
                 width: `${logo.width}`,
-                height: `${logo.height}`,
+                maxWidth: "50vw",
+                minHeight: 88,
+                margin: "auto 4px"
               }}
               target="_blank"
               href={logo.href}
