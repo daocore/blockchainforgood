@@ -135,37 +135,44 @@ export const Partner = () => {
   }, [mobile]); // 通过空数组作为依赖项，确保只在组件挂载时执行一次初始化
 
   return (
-    <section className="splide" aria-label="Splide Basic HTML Example">
-      <div className="splide__track">
-        <ul className="splide__list" style={{ height: 88 }}>
-          {logos.map((logo, index) => (
-            <a
-              key={index}
-              className={`splide__slide flex justify-center items-center bg-white mx-1 px-1 cursor-pointer`}
-              style={{
-                width: `${logo.width}`,
-                height: `${logo.height}`,
-              }}
-              target="_blank"
-              href={logo.href}
-              onClick={() => {
-                trackSensors("ButtonClicked", {
-                  buttonName: `Partner ${logo.alt} Logo Button`,
-                });
-              }}
-            >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
+    <div className="overflow-hidden" style={{ maxWidth: "100vw" }}>
+      <section className="splide" aria-label="Splide Basic HTML Example">
+        <div className="splide__track">
+          <ul className="splide__list" style={{ height: 88 }}>
+            {logos.map((logo, index) => (
+              <a
+                key={index}
+                className={`splide__slide flex justify-center items-center bg-white mx-1 px-1 cursor-pointer`}
                 style={{
                   width: `${logo.width}`,
-                  height: `${logo.height}`,
+                  minHeight: 88,
+                  margin: "auto 4px",
+                  ...(mobile ? {
+                    maxWidth: "50vw",
+                    minWidth: "50vw",
+                  } : {})
                 }}
-              />
-            </a>
-          ))}
-        </ul>
-      </div>
-    </section>
+                target="_blank"
+                href={logo.href}
+                onClick={() => {
+                  trackSensors("ButtonClicked", {
+                    buttonName: `Partner ${logo.alt} Logo Button`,
+                  });
+                }}
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  style={{
+                    width: `${logo.width}`,
+                    height: `${logo.height}`,
+                  }}
+                />
+              </a>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </div>
   );
 };
