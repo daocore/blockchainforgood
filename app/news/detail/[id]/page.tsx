@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: IProps): Promise<Metadata> {
 
   return {
     title: name,
+    description: intro,
     twitter: {
       card: "summary_large_image",
       title: name,
