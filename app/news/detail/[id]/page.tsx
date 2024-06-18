@@ -19,6 +19,8 @@ export async function generateMetadata({ params }: IProps): Promise<Metadata> {
 
   const { name, intro, cover } = data;
 
+  const coverImage = `${IMAGE_URL}${cover}`;
+
   return {
     title: name,
     description: intro,
@@ -30,7 +32,7 @@ export async function generateMetadata({ params }: IProps): Promise<Metadata> {
       description: intro,
       images: [
         {
-          url: `${IMAGE_URL}${cover}`,
+          url: coverImage,
           alt: name,
         },
       ],
@@ -38,11 +40,10 @@ export async function generateMetadata({ params }: IProps): Promise<Metadata> {
     openGraph: {
       title: name,
       description: intro,
-      url: "https://www.blockchainforgood.xyz/",
-      siteName: "Blockchain for Good",
+      url: "https://www.blockchainforgood.xyz/news/detail/" + id,
       images: [
         {
-          url: `${IMAGE_URL}${cover}`,
+          url: coverImage,
           alt: name,
         },
       ],
