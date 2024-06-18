@@ -1,24 +1,11 @@
-"use client";
-import { useIsMobile } from "@/hooks";
 import { cn, formatPublishDate } from "@/lib";
 import { IMAGE_URL } from "@/constants";
 import { NEWS_TYPE_NAME } from "../../constants";
 import Link from "next/link";
 import "braft-editor/dist/output.css";
-import { useAPIGetNewsDetail } from "../../api";
-import { NewsDetailSkeleton } from "../../skeleton";
+import { INewsDetail } from "../../types";
 
-export function Content({ id }: { id: string }) {
-  const { data, isLoading } = useAPIGetNewsDetail(id);
-  const isMobile = useIsMobile();
-
-  if (isLoading) {
-    return (
-      <div className="w-content mx-auto">
-        <NewsDetailSkeleton />
-      </div>
-    );
-  }
+export function Content({ data }: { data: INewsDetail }) {
   const {
     name,
     content: { content },
@@ -29,7 +16,7 @@ export function Content({ id }: { id: string }) {
   } = data!;
 
   return (
-    <div className={cn("w-full md:w-page mx-auto", !isMobile && "mt-12")}>
+    <div className={cn("w-full md:w-page mx-auto md:mt-12")}>
       <div className="flex">
         <img
           src={`${IMAGE_URL}${author.avatar}`}

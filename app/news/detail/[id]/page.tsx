@@ -1,7 +1,7 @@
 import { getNewsDetail } from "../../api";
 import { IMAGE_URL } from "@/constants";
 import { GoBack } from "./back";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { Content } from "./content";
 
 interface IProps {
@@ -10,10 +10,7 @@ interface IProps {
   };
 }
 
-export async function generateMetadata(
-  { params }: IProps,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: IProps): Promise<Metadata> {
   // read route params
   const id = params.id;
 
@@ -40,7 +37,7 @@ export async function generateMetadata(
     openGraph: {
       title: name,
       description: intro,
-      // url: "https://www.blockchainforgood.xyz/",
+      url: "https://www.blockchainforgood.xyz/",
       siteName: "Blockchain for Good",
       images: [
         {
@@ -54,10 +51,15 @@ export async function generateMetadata(
 }
 
 export default async function Detail({ params }: IProps) {
+  // read route params
+  const id = params.id;
+
+  // fetch data
+  const data = (await getNewsDetail(id)).data;
   return (
     <div className="w-full md:w-content mx-auto">
       <GoBack />
-      <Content id={params.id} />
+      <Content data={data} />
     </div>
   );
 }
