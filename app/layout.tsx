@@ -70,7 +70,6 @@ function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/logo.png" />
-        <link rel="stylesheet" href="/prerender/index.css" />
         <meta
           name="copyright"
           content="© 2024 Blockchain For Good Alliance. All rights reserved."

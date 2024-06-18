@@ -11,6 +11,7 @@ export interface INews {
   platform: PLATFORM.MOLEDAO | PLATFORM.BGA
   views: number
   tags: ITopic[]
+  publishDate: string
   content: {
     id: number
     content: string

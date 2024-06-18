@@ -7,10 +7,10 @@ dayjs.extend(relativeTime);
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-export function postDate(utcTime: string) {
+export function formatPostDate(utcTime: string) {
   return dayjs.utc(utcTime).local().fromNow();
 }
 
-export function publishDate(utcTime: string) {
+export function formatPublishDate(utcTime: string) {
   return dayjs.utc(utcTime).local().format("MMMM D, YYYY");
 }
