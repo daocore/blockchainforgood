@@ -1,5 +1,5 @@
 "use client";
-import { cn, publishDate } from "@/lib";
+import { cn, formatPublishDate } from "@/lib";
 import { useAPIGetNewsDetail } from "../../api";
 import { useRouter } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
@@ -29,10 +29,11 @@ export default function Detail({ params }: { params: { id: string } }) {
   }
   const {
     name,
-    content: { content, updateDate },
+    content: { content },
     author,
     type,
     tags,
+    publishDate,
   } = data!;
 
   return (
@@ -65,7 +66,7 @@ export default function Detail({ params }: { params: { id: string } }) {
               {author.name}
             </Link>
             <span className="text-description text-xs opacity-70">
-              {publishDate(updateDate)}
+              {formatPublishDate(publishDate)}
             </span>
           </div>
         </div>
