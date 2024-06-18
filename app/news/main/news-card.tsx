@@ -2,7 +2,7 @@
 
 import { IMAGE_URL, ROUTER_PATH } from "@/constants";
 import { INews } from "../types";
-import { cn, publishDate } from "@/lib";
+import { cn, formatPublishDate } from "@/lib";
 import { Eye } from "lucide-react";
 import Link from "next/link";
 import { Empty } from "@/components/Empty";
@@ -86,7 +86,7 @@ export function NewsCard({
   linkTarget?: HTMLAttributeAnchorTarget;
   className?: string;
 }) {
-  const { cover, intro, views, updateDate, name, type } = item;
+  const { cover, intro, views, publishDate, name, type } = item;
   return (
     <Link
       target={linkTarget}
@@ -109,7 +109,7 @@ export function NewsCard({
         <p className="line-clamp-2 text-xs text-typography">{intro}</p>
       </div>
       <p className="flex-initial flex items-center gap-4 text-xs text-decsription">
-        <span>{publishDate(updateDate)}</span>
+        <span>{formatPublishDate(publishDate)}</span>
         <span className="inline-flex items-center gap-1">
           <Eye size={16} />
           <span>{views}</span>
@@ -127,8 +127,7 @@ export function NewsCardLatest({
   item: INews;
   linkTarget: HTMLAttributeAnchorTarget;
 }) {
-  const { cover, intro, views, content, name, type } = item;
-  const { updateDate } = content;
+  const { cover, intro, views, content, name, type, publishDate } = item;
   return (
     <Link
       target={linkTarget}
@@ -150,7 +149,7 @@ export function NewsCardLatest({
         </div>
 
         <p className="flex items-center gap-4 text-xs mt-3 opacity-80">
-          <span>{publishDate(updateDate)}</span>
+          <span>{formatPublishDate(publishDate)}</span>
           <span className="inline-flex items-center gap-1">
             <Eye size={16} />
             <span>{views}</span>
