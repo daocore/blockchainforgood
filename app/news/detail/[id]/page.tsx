@@ -8,6 +8,7 @@ import { NEWS_TYPE_NAME } from "../../constants";
 import Link from "next/link";
 import "braft-editor/dist/output.css";
 import { GoBack } from "./back";
+import Head from "next/head";
 
 export default function Detail({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -35,7 +36,8 @@ export default function Detail({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <head>
+      <Head>
+        <title>{name}</title>
         <meta property="og:title" content={name} />
         <meta property="og:description" content={intro} />
         {/* <meta property="og:url" content="https://example.com" /> */}
@@ -43,7 +45,7 @@ export default function Detail({ params }: { params: { id: string } }) {
         {/* <meta property="og:image:type" content="image/jpeg" /> */}
         {/* <meta property="og:image:width" content="1200" /> */}
         {/* <meta property="og:image:height" content="630" /> */}
-      </head>
+      </Head>
       <div className="w-full md:w-content mx-auto">
         <GoBack />
 
