@@ -3,6 +3,7 @@ import { http, queryStrings } from "@/lib";
 import type { INews, INewsDetail, INewsQuery, IPageData, ITopic, ITopicQuery } from "../types";
 import useSWRInfinite from "swr/infinite";
 import { PUBLISHED } from "../enums";
+import { API_URL } from "@/constants";
 
 
 export const API_PATH = {
@@ -22,6 +23,13 @@ export const INITIAL_QUERY: INewsQuery = {
   current: 1,
   pageSize: 10,
 };
+
+export async function getNewsDetail(id: string) {
+  const url = API_PATH.GET_NEWS_DETAIL;
+  const res = await fetch(`${API_URL}${url}?id=${id}`)
+  return res.json()
+}
+
 
 export function useAPIGetNewsDetail(id: string) {
   const url = API_PATH.GET_NEWS_DETAIL;
