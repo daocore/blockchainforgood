@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SWRProvider } from "./swr-provider";
 import type { Viewport } from "next";
+import { RouterProcess } from "./router-process";
 
 export const metadata: Metadata = {
   title: "Blockchain for Good",
@@ -82,19 +83,21 @@ function RootLayout({
       />
 
       <body>
-        <SWRProvider>
-          <div className="min-h-screen flex flex-col relative">
-            <Analytics />
-            <Header />
-            <div
-              // 减去header：72px和footer的高度:197px和1rem的margin
-              className="flex justify-center flex-auto"
-            >
-              {children}
+        <RouterProcess>
+          <SWRProvider>
+            <div className="min-h-screen flex flex-col relative">
+              <Analytics />
+              <Header />
+              <div
+                // 减去header：72px和footer的高度:197px和1rem的margin
+                className="flex justify-center flex-auto"
+              >
+                {children}
+              </div>
+              <Footer />
             </div>
-            <Footer />
-          </div>
-        </SWRProvider>
+          </SWRProvider>
+        </RouterProcess>
       </body>
     </html>
   );

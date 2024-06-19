@@ -10,7 +10,7 @@ import { CustomVideoPlayer, IVideo } from "@/components/Video";
 import { DialogsWithFooterAndTitle } from "@/components/Dialog";
 import posterMax from "@/assets/video/1713084084649.jpg";
 import playicon from "@/assets/play.svg";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-nprogress-bar";
 import Image, { StaticImageData } from "next/image";
 import { ROUTER_PATH } from "@/constants";
 import { useIsMobile } from "@/hooks";
