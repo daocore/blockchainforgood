@@ -1,9 +1,9 @@
 "use client";
 import { cn } from "@/lib";
-import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { ROUTER_PATH } from "@/constants";
+import { useRouter } from "next-nprogress-bar";
 
 export const hashClick = (e?: any, id?: string) => {
   e && e.preventDefault();
@@ -11,21 +11,6 @@ export const hashClick = (e?: any, id?: string) => {
   const element = document.getElementById(id);
   element?.scrollIntoView({ block: "start", behavior: "smooth" });
 };
-
-const hashNavs = [
-  {
-    name: "About",
-    id: "about",
-  },
-  {
-    name: "FAQ",
-    id: "faq",
-  },
-  {
-    name: "Contact",
-    id: "contact",
-  },
-];
 
 const menuNavs = [
   {
@@ -39,24 +24,24 @@ const menuNavs = [
 ];
 
 export const Header = () => {
-  const [top, setTop] = useState<number>(0);
+  // const [top, setTop] = useState<number>(0);
   const pathname = usePathname();
   const router = useRouter();
 
   const isHomePage = pathname === ROUTER_PATH.HOME;
 
-  useEffect(() => {
-    if (!document?.getElementById) return;
-    document?.addEventListener("scroll", () => {
-      if (window?.scrollY <= 500) {
-        setTop(window?.scrollY > 200 ? 200 : window?.scrollY);
-      }
-    });
+  // useEffect(() => {
+  //   if (!document?.getElementById) return;
+  //   document?.addEventListener("scroll", () => {
+  //     if (window?.scrollY <= 500) {
+  //       setTop(window?.scrollY > 200 ? 200 : window?.scrollY);
+  //     }
+  //   });
 
-    return () => {
-      document?.removeEventListener("scroll", () => {});
-    };
-  }, []);
+  //   return () => {
+  //     document?.removeEventListener("scroll", () => {});
+  //   };
+  // }, []);
 
   return (
     <header className="w-full h-12 md:h-[64px] box-border px-4 md:px-0 z-40 sticky top-0 bg-white border-b border-black">
@@ -170,53 +155,6 @@ export const Header = () => {
             />
           </svg>
         </Link>
-
-        {/* {pathname?.includes("home") ? (
-          <div className="justify-end items-center gap-2 md:gap-12 flex">
-            <div className="justify-end items-start gap-2 md:gap-1 flex">
-              {hashNavs?.map((nav, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6"
-                  >
-                    <nav
-                      className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer"
-                      onClick={(e) => {
-                        hashClick(e, nav.id);
-                      }}
-                    >
-                      {nav.name}
-                    </nav>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ) : (
-          <div className="justify-end items-start gap-2 md:gap-1 flex">
-            <div className="justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6">
-              <nav
-                className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer"
-                onClick={() => {
-                  router.push("/home");
-                }}
-              >
-                Home
-              </nav>
-            </div>
-            <div className="justify-center items-center gap-2.5 flex border-b-[4px] border-b-transparent hover:border-b-main py-2 px-2 md:px-6">
-              <nav
-                className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer"
-                onClick={() => {
-                  router.push("/blogs");
-                }}
-              >
-                Blogs
-              </nav>
-            </div>
-          </div>
-        )} */}
         <div>
           <div
             className={cn(
