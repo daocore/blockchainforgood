@@ -1,4 +1,4 @@
-import { RefObject, useRef, useState } from "react";
+import { ReactNode, RefObject, useEffect, useRef, useState } from "react";
 import { CustomVideoPlayer, IVideo } from "@/components/Video";
 import { ArrowImg } from "@/components/Arrow";
 import playicon from "@/assets/play.svg";
@@ -140,9 +140,8 @@ export const Videos = () => {
         ref={ref}
         style={{
           height: mobile
-            ? `calc(${((videos?.length * 88) / 16) * 9}vw + ${
-                videos?.length * 15 - 15
-              }px)`
+            ? `calc(${((videos?.length * 88) / 16) * 9}vw + ${videos?.length * 15 - 15
+            }px)`
             : 225,
         }}
       >
@@ -165,26 +164,25 @@ export const Videos = () => {
                 name={name}
                 style={videoStyle}
               >
-                {({ enter, isPlaying, togglePlayback }) => {
+                {({ mouseEnter, isPlaying, togglePlay }) => {
                   return (
                     <>
-                      <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4">
+                      <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4 text-white">
                         <div className="font-bold font-['Inter']">
                           {video?.name}
                         </div>
                         <div className="text-xs">{video?.from}</div>
                       </div>
                       <div
-                        className={`absolute w-full h-full z-10 top-0 ${
-                          enter ? "bg-videoHover" : "bg-video"
-                        } md:flex justify-center items-center hidden`}
+                        className={`absolute w-full h-full z-10 top-0 ${mouseEnter ? "bg-videoHover" : "bg-video"
+                          } md:flex justify-center items-center hidden`}
                       >
                         {!isPlaying && (
                           <Image
                             src={playicon}
                             alt=""
                             className="w-[80px] h-[80px] cursor-pointer z-20"
-                            onClick={togglePlayback}
+                            onClick={togglePlay}
                           />
                         )}
                       </div>
