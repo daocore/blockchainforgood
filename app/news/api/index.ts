@@ -26,7 +26,7 @@ export const INITIAL_QUERY: INewsQuery = {
 
 export async function getNewsDetail(id: string) {
   const url = API_PATH.GET_NEWS_DETAIL;
-  const res = await fetch(`${API_URL}${url}?id=${id}`)
+  const res = await fetch(`${API_URL}${url}?id=${id}`, { next: { revalidate: 10 } })
   return res.json()
 }
 
