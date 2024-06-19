@@ -88,7 +88,7 @@ const LogoDialog = ({
               margin: "-10px auto 20px auto",
             }}
           >
-            {({ isPlaying, togglePlayback }) => {
+            {({ isPlaying, togglePlay }) => {
               return (
                 <div
                   className={`absolute w-full h-full z-10 top-0 md:flex justify-center items-center hidden`}
@@ -98,7 +98,7 @@ const LogoDialog = ({
                       src={playicon}
                       alt=""
                       className="w-[80px] h-[80px] cursor-pointer z-20"
-                      onClick={togglePlayback}
+                      onClick={togglePlay}
                     />
                   )}
                   <div

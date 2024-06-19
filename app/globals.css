@@ -364,3 +364,23 @@ body {
   height: auto;
   margin: auto !important;
 }
+
+.braft-output-content p{
+  white-space: pre-wrap;
+  min-height: 1em;
+}
+
+.braft-output-content a{
+  text-decoration: underline;
+  text-decoration-color: inherit !important;
+}
+
+.braft-output-content ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.braft-output-content ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}

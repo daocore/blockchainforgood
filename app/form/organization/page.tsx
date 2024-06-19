@@ -1,5 +1,5 @@
 "use client";
-import { Loading } from "@/components/Loading";
+import { IFrameLoading } from "@/components/Loading";
 import { useEffect, useState } from "react";
 import {
   BETA_DOMAIN,
@@ -24,7 +24,7 @@ const OrgForm = () => {
   }, []);
   return (
     <>
-      <Loading size={60} id={"organization"} />
+      <IFrameLoading size={60} id={"organization"} />
       <iframe
         id={"organization"}
         src={organizationalChannel}
