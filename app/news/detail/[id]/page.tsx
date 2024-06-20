@@ -1,4 +1,4 @@
-import { getNewsDetail } from "../../api";
+import { getNewsDetail, updateNewsViews } from "../../api";
 import { IMAGE_URL } from "@/constants";
 import { GoBack } from "./back";
 import { Metadata } from "next";
@@ -58,6 +58,9 @@ export default async function Detail({ params }: IProps) {
 
   // fetch data
   const data = (await getNewsDetail(id)).data;
+  // update news detail view
+  updateNewsViews(id);
+
   return (
     <div className="w-full md:w-content mx-auto">
       <GoBack />
