@@ -5,17 +5,14 @@ import { usePathname } from "next/navigation";
 import { ROUTER_PATH } from "@/constants";
 import { useRouter } from "next-nprogress-bar";
 
-export const hashClick = (e?: any, id?: string) => {
-  e && e.preventDefault();
-  if (!id) return;
-  const element = document.getElementById(id);
-  element?.scrollIntoView({ block: "start", behavior: "smooth" });
-};
-
 const menuNavs = [
   {
     name: "Home",
     route: ROUTER_PATH.HOME,
+  },
+  {
+    name: "Incubation",
+    route: ROUTER_PATH.INCUBATION,
   },
   {
     name: "News",
