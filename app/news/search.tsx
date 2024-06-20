@@ -3,7 +3,7 @@
 import { Input } from "@/components/Input";
 import { ROUTER_PATH } from "@/constants";
 import { SearchIcon, X } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next-nprogress-bar";
 import { useRef, useState } from "react";
 
 export function Search() {

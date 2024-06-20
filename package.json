@@ -22,6 +22,7 @@
     "dayjs": "^1.11.11",
     "lucide-react": "^0.383.0",
     "next": "14.2.3",
+    "next-nprogress-bar": "^2.3.12",
     "query-string": "^9.0.0",
     "react": "^18",
     "react-dom": "^18",
