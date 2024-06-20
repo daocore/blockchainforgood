@@ -7,6 +7,7 @@ import { SWRProvider } from "./swr-provider";
 import type { Viewport } from "next";
 import { GoogleTag } from "./google-tag";
 import { RouterProcess } from "./router-process";
+import { GoogleTag } from "./google-tag";
 
 export const metadata: Metadata = {
   title: "Blockchain for Good",
