@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SWRProvider } from "./swr-provider";
 import type { Viewport } from "next";
+import { GoogleTag } from "./google-tag";
 import { RouterProcess } from "./router-process";
 
 export const metadata: Metadata = {
@@ -99,6 +100,7 @@ function RootLayout({
           </SWRProvider>
         </RouterProcess>
       </body>
+      <GoogleTag />
     </html>
   );
 }
