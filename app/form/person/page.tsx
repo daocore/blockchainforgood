@@ -1,32 +1,31 @@
 "use client";
 import { IFrameLoading } from "@/components/Loading";
-import { useEffect, useState } from "react";
-import {
-  BETA_DOMAIN,
-  BETA_URL,
-  DEV_ID,
-  LOCAL_URL,
-  PRODUCTION_DOMAIN,
-} from "../constants";
+import { useGetInfamSrc } from "@/hooks";
+
+const CREATE_HASH_PATH = "#/form/individual/create";
+const UPDATE_HASH_PATH = "#/form/individual/update";
+const PRODUCTION_EVENT_ID = "230ac677-083f-4240-8f61-6a3e0d504ffd";
+const DEV_EVENT_ID = "090ba7c2-bc0f-4476-b58e-fe834118dd89";
+
+const ELEMENT_ID = "person";
 
 const PersonForm = () => {
-  const [personalChannel, setPersonalChannel] = useState("");
-  useEffect(() => {
-    const isProduction = window?.location?.href?.includes(PRODUCTION_DOMAIN);
-    const isBeta = window?.location?.href?.includes(BETA_DOMAIN);
-    const devUrl = !isBeta ? BETA_URL : LOCAL_URL;
+  const personalChannel = useGetInfamSrc({
+    hashPaths: {
+      update: UPDATE_HASH_PATH,
+      create: CREATE_HASH_PATH,
+    },
+    eventIds: {
+      production: PRODUCTION_EVENT_ID,
+      dev: DEV_EVENT_ID,
+    },
+  });
 
-    setPersonalChannel(
-      isProduction
-        ? `https://www.moledao.io/#/form/individual/create/230ac677-083f-4240-8f61-6a3e0d504ffd`
-        : `${devUrl}/#/form/individual/create/${DEV_ID}`
-    );
-  }, []);
   return (
     <>
-      <IFrameLoading size={60} id="person" />
+      <IFrameLoading size={60} id={ELEMENT_ID} />
       <iframe
-        id={"person"}
+        id={ELEMENT_ID}
         src={personalChannel}
         style={{
           width: "100vw",
