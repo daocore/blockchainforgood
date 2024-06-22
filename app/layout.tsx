@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Analytics } from "./analytics";
+import { GoogleAnalytics, VercelAnalytics } from "./analytics";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SWRProvider } from "./swr-provider";
@@ -78,17 +78,13 @@ function RootLayout({
           content="© 2024 Blockchain For Good Alliance. All rights reserved."
         />
       </head>
-      {/* Google tag (gtag.js) */}
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-5197XPR1BB"
-      />
+      <GoogleAnalytics />
 
       <body>
         <RouterProcess>
           <SWRProvider>
             <div className="min-h-screen flex flex-col relative">
-              <Analytics />
+              <VercelAnalytics />
               <Header />
               <div
                 // 减去header：72px和footer的高度:197px和1rem的margin
