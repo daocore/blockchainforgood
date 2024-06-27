@@ -6,8 +6,8 @@ export function Today() {
   const date = today.format("D MMMM");
   return (
     <div className="bg-black">
-      <div className="w-content mx-auto text-turqoise text-xs py-1">
-        <p>{`${dayOfWeek}, ${date}`}</p>
+      <div className="w-full md:w-content mx-auto text-turqoise text-xs md:text-sm py-1">
+        <p className="text-center md:text-left">{`${dayOfWeek}, ${date}`}</p>
       </div>
     </div>
   );

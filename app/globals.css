@@ -98,10 +98,8 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {
-  body {
-    background-color: #e5e7eb;
-  }
+body {
+  background-color: #e5e7eb;
 }
 
 @font-face {
@@ -357,4 +355,32 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.braft-output-content img,
+.braft-output-content audio,
+.braft-output-content video {
+  max-width: 100% !important;
+  height: auto;
+  margin: auto !important;
+}
+
+.braft-output-content p{
+  white-space: pre-wrap;
+  min-height: 1em;
+}
+
+.braft-output-content a{
+  text-decoration: underline;
+  text-decoration-color: inherit !important;
+}
+
+.braft-output-content ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.braft-output-content ul {
+  list-style-type: disc;
+  list-style-position: inside;
 }

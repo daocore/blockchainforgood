@@ -1,0 +1,134 @@
+.line-card-left, .line-card-right{
+  position: relative;
+  &::before {
+    @apply absolute hidden md:block w-0 border-l border-main;
+    content: '';
+    top: -1.875rem;
+    left: -1px;
+    height: 1.875rem;
+  }
+  &::after {
+    @apply absolute hidden md:block h-0 border-b border-main;
+    content: '';
+    top: -1.875rem;
+    width: 300px;
+  }
+}
+
+.line-card-right {
+  &::after {
+    @apply left-0;
+  }
+}
+
+
+.line-card-left {
+  &::after {
+    @apply right-0;
+  }
+}
+
+.corner-ribbon {
+  @apply text-sm font-bold text-incubation absolute text-center shadow-md w-64 top-[31px] right-[-50px] py-2 xs:text-xs xs:w-52 xs:top-[5px] xs:right-[-60px] xs:py-1 md:w-64 md:top-[31px] md:right-[-50px] md:py-2;
+  transform: rotate(30deg);
+  background: linear-gradient(64.22deg, #CA81FF -51.75%, #00D5BF 92.86%);
+
+}
+
+.glow-dot1 {
+  @apply absolute animate-move-dot1;
+  width: 3px;
+  height: 3px;
+  left: -2px;
+  background-color: #0ff;  /* 发光颜色 */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+}
+.glow-dot2 {
+  @apply absolute animate-move-dot-rect1 z-auto;
+  width: 3px;
+  height: 3px;
+  /* left: -2px; */
+  left: calc(100% - 2px);
+  top: -2px;
+  background-color: #0ff;  /* 发光颜色 */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+}
+.glow-dot3 {
+  @apply absolute animate-move-dot2;
+  width: 3px;
+  height: 3px;
+  left: -2px;
+  background-color: #0ff;  /* 发光颜色 */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+}
+
+.glow-dot4 {
+  @apply absolute animate-move-dot-rect-left-sm md:animate-move-dot-rect-left;
+  width: 3px;
+  height: 3px;
+  left: -2px;
+  top: -30px;
+  background-color: #0ff;  /* 发光颜色 */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+}
+
+.glow-dot5 {
+  @apply absolute animate-move-dot-rect-right-sm md:animate-move-dot-rect-right;
+  width: 3px;
+  height: 3px;
+  left: -2px;
+  background-color: #0ff;  /* 发光颜色 */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+}
+
+.glow-dot6 {
+  @apply absolute animate-move-dot-rect-middle-sm md:animate-move-dot-rect-middle;
+  width: 3px;
+  height: 3px;
+  left: -2px;
+  background-color: #0ff;  /* 发光颜色 */
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+}
+
+.blinker-image {
+  @apply animate-blinker-image;
+}
+
+.blinker-committee1 {
+  @apply animate-blinker-committee1-sm md:animate-blinker-committee1;
+}
+
+.blinker-committee2 {
+  @apply animate-blinker-committee2-sm md:animate-blinker-committee2;
+}
+
+.blinker-committee3 {
+  @apply animate-blinker-committee3-sm md:animate-blinker-committee3;
+}
+
+/* START: To avoid the animation definitions being inside breakpoints, causing the animation to be empty, we artificially create a reference */
+.cache1 {
+  @apply animate-move-dot-rect-left;
+}
+.cache2 {
+  @apply animate-move-dot-rect-right;
+}
+.cache3 {
+  @apply animate-move-dot-rect-middle;
+}
+.cache4 {
+  @apply animate-blinker-committee1;
+}
+.cache5 {
+  @apply animate-blinker-committee2;
+}
+.cache6 {
+  @apply animate-blinker-committee3;
+}
+/* END */

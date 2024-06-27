@@ -3,15 +3,23 @@ import { useAPIGetNews } from "../api";
 import { NEWS_TYPE_NAME } from "../constants";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { NewsList } from "./news-card";
+import { LatestNewsList } from "./news-card";
 import { NewsSkeletonList } from "../skeleton";
+import { ROUTER_PATH } from "@/constants";
+import { NEWS_TYPE } from "../enums";
 
-const NEWS_TYPE_LIST = Object.entries(NEWS_TYPE_NAME).map(([id, name]) => {
-  return {
-    id: +id,
-    name,
-  };
-});
+const NEWS_TYPE_LIST = [
+  {
+    id: NEWS_TYPE.RREAL_TALK_CASE_STUDY,
+    name: NEWS_TYPE_NAME[NEWS_TYPE.RREAL_TALK_CASE_STUDY],
+  },
+  {
+    id: NEWS_TYPE.BGA_PROGRESS_PULSE,
+    name: NEWS_TYPE_NAME[NEWS_TYPE.BGA_PROGRESS_PULSE],
+  },
+  { id: NEWS_TYPE.BFG_BGA, name: NEWS_TYPE_NAME[NEWS_TYPE.BFG_BGA] },
+  { id: NEWS_TYPE.BYBIT_BGA, name: NEWS_TYPE_NAME[NEWS_TYPE.BYBIT_BGA] },
+];
 
 export function SubTypeNews() {
   return (
@@ -24,7 +32,7 @@ export function SubTypeNews() {
 }
 
 function SubTypeNewsItem({ id, name }: { id: number; name: string }) {
-  const { data: { list = [], total = 0 } = {}, isLoading } = useAPIGetNews({
+  const { data: { list = [] } = {}, isLoading } = useAPIGetNews({
     current: 1,
     pageSize: 3,
     type: id,
@@ -32,18 +40,18 @@ function SubTypeNewsItem({ id, name }: { id: number; name: string }) {
 
   const router = useRouter();
   const onShowAllSubArticles = () => {
-    router.push(`/news/type/${id}`);
+    router.push(`${ROUTER_PATH.NEWS.TYPE}${id}`);
   };
   return (
-    <div className="mt-3">
+    <div className="mt-8">
       <h2
         onClick={onShowAllSubArticles}
-        className="font-semibold text-lg cursor-pointer flex items-center mb-3"
+        className="font-bold text-2xl cursor-pointer flex items-center mb-3"
       >
         {name}
         <ChevronRight size={18} className="text-main" />
       </h2>
-      {isLoading ? <NewsSkeletonList /> : <NewsList list={list} />}
+      {isLoading ? <NewsSkeletonList /> : <LatestNewsList list={list} />}
     </div>
   );
 }

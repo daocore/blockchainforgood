@@ -55,7 +55,7 @@ export default function SubTypePage({ params }: { params: { id: string } }) {
   };
 
   return (
-    <div className="w-content mx-auto">
+    <div className="w-full md:w-content mx-auto">
       <div>
         <span
           className="text-xs inline-flex cursor-pointer"

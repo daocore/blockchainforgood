@@ -3,9 +3,14 @@ export const ROUTER_PATH = {
   FORM: {
     ROOT: '/form/',
     ORGANIZATION: '/form/organization',
-    PERSON: '/form/person'
+    PERSON: '/form/person',
+    INCUBATION: '/form/incubation'
   },
+  INCUBATION: '/incubation',
   NEWS: {
     ROOT: '/news',
+    DETAIL: '/news/detail/',
+    SEARCH: '/news/search',
+    TYPE: '/news/type/'
   }
 }

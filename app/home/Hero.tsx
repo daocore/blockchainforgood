@@ -10,26 +10,11 @@ import { CustomVideoPlayer, IVideo } from "@/components/Video";
 import { DialogsWithFooterAndTitle } from "@/components/Dialog";
 import posterMax from "@/assets/video/1713084084649.jpg";
 import playicon from "@/assets/play.svg";
-import { useRouter } from "next/navigation";
 import Image, { StaticImageData } from "next/image";
 import { ROUTER_PATH } from "@/constants";
 import { useIsMobile } from "@/hooks";
 import { trackSensors } from "@/lib/sensors";
-
-export const JoinUs = ({ text, link }: { text?: string; link: string }) => {
-  const router = useRouter();
-
-  return (
-    <div
-      className="w-full xs:w-[240px] z-10 md:w-auto xs:mx-auto md:mx-0 px-6 py-2 text-white text-[14px] justify-center transform items-center inline-flex button cursor-pointer font-['Inter'] font-bold"
-      onClick={() => {
-        router.push(link);
-      }}
-    >
-      {text || "Join Us"}
-    </div>
-  );
-};
+import { JoinUs } from "@/components/JoinUs";
 
 const LogoDialog = ({
   project,
@@ -88,7 +73,7 @@ const LogoDialog = ({
               margin: "-10px auto 20px auto",
             }}
           >
-            {({ isPlaying, togglePlayback }) => {
+            {({ isPlaying, togglePlay }) => {
               return (
                 <div
                   className={`absolute w-full h-full z-10 top-0 md:flex justify-center items-center hidden`}
@@ -98,7 +83,7 @@ const LogoDialog = ({
                       src={playicon}
                       alt=""
                       className="w-[80px] h-[80px] cursor-pointer z-20"
-                      onClick={togglePlayback}
+                      onClick={togglePlay}
                     />
                   )}
                   <div
@@ -134,10 +119,10 @@ export const Hero = () => {
   }, []);
 
   return (
-    <div className="md:w-content m-auto mt-16">
-      <div className="items-center justify-between inline-flex w-full mb-4">
+    <div className="w-full md:w-content m-auto mt-16">
+      <div className="items-center justify-between inline-flex w-full flex-wrap mb-4">
         <div className="w-full md:w-[600px] flex-col justify-start items-start inline-flex px-4 md:px-0">
-          <div className=" md:w-[499px] self-stretch flex-col justify-start items-start gap-2 md:gap-4 flex md:text-left text-center">
+          <div className="w-full md:w-[600px] flex-col justify-start items-start inline-flex px-4 md:px-0">
             <h1 className="self-stretch text-black text-[40px] xs:text-[64px] md:text-[82px] font-extrabold font-['Inter'] leading-[36px] xs:leading-[48px] md:leading-[82px]">
               Blockchain <br className="md:block hidden" />
               for Good
@@ -157,7 +142,7 @@ export const Hero = () => {
             />
           </div>
         </div>
-        <div className="relative w-full md:w-[605px] mr-0 mac:-mr-[92px] mt-4 md:mt-0 h-full">
+        <div className="relative w-full md:w-[605px] mr-0 desktop:-mr-[92px] mt-4 md:mt-0 h-full">
           <LogoDialog
             className="absolute left-[28.9vw] bottom-[8.5vw] md:left-[176px] md:bottom-[56px] logo-up-down-move"
             style={{
@@ -189,7 +174,7 @@ export const Hero = () => {
         </div>
       </div>
       <Videos />
-      <div className="flex flex-col-reverse md:flex-row justify-center md:justify-between items-center pb-0 md:pb-16 flex-wrap mt-8 xs:mt-12 md:mt-0 relative gap-4 mac:overflow-hidden overflow-visible px-4 md:px-0">
+      <div className="flex flex-col-reverse md:flex-row justify-center md:justify-between items-center pb-0 md:pb-16 flex-wrap mt-8 xs:mt-12 md:mt-0 relative gap-4 desktop:overflow-hidden overflow-visible px-4 md:px-0">
         <Image
           className="w-[300px] md:w-[340px] ml-0 md:ml-[37px] mb-10 md:mb-0"
           src={HeroImageRubixcubewText}

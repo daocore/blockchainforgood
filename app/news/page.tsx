@@ -16,7 +16,7 @@ export default function News() {
     [activeTopic, setActiveTopic]
   );
   return (
-    <div className="w-content mx-auto">
+    <div className="w-full md:w-content mx-auto">
       <TopicContext.Provider value={contextValue}>
         <Topics />
         <Main />

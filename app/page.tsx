@@ -1,16 +1,17 @@
 "use client";
-import { Hero } from "./Hero";
-import { Partner } from "./Partner";
-import { Intro } from "./Intro";
-import { Journey } from "./Journey";
-import { HowJoin } from "./HowJoin";
-import { Contact } from "./Contact";
-import { FAQ } from "./FAQ";
+import { Hero } from "./home/Hero";
+import { Partner } from "./home/Partner";
+import { Intro } from "./home/Intro";
+import { Journey } from "./home/Journey";
+import { HowJoin } from "./home/HowJoin";
+import { Contact } from "./home/Contact";
+import { FAQ } from "./home/FAQ";
 import { useEffect } from "react";
-import { trackSensors } from "@/lib/sensors";
+import { initSensors, trackSensors } from "@/lib/sensors";
 
 export default function Home() {
   useEffect(() => {
+    initSensors();
     trackSensors("$pageview", {});
   }, []);
 
