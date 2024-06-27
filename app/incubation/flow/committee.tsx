@@ -59,7 +59,7 @@ export function Committee() {
     <div>
       <div className="flex justify-center">
         <Image
-          className="animate-blinker-image rounded-full"
+          className="animate-blinker-image-sm md:animate-blinker-image rounded-full"
           src={CommitteeImage}
           alt="Committee"
           width={126}

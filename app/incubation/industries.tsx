@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const list = [
   {
-    label: "Srcurity and Transparency",
+    label: "Trustworthiness",
     element: SerurityAndTransparencyImage,
   },
   {
@@ -16,11 +16,11 @@ const list = [
     element: LifeAndHealthImage,
   },
   {
-    label: "Sustainable Development",
+    label: "Sustainability",
     element: SustainableDevelopmentImage,
   },
   {
-    label: "Global Education Development",
+    label: "Global Education",
     element: GlobalEducationDevelopmentImage,
   },
   {
