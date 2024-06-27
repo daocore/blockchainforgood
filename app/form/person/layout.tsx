@@ -1,6 +1,6 @@
 "use client";
 import { Suspense } from "react";
-import { Loading } from "@/components";
+import { Loading } from "@/components/Loading";
 
 export default function Layout({
   children,

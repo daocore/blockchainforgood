@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:dev": "NEXT_PUBLIC_BASE_URL=https://beta.moledao.io next build",
+    "build:dev": "NEXT_PUBLIC_BASE_URL=https://beta.moledao.io NEXT_PUBLIC_LOCATION_HOST=https://beta.moledao.io next build",
     "start": "next start",
     "lint": "next lint"
   },
