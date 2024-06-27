@@ -1,13 +1,19 @@
   // use client;
 import { useState, useEffect } from 'react';
 
-const SM_WIDTH = 640;
+const XS_WIDTH = 480;
 const MD_WIDTH = 768;
 const LG_WIDTH = 1024;
 
+const INITIAL_SCREEN_SIZE = -1;
+
  export function useScreen() {
   // use client;
-  const [screenSize, setScreenSize] = useState(LG_WIDTH);
+  const [screenSize, setScreenSize] = useState(INITIAL_SCREEN_SIZE);
+
+  useEffect(() => {
+    setScreenSize(window.innerWidth);
+  }, [])
 
   useEffect(() => {
     const handleResize = () => {
@@ -22,9 +28,8 @@ const LG_WIDTH = 1024;
   }, []);
 
   return {
-    isMobile: screenSize < SM_WIDTH,
-    isTablet: screenSize >= SM_WIDTH && screenSize < MD_WIDTH,
-    isLaptop: screenSize >= MD_WIDTH && screenSize < LG_WIDTH,
-    isDesktop: screenSize >= LG_WIDTH,
+    isMobile: screenSize <= XS_WIDTH,
+    isTablet: screenSize > XS_WIDTH && screenSize <= MD_WIDTH,
+    isDesktop: screenSize > MD_WIDTH,
   };
 }

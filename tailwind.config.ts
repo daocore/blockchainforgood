@@ -96,11 +96,32 @@ const config = {
             top: "0",
             opacity: "1",
           },
-          "3.8%": {
+          "4%": {
             top: "calc(100% - 2px)",
             opacity: "1",
           },
-          "4%": {
+          "5%": {
+            opacity: "0",
+          },
+          "99%": {
+            top: "0",
+            opacity: "0",
+          },
+          "100%": {
+            top: "0",
+            opacity: "1",
+          },
+        },
+        "move-dot1-sm": {
+          "0%": {
+            top: "0",
+            opacity: "1",
+          },
+          "6%": {
+            top: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "7%": {
             opacity: "0",
           },
           "99%": {
@@ -116,17 +137,40 @@ const config = {
           "0%": {
             opacity: "0",
           },
-         "41%": {
+         "42%": {
             opacity: "0",
           },
-          "41.3%": {
+          "43%": {
             top: "0",
             opacity: "1",
           },
-          "45%": {
+          "47%": {
             top: "calc(100% - 2px)",
+            opacity: "1",
           },
-          "46%": {
+          "48%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "0",
+          },
+        },
+        "move-dot2-sm": {
+          "0%": {
+            opacity: "0",
+          },
+         "51%": {
+            opacity: "0",
+          },
+          "52%": {
+            top: "0",
+            opacity: "1",
+          },
+          "58%": {
+            top: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "59%": {
             opacity: "0",
           },
           "100%": {
@@ -137,33 +181,69 @@ const config = {
           "0%": {
             opacity: '0',
           },
-          "3.8%": {
+          "4%": {
             opacity: '0',
           },
-          "4%": {
-            top: "-2px",
-            left: "-2px",
+          "5%": {
+            top: "-3px",
+            left: "-3px",
             opacity: "1",
           },
-          "19%": {
-            top: "-2px",
-            left: "calc(100% - 1px)",
+          "20%": {
+            top: "-3px",
+            left: "calc(100% - 2px)",
             opacity: "1",
           },
-          "26%": {
-            top: "calc(100% - 1px)",
-            left: "calc(100% - 1px)",
+          "27%": {
+            top: "calc(100% - 2px)",
+            left: "calc(100% - 2px)",
             opacity: "1",
           },
-          "41%": {
-            top: "calc(100% - 1px)",
-            left: "-2px",
+          "42%": {
+            top: "calc(100% - 2px)",
+            left: "-3px",
             opacity: "1",
           },
-          "41.3%": {
+          "43%": {
             opacity: "0",
             top: "calc(100% - 2px)",
-            left: "-2px",
+            left: "-3px",
+          },
+          "100%": {
+            opacity: "0"
+          }
+        },
+        "move-dot-rect1-sm": {
+          "0%": {
+            opacity: '0',
+          },
+          "%": {
+            opacity: '0',
+          },
+          "8%": {
+            top: "-3px",
+            left: "-3px",
+            opacity: "1",
+          },
+          "25%": {
+            top: "-3px",
+            left: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "34%": {
+            top: "calc(100% - 2px)",
+            left: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "51%": {
+            top: "calc(100% - 2px)",
+            left: "-3px",
+            opacity: "1",
+          },
+          "52%": {
+            opacity: "0",
+            top: "calc(100% - 2px)",
+            left: "-3px",
           },
           "100%": {
             opacity: "0"
@@ -173,25 +253,25 @@ const config = {
           "0%": {
             opacity: '0',
           },
-          "51%": {
+          "53%": {
             opacity: '0',
           },
-          "52%": {
+          "54%": {
             opacity: '1',
-            top: "-31px",
+            top: "-32px",
             left: "300px",
           },
-          "60%": {
+          "64%": {
             opacity: '1',
-            top: "-31px",
-            left: "-2px",
+            top: "-32px",
+            left: "-3px",
           },
-          "63%": {
+          "69%": {
             opacity: '1',
             top: "100%",
-            left: "-2px",
+            left: "-3px",
           },
-          "64%": {
+          "70%": {
             opacity: '0',
           },
           "100%": {
@@ -202,18 +282,18 @@ const config = {
           "0%": {
             opacity: '0',
           },
-          "51%": {
+          "67%": {
             opacity: '0',
           },
-          "52%": {
+          "68%": {
             opacity: '1',
             top: "-2px",
           },
-          "56%": {
+          "74%": {
             opacity: '1',
             top: "calc(100% - 2px)",
           },
-          "57%": {
+          "75%": {
             opacity: '0',
           },
           "100%": {
@@ -224,18 +304,18 @@ const config = {
           "0%": {
             opacity: '0',
           },
-          "69%": {
+          "71%": {
             opacity: '0',
           },
-          "70%": {
+          "72%": {
             opacity: '1',
             top: "-2px",
           },
-          "73%": {
+          "76%": {
             opacity: '1',
             top: "calc(100% - 2px)",
           },
-          "74%": {
+          "77%": {
             opacity: '0',
           },
           "100%": {
@@ -246,18 +326,18 @@ const config = {
           "0%": {
             opacity: '0',
           },
-          "63%": {
+          "76%": {
             opacity: '0',
           },
-          "64%": {
+          "77%": {
             opacity: '1',
             top: "-2px",
           },
-          "67%": {
+          "83%": {
             opacity: '1',
             top: "calc(100% - 2px)",
           },
-          "68%": {
+          "84%": {
             opacity: '0',
           },
           "100%": {
@@ -268,25 +348,25 @@ const config = {
           "0%": {
             opacity: '0',
           },
-          "79%": {
+          "78%": {
             opacity: '0',
           },
-          "80%": {
+          "79%": {
             opacity: '1',
-            top: "-31px",
+            top: "-32px",
             left: "-300px",
           },
-          "88%": {
+          "89%": {
             opacity: '1',
             top: "-31px",
-            left: "-2px",
+            left: "-3px",
           },
-          "91%": {
+          "94%": {
             opacity: '1',
             top: "100%",
-            left: "-2px",
+            left: "-3px",
           },
-          "92%": {
+          "95%": {
             opacity: '0',
           },
           "100%": {
@@ -297,18 +377,18 @@ const config = {
           "0%": {
             opacity: '0',
           },
-          "75%": {
+          "85%": {
             opacity: '0',
           },
-          "76%": {
+          "86%": {
             opacity: '1',
             top: "-2px",
           },
-          "79%": {
+          "92%": {
             opacity: '1',
             top: "calc(100% - 2px)",
           },
-          "80%": {
+          "93%": {
             opacity: '0',
           },
           "100%": {
@@ -320,15 +400,45 @@ const config = {
             "border-color": "transparent",
             "box-shadow": "none",
           },
-          "45%": {
+          "48%": {
             "border-color": "transparent",
             "box-shadow": "none",
           },
-          "48%": {
+          "49%": {
             "border-color": "#00d5bf",
             "box-shadow": "0 0 10px #00d5bf",
           },
           "51%": {
+            "border-color": "#00d5bf",
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "52%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          },
+          "100%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          }
+        },
+        "blinker-image-sm": {
+          "0%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          },
+          "60%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          },
+          "61%": {
+            "border-color": "#00d5bf",
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "65%": {
+            "border-color": "#00d5bf",
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "66%": {
             "border-color": "transparent",
             "box-shadow": "none",
           },
@@ -341,13 +451,16 @@ const config = {
           "0%": {
             "box-shadow": "none",
           },
-          "63%": {
+          "53%": {
             "box-shadow": "none",
           },
-          "67%": {
+          "54%": {
             "box-shadow": "0 0 10px #00d5bf",
           },
           "69%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "70%": {
             "box-shadow": "none",
           },
           "100%": {
@@ -358,13 +471,16 @@ const config = {
           "0%": {
             "box-shadow": "none",
           },
-          "61%": {
+          "67%": {
             "box-shadow": "none",
           },
-          "64%": {
+          "68%": {
             "box-shadow": "0 0 10px #00d5bf",
           },
-          "68%": {
+          "74%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "75%": {
             "box-shadow": "none",
           },
           "100%": {
@@ -375,13 +491,16 @@ const config = {
           "0%": {
             "box-shadow": "none",
           },
-          "74%": {
+          "71%": {
             "box-shadow": "none",
           },
-          "77%": {
+          "72%": {
             "box-shadow": "0 0 10px #00d5bf",
           },
-          "79%": {
+          "76%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "77%": {
             "box-shadow": "none",
           },
           "100%": {
@@ -392,13 +511,16 @@ const config = {
           "0%": {
             "box-shadow": "none",
           },
-          "72%": {
+          "76%": {
             "box-shadow": "none",
           },
-          "76%": {
+          "77%": {
             "box-shadow": "0 0 10px #00d5bf",
           },
-          "80%": {
+          "83%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "84%": {
             "box-shadow": "none",
           },
           "100%": {
@@ -409,13 +531,16 @@ const config = {
           "0%": {
             "box-shadow": "none",
           },
-          "92%": {
+          "78%": {
             "box-shadow": "none",
+          },
+          "79%": {
+            "box-shadow": "0 0 10px #00d5bf",
           },
           "94%": {
             "box-shadow": "0 0 10px #00d5bf",
           },
-          "98%": {
+          "95%": {
             "box-shadow": "none",
           },
           "100%": {
@@ -426,13 +551,16 @@ const config = {
           "0%": {
             "box-shadow": "none",
           },
-          "84%": {
+          "85%": {
             "box-shadow": "none",
           },
-          "88%": {
+          "86%": {
             "box-shadow": "0 0 10px #00d5bf",
           },
           "92%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "93%": {
             "box-shadow": "none",
           },
           "100%": {
@@ -444,21 +572,25 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "move-dot1": "move-dot1 26s linear infinite",
+        "move-dot1-sm": "move-dot1-sm 20s linear infinite",
         "move-dot2": "move-dot2 26s linear infinite",
+        "move-dot2-sm": "move-dot2-sm 20s linear infinite",
         "move-dot-rect1": "move-dot-rect1 26s linear infinite",
+        "move-dot-rect1-sm": "move-dot-rect1-sm 20s linear infinite",
         "move-dot-rect-left": "move-dot-left 26s linear infinite",
-        "move-dot-rect-left-sm": "move-dot-left-sm 26s linear infinite",
+        "move-dot-rect-left-sm": "move-dot-left-sm 20s linear infinite",
         "move-dot-rect-right": "move-dot-right 26s linear infinite",
-        "move-dot-rect-right-sm": "move-dot-right-sm 26s linear infinite",
+        "move-dot-rect-right-sm": "move-dot-right-sm 20s linear infinite",
         "move-dot-rect-middle": "move-dot-middle 26s linear infinite",
-        "move-dot-rect-middle-sm": "move-dot-middle-sm 26s linear infinite",
+        "move-dot-rect-middle-sm": "move-dot-middle-sm 20s linear infinite",
         "blinker-image": "blinker-image 26s linear infinite",
+        "blinker-image-sm": "blinker-image-sm 20s linear infinite",
         "blinker-committee1": "blinker-committee1 26s linear infinite",
-        "blinker-committee1-sm": "blinker-committee1-sm 26s linear infinite",
+        "blinker-committee1-sm": "blinker-committee1-sm 20s linear infinite",
         "blinker-committee2": "blinker-committee2 26s linear infinite",
-        "blinker-committee2-sm": "blinker-committee2-sm 26s linear infinite",
+        "blinker-committee2-sm": "blinker-committee2-sm 20s linear infinite",
         "blinker-committee3": "blinker-committee3 26s linear infinite",
-        "blinker-committee3-sm": "blinker-committee3-sm 26s linear infinite",
+        "blinker-committee3-sm": "blinker-committee3-sm 20s linear infinite",
       },
     },
   },

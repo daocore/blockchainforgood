@@ -42,18 +42,15 @@ function EntryCard({
   return (
     <div
       className={cn(
-        "w-2/5 md:w-1/3 max-w-[112px] xs:max-w-[203px] md:max-w-[419px] h-[102px] border border-typography relative",
+        "w-2/5 xs:w-[25vw] md:w-1/3 max-w-[112px] xs:max-w-[203px] md:max-w-[419px] h-[102px] border border-typography relative",
         isActive && "border-main border-l-0",
         !isActive && "border-r-0",
         className
       )}
     >
       <div
-        style={{
-          width: "calc(100vw * (2 / 5))",
-        }}
         className={cn(
-          "absolute border px-0 py-2 md:px-4 md:max-w-[290px] text-center text-typography border-typography top-1/2 -translate-y-1/2 bg-incubation font-bold whitespace-nowrap z-10",
+          "absolute border px-0 py-2 md:px-4 xs:max-w-[203px] w-[40vw] md:max-w-[290px] text-center text-typography border-typography top-1/2 -translate-y-1/2 bg-incubation font-bold whitespace-nowrap z-10",
           isActive &&
             "border-main text-white right-0 translate-x-1/2  bg-active",
           !isActive && "-translate-x-1/2"
