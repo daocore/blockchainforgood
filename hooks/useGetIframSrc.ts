@@ -1,17 +1,18 @@
-import { LOCATION_HOST } from "@/constants";
+"use client";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const PRODUCTION_MOLEDAO_DOMAIN = "www.blockchainforgood.xyz"
-const PRODUCTION_VERCEL_DOMAIN = "blockchainforgood.xyz"
-
+const PRODUCTION_DOMAIN = "blockchainforgood.xyz"
 const BETA_DOMAIN = "blockchainforgood.verce"
+
+const BETA_URL = "https://beta.moledao.io"
+const LOCAL_URL = "http://localhost:3000"
 
 
 interface IOptions {
   hashPaths: {
-    create: string
     update: string
+    create: string
   },
   eventIds: {
     production: string
@@ -19,20 +20,28 @@ interface IOptions {
   }
 }
 
-export function useGetIframSrc({ hashPaths, eventIds }: IOptions) {
+
+export function useGetIframSrc({hashPaths, eventIds}: IOptions) {
+  // use client;
   const [channel, setChannel] = useState("");
 
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    const isProduction = window?.location?.href?.includes(PRODUCTION_DOMAIN);
+    const isBeta = window?.location?.href?.includes(BETA_DOMAIN);
+    const devUrl = !isBeta ? BETA_URL : LOCAL_URL;
+
     const hasOneTimeCode = searchParams.has("code");
-    const isProdENV = [PRODUCTION_MOLEDAO_DOMAIN, PRODUCTION_VERCEL_DOMAIN]?.includes(window?.location?.host);
+    const HASH_PATH = hasOneTimeCode ? hashPaths.update : hashPaths.create;
 
-    const latestHref = `${LOCATION_HOST}/${hasOneTimeCode ? hashPaths.update : hashPaths.create}/${isProdENV ? eventIds.production : eventIds?.dev}`;
+    const latestHref = isProduction
+      ? `https://www.moledao.io/${HASH_PATH}/${eventIds.production}`
+      : `${devUrl}/${HASH_PATH}/${eventIds.dev}`;
+
     const oneTimeCode = searchParams.get("code");
-
     setChannel(
-      hasOneTimeCode ? `${latestHref}/${oneTimeCode}` : latestHref
+      hasOneTimeCode ? `${latestHref}?code=${oneTimeCode}` : latestHref
     );
   }, []);
 
