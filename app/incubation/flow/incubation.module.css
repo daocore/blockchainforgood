@@ -109,6 +109,10 @@
   @apply animate-blinker-committee3-sm md:animate-blinker-committee3;
 }
 
+.blinker-committee4 {
+  @apply animate-blinker-committee4-sm md:animate-blinker-committee4;
+}
+
 /* START: To avoid the animation definitions being inside breakpoints, causing the animation to be empty, we artificially create a reference */
 .cache1 {
   @apply animate-move-dot-rect-left;
@@ -139,5 +143,8 @@
 }
 .cache10 {
   @apply animate-blinker-image;
+}
+.cache11 {
+  @apply animate-blinker-committee4;
 }
 /* END */
