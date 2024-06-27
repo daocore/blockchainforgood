@@ -375,6 +375,10 @@ body {
   text-decoration-color: inherit !important;
 }
 
+.braft-output-content a:hover{
+  color: #00d5bf;
+}
+
 .braft-output-content ol {
   list-style-type: decimal;
   list-style-position: inside;
