@@ -27,8 +27,9 @@ const config = {
         videoHover: "linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);"
       },
       screens: {
-        xs: "480px",
-        mac: "1440px",
+        xs: "481px",
+        md: "769px",
+        desktop: "1441px",
       },
       width: {
         content: "1232px",
@@ -36,12 +37,12 @@ const config = {
       },
       colors: {
         main: "#00d5bf",
-        newsTag: "#7D8CA3",
         turqoise: "#00d5bf",
         halfWhite: "rgba(255, 255, 255, 0.5)",
         typography: "#576172",
-        decsription: "#7D8CA3",
-        // text: "#283344",
+        description: "#7D8CA3",
+        incubation: "#101927",
+        active: "#283344",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -90,10 +91,506 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "move-dot1": {
+          "0%": {
+            top: "0",
+            opacity: "1",
+          },
+          "4%": {
+            top: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "5%": {
+            opacity: "0",
+          },
+          "99%": {
+            top: "0",
+            opacity: "0",
+          },
+          "100%": {
+            top: "0",
+            opacity: "1",
+          },
+        },
+        "move-dot1-sm": {
+          "0%": {
+            top: "0",
+            opacity: "1",
+          },
+          "6%": {
+            top: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "7%": {
+            opacity: "0",
+          },
+          "99%": {
+            top: "0",
+            opacity: "0",
+          },
+          "100%": {
+            top: "0",
+            opacity: "1",
+          },
+        },
+        "move-dot2": {
+          "0%": {
+            opacity: "0",
+          },
+         "42%": {
+            opacity: "0",
+          },
+          "43%": {
+            top: "0",
+            opacity: "1",
+          },
+          "47%": {
+            top: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "48%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "0",
+          },
+        },
+        "move-dot2-sm": {
+          "0%": {
+            opacity: "0",
+          },
+         "51%": {
+            opacity: "0",
+          },
+          "52%": {
+            top: "0",
+            opacity: "1",
+          },
+          "58%": {
+            top: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "59%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "0",
+          },
+        },
+        "move-dot-rect1": {
+          "0%": {
+            opacity: '0',
+          },
+          "4%": {
+            opacity: '0',
+          },
+          "5%": {
+            top: "-3px",
+            left: "-3px",
+            opacity: "1",
+          },
+          "20%": {
+            top: "-3px",
+            left: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "27%": {
+            top: "calc(100% - 2px)",
+            left: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "42%": {
+            top: "calc(100% - 2px)",
+            left: "-3px",
+            opacity: "1",
+          },
+          "43%": {
+            opacity: "0",
+            top: "calc(100% - 2px)",
+            left: "-3px",
+          },
+          "100%": {
+            opacity: "0"
+          }
+        },
+        "move-dot-rect1-sm": {
+          "0%": {
+            opacity: '0',
+          },
+          "%": {
+            opacity: '0',
+          },
+          "8%": {
+            top: "-3px",
+            left: "-3px",
+            opacity: "1",
+          },
+          "25%": {
+            top: "-3px",
+            left: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "34%": {
+            top: "calc(100% - 2px)",
+            left: "calc(100% - 2px)",
+            opacity: "1",
+          },
+          "51%": {
+            top: "calc(100% - 2px)",
+            left: "-3px",
+            opacity: "1",
+          },
+          "52%": {
+            opacity: "0",
+            top: "calc(100% - 2px)",
+            left: "-3px",
+          },
+          "100%": {
+            opacity: "0"
+          }
+        },
+        "move-dot-left": {
+          "0%": {
+            opacity: '0',
+          },
+          "53%": {
+            opacity: '0',
+          },
+          "54%": {
+            opacity: '1',
+            top: "-32px",
+            left: "300px",
+          },
+          "64%": {
+            opacity: '1',
+            top: "-32px",
+            left: "-3px",
+          },
+          "69%": {
+            opacity: '1',
+            top: "100%",
+            left: "-3px",
+          },
+          "70%": {
+            opacity: '0',
+          },
+          "100%": {
+            opacity: '0',
+          }
+        },
+        "move-dot-left-sm": {
+          "0%": {
+            opacity: '0',
+          },
+          "67%": {
+            opacity: '0',
+          },
+          "68%": {
+            opacity: '1',
+            top: "-2px",
+          },
+          "74%": {
+            opacity: '1',
+            top: "calc(100% - 2px)",
+          },
+          "75%": {
+            opacity: '0',
+          },
+          "100%": {
+            opacity: '0',
+          }
+        },
+        "move-dot-middle": {
+          "0%": {
+            opacity: '0',
+          },
+          "71%": {
+            opacity: '0',
+          },
+          "72%": {
+            opacity: '1',
+            top: "-2px",
+          },
+          "76%": {
+            opacity: '1',
+            top: "calc(100% - 2px)",
+          },
+          "77%": {
+            opacity: '0',
+          },
+          "100%": {
+            opacity: '0',
+          }
+        },
+        "move-dot-middle-sm": {
+          "0%": {
+            opacity: '0',
+          },
+          "76%": {
+            opacity: '0',
+          },
+          "77%": {
+            opacity: '1',
+            top: "-2px",
+          },
+          "83%": {
+            opacity: '1',
+            top: "calc(100% - 2px)",
+          },
+          "84%": {
+            opacity: '0',
+          },
+          "100%": {
+            opacity: '0',
+          }
+        },
+        "move-dot-right": {
+          "0%": {
+            opacity: '0',
+          },
+          "78%": {
+            opacity: '0',
+          },
+          "79%": {
+            opacity: '1',
+            top: "-32px",
+            left: "-300px",
+          },
+          "89%": {
+            opacity: '1',
+            top: "-31px",
+            left: "-3px",
+          },
+          "94%": {
+            opacity: '1',
+            top: "100%",
+            left: "-3px",
+          },
+          "95%": {
+            opacity: '0',
+          },
+          "100%": {
+            opacity: '0',
+          },
+        },
+        "move-dot-right-sm": {
+          "0%": {
+            opacity: '0',
+          },
+          "85%": {
+            opacity: '0',
+          },
+          "86%": {
+            opacity: '1',
+            top: "-2px",
+          },
+          "92%": {
+            opacity: '1',
+            top: "calc(100% - 2px)",
+          },
+          "93%": {
+            opacity: '0',
+          },
+          "100%": {
+            opacity: '0',
+          }
+        },
+        "blinker-image": {
+          "0%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          },
+          "48%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          },
+          "49%": {
+            "border-color": "#00d5bf",
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "51%": {
+            "border-color": "#00d5bf",
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "52%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          },
+          "100%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          }
+        },
+        "blinker-image-sm": {
+          "0%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          },
+          "60%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          },
+          "61%": {
+            "border-color": "#00d5bf",
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "65%": {
+            "border-color": "#00d5bf",
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "66%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          },
+          "100%": {
+            "border-color": "transparent",
+            "box-shadow": "none",
+          }
+        },
+        "blinker-committee1": {
+          "0%": {
+            "box-shadow": "none",
+          },
+          "53%": {
+            "box-shadow": "none",
+          },
+          "54%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "69%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "70%": {
+            "box-shadow": "none",
+          },
+          "100%": {
+            "box-shadow": "none",
+          }
+        },
+        "blinker-committee1-sm": {
+          "0%": {
+            "box-shadow": "none",
+          },
+          "67%": {
+            "box-shadow": "none",
+          },
+          "68%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "74%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "75%": {
+            "box-shadow": "none",
+          },
+          "100%": {
+            "box-shadow": "none",
+          }
+        },
+        "blinker-committee2": {
+          "0%": {
+            "box-shadow": "none",
+          },
+          "71%": {
+            "box-shadow": "none",
+          },
+          "72%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "76%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "77%": {
+            "box-shadow": "none",
+          },
+          "100%": {
+            "box-shadow": "none",
+          }
+        },
+        "blinker-committee2-sm": {
+          "0%": {
+            "box-shadow": "none",
+          },
+          "76%": {
+            "box-shadow": "none",
+          },
+          "77%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "83%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "84%": {
+            "box-shadow": "none",
+          },
+          "100%": {
+            "box-shadow": "none",
+          }
+        },
+        "blinker-committee3": {
+          "0%": {
+            "box-shadow": "none",
+          },
+          "78%": {
+            "box-shadow": "none",
+          },
+          "79%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "94%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "95%": {
+            "box-shadow": "none",
+          },
+          "100%": {
+            "box-shadow": "none",
+          }
+        },
+        "blinker-committee3-sm": {
+          "0%": {
+            "box-shadow": "none",
+          },
+          "85%": {
+            "box-shadow": "none",
+          },
+          "86%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "92%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "93%": {
+            "box-shadow": "none",
+          },
+          "100%": {
+            "box-shadow": "none",
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "move-dot1": "move-dot1 26s linear infinite",
+        "move-dot1-sm": "move-dot1-sm 20s linear infinite",
+        "move-dot2": "move-dot2 26s linear infinite",
+        "move-dot2-sm": "move-dot2-sm 20s linear infinite",
+        "move-dot-rect1": "move-dot-rect1 26s linear infinite",
+        "move-dot-rect1-sm": "move-dot-rect1-sm 20s linear infinite",
+        "move-dot-rect-left": "move-dot-left 26s linear infinite",
+        "move-dot-rect-left-sm": "move-dot-left-sm 20s linear infinite",
+        "move-dot-rect-right": "move-dot-right 26s linear infinite",
+        "move-dot-rect-right-sm": "move-dot-right-sm 20s linear infinite",
+        "move-dot-rect-middle": "move-dot-middle 26s linear infinite",
+        "move-dot-rect-middle-sm": "move-dot-middle-sm 20s linear infinite",
+        "blinker-image": "blinker-image 26s linear infinite",
+        "blinker-image-sm": "blinker-image-sm 20s linear infinite",
+        "blinker-committee1": "blinker-committee1 26s linear infinite",
+        "blinker-committee1-sm": "blinker-committee1-sm 20s linear infinite",
+        "blinker-committee2": "blinker-committee2 26s linear infinite",
+        "blinker-committee2-sm": "blinker-committee2-sm 20s linear infinite",
+        "blinker-committee3": "blinker-committee3 26s linear infinite",
+        "blinker-committee3-sm": "blinker-committee3-sm 20s linear infinite",
       },
     },
   },

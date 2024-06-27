@@ -1,5 +1,5 @@
 "use client";
-import { IFrameLoading } from "@/components/Loading";
+import { IFrameLoading, Loading } from "@/components/Loading";
 import { useGetInfamSrc } from "@/hooks";
 import { Suspense } from "react";
 
@@ -12,7 +12,7 @@ const ELEMENT_ID = "person";
 
 const PersonForm = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       <PersonFormContent />
     </Suspense>
   );
