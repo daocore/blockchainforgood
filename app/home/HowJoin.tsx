@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Graphics from "@/assets/Graphics.png";
-import { JoinUs } from "./Hero";
+import { JoinUs } from "@/components/JoinUs";
 
 const list = [
   {

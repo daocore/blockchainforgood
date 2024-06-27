@@ -1,17 +1,16 @@
 "use client";
 import { IFrameLoading } from "@/components/Loading";
-import { useGetIframSrc } from "@/hooks";
+import { useGetIframSrc } from "@/hooks/useGetIframSrc";
 
-const CREATE_HASH_PATH = "#/form/project/create";
-const UPDATE_HASH_PATH = "#/form/project/update";
+const CREATE_HASH_PATH = "#/form/individual/create";
+const UPDATE_HASH_PATH = "#/form/individual/update";
 const PRODUCTION_EVENT_ID = "230ac677-083f-4240-8f61-6a3e0d504ffd";
-const DEV_EVENT_ID = "090ba7c2-bc0f-4476-b58e-fe834118dd89"; //beta
-// const DEV_EVENT_ID = "972ac263-0dd9-43cc-97d0-ea7fbe7477f5"; //zflocal
+const DEV_EVENT_ID = "9b8c579d-3c1b-4e51-809a-1c47f226e799";
 
-const ELEMENT_ID = "organization";
+const ELEMENT_ID = "incubation";
 
-const OrgForm = () => {
-  const organizationalChannel = useGetIframSrc({
+export default function IncubationForm() {
+  const inbucationChannel = useGetIframSrc({
     hashPaths: {
       update: UPDATE_HASH_PATH,
       create: CREATE_HASH_PATH,
@@ -27,13 +26,11 @@ const OrgForm = () => {
       <IFrameLoading size={60} id={ELEMENT_ID} />
       <iframe
         id={ELEMENT_ID}
-        src={organizationalChannel}
+        src={inbucationChannel}
         style={{
           width: "100vw",
         }}
       />
     </>
   );
-};
-
-export default OrgForm;
+}

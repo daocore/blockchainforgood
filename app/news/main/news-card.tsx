@@ -102,13 +102,13 @@ export function NewsCard({
         alt={name}
       />
       <div className="flex-auto flex flex-col justify-start">
-        <p className="text-newsTag text-xs font-semibold mb-2">
+        <p className="text-description text-xs font-semibold mb-2">
           {NEWS_TYPE_NAME[type]?.toUpperCase()}
         </p>
         <h4 className="line-clamp-2 font-bold">{name}</h4>
         <p className="line-clamp-2 text-xs text-typography">{intro}</p>
       </div>
-      <p className="flex-initial flex items-center gap-4 text-xs text-decsription">
+      <p className="flex-initial flex items-center gap-4 text-xs text-description">
         <span>{formatPublishDate(publishDate)}</span>
         <span className="inline-flex items-center gap-1">
           <Eye size={16} />
@@ -141,7 +141,7 @@ export function NewsCardLatest({
       />
       <div className="w-1/3">
         <div>
-          <p className="text-newsTag text-xs font-semibold mb-2">
+          <p className="text-description text-xs font-semibold mb-2">
             {NEWS_TYPE_NAME[type]?.toUpperCase()}
           </p>
           <h4 className="line-clamp-2 font-bold leading-snug">{name}</h4>
