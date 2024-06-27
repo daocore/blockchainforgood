@@ -11,7 +11,7 @@ export function ContactUs() {
         </h2>
         <div className="w-full md:w-3/5 md:mx-auto flex flex-col md:flex-row justify-center md:justify-around gap-4 md:gap-0">
           <a
-            className="inline-flex items-center justify-center gap-2"
+            className="inline-flex items-center justify-center gap-1"
             href="tg://resolve?domain=phoebe_qinghan"
             target="_blank"
           >
@@ -22,7 +22,7 @@ export function ContactUs() {
               width={32}
               height={32}
             />
-            @phoebe_qinghan 
+            Telegram 
           </a>
           <a
             className="inline-flex items-center justify-center gap-2"
@@ -36,7 +36,7 @@ export function ContactUs() {
               width={32}
               height={32}
             />
-            hello@blockchainforgood.xyz
+            Email
           </a>
         </div>
       </div>

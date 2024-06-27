@@ -36,64 +36,61 @@
 }
 
 .glow-dot1 {
-  @apply absolute animate-move-dot1;
-  width: 3px;
-  height: 3px;
-  left: -2px;
-  background-color: #0ff;  /* 发光颜色 */
+  @apply absolute animate-move-dot1-sm md:animate-move-dot1;
+  width: 5px;
+  height: 5px;
+  left: -3px;
+  background-color: #00d5bf;  /* 发光颜色 */
   border-radius: 50%;
-  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+  box-shadow: 0 0 10px 4px #00d5bf;  /* 发光效果 */
 }
 .glow-dot2 {
-  @apply absolute animate-move-dot-rect1 z-auto;
-  width: 3px;
-  height: 3px;
-  /* left: -2px; */
-  left: calc(100% - 2px);
-  top: -2px;
-  background-color: #0ff;  /* 发光颜色 */
+  @apply absolute animate-move-dot-rect1-sm md:animate-move-dot-rect1 z-auto;
+  width: 5px;
+  height: 5px;
+  left: -3px;
+  background-color: #00d5bf;  /* 发光颜色 */
   border-radius: 50%;
-  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+  box-shadow: 0 0 10px 4px #00d5bf;  /* 发光效果 */
 }
 .glow-dot3 {
-  @apply absolute animate-move-dot2;
-  width: 3px;
-  height: 3px;
-  left: -2px;
-  background-color: #0ff;  /* 发光颜色 */
+  @apply absolute animate-move-dot2-sm md:animate-move-dot2;
+  width: 5px;
+  height: 5px;
+  left: -3px;
+  background-color: #00d5bf;  /* 发光颜色 */
   border-radius: 50%;
-  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+  box-shadow: 0 0 10px 4px #00d5bf;  /* 发光效果 */
 }
 
 .glow-dot4 {
   @apply absolute animate-move-dot-rect-left-sm md:animate-move-dot-rect-left;
-  width: 3px;
-  height: 3px;
-  left: -2px;
+  width: 5px;
+  height: 5px;
+  left: -3px;
   top: -30px;
-  background-color: #0ff;  /* 发光颜色 */
+  background-color: #00d5bf;  /* 发光颜色 */
   border-radius: 50%;
-  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+  box-shadow: 0 0 10px 4px #00d5bf;  /* 发光效果 */
 }
 
 .glow-dot5 {
   @apply absolute animate-move-dot-rect-right-sm md:animate-move-dot-rect-right;
-  width: 3px;
-  height: 3px;
-  left: -2px;
-  background-color: #0ff;  /* 发光颜色 */
+  width: 5px;
+  height: 5px;
+  left: -3px;
+  background-color: #00d5bf;  /* 发光颜色 */
   border-radius: 50%;
-  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+  box-shadow: 0 0 10px 4px #00d5bf;  /* 发光效果 */
 }
 
 .glow-dot6 {
-  @apply absolute animate-move-dot-rect-middle-sm md:animate-move-dot-rect-middle;
-  width: 3px;
-  height: 3px;
-  left: -2px;
-  background-color: #0ff;  /* 发光颜色 */
-  border-radius: 50%;
-  box-shadow: 0 0 10px 2px #0ff;  /* 发光效果 */
+  @apply absolute rounded-full animate-move-dot-rect-middle-sm md:animate-move-dot-rect-middle;
+  width: 5px;
+  height: 5px;
+  left: -3px;
+  background-color: #00d5bf;  /* 发光颜色 */
+  box-shadow: 0 0 10px 4px #00d5bf;  /* 发光效果 */
 }
 
 .blinker-image {
@@ -130,5 +127,17 @@
 }
 .cache6 {
   @apply animate-blinker-committee3;
+}
+.cache7 {
+  @apply animate-move-dot1;
+}
+.cache8 {
+  @apply animate-move-dot2;
+}
+.cache9 {
+  @apply animate-move-dot-rect1;
+}
+.cache10 {
+  @apply animate-blinker-image;
 }
 /* END */

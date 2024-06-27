@@ -1,4 +1,3 @@
-"use client";
 import { LOCATION_HOST } from "@/constants";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";

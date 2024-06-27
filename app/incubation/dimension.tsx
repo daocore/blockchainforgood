@@ -6,32 +6,98 @@ const data = [
   {
     name: "Assistance to society",
     value: 0.2,
-    itemStyle: { color: "#00D5BF" },
+    itemStyle: {
+      color: "#00D5BF",
+      shadowBlur: 50,
+      shadowColor: "#00D5BF",
+    },
+    label: {
+      rotate: -40,
+    },
   },
-  { name: "Existing User Count", value: 0.2, itemStyle: { color: "#F7A600" } },
+  {
+    name: "Existing User Count",
+    value: 0.2,
+    itemStyle: { color: "#F7A600", shadowBlur: 50, shadowColor: "#F7A600" },
+    label: {
+      rotate: 80,
+    },
+  },
   {
     name: "Founder and Core Team",
     value: 0.2,
-    itemStyle: { color: "#F44527" },
+    itemStyle: { color: "#F44527", shadowBlur: 50, shadowColor: "#F44527" },
+    label: {
+      rotate: 10,
+    },
+    labelLine: {
+      length: 10,
+    },
   },
   {
-    name: "Feasibility $ Sustainability",
+    name: "Feasibility & Sustainability",
     value: 0.2,
-    itemStyle: { color: "#314198" },
+    itemStyle: { color: "#314198", shadowBlur: 50, shadowColor: "#314198" },
+    label: {
+      rotate: 110,
+    },
   },
-  { name: "Community Engagement", value: 0.1, itemStyle: { color: "#CA81FF" } },
+  {
+    name: "Community Engagement",
+    value: 0.1,
+    itemStyle: { color: "#CA81FF", shadowBlur: 50, shadowColor: "#CA81FF" },
+    label: {
+      rotate: 70,
+    },
+  },
   {
     name: "Product Implementation",
     value: 0.1,
-    itemStyle: { color: "#EEF500" },
+    itemStyle: { color: "#EEF500", shadowBlur: 50, shadowColor: "#EEF500" },
+    label: {
+      rotate: 30,
+    },
+  },
+];
+
+const dataWrap = [
+  {
+    name: "Assistance to society",
+    value: 0.2,
+    itemStyle: { color: "rgba(0,213, 191, 0.05)" },
+  },
+  {
+    name: "Existing User Count",
+    value: 0.2,
+    itemStyle: { color: "rgba(247, 166, 0, 0.05)" },
+  },
+  {
+    name: "Founder and Core Team",
+    value: 0.2,
+    itemStyle: { color: "rgba(244, 69, 39, 0.05)" },
+  },
+  {
+    name: "Feasibility & Sustainability",
+    value: 0.2,
+    itemStyle: { color: "rgba(49, 65, 152, 0.05)" },
+  },
+  {
+    name: "Community Engagement",
+    value: 0.1,
+    itemStyle: { color: "rgba(202, 129, 255, 0.05)" },
+  },
+  {
+    name: "Product Implementation",
+    value: 0.1,
+    itemStyle: { color: "rgba(238, 245, 0, 0.05)" },
   },
 ];
 
 const ProjectJudgingChart = () => {
-  const { isMobile, isTablet, isLaptop, isDesktop } = useScreen();
+  const { isMobile, isTablet, isDesktop } = useScreen();
 
   const getLegend = () => {
-    if (isDesktop || isLaptop) {
+    if (isDesktop) {
       return [
         {
           orient: "vertical",
@@ -46,9 +112,9 @@ const ProjectJudgingChart = () => {
             borderWidht: 100,
           },
           data: [
-            { name: "Assistance to society", icon: "roundRect" },
-            { name: "Existing User Count", icon: "roundRect" },
-            { name: "Founder and Core Team", icon: "roundRect" },
+            { name: "Assistance to society", icon: "rect" },
+            { name: "Existing User Count", icon: "rect" },
+            { name: "Founder and Core Team", icon: "rect" },
           ],
         },
         {
@@ -61,9 +127,9 @@ const ProjectJudgingChart = () => {
           },
           itemGap: 20,
           data: [
-            { name: "Feasibility $ Sustainability", icon: "roundRect" },
-            { name: "Community Engagement", icon: "roundRect" },
-            { name: "Product Implementation", icon: "roundRect" },
+            { name: "Feasibility & Sustainability", icon: "rect" },
+            { name: "Community Engagement", icon: "rect" },
+            { name: "Product Implementation", icon: "rect" },
           ],
         },
       ];
@@ -82,7 +148,7 @@ const ProjectJudgingChart = () => {
           { name: "Assistance to society", icon: "roundRect" },
           { name: "Existing User Count", icon: "roundRect" },
           { name: "Founder and Core Team", icon: "roundRect" },
-          { name: "Feasibility $ Sustainability", icon: "roundRect" },
+          { name: "Feasibility & Sustainability", icon: "roundRect" },
           { name: "Community Engagement", icon: "roundRect" },
           { name: "Product Implementation", icon: "roundRect" },
         ],
@@ -102,7 +168,7 @@ const ProjectJudgingChart = () => {
           { name: "Assistance to society", icon: "roundRect" },
           { name: "Existing User Count", icon: "roundRect" },
           { name: "Founder and Core Team", icon: "roundRect" },
-          { name: "Feasibility $ Sustainability", icon: "roundRect" },
+          { name: "Feasibility & Sustainability", icon: "roundRect" },
           { name: "Community Engagement", icon: "roundRect" },
           { name: "Product Implementation", icon: "roundRect" },
         ],
@@ -111,7 +177,7 @@ const ProjectJudgingChart = () => {
   };
 
   const getCenter = () => {
-    if (isMobile) return ["50%", "40%"];
+    if (isMobile) return ["50%", "38%"];
     if (isTablet) return ["30%", "50%"];
     return ["50%", "50%"];
   };
@@ -138,7 +204,9 @@ const ProjectJudgingChart = () => {
         {
           name: "Project Judging Dimension",
           type: "pie",
-          radius: ["40%", "50%"],
+          silent: true,
+          radius: ["40%", "48%"],
+          padAngle: 2,
           center: getCenter(),
           avoidLabelOverlap: false,
           label: {
@@ -162,6 +230,16 @@ const ProjectJudgingChart = () => {
           },
           data,
         },
+        // {
+        //   name: "Project Judging Dimension",
+        //   type: "pie",
+        //   silent: true,
+        //   radius: ["48%", "56%"],
+        //   padAngle: 2,
+        //   center: getCenter(),
+        //   data: dataWrap,
+        //   itemStyle: { shadowBlur: 20, shadowColor: "#00D5BF", opacity: 0.8 },
+        // },
       ],
     };
   };
