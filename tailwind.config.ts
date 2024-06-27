@@ -217,7 +217,7 @@ const config = {
           "0%": {
             opacity: '0',
           },
-          "%": {
+          "7%": {
             opacity: '0',
           },
           "8%": {
@@ -566,6 +566,46 @@ const config = {
           "100%": {
             "box-shadow": "none",
           }
+        },
+        "blinker-committee4": {
+          "0%": {
+            "box-shadow": "none",
+          },
+          "20%": {
+            "box-shadow": "none",
+          },
+          "21%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "26%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "27%": {
+            "box-shadow": "none",
+          },
+          "100%": {
+            "box-shadow": "none",
+          }
+        },
+        "blinker-committee4-sm": {
+          "0%": {
+            "box-shadow": "none",
+          },
+          "25%": {
+            "box-shadow": "none",
+          },
+          "26%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "33%": {
+            "box-shadow": "0 0 10px #00d5bf",
+          },
+          "34%": {
+            "box-shadow": "none",
+          },
+          "100%": {
+            "box-shadow": "none",
+          }
         }
       },
       animation: {
@@ -591,6 +631,8 @@ const config = {
         "blinker-committee2-sm": "blinker-committee2-sm 20s linear infinite",
         "blinker-committee3": "blinker-committee3 26s linear infinite",
         "blinker-committee3-sm": "blinker-committee3-sm 20s linear infinite",
+        "blinker-committee4": "blinker-committee4 26s linear infinite",
+        "blinker-committee4-sm": "blinker-committee4-sm 20s linear infinite",
       },
     },
   },
