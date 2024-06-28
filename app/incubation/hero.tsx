@@ -45,7 +45,7 @@ export function Hero() {
 function HeroImageWrap() {
   return (
     <div
-      className="relative mx-auto flex flex-col justify-end"
+      className="relative mx-auto md:mx-0 flex flex-col justify-end"
       style={{
         width: "419px",
         height: "506px",
