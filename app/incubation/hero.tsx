@@ -1,5 +1,10 @@
 import Image from "next/image";
-import HeroImage from "@/assets/incubation/hero.png";
+import GraphicBaseImage from "@/assets/incubation/graphic-base.png";
+import Blink1Image from "@/assets/incubation/Blink (1).png";
+import Blink2Image from "@/assets/incubation/Blink (2).png";
+import Blink3Image from "@/assets/incubation/Blink.png";
+import HandsImage from "@/assets/incubation/Hands.png";
+import ShipImage from "@/assets/incubation/BGA Incubation Hero Ship.png";
 import { ROUTER_PATH } from "@/constants";
 import { JoinUs } from "@/components/JoinUs";
 
@@ -25,12 +30,55 @@ export function Hero() {
           link={ROUTER_PATH.FORM.INCUBATION}
         />
       </div>
-      <Image
+      <HeroImageWrap />
+      {/* <Image
         src={HeroImage}
         alt="Hero"
         className="mx-auto"
         width={419}
         height={506}
+      /> */}
+    </div>
+  );
+}
+
+function HeroImageWrap() {
+  return (
+    <div
+      className="relative mx-auto flex flex-col justify-end"
+      style={{
+        width: "419px",
+        height: "506px",
+      }}
+    >
+      <Image className="absolute inset-0" src={GraphicBaseImage} alt="base" />
+      {/* 小的blink,右边 */}
+      <Image
+        className="absolute top-[13%] right-[5%] w-[17px] h-[17px] animate-twinkle"
+        src={Blink1Image}
+        alt="blink1"
+      />
+      {/* 大的blink,右边 */}
+      <Image
+        className="absolute top-0 right-0 w-[35px] h-[35px] animate-twinkle"
+        src={Blink2Image}
+        alt="blink2"
+      />
+      {/* 中等的blink,左边 */}
+      <Image
+        className="absolute top-[30%] left-0 w-[25px] h-[25px] animate-twinkle"
+        src={Blink3Image}
+        alt="blink3"
+      />
+      <Image
+        className="w-[90%] mx-auto relative top-[10%] animate-floatY z-10"
+        src={ShipImage}
+        alt="ship"
+      />
+      <Image
+        className="w-[57%] mx-auto -translate-x-14"
+        src={HandsImage}
+        alt="hands"
       />
     </div>
   );
