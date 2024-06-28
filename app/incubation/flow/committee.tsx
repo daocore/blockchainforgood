@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CommitteeImage from "@/assets/incubation/committee.png";
+import CommitteeImage from "@/assets/incubation/committee.webp";
 import { cn } from "@/lib";
 import { VerticalLine } from "./vertical-line";
 import styles from "./incubation.module.css";
@@ -59,7 +59,7 @@ export function Committee() {
     <div>
       <div className="flex justify-center">
         <Image
-          className="animate-blinker-image-sm md:animate-blinker-image rounded-full"
+          className="animate-blinker-image-sm md:animate-blinker-image rounded-full p-1"
           src={CommitteeImage}
           alt="Committee"
           width={126}

@@ -1,14 +1,14 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
     "./index.html",
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -20,11 +20,12 @@ const config = {
     },
     extend: {
       gridTemplateColumns: {
-        '2/1': '2fr 1fr'
+        "2/1": "2fr 1fr",
       },
       backgroundImage: {
         video: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 51.72%, rgba(0, 0, 0, 0.75) 104.14%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.26) 22.41%, rgba(0, 0, 0, 0.00) 34.48%);`,
-        videoHover: "linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);"
+        videoHover:
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);",
       },
       screens: {
         xs: "481px",
@@ -33,7 +34,7 @@ const config = {
       },
       width: {
         content: "1232px",
-        page: '800px'
+        page: "800px",
       },
       colors: {
         main: "#00d5bf",
@@ -137,7 +138,7 @@ const config = {
           "0%": {
             opacity: "0",
           },
-         "42%": {
+          "42%": {
             opacity: "0",
           },
           "43%": {
@@ -159,7 +160,7 @@ const config = {
           "0%": {
             opacity: "0",
           },
-         "51%": {
+          "51%": {
             opacity: "0",
           },
           "52%": {
@@ -179,10 +180,10 @@ const config = {
         },
         "move-dot-rect1": {
           "0%": {
-            opacity: '0',
+            opacity: "0",
           },
           "4%": {
-            opacity: '0',
+            opacity: "0",
           },
           "5%": {
             top: "-3px",
@@ -210,15 +211,15 @@ const config = {
             left: "-3px",
           },
           "100%": {
-            opacity: "0"
-          }
+            opacity: "0",
+          },
         },
         "move-dot-rect1-sm": {
           "0%": {
-            opacity: '0',
+            opacity: "0",
           },
           "7%": {
-            opacity: '0',
+            opacity: "0",
           },
           "8%": {
             top: "-3px",
@@ -246,154 +247,154 @@ const config = {
             left: "-3px",
           },
           "100%": {
-            opacity: "0"
-          }
+            opacity: "0",
+          },
         },
         "move-dot-left": {
           "0%": {
-            opacity: '0',
+            opacity: "0",
           },
           "53%": {
-            opacity: '0',
+            opacity: "0",
           },
           "54%": {
-            opacity: '1',
+            opacity: "1",
             top: "-32px",
             left: "300px",
           },
           "64%": {
-            opacity: '1',
+            opacity: "1",
             top: "-32px",
             left: "-3px",
           },
           "69%": {
-            opacity: '1',
+            opacity: "1",
             top: "100%",
             left: "-3px",
           },
           "70%": {
-            opacity: '0',
+            opacity: "0",
           },
           "100%": {
-            opacity: '0',
-          }
+            opacity: "0",
+          },
         },
         "move-dot-left-sm": {
           "0%": {
-            opacity: '0',
+            opacity: "0",
           },
           "67%": {
-            opacity: '0',
+            opacity: "0",
           },
           "68%": {
-            opacity: '1',
+            opacity: "1",
             top: "-2px",
           },
           "74%": {
-            opacity: '1',
+            opacity: "1",
             top: "calc(100% - 2px)",
           },
           "75%": {
-            opacity: '0',
+            opacity: "0",
           },
           "100%": {
-            opacity: '0',
-          }
+            opacity: "0",
+          },
         },
         "move-dot-middle": {
           "0%": {
-            opacity: '0',
+            opacity: "0",
           },
           "71%": {
-            opacity: '0',
+            opacity: "0",
           },
           "72%": {
-            opacity: '1',
+            opacity: "1",
             top: "-2px",
           },
           "76%": {
-            opacity: '1',
+            opacity: "1",
             top: "calc(100% - 2px)",
           },
           "77%": {
-            opacity: '0',
+            opacity: "0",
           },
           "100%": {
-            opacity: '0',
-          }
+            opacity: "0",
+          },
         },
         "move-dot-middle-sm": {
           "0%": {
-            opacity: '0',
+            opacity: "0",
           },
           "76%": {
-            opacity: '0',
+            opacity: "0",
           },
           "77%": {
-            opacity: '1',
+            opacity: "1",
             top: "-2px",
           },
           "83%": {
-            opacity: '1',
+            opacity: "1",
             top: "calc(100% - 2px)",
           },
           "84%": {
-            opacity: '0',
+            opacity: "0",
           },
           "100%": {
-            opacity: '0',
-          }
+            opacity: "0",
+          },
         },
         "move-dot-right": {
           "0%": {
-            opacity: '0',
+            opacity: "0",
           },
           "78%": {
-            opacity: '0',
+            opacity: "0",
           },
           "79%": {
-            opacity: '1',
+            opacity: "1",
             top: "-32px",
             left: "-300px",
           },
           "89%": {
-            opacity: '1',
+            opacity: "1",
             top: "-31px",
             left: "-3px",
           },
           "94%": {
-            opacity: '1',
+            opacity: "1",
             top: "100%",
             left: "-3px",
           },
           "95%": {
-            opacity: '0',
+            opacity: "0",
           },
           "100%": {
-            opacity: '0',
+            opacity: "0",
           },
         },
         "move-dot-right-sm": {
           "0%": {
-            opacity: '0',
+            opacity: "0",
           },
           "85%": {
-            opacity: '0',
+            opacity: "0",
           },
           "86%": {
-            opacity: '1',
+            opacity: "1",
             top: "-2px",
           },
           "92%": {
-            opacity: '1',
+            opacity: "1",
             top: "calc(100% - 2px)",
           },
           "93%": {
-            opacity: '0',
+            opacity: "0",
           },
           "100%": {
-            opacity: '0',
-          }
+            opacity: "0",
+          },
         },
         "blinker-image": {
           "0%": {
@@ -419,7 +420,7 @@ const config = {
           "100%": {
             "border-color": "transparent",
             "box-shadow": "none",
-          }
+          },
         },
         "blinker-image-sm": {
           "0%": {
@@ -445,7 +446,7 @@ const config = {
           "100%": {
             "border-color": "transparent",
             "box-shadow": "none",
-          }
+          },
         },
         "blinker-committee1": {
           "0%": {
@@ -465,7 +466,7 @@ const config = {
           },
           "100%": {
             "box-shadow": "none",
-          }
+          },
         },
         "blinker-committee1-sm": {
           "0%": {
@@ -485,7 +486,7 @@ const config = {
           },
           "100%": {
             "box-shadow": "none",
-          }
+          },
         },
         "blinker-committee2": {
           "0%": {
@@ -505,7 +506,7 @@ const config = {
           },
           "100%": {
             "box-shadow": "none",
-          }
+          },
         },
         "blinker-committee2-sm": {
           "0%": {
@@ -525,7 +526,7 @@ const config = {
           },
           "100%": {
             "box-shadow": "none",
-          }
+          },
         },
         "blinker-committee3": {
           "0%": {
@@ -545,7 +546,7 @@ const config = {
           },
           "100%": {
             "box-shadow": "none",
-          }
+          },
         },
         "blinker-committee3-sm": {
           "0%": {
@@ -565,7 +566,7 @@ const config = {
           },
           "100%": {
             "box-shadow": "none",
-          }
+          },
         },
         "blinker-committee4": {
           "0%": {
@@ -585,7 +586,7 @@ const config = {
           },
           "100%": {
             "box-shadow": "none",
-          }
+          },
         },
         "blinker-committee4-sm": {
           "0%": {
@@ -605,8 +606,33 @@ const config = {
           },
           "100%": {
             "box-shadow": "none",
-          }
-        }
+          },
+        },
+        floatY: {
+          "0%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(20px)",
+          },
+          "100%": {
+            transform: "translateY(0)",
+          },
+        },
+        twinkle: {
+          "0%, 100%": {
+            opacity: "0.8",
+          },
+          "30%": {
+            opacity: "0.8",
+          },
+          "50%": {
+            opacity: "0.1",
+          },
+          "70%": {
+            opacity: "0.8",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -633,10 +659,12 @@ const config = {
         "blinker-committee3-sm": "blinker-committee3-sm 20s linear infinite",
         "blinker-committee4": "blinker-committee4 26s linear infinite",
         "blinker-committee4-sm": "blinker-committee4-sm 20s linear infinite",
+        floatY: "floatY 3s ease-in-out infinite",
+        twinkle: "twinkle 3s ease-in-out infinite",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
