@@ -8,7 +8,7 @@ export function Hero() {
     <div className="w-full md:w-content mx-auto flex flex-col md:flex-row md:justify-between md:items-center">
       <div className="flex flex-col gap-8 w-auto md:w-[600px] px-4">
         <div>
-          <h1 className="text-white text-3xl sm:text-5xl">
+          <h1 className="text-white text-3xl sm:text-5xl font-bold">
             BGA Incubation
             <br className="hidden md:inline" />
             Programme
