@@ -51,32 +51,42 @@ function HeroImageWrap() {
         height: "506px",
       }}
     >
-      <Image className="absolute inset-0" src={GraphicBaseImage} alt="base" />
+      <Image
+        className="absolute inset-0"
+        priority
+        src={GraphicBaseImage}
+        alt="base"
+      />
       {/* 小的blink,右边 */}
       <Image
         className="absolute top-[13%] right-[5%] w-[17px] h-[17px] animate-twinkle"
+        priority
         src={Blink1Image}
         alt="blink1"
       />
       {/* 大的blink,右边 */}
       <Image
         className="absolute top-0 right-0 w-[35px] h-[35px] animate-twinkle"
+        priority
         src={Blink2Image}
         alt="blink2"
       />
       {/* 中等的blink,左边 */}
       <Image
         className="absolute top-[30%] left-0 w-[25px] h-[25px] animate-twinkle"
+        priority
         src={Blink3Image}
         alt="blink3"
       />
       <Image
         className="w-[90%] mx-auto relative top-[10%] animate-floatY z-10"
+        priority
         src={ShipImage}
         alt="ship"
       />
       <Image
         className="w-[57%] mx-auto -translate-x-14"
+        priority
         src={HandsImage}
         alt="hands"
       />
