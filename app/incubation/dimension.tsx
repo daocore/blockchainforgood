@@ -4,7 +4,7 @@ import ReactEcharts from "echarts-for-react";
 
 const data = [
   {
-    name: "Assistance to society",
+    name: "Assistance to Society",
     value: 0.2,
     itemStyle: {
       color: "#00D5BF",
@@ -24,7 +24,7 @@ const data = [
     },
   },
   {
-    name: "Founder and Core Team",
+    name: "Founder & Core Team",
     value: 0.2,
     itemStyle: { color: "#F44527", shadowBlur: 50, shadowColor: "#F44527" },
     label: {
@@ -60,39 +60,6 @@ const data = [
   },
 ];
 
-const dataWrap = [
-  {
-    name: "Assistance to society",
-    value: 0.2,
-    itemStyle: { color: "rgba(0,213, 191, 0.05)" },
-  },
-  {
-    name: "Existing User Count",
-    value: 0.2,
-    itemStyle: { color: "rgba(247, 166, 0, 0.05)" },
-  },
-  {
-    name: "Founder and Core Team",
-    value: 0.2,
-    itemStyle: { color: "rgba(244, 69, 39, 0.05)" },
-  },
-  {
-    name: "Feasibility & Sustainability",
-    value: 0.2,
-    itemStyle: { color: "rgba(49, 65, 152, 0.05)" },
-  },
-  {
-    name: "Community Engagement",
-    value: 0.1,
-    itemStyle: { color: "rgba(202, 129, 255, 0.05)" },
-  },
-  {
-    name: "Product Implementation",
-    value: 0.1,
-    itemStyle: { color: "rgba(238, 245, 0, 0.05)" },
-  },
-];
-
 const ProjectJudgingChart = () => {
   const { isMobile, isTablet, isDesktop } = useScreen();
 
@@ -112,9 +79,9 @@ const ProjectJudgingChart = () => {
             borderWidht: 100,
           },
           data: [
-            { name: "Assistance to society", icon: "rect" },
+            { name: "Assistance to Society", icon: "rect" },
             { name: "Existing User Count", icon: "rect" },
-            { name: "Founder and Core Team", icon: "rect" },
+            { name: "Founder & Core Team", icon: "rect" },
           ],
         },
         {
@@ -145,12 +112,12 @@ const ProjectJudgingChart = () => {
         },
         itemGap: 20,
         data: [
-          { name: "Assistance to society", icon: "roundRect" },
-          { name: "Existing User Count", icon: "roundRect" },
-          { name: "Founder and Core Team", icon: "roundRect" },
-          { name: "Feasibility & Sustainability", icon: "roundRect" },
-          { name: "Community Engagement", icon: "roundRect" },
-          { name: "Product Implementation", icon: "roundRect" },
+          { name: "Assistance to Society", icon: "rect" },
+          { name: "Existing User Count", icon: "rect" },
+          { name: "Founder & Core Team", icon: "rect" },
+          { name: "Feasibility & Sustainability", icon: "rect" },
+          { name: "Community Engagement", icon: "rect" },
+          { name: "Product Implementation", icon: "rect" },
         ],
       };
     }
@@ -165,12 +132,12 @@ const ProjectJudgingChart = () => {
         },
         itemGap: 20,
         data: [
-          { name: "Assistance to society", icon: "roundRect" },
-          { name: "Existing User Count", icon: "roundRect" },
-          { name: "Founder and Core Team", icon: "roundRect" },
-          { name: "Feasibility & Sustainability", icon: "roundRect" },
-          { name: "Community Engagement", icon: "roundRect" },
-          { name: "Product Implementation", icon: "roundRect" },
+          { name: "Assistance to Society", icon: "rect" },
+          { name: "Existing User Count", icon: "rect" },
+          { name: "Founder & Core Team", icon: "rect" },
+          { name: "Feasibility & Sustainability", icon: "rect" },
+          { name: "Community Engagement", icon: "rect" },
+          { name: "Product Implementation", icon: "rect" },
         ],
       },
     ];
