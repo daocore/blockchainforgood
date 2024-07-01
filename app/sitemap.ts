@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next'
 import { API_PATH } from './news/api'
-import { API_URL } from "@/constants";
+import { API_URL, VISITED_PRODUCTION_URL } from "@/constants";
 import { PUBLISHED } from './news/enums';
 import { INews, IPageData } from './news/types';
+
 
 
 const getAllNews = async () => {
@@ -19,20 +20,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const newsList = ((await getAllNews()).data as IPageData<INews>).list
   return [
     {
-      url: '/',
-      lastModified: new Date()
+      url: VISITED_PRODUCTION_URL,
+      lastModified: new Date(),
+      priority: 1,
     },
     {
-      url: '/news',
-      lastModified: new Date()
+      url: VISITED_PRODUCTION_URL + 'news',
+      lastModified: new Date(),
+      priority: 0.5,
     },
     ...newsList.map((news) => ({
-      url: `/news/detail/${news.id}`,
+      url: VISITED_PRODUCTION_URL + `news/detail/${news.id}`,
       lastModified: news.publishDate,
+      priority: 0.8,
     })),
     {
-      url: '/incubation',
-      lastModified: new Date()
+      url: VISITED_PRODUCTION_URL + 'incubation',
+      lastModified: new Date(),
+      priority: 0.8,
     },
   ]
 }
