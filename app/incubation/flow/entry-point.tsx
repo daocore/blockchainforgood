@@ -8,7 +8,7 @@ const ENTRY_LIST = [
     isActive: false,
   },
   {
-    title: "Proactive Registration",
+    title: "Self-Application",
     isActive: true,
     dotClassName: styles["glow-dot2"],
     className: styles["blinker-committee4"],
