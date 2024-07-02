@@ -23,8 +23,8 @@ export function useGetInfamSrc({ hashPaths, eventIds }: IOptions) {
 
     const latestHref = `${IFRAME_LOCATION_HOST}/${hashPaths}/${isProdENV ? eventIds.production : eventIds?.dev}`;
 
-    // 在code基础上增加了referfer organization 搜索字段
-    const iframeLink = !!searchParams?.size ? `${latestHref}?${searchParams.toString()}` : latestHref;
+    // 在code基础上增加了referfer organization 搜索字段 size在safari中拿不到
+    const iframeLink = !![...searchParams?.entries()]?.length ? `${latestHref}?${searchParams.toString()}` : latestHref;
 
     setChannel(iframeLink);
   }, []);
