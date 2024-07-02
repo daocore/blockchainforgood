@@ -1,4 +1,4 @@
-import { LOCATION_HOST } from "@/constants";
+import { IFRAME_LOCATION_HOST } from "@/constants";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -19,15 +19,14 @@ export function useGetInfamSrc({ hashPaths, eventIds }: IOptions) {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const hasOneTimeCode = searchParams.has("code");
     const isProdENV = [PRODUCTION_MOLEDAO_DOMAIN, PRODUCTION_VERCEL_DOMAIN]?.includes(window?.location?.host);
 
-    const latestHref = `${LOCATION_HOST}/${hashPaths}/${isProdENV ? eventIds.production : eventIds?.dev}`;
-    const oneTimeCode = searchParams.get("code");
+    const latestHref = `${IFRAME_LOCATION_HOST}/${hashPaths}/${isProdENV ? eventIds.production : eventIds?.dev}`;
 
-    setChannel(
-      hasOneTimeCode ? `${latestHref}/${oneTimeCode}` : latestHref
-    );
+    // 在code基础上增加了referfer organization 搜索字段
+    const iframeLink = !!searchParams?.size ? `${latestHref}?${searchParams.toString()}` : latestHref;
+
+    setChannel(iframeLink);
   }, []);
 
   return channel;

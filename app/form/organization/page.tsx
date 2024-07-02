@@ -1,12 +1,8 @@
 "use client";
 import { IFrameLoading, Loading } from "@/components/Loading";
+import { DEV_PARTNER_EVENT_ID, ORGANIZATION_HASH_PATH, PRODUCTION_PARTNER_EVENT_ID } from "@/constants/event";
 import { useGetInfamSrc } from "@/hooks";
 import { Suspense } from "react";
-
-const ORGANIZATION_HASH_PATH = "#/form/project";
-const PRODUCTION_EVENT_ID = "230ac677-083f-4240-8f61-6a3e0d504ffd";
-const DEV_EVENT_ID = "090ba7c2-bc0f-4476-b58e-fe834118dd89"; //beta
-// const DEV_EVENT_ID = "972ac263-0dd9-43cc-97d0-ea7fbe7477f5"; //zflocal
 
 const ELEMENT_ID = "organization";
 
@@ -22,8 +18,8 @@ const OrgFormContent = () => {
   const organizationalChannel = useGetInfamSrc({
     hashPaths: ORGANIZATION_HASH_PATH,
     eventIds: {
-      production: PRODUCTION_EVENT_ID,
-      dev: DEV_EVENT_ID,
+      production: PRODUCTION_PARTNER_EVENT_ID,
+      dev: DEV_PARTNER_EVENT_ID,
     },
   });
 
