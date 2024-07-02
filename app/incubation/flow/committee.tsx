@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CommitteeImage from "@/assets/incubation/committee.png";
+import CommitteeImage from "@/assets/incubation/committee.webp";
 import { cn } from "@/lib";
 import { VerticalLine } from "./vertical-line";
 import styles from "./incubation.module.css";
@@ -13,7 +13,7 @@ const COMMITTEE_LIST = [
       "Branding",
       "Community",
       "Advisory - Legal & Compliance",
-      "Other Supports if needed",
+      "Other support if needed",
     ],
     dotClassName: styles["glow-dot4"],
     cardClassName: styles["blinker-committee1"],
@@ -29,13 +29,13 @@ const COMMITTEE_LIST = [
       "Kol Resources",
       "Investment Resources",
       "Grants",
-      "Other Supports if needed",
+      "Other support if needed",
     ],
     dotClassName: styles["glow-dot6"],
     cardClassName: styles["blinker-committee2"],
   },
   {
-    title: "Incentive Incubation",
+    title: "Intensive Incubation",
     hasGrant: true,
     list: [
       "Marketing",
@@ -47,7 +47,7 @@ const COMMITTEE_LIST = [
       "Listing Resources",
       "Market Makers’ Resources",
       "Grants",
-      "Other Supports if needed",
+      "Other support if needed",
     ],
     dotClassName: styles["glow-dot5"],
     cardClassName: styles["blinker-committee3"],
@@ -59,7 +59,7 @@ export function Committee() {
     <div>
       <div className="flex justify-center">
         <Image
-          className="animate-blinker-image-sm md:animate-blinker-image rounded-full"
+          className="animate-blinker-image-sm md:animate-blinker-image rounded-full p-1"
           src={CommitteeImage}
           alt="Committee"
           width={126}
@@ -77,7 +77,7 @@ export function Committee() {
 function TitleCard() {
   return (
     <div className="w-full md:w-[290px] box-content h-11 mx-auto text-center border border-main py-2 bg-incubation relative z-10">
-      <h2 className="font-bold text-white">BGA Projects Committee</h2>
+      <h2 className="font-bold text-white">BGA Project Committee</h2>
       <p className="text-sm text-white">Score and Feedbacks</p>
     </div>
   );
