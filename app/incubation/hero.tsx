@@ -19,9 +19,9 @@ export function Hero() {
             Programme
           </h1>
           <p className="text-description mt-2">
-            BGA Incubation aims to support projects that use blockchain
-            technology to solve real-world problems by providing expertise,
-            resources, branding, and market support.
+            The BGA Incubation Program aims to support projects leveraging
+            blockchain technology to solve real-world problems by offering
+            expertise, resources, branding, and market support.
           </p>
         </div>
         <JoinUs
