@@ -15,10 +15,10 @@ const menuNavs = [
     name: "News",
     route: ROUTER_PATH.NEWS.ROOT,
   },
-  {
-    name: "Incubation",
-    route: ROUTER_PATH.INCUBATION,
-  },
+  // {
+  //   name: "Incubation",
+  //   route: ROUTER_PATH.INCUBATION,
+  // },
 ];
 
 export const Header = () => {
