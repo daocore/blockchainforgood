@@ -55,7 +55,6 @@ export const metadata: Metadata = {
       url: "/logo.png",
     },
   ],
-  verification: { google: "AI8J4nkFOhzBrTAPuqGJBcaMBKd2TnxM7vlvgRZ4fZY" },
 };
 
 export const viewport: Viewport = {
