@@ -55,6 +55,7 @@ export const metadata: Metadata = {
       url: "/logo.png",
     },
   ],
+  verification: { google: "ZAmjoaasmuxB02vFy5ktsONHf-LnocA3030HvyGzKTg" },
 };
 
 export const viewport: Viewport = {
@@ -74,10 +75,6 @@ function RootLayout({
         <meta
           name="copyright"
           content="© 2024 Blockchain For Good Alliance. All rights reserved."
-        />
-        <meta
-          name="google-site-verification"
-          content="ZAmjoaasmuxB02vFy5ktsONHf-LnocA3030HvyGzKTg"
         />
       </head>
       <GoogleAnalytics />
