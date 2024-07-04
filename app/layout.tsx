@@ -75,6 +75,10 @@ function RootLayout({
           name="copyright"
           content="© 2024 Blockchain For Good Alliance. All rights reserved."
         />
+        <meta
+          name="google-site-verification"
+          content="ZAmjoaasmuxB02vFy5ktsONHf-LnocA3030HvyGzKTg"
+        />
       </head>
       <GoogleAnalytics />
 
