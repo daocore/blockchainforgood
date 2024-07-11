@@ -10,9 +10,9 @@ import { RouterProcess } from "./router-process";
 export const metadata: Metadata = {
   title: "Blockchain for Good",
   description:
-    "At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain technology to address some of the most pressing challenges facing our society.  Our alliance serves as a collaborative hub, bringing together a diverse range of stakeholders to collectively explore, innovate and implement blockchain solutions for social good.",
+    "Discover Blockchain for Good Alliance (BGA) and our mission to leverage blockchain technology for social impact. Join us to explore, innovate, and implement blockchain solutions for societal challenges.",
   keywords:
-    "Blockchain for Good, Blockchain for Good Alliance, BGA, wallet users, inclusive financial system,  public infrastructure,  crypto exchanges,  bybit web3,  blockchain life dubai,  helium and hivemapper,  harvard blockchain club,  impactful projects,  lily liu,  creating a more inclusive,  coo helen liu, cross border remittances, solana foundation",
+    "BGA, Blockchain for Good, Blockchain for Good Alliance, inclusive financial system, public infrastructure, crypto exchanges, bybit web3, blockchain life dubai, helium hivemapper, harvard blockchain club, impactful projects, Lily Liu, Helen Liu, cross border remittances, Solana Foundation",
   authors: {
     name: "Blockchain for Good Alliance",
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       "At Blockchain for Good Alliance (BGA), we believe in the transformative potential of blockchain technology to address some of the most pressing challenges facing our society.  Our alliance serves as a collaborative hub, bringing together a diverse range of stakeholders to collectively explore, innovate and implement blockchain solutions for social good.",
     images: [
       {
-        url: "https://www.blockchainforgood.xyz/share.jpg",
+        url: "https://a.moledao.io/assets/other/bga-share.jpg",
         alt: "Blockchain for Good Alliance",
       },
     ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "Blockchain for Good",
     images: [
       {
-        url: "https://www.blockchainforgood.xyz/share.jpg",
+        url: "https://a.moledao.io/assets/other/bga-share.jpg",
         alt: "Blockchain for Good Alliance",
       },
     ],

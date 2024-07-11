@@ -44,7 +44,7 @@ export function Search() {
   if (isSearching) {
     return (
       <div
-        className="fixed z-[51] top-0 md:top-[64px] left-0 w-screen h-screen bg-black/80"
+        className="fixed z-40 top-0 md:top-[64px] left-0 w-screen h-screen bg-black/80"
         onClick={onCloseSearchWhenClickOutside}
       >
         <div className="bg-white" onClick={onStopCloseSearch}>
@@ -70,7 +70,7 @@ export function Search() {
   return (
     <SearchIcon
       onClick={onStartSearch}
-      className="cursor-pointer fixed top-3 right-8 md:relative md:top-0 md:right-0 z-50 md:z-20"
+      className="cursor-pointer fixed top-3 right-8 md:relative md:top-0 md:right-0 z-30 md:z-20"
       size={18}
     />
   );
