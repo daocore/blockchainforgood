@@ -8,7 +8,7 @@ import type { Viewport } from "next";
 import { RouterProcess } from "./router-process";
 
 export const metadata: Metadata = {
-  title: "BGA | Blockchain for Good",
+  title: "Blockchain for Good",
   description:
     "Discover Blockchain for Good Alliance (BGA) and our mission to leverage blockchain technology for social impact. Join us to explore, innovate, and implement blockchain solutions for societal challenges.",
   keywords:
