@@ -12,5 +12,6 @@ export const ROUTER_PATH = {
     DETAIL: '/news/detail/',
     SEARCH: '/news/search',
     TYPE: '/news/type/'
-  }
+  },
+  SQUARE: '/square',
 }
