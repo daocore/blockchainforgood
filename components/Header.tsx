@@ -5,9 +5,7 @@ import { usePathname } from "next/navigation";
 import { ROUTER_PATH } from "@/constants";
 import { useRouter } from "next-nprogress-bar";
 import { LogoSvg } from "./LogoSvg";
-import SquareIcon from "@/assets/square/icon.png";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Equal, X } from "lucide-react";
 
 const menuNavs = [
@@ -24,8 +22,7 @@ const menuNavs = [
   //   route: ROUTER_PATH.INCUBATION,
   // },
   {
-    name: "BGA Square",
-    icon: <Image src={SquareIcon} width={27} height={32} alt="BGA Square" />,
+    name: "Square",
     route: ROUTER_PATH.SQUARE,
   },
 ];
