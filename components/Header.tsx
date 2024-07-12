@@ -100,10 +100,7 @@ export const Header = () => {
                     router.push(nav.route);
                   }}
                 >
-                  <div className="flex items-center gap-1">
-                    <div className="hidden md:inline-block">{nav.icon}</div>
-                    {nav.name}
-                  </div>
+                  <div className="flex items-center gap-1">{nav.name}</div>
                 </nav>
               </div>
             ))}
