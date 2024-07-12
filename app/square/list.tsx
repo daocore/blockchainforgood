@@ -104,11 +104,11 @@ function UserItem({ item }: IItemProps) {
     user: { avatar, name },
   } = item;
   return (
-    <div className="w-[185px] xs:w-[150px] md:w-[185px]">
+    <div className="w-40 xs:w-[150px] md:w-[185px]">
       <Image
         src={`${IMAGE_URL}${avatar}`}
         alt={name}
-        className="w-[185px] h-[185px] xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
+        className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
         width={185}
         height={185}
       />
@@ -123,9 +123,9 @@ function PartnersItem({ item }: IItemProps) {
     organization: { logo, name, tags },
   } = item;
   return (
-    <div className="w-[185px] xs:w-[150px] md:w-[185px]">
+    <div className="w-40 xs:w-[150px] md:w-[185px]">
       <Image
-        className="w-[185px] h-[185px] xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
+        className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
         src={`${IMAGE_URL}${logo}`}
         alt={name}
         width={185}
@@ -151,9 +151,9 @@ function ProjectsItem({ item }: IItemProps) {
     organization: { logo, name },
   } = item;
   return (
-    <div className="relative overflow-hidden w-[185px] xs:w-[150px] md:w-[185px]">
+    <div className="relative overflow-hidden w-40 xs:w-[150px] md:w-[185px]">
       <Image
-        className="w-[185px] h-[185px] xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
+        className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
         src={`${IMAGE_URL}${logo}`}
         alt={name}
         width={185}
