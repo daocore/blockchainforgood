@@ -4,11 +4,12 @@ import { useAPIGetNewsInfinete } from "./api";
 import { EventsApproveEntity, IGetListParams, TabItem } from "./types";
 import { IMAGE_URL } from "@/constants";
 import styles from "./square.module.css";
-import { cn } from "@/lib";
+import { cn, IsProductionServer } from "@/lib";
 import { SkeletonList } from "./skeleton";
 import { useEffect, useRef } from "react";
 import { PAGE_SIZE } from "../news/constants";
 import { LoadingMore } from "@/components";
+import { DEV_TITLE_KEY, PROD_TITLE_KEY } from "./constants";
 
 type IProps = Omit<IGetListParams, "current" | "pageSize"> & {
   type: TabItem.ADVISORS | TabItem.PARTNERS | TabItem.PROJECTS;
@@ -102,21 +103,34 @@ interface IItemProps {
   item: EventsApproveEntity;
 }
 
+const imageClassNames =
+  "w-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110 object-contain";
+
+const itemClassNames = "w-40 xs:w-[150px] md:w-[185px]";
+
+const isProduction = IsProductionServer();
+const titleKey = isProduction ? PROD_TITLE_KEY : DEV_TITLE_KEY;
 function UserItem({ item }: IItemProps) {
   const {
     user: { avatar, name },
+    diyform,
   } = item;
+
+  const diyFormJson = JSON.parse(diyform);
+
   return (
-    <div className="w-40 xs:w-[150px] md:w-[185px]">
+    <div className={itemClassNames}>
       <Image
         src={`${IMAGE_URL}${avatar}`}
         alt={name}
-        className="w-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
+        className={imageClassNames}
         width={185}
         height={185}
       />
       <h4 className="font-bold text-base text-center mt-2">{name}</h4>
-      <p className="text-sm text-typography text-center">Title</p>
+      <p className="text-sm text-typography text-center">
+        {diyFormJson[titleKey]}
+      </p>
     </div>
   );
 }
@@ -126,9 +140,9 @@ function PartnersItem({ item }: IItemProps) {
     organization: { logo, name, tags },
   } = item;
   return (
-    <div className="w-40 xs:w-[150px] md:w-[185px]">
+    <div className={itemClassNames}>
       <Image
-        className="w-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
+        className={imageClassNames}
         src={`${IMAGE_URL}${logo}`}
         alt={name}
         width={185}
@@ -149,21 +163,29 @@ function PartnersItem({ item }: IItemProps) {
   );
 }
 
+const BGAIncubationTypeEnum = {
+  0: "Moderate Incubation",
+  1: "Incentive Incubation",
+  2: "Light Incubation",
+};
+
 function ProjectsItem({ item }: IItemProps) {
   const {
-    organization: { logo, name },
+    organization: { logo, name, type },
   } = item;
   return (
-    <div className="relative overflow-hidden w-40 xs:w-[150px] md:w-[185px]">
+    <div className={cn("relative overflow-hidden", itemClassNames)}>
       <Image
-        className="w-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
+        className={imageClassNames}
         src={`${IMAGE_URL}${logo}`}
         alt={name}
         width={185}
         height={185}
       />
       <h4 className="font-bold text-base text-center my-2">{name}</h4>
-      <div className={styles["corner-ribbon"]}>Moderate Incubation</div>
+      <div className={styles["corner-ribbon"]}>
+        {BGAIncubationTypeEnum[type]}
+      </div>
     </div>
   );
 }

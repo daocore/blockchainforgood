@@ -44,6 +44,7 @@ export type OrganizationEntity = {
   tags: TagEntity[]; // undefined
   createDate: string; // 创建时间
   updateDate: string; // 更新时间
+  type: 0  | 1 | 2
 }
 export type UserEntity = {
   id: string; // id
