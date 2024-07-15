@@ -55,7 +55,10 @@ export function List({ type, ...props }: IProps) {
   return (
     <>
       <div
-        className={cn("flex justify-center flex-wrap gap-6", styles.container)}
+        className={cn(
+          "grid grid-cols-auto-fill xs:grid-cols-auto-fill-xs md:grid-cols-auto-fill-md gap-6",
+          styles.container
+        )}
       >
         {isLoading ? <SkeletonList /> : <ListImpl type={type} list={list} />}
       </div>
@@ -108,7 +111,7 @@ function UserItem({ item }: IItemProps) {
       <Image
         src={`${IMAGE_URL}${avatar}`}
         alt={name}
-        className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
+        className="w-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
         width={185}
         height={185}
       />
@@ -125,7 +128,7 @@ function PartnersItem({ item }: IItemProps) {
   return (
     <div className="w-40 xs:w-[150px] md:w-[185px]">
       <Image
-        className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
+        className="w-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
         src={`${IMAGE_URL}${logo}`}
         alt={name}
         width={185}
@@ -153,7 +156,7 @@ function ProjectsItem({ item }: IItemProps) {
   return (
     <div className="relative overflow-hidden w-40 xs:w-[150px] md:w-[185px]">
       <Image
-        className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
+        className="w-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110"
         src={`${IMAGE_URL}${logo}`}
         alt={name}
         width={185}
