@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { ROUTER_PATH } from "@/constants";
 import { useRouter } from "next-nprogress-bar";
 import { LogoSvg } from "./LogoSvg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Equal, X } from "lucide-react";
 
 const menuNavs = [
@@ -28,7 +28,6 @@ const menuNavs = [
 ];
 
 export const Header = () => {
-  // const [top, setTop] = useState<number>(0);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -59,10 +58,26 @@ export const Header = () => {
     setShowMobileMenu(false);
   };
 
+  const [showHeaderBlur, setShowHeaderBlur] = useState<boolean>(true);
+  useEffect(() => {
+    if (!document?.getElementById) return;
+    document?.addEventListener("scroll", () => {
+      if (window?.scrollY <= 500) {
+        setShowHeaderBlur(window?.scrollY > 200 ? false : true);
+      } else {
+        setShowHeaderBlur(false);
+      }
+    });
+
+    return () => {
+      document?.removeEventListener("scroll", () => {});
+    };
+  }, []);
+
   return (
     <header
       className={cn(
-        (isSquarePage || isHomePage) && "layout-header",
+        showHeaderBlur && (isSquarePage || isHomePage) && "layout-header",
         "w-full h-12 md:h-[64px] box-border px-4 md:px-0 sticky top-0",
         isIncubationPage && "bg-incubation",
         showMobileMenu && "relative"
