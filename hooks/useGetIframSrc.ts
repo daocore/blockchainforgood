@@ -1,9 +1,6 @@
-import { IFRAME_LOCATION_HOST } from "@/constants";
+import { IFRAME_LOCATION_HOST, PRODUCTION_MOLEDAO_DOMAIN, PRODUCTION_VERCEL_DOMAIN } from "@/constants";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-
-const PRODUCTION_MOLEDAO_DOMAIN = "www.blockchainforgood.xyz"
-const PRODUCTION_VERCEL_DOMAIN = "blockchainforgood.xyz"
 
 interface IOptions {
   hashPaths: string,
