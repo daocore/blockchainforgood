@@ -104,7 +104,7 @@ interface IItemProps {
 }
 
 const imageClassNames =
-  "w-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110 object-contain";
+  "w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110 object-contain";
 
 const itemClassNames = "w-40 xs:w-[150px] md:w-[185px]";
 
