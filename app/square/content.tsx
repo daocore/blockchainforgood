@@ -5,24 +5,30 @@ import { List } from "./list";
 import {
   DEV_INCUBATION_EVENT_ID,
   DEV_PARTNER_EVENT_ID,
+  PRODUCTION_INCUBATION_EVENT_ID,
+  PRODUCTION_PARTNER_EVENT_ID,
 } from "@/constants/event";
 import { EventsRoleValue, ApproveValue, TabItem } from "./types";
 import { useState } from "react";
 import styles from "./square.module.css";
+import { IsProductionServer } from "@/lib";
+
+const isProduction = IsProductionServer();
 
 const tabLists = [
   {
     title: TabItem.ADVISORS,
     props: {
-      events: DEV_PARTNER_EVENT_ID,
+      events: isProduction ? PRODUCTION_PARTNER_EVENT_ID : DEV_PARTNER_EVENT_ID,
       roleType: EventsRoleValue.PERSONAL,
       approve: ApproveValue.APPROVED,
+      email: 1,
     },
   },
   {
     title: TabItem.PARTNERS,
     props: {
-      events: DEV_PARTNER_EVENT_ID,
+      events: isProduction ? PRODUCTION_PARTNER_EVENT_ID : DEV_PARTNER_EVENT_ID,
       roleType: EventsRoleValue.PROJECT,
       approve: ApproveValue.APPROVED,
     },
@@ -30,7 +36,9 @@ const tabLists = [
   {
     title: TabItem.PROJECTS,
     props: {
-      events: DEV_INCUBATION_EVENT_ID,
+      events: isProduction
+        ? PRODUCTION_INCUBATION_EVENT_ID
+        : DEV_INCUBATION_EVENT_ID,
       roleType: EventsRoleValue.PROJECT,
       approve: ApproveValue.APPROVED,
     },
