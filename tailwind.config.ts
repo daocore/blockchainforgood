@@ -21,6 +21,9 @@ const config = {
     extend: {
       gridTemplateColumns: {
         "2/1": "2fr 1fr",
+        "auto-fill": "repeat(auto-fill, minmax(130px, 1fr))",
+        "auto-fill-xs": "repeat(auto-fill, minmax(150px, 1fr))",
+        "auto-fill-md": "repeat(auto-fill, minmax(185px, 1fr))",
       },
       backgroundImage: {
         video: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 51.72%, rgba(0, 0, 0, 0.75) 104.14%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.26) 22.41%, rgba(0, 0, 0, 0.00) 34.48%);`,
