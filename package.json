@@ -6,7 +6,7 @@
     "dev": "next dev",
     "dev:zf": "NEXT_PUBLIC_IFRAME_LOCATION_HOST=http://localhost:5173 next dev",
     "build": "next build",
-    "build:dev": "next build",
+    "build:dev": "NEXT_PUBLIC_BASE_URL=https://beta.moledao.io NEXT_PUBLIC_IFRAME_LOCATION_HOST=https://beta.moledao.io NEXT_PUBLIC_IS_PRODUCTION=true next build",
     "start": "next start",
     "lint": "next lint"
   },
