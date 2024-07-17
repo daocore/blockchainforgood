@@ -14,13 +14,13 @@ const menuNavs = [
     route: ROUTER_PATH.HOME,
   },
   {
+    name: "Incubation",
+    route: ROUTER_PATH.INCUBATION,
+  },
+  {
     name: "News",
     route: ROUTER_PATH.NEWS.ROOT,
   },
-  // {
-  //   name: "Incubation",
-  //   route: ROUTER_PATH.INCUBATION,
-  // },
   {
     name: "Square",
     route: ROUTER_PATH.SQUARE,
