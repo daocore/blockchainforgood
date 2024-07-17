@@ -5,7 +5,7 @@ import ReactEcharts from "echarts-for-react";
 const data = [
   {
     name: "Assistance to Society",
-    value: 0.2,
+    value: 0.3,
     itemStyle: {
       color: "#00D5BF",
       shadowBlur: 50,
@@ -36,7 +36,7 @@ const data = [
   },
   {
     name: "Feasibility & Sustainability",
-    value: 0.2,
+    value: 0.1,
     itemStyle: { color: "#314198", shadowBlur: 50, shadowColor: "#314198" },
     label: {
       rotate: 110,
