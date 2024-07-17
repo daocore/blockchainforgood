@@ -36,8 +36,7 @@ export function useAPIGetNewsInfinete(querys: IGetListParams) {
     },
     async (url: string) => {
       const res = (await http.get(url)) as IPageData<EventsApproveEntity>;
-      // return res.list || [];
-      return res || [];
+      return res.list || [];
     },
     {
       revalidateFirstPage: false,

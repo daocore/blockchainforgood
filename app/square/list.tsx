@@ -56,8 +56,7 @@ export function List({ type, ...props }: IProps) {
   const isLoadingMore =
     size > 1 && data && typeof data[size - 1] === "undefined";
   // no more data
-  // const isReachingEnd = data && data[data.length - 1]?.length < PAGE_SIZE;
-  const isReachingEnd = true;
+  const isReachingEnd = data && data[data.length - 1]?.length < PAGE_SIZE;
 
   const list = data ? [].concat(...data) : [];
   return (
