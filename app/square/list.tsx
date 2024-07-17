@@ -117,9 +117,6 @@ interface IItemProps {
   item: EventsApproveEntity;
 }
 
-const imageClassNames =
-  "w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110 object-contain";
-
 const itemClassNames = "w-40 xs:w-[150px] md:w-[185px]";
 
 const isProduction = IsProductionServer();
@@ -134,16 +131,10 @@ function UserItem({ item }: IItemProps) {
 
   return (
     <div className={itemClassNames}>
-      <div className="bg-white overflow-hidden">
-        <Image
-          src={`${IMAGE_URL}${avatar}`}
-          alt={name}
-          className={imageClassNames}
-          width={185}
-          height={185}
-        />
-      </div>
-      <h4 className="font-bold text-base text-center mt-2">{name}</h4>
+      <ImageCard src={avatar} alt={name} />
+
+      <Title name={name} />
+
       <p className="text-sm text-typography text-center">
         {diyFormJson[titleKey]}
       </p>
@@ -157,16 +148,10 @@ function PartnersItem({ item }: IItemProps) {
   } = item;
   return (
     <div className={itemClassNames}>
-      <div className="bg-white overflow-hidden">
-        <Image
-          className={imageClassNames}
-          src={`${IMAGE_URL}${logo}`}
-          alt={name}
-          width={185}
-          height={185}
-        />
-      </div>
-      <h4 className="font-bold text-base text-center my-2">{name}</h4>
+      <ImageCard src={logo} alt={name} />
+
+      <Title name={name} />
+
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
@@ -208,19 +193,41 @@ function ProjectsItem({ item }: IItemProps) {
   } = item;
   return (
     <div className={cn("relative overflow-hidden", itemClassNames)}>
-      <div className="bg-white overflow-hidden">
-        <Image
-          className={imageClassNames}
-          src={`${IMAGE_URL}${logo}`}
-          alt={name}
-          width={185}
-          height={185}
-        />
-      </div>
-      <h4 className="font-bold text-base text-center my-2">{name}</h4>
+      <ImageCard src={logo} alt={name} />
+      <Title name={name} />
+
       <div className={styles["corner-ribbon"]}>
         {BGAIncubationTypeEnum[type]}
       </div>
+    </div>
+  );
+}
+
+function Title({ name }: { name: string }) {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <h4 className="font-bold text-base text-center mt-2 truncate">
+            {name}
+          </h4>
+        </TooltipTrigger>
+        <TooltipContent>{name}</TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
+
+function ImageCard({ alt, src }: { alt: string; src: string }) {
+  return (
+    <div className="bg-white overflow-hidden">
+      <Image
+        src={`${IMAGE_URL}${src}`}
+        alt={alt}
+        className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110 object-contain"
+        width={185}
+        height={185}
+      />
     </div>
   );
 }

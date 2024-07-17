@@ -7,7 +7,7 @@ import { SWR_OPTIONS } from "@/app/news/api";
 import useSWRInfinite from "swr/infinite";
 
 const API_PATH = {
-  GET_LIST: "https://a.moledao.io/api/eventApprove/list",
+  GET_LIST: "/eventApprove/list",
 };
 
 
