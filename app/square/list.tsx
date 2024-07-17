@@ -134,9 +134,16 @@ function UserItem({ item }: IItemProps) {
 
       <Title name={name} />
 
-      <p className="text-sm text-typography text-center">
-        {diyFormJson[titleKey]}
-      </p>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <p className="text-sm text-typography text-center truncate">
+              {diyFormJson[titleKey]}
+            </p>
+          </TooltipTrigger>
+          <TooltipContent>{diyFormJson[titleKey]}</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </div>
   );
 }
