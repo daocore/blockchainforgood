@@ -16,15 +16,15 @@ import { IsProductionServer } from "@/lib";
 const isProduction = IsProductionServer();
 
 const tabLists = [
-  {
-    title: TabItem.ADVISORS,
-    props: {
-      events: isProduction ? PRODUCTION_PARTNER_EVENT_ID : DEV_PARTNER_EVENT_ID,
-      roleType: EventsRoleValue.PERSONAL,
-      approve: ApproveValue.APPROVED,
-      email: 1,
-    },
-  },
+  // {
+  //   title: TabItem.ADVISORS,
+  //   props: {
+  //     events: isProduction ? PRODUCTION_PARTNER_EVENT_ID : DEV_PARTNER_EVENT_ID,
+  //     roleType: EventsRoleValue.PERSONAL,
+  //     approve: ApproveValue.APPROVED,
+  //     email: 1,
+  //   },
+  // },
   {
     title: TabItem.PARTNERS,
     props: {
@@ -33,20 +33,20 @@ const tabLists = [
       approve: ApproveValue.APPROVED,
     },
   },
-  {
-    title: TabItem.PROJECTS,
-    props: {
-      events: isProduction
-        ? PRODUCTION_INCUBATION_EVENT_ID
-        : DEV_INCUBATION_EVENT_ID,
-      roleType: EventsRoleValue.PROJECT,
-      approve: ApproveValue.APPROVED,
-    },
-  },
+  // {
+  //   title: TabItem.PROJECTS,
+  //   props: {
+  //     events: isProduction
+  //       ? PRODUCTION_INCUBATION_EVENT_ID
+  //       : DEV_INCUBATION_EVENT_ID,
+  //     roleType: EventsRoleValue.PROJECT,
+  //     approve: ApproveValue.APPROVED,
+  //   },
+  // },
 ];
 
 export function Content() {
-  const [activeTab, setActiveTab] = useState<string>(TabItem.ADVISORS);
+  const [activeTab, setActiveTab] = useState<string>(TabItem.PARTNERS);
   const onValueChange = (value: string) => {
     const currentDom = document.getElementById(activeTab);
     currentDom.classList.remove(styles["slide-show"]);
@@ -59,7 +59,7 @@ export function Content() {
   return (
     <main className="mb-12">
       <Tabs
-        defaultValue={TabItem.ADVISORS}
+        defaultValue={TabItem.PARTNERS}
         onValueChange={onValueChange}
         className="w-full"
       >
