@@ -321,7 +321,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
         className="m-auto"
         preload="auto"
         controls={mobile}
-        poster={mobile ? (poster as unknown as string) : undefined}
+        poster={mobile ? (poster as unknown as any)?.src : undefined}
         onEnded={togglePlay}
         style={{ width: width || "100%" }}
       >

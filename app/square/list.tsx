@@ -227,7 +227,8 @@ function Title({ name }: { name: string }) {
 function ImageCard({ alt, src }: { alt: string; src: string }) {
   return (
     <div className="bg-white overflow-hidden">
-      <Image
+      {/* 用了Nextjs自带的Image后，打开图片就会出问题。可能是配置不正确，暂时先用img元素代替 */}
+      <img
         src={`${IMAGE_URL}${src}`}
         alt={alt}
         className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110 object-contain"
