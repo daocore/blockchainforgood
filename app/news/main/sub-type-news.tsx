@@ -19,6 +19,7 @@ const NEWS_TYPE_LIST = [
   },
   { id: NEWS_TYPE.BFG_BGA, name: NEWS_TYPE_NAME[NEWS_TYPE.BFG_BGA] },
   { id: NEWS_TYPE.BYBIT_BGA, name: NEWS_TYPE_NAME[NEWS_TYPE.BYBIT_BGA] },
+  { id: NEWS_TYPE.KLIMADAO_BGA, name: NEWS_TYPE_NAME[NEWS_TYPE.KLIMADAO_BGA] },
 ];
 
 export function SubTypeNews() {

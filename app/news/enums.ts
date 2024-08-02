@@ -13,5 +13,6 @@ export enum NEWS_TYPE {
   RREAL_TALK_CASE_STUDY = 2,
   BGA_PROGRESS_PULSE = 3,
   BFG_BGA = 4,
+  KLIMADAO_BGA = 5
 }
 
