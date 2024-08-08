@@ -4,7 +4,7 @@ import ReactEcharts from "echarts-for-react";
 
 const data = [
   {
-    name: "Assistance to Society",
+    name: "Societal Impact",
     value: 0.3,
     itemStyle: {
       color: "#00D5BF",
@@ -12,15 +12,15 @@ const data = [
       shadowColor: "#00D5BF",
     },
     label: {
-      rotate: -40,
+      rotate: -60,
     },
   },
   {
-    name: "Existing User Count",
-    value: 0.2,
+    name: "Existing User & Community Engagement",
+    value: 0.25,
     itemStyle: { color: "#F7A600", shadowBlur: 50, shadowColor: "#F7A600" },
     label: {
-      rotate: 80,
+      rotate: 30,
     },
   },
   {
@@ -28,7 +28,7 @@ const data = [
     value: 0.2,
     itemStyle: { color: "#F44527", shadowBlur: 50, shadowColor: "#F44527" },
     label: {
-      rotate: 10,
+      rotate: -60,
     },
     labelLine: {
       length: 10,
@@ -37,25 +37,17 @@ const data = [
   {
     name: "Feasibility & Sustainability",
     value: 0.1,
-    itemStyle: { color: "#314198", shadowBlur: 50, shadowColor: "#314198" },
-    label: {
-      rotate: 110,
-    },
-  },
-  {
-    name: "Community Engagement",
-    value: 0.1,
     itemStyle: { color: "#CA81FF", shadowBlur: 50, shadowColor: "#CA81FF" },
     label: {
-      rotate: 70,
+      rotate: 80,
     },
   },
   {
     name: "Product Implementation",
-    value: 0.1,
+    value: 0.15,
     itemStyle: { color: "#EEF500", shadowBlur: 50, shadowColor: "#EEF500" },
     label: {
-      rotate: 30,
+      rotate: 40,
     },
   },
 ];
@@ -79,8 +71,8 @@ const ProjectJudgingChart = () => {
             borderWidht: 100,
           },
           data: [
-            { name: "Assistance to Society", icon: "rect" },
-            { name: "Existing User Count", icon: "rect" },
+            { name: "Societal Impact", icon: "rect" },
+            { name: "Existing User & Community Engagement", icon: "rect" },
             { name: "Founder & Core Team", icon: "rect" },
           ],
         },
@@ -95,7 +87,6 @@ const ProjectJudgingChart = () => {
           itemGap: 20,
           data: [
             { name: "Feasibility & Sustainability", icon: "rect" },
-            { name: "Community Engagement", icon: "rect" },
             { name: "Product Implementation", icon: "rect" },
           ],
         },
@@ -112,11 +103,10 @@ const ProjectJudgingChart = () => {
         },
         itemGap: 20,
         data: [
-          { name: "Assistance to Society", icon: "rect" },
-          { name: "Existing User Count", icon: "rect" },
+          { name: "Societal Impact", icon: "rect" },
+          { name: "Existing User & Community Engagement", icon: "rect" },
           { name: "Founder & Core Team", icon: "rect" },
           { name: "Feasibility & Sustainability", icon: "rect" },
-          { name: "Community Engagement", icon: "rect" },
           { name: "Product Implementation", icon: "rect" },
         ],
       };
@@ -132,11 +122,10 @@ const ProjectJudgingChart = () => {
         },
         itemGap: 20,
         data: [
-          { name: "Assistance to Society", icon: "rect" },
-          { name: "Existing User Count", icon: "rect" },
+          { name: "Societal Impact", icon: "rect" },
+          { name: "Existing User & Community Engagement", icon: "rect" },
           { name: "Founder & Core Team", icon: "rect" },
           { name: "Feasibility & Sustainability", icon: "rect" },
-          { name: "Community Engagement", icon: "rect" },
           { name: "Product Implementation", icon: "rect" },
         ],
       },
@@ -157,7 +146,7 @@ const ProjectJudgingChart = () => {
         top: "auto",
         textStyle: {
           color: "#fff",
-          fontSize: 32,
+          fontSize: isMobile ? 28 : 32,
           fontWeight: "bold",
           FontFamily: "Inter",
         },
@@ -217,7 +206,7 @@ const ProjectJudgingChart = () => {
       style={{
         height: "409px",
         width: "100%",
-        maxWidth: "800px",
+        maxWidth: "860px",
         margin: "0 auto",
       }}
     />
