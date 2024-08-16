@@ -101,15 +101,8 @@ const faqs = [
 
 export const FAQ = () => {
   return (
-    <div
-      id="faq"
-      className="md:w-content flex-col justify-start items-start gap-4 inline-flex px-4 md:px-0"
-    >
-      <div className="self-stretch justify-center items-center gap-2.5 inline-flex">
-        <h1 className="grow shrink basis-0 text-black text-[32px] font-bold font-['Inter'] leading-[41.60px]">
-          FAQ
-        </h1>
-      </div>
+    <div id="faq" className="w-full md:w-content space-y-4">
+      <h2 className="text-2xl font-bold">FAQ</h2>
       <div className="self-stretch flex-col justify-start items-center flex">
         {faqs.map((faq, index) => (
           <div key={index} className="w-full">

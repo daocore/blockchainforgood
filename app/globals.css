@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    --main: 174 100% 42%;
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -400,4 +401,18 @@ body {
   background: radial-gradient(ellipse at center, #00d5bf 0%, #e5e7eb 100%);
   filter: blur(90px);
   z-index: -1;
+}
+
+@keyframes scale-circle {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
