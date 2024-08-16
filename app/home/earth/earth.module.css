@@ -96,6 +96,10 @@
   scale: 1.5;
 }
 
+.container {
+  background: url("../../../assets/cube-pattern.png") repeat, url("../../../assets/cube-pattern1.png")  no-repeat left 70%  / contain;
+}
+
 @media screen and (min-width: 769px) {
   @keyframes scale-up-earth {
     from {

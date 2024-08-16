@@ -416,3 +416,7 @@ body {
     transform: scale(1);
   }
 }
+
+.earth-bg {
+  background: url("../assets/cube-pattern.png") repeat;
+}

@@ -65,6 +65,7 @@ export type EventsApproveEntity = {
   id: string; // id
   reason: string; // reason
   diyform: string; // diyform 
+  diyimage: string;
   checkin: any; // checkin
   type: EventsRoleValue; // 参与类别
   sort: number; // sort

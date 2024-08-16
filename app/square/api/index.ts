@@ -11,18 +11,6 @@ const API_PATH = {
 };
 
 
-export async function useGetList(params: IGetListParams) {
-  const url = API_PATH.GET_LIST;
-  return useSWR<IPageData<EventsApproveEntity>>(
-    [url, params],
-    () =>
-      http.get(url, {
-        params
-      }),
-    SWR_OPTIONS
-  );
-}
-
 export function useAPIGetNewsInfinete(querys: IGetListParams) {
   const url = API_PATH.GET_LIST;
   return useSWRInfinite(

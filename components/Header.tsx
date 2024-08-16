@@ -91,6 +91,7 @@ export const Header = () => {
     <header
       className={cn(
         showHeaderBlur && (isSquarePage || isHomePage) && "layout-header",
+        isHomePage && "earth-bg",
         "w-full h-12 md:h-[64px] box-border px-4 md:px-0 sticky top-0 z-50",
         isIncubationPage && "bg-incubation",
         "relative"

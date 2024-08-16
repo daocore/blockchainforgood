@@ -111,9 +111,9 @@ export const Videos = () => {
   }, [mobile]); // 通过空数组作为依赖项，确保只在组件挂载时执行一次初始化
 
   return (
-    <div className="relative mt-16 md:mt-24">
+    <div className="relative">
       <div
-        className="w-screen mt-10 relative splide"
+        className="w-screen relative splide"
         style={{
           height: videoStyle.height,
         }}
