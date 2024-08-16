@@ -5,11 +5,16 @@ import * as THREE from "three";
 import * as topojson from "topojson-client";
 import landTopo from "./earth.json";
 import data from "./data.json";
-import Globe, { GlobeMethods } from "react-globe.gl";
+import { type GlobeMethods } from "react-globe.gl";
 import { useIsMobile } from "@/hooks";
 import Image from "next/image";
 import styles from "./earth.module.css";
 import { cn } from "@/lib";
+import dynamic from "next/dynamic";
+
+const Globe = dynamic(() => import("./globe-wrapper"), {
+  ssr: false,
+});
 
 const DEFAULT_WIDTH = 750;
 
@@ -84,9 +89,12 @@ export function Earth({ children }: { children: React.ReactNode }) {
   const lefthandRef = useRef<HTMLDivElement>(null);
   const righthandRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const [isControled, setIsControled] = useState(false);
+  const initialGlobe = () => {
     const globe = globeEl.current;
-
+    if (!globe || isControled) return;
+    setIsControled(true);
+    console.log("start initialGlobe");
     /** 如何让球体的半径更大 */
     /** 方式一 */
     const camera = globe.camera(); // 访问相机
@@ -97,6 +105,9 @@ export function Earth({ children }: { children: React.ReactNode }) {
     // Disable zooming
     const controls = globe.controls();
     controls.enableZoom = false;
+  };
+  useEffect(() => {
+    initialGlobe();
   }, []);
 
   const isMobile = useIsMobile();
@@ -118,6 +129,11 @@ export function Earth({ children }: { children: React.ReactNode }) {
     lefthandRef.current.classList.add(styles["left-hand"]);
     righthandRef.current.classList.add(styles["right-hand"]);
     setEarthIsReady(true);
+  };
+
+  const onGlobeReady = () => {
+    initialGlobe();
+    onAddClassName();
   };
 
   return (
@@ -147,7 +163,7 @@ export function Earth({ children }: { children: React.ReactNode }) {
       <div style={{ width: globeWidth, minHeight: globeWidth }}>
         <div ref={earthRef}>
           <Globe
-            ref={globeEl}
+            globeRef={globeEl}
             width={globeWidth}
             height={globeWidth}
             backgroundColor="rgba(0,0,0,0)"
@@ -174,7 +190,7 @@ export function Earth({ children }: { children: React.ReactNode }) {
               wrapper.appendChild(el);
               return wrapper;
             }}
-            onGlobeReady={onAddClassName}
+            onGlobeReady={onGlobeReady}
           />
           {earthIsReady && children}
         </div>
