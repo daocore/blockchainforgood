@@ -5,10 +5,10 @@ import { cn } from "@/lib";
 
 export const Hero = () => {
   return (
-    <div className="w-full md:w-content m-auto">
+    <div className="">
       <Earth>
         <div className={cn("text-center", styles.button)}>
-          <Button className="w-full md:w-52 py-3 bg-main hover:bg-main/90 rounded-none shadow-md hover:shadow-lg font-bold">
+          <Button className="w-full md:w-52 max-w-content py-3 bg-main hover:bg-main/90 rounded-none shadow-md hover:shadow-lg font-bold">
             Make an Impact Now
           </Button>
         </div>

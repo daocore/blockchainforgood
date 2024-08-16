@@ -11,6 +11,13 @@ import Image from "next/image";
 import styles from "./earth.module.css";
 import { cn } from "@/lib";
 import dynamic from "next/dynamic";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { createRoot } from "react-dom/client";
+import { Impact } from "../impact";
 
 const Globe = dynamic(() => import("./globe-wrapper"), {
   ssr: false,
@@ -22,12 +29,6 @@ const polygonsMaterial = new THREE.MeshLambertMaterial({
   color: "#00d5bf",
   side: THREE.DoubleSide,
 });
-
-const markerSvg = `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle opacity="0.25" cx="14" cy="14" r="14" fill="#FDFFB8"/>
-<circle opacity="0.25" cx="14" cy="13.9998" r="9.75758" fill="#FDFFAE"/>
-<circle cx="14" cy="14" r="5.51515" fill="#EEF500"/>
-</svg>`;
 
 const landPolygons = (
   topojson.feature(landTopo as any, (landTopo as any).objects.land) as any
@@ -137,64 +138,95 @@ export function Earth({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="flex justify-center relative">
-      <div
-        ref={lefthandRef}
-        className={cn("w-2/5 absolute left-[30%] top-[30%] opacity-0")}
-      >
-        <Image
-          src="/left-hand.webp"
-          alt="left-hand"
-          width={4000}
-          height={3000}
-        />
-      </div>
-      <div
-        ref={righthandRef}
-        className={cn("w-2/5 absolute right-[30%] top-[30%] opacity-0")}
-      >
-        <Image
-          src="/right-hand.webp"
-          alt="right-hand"
-          width={4000}
-          height={3000}
-        />
-      </div>
-      <div style={{ width: globeWidth, minHeight: globeWidth }}>
-        <div ref={earthRef}>
-          <Globe
-            globeRef={globeEl}
-            width={globeWidth}
-            height={globeWidth}
-            backgroundColor="rgba(0,0,0,0)"
-            showGlobe={false}
-            showAtmosphere={false}
-            polygonsData={landPolygons}
-            polygonCapMaterial={polygonsMaterial}
-            polygonSideColor={() => "rgba(0, 0, 0, 0)"}
-            // custom
-            customLayerData={generateGridLines()}
-            customThreeObject={createGridLineObject}
-            // // HTML marks
-            htmlElementsData={data}
-            htmlAltitude={0}
-            htmlElement={(d: any) => {
-              const wrapper = document.createElement("div");
-              const el = document.createElement("div");
-              el.innerHTML = markerSvg;
-              el.classList.add(styles["marker"]);
-              el.onclick = () => console.info(d);
-              // el.onmouseenter = () => console.info("enter");
-              // el.onmouseleave = () => console.info("leave");
-
-              wrapper.appendChild(el);
-              return wrapper;
-            }}
-            onGlobeReady={onGlobeReady}
+    <div className={cn("w-full", styles.container)}>
+      <div className="w-full md:w-content mx-auto flex justify-center relative">
+        <div
+          ref={lefthandRef}
+          className={cn("w-2/5 absolute left-[30%] top-[30%] opacity-0")}
+        >
+          <Image
+            src="/left-hand.webp"
+            alt="left-hand"
+            width={4000}
+            height={3000}
           />
-          {earthIsReady && children}
+        </div>
+        <div
+          ref={righthandRef}
+          className={cn("w-2/5 absolute right-[30%] top-[30%] opacity-0")}
+        >
+          <Image
+            src="/right-hand.webp"
+            alt="right-hand"
+            width={4000}
+            height={3000}
+          />
+        </div>
+        <div style={{ width: globeWidth, minHeight: globeWidth }}>
+          <div ref={earthRef}>
+            <Globe
+              globeRef={globeEl}
+              width={globeWidth}
+              height={globeWidth}
+              backgroundColor="rgba(0,0,0,0)"
+              showGlobe={false}
+              showAtmosphere={false}
+              polygonsData={landPolygons}
+              polygonCapMaterial={polygonsMaterial}
+              polygonSideColor={() => "rgba(0, 0, 0, 0)"}
+              // custom
+              customLayerData={generateGridLines()}
+              customThreeObject={createGridLineObject}
+              // // HTML marks
+              htmlElementsData={data}
+              htmlAltitude={0}
+              htmlElement={(d: any) => {
+                const wrapper = document.createElement("div");
+
+                const root = createRoot(wrapper);
+                root.render(<Marker />);
+
+                return wrapper;
+              }}
+              onGlobeReady={onGlobeReady}
+            />
+            {earthIsReady && children}
+          </div>
         </div>
       </div>
+      <Impact />
     </div>
+  );
+}
+
+function Marker() {
+  const [open, setOpen] = useState(false);
+  return (
+    <HoverCard open={open} onOpenChange={setOpen}>
+      <HoverCardTrigger asChild>
+        <div className={styles.marker} onClick={() => setOpen(true)}>
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle opacity="0.25" cx="14" cy="14" r="14" fill="#FDFFB8" />
+            <circle
+              opacity="0.25"
+              cx="14"
+              cy="13.9998"
+              r="9.75758"
+              fill="#FDFFAE"
+            />
+            <circle cx="14" cy="14" r="5.51515" fill="#EEF500" />
+          </svg>
+        </div>
+      </HoverCardTrigger>
+      <HoverCardContent className="min-w-52 relative z-50 bg-white/75 shadow-lg rounded-none">
+        <div className="flex justify-between space-x-4">test</div>
+      </HoverCardContent>
+    </HoverCard>
   );
 }

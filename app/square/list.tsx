@@ -6,7 +6,7 @@ import { IMAGE_URL } from "@/constants";
 import styles from "./square.module.css";
 import { cn, IsProductionServer } from "@/lib";
 import { SkeletonList } from "./skeleton";
-import { useEffect, useRef } from "react";
+import { CSSProperties, useEffect, useRef } from "react";
 import { PAGE_SIZE } from "../news/constants";
 import { Empty } from "@/components/Empty";
 import { LoadingMore } from "@/components/Loading";
@@ -123,14 +123,23 @@ const titleKey = isProduction ? PROD_TITLE_KEY : DEV_TITLE_KEY;
 function UserItem({ item }: IItemProps) {
   const {
     user: { avatar, name },
+    diyimage,
     diyform,
   } = item;
 
   const diyFormJson = JSON.parse(diyform);
 
+  let imageSrc = avatar;
+  let imageStyle = {};
+  if (diyimage) {
+    const image = JSON.parse(diyimage);
+    imageSrc = image.url;
+    imageStyle = image.style;
+  }
+
   return (
     <div className={itemClassNames}>
-      <ImageCard src={avatar} alt={name} />
+      <ImageCard src={imageSrc} alt={name} style={imageStyle} />
 
       <Title name={name} />
 
@@ -151,10 +160,19 @@ function UserItem({ item }: IItemProps) {
 function PartnersItem({ item }: IItemProps) {
   const {
     organization: { logo, name, tags },
+    diyimage,
   } = item;
+
+  let imageSrc = logo;
+  let imageStyle = {};
+  if (diyimage) {
+    const image = JSON.parse(diyimage);
+    imageSrc = image.url;
+    imageStyle = image.style;
+  }
   return (
     <div className={itemClassNames}>
-      <ImageCard src={logo} alt={name} />
+      <ImageCard src={imageSrc} alt={name} style={imageStyle} />
 
       <Title name={name} />
 
@@ -196,10 +214,19 @@ const BGAIncubationTypeEnum = {
 function ProjectsItem({ item }: IItemProps) {
   const {
     organization: { logo, name, type },
+    diyimage,
   } = item;
+
+  let imageSrc = logo;
+  let imageStyle = {};
+  if (diyimage) {
+    const image = JSON.parse(diyimage);
+    imageSrc = image.url;
+    imageStyle = image.style;
+  }
   return (
     <div className={cn("relative overflow-hidden", itemClassNames)}>
-      <ImageCard src={logo} alt={name} />
+      <ImageCard src={imageSrc} alt={name} style={imageStyle} />
       <Title name={name} />
 
       <div className={styles["corner-ribbon"]}>
@@ -224,7 +251,15 @@ function Title({ name }: { name: string }) {
   );
 }
 
-function ImageCard({ alt, src }: { alt: string; src: string }) {
+function ImageCard({
+  alt,
+  src,
+  style,
+}: {
+  alt: string;
+  src: string;
+  style?: CSSProperties;
+}) {
   return (
     <div className="bg-white overflow-hidden">
       {/* 用了Nextjs自带的Image后，打开图片就会出问题。可能是配置不正确，暂时先用img元素代替 */}
@@ -234,6 +269,7 @@ function ImageCard({ alt, src }: { alt: string; src: string }) {
         className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110 object-contain"
         width={185}
         height={185}
+        style={style}
       />
     </div>
   );

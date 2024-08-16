@@ -7,6 +7,7 @@ import { initSensors, trackSensors } from "@/lib/sensors";
 import { What } from "./home/what";
 import { How } from "./home/how";
 import { Impact } from "./home/impact";
+import { Videos } from "./home/Video";
 
 export default function Home() {
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function Home() {
     <main className="w-full">
       <Hero />
       <section className="flex-col justify-start items-center gap-16 md:gap-24 inline-flex w-full">
-        <Impact />
+        <Videos />
         <What />
         <div className="w-full h-0 border-b border-description" />
         <How />
