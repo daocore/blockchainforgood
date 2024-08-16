@@ -110,8 +110,8 @@ const NoMuteIcon = () => {
         fill="white"
       />
     </svg>
-  )
-}
+  );
+};
 
 const MuteIcon = () => {
   return (
@@ -141,8 +141,8 @@ const MuteIcon = () => {
         fill="white"
       />
     </svg>
-  )
-}
+  );
+};
 
 const PlayIcon = () => {
   return (
@@ -156,25 +156,41 @@ const PlayIcon = () => {
       <rect x="14" y="11" width="4" height="18" fill="white" />
       <rect x="22" y="11" width="4" height="18" fill="white" />
     </svg>
-  )
-}
+  );
+};
 
-const ProgressBar = ({ currentTime, duration }: { currentTime?: number, duration?: number }) => {
-  const progress = useMemo(() => currentTime > 0 && duration > 0 ? (currentTime / duration) * 100 : 0, [currentTime, duration])
+const ProgressBar = ({
+  currentTime,
+  duration,
+}: {
+  currentTime?: number;
+  duration?: number;
+}) => {
+  const progress = useMemo(
+    () =>
+      currentTime > 0 && duration > 0 ? (currentTime / duration) * 100 : 0,
+    [currentTime, duration]
+  );
   return (
-    <div style={{
-      height: "4px",
-      background: `linear-gradient(to right, #DC2626 0%, #DC2626 ${progress}%, rgba(255, 255, 255, 0.35) ${progress}%, rgba(255, 255, 255, 0.35) 100%)`,
-    }}
+    <div
+      style={{
+        height: "4px",
+        background: `linear-gradient(to right, #DC2626 0%, #DC2626 ${progress}%, rgba(255, 255, 255, 0.35) ${progress}%, rgba(255, 255, 255, 0.35) 100%)`,
+      }}
     ></div>
-  )
-}
+  );
+};
 
-const Controls = ({ videoRef, togglePlay, className, isPlaying }: {
-  videoRef?: MutableRefObject<HTMLVideoElement>,
-  togglePlay: () => void,
-  isPlaying: boolean,
-  className?: string
+const Controls = ({
+  videoRef,
+  togglePlay,
+  className,
+  isPlaying,
+}: {
+  videoRef?: MutableRefObject<HTMLVideoElement>;
+  togglePlay: () => void;
+  isPlaying: boolean;
+  className?: string;
 }) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [isMuted, setMuted] = useState(false);
@@ -208,13 +224,15 @@ const Controls = ({ videoRef, togglePlay, className, isPlaying }: {
   };
 
   return (
-    <div className={`absolute left-4 right-4 bottom-3 z-20 hidden md:block ${className}`} >
-      <ProgressBar currentTime={currentTime || videoRef?.current?.currentTime} duration={videoRef?.current?.duration || 0} />
+    <div
+      className={`absolute left-4 right-4 bottom-3 z-20 hidden md:block ${className}`}
+    >
+      <ProgressBar
+        currentTime={currentTime || videoRef?.current?.currentTime}
+        duration={videoRef?.current?.duration || 0}
+      />
       <div className="flex items-center">
-        <div
-          className="h-[40px] w-[40px] cursor-pointer"
-          onClick={togglePlay}
-        >
+        <div className="h-[40px] w-[40px] cursor-pointer" onClick={togglePlay}>
           {isPlaying ? <PlayIcon /> : <img src={playicon} alt="" />}
         </div>
         <div className="text-white text-xs font-['Inter'] font-normal">
@@ -229,11 +247,12 @@ const Controls = ({ videoRef, togglePlay, className, isPlaying }: {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
-  const { src, poster, width, from, name, format, children, ...divprops } = props;
+  const { src, poster, width, from, name, format, children, ...divprops } =
+    props;
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
@@ -246,7 +265,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
 
   useEffect(() => {
     const dom = divRef.current;
-    if (!dom) return
+    if (!dom) return;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -282,7 +301,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
 
   const togglePlay = () => {
     const video = videoRef.current;
-    if (!video) return
+    if (!video) return;
     if (isPlaying) {
       video.pause();
     } else {
@@ -302,38 +321,42 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
   return (
     <div
       {...divprops}
-      className={`relative ${width ? "md:bg-black" : ""} ${props?.className}`}
+      className={`relative splide__slide ${width ? "md:bg-black" : ""} ${
+        props?.className
+      }`}
       onMouseEnter={() => {
         setEnter(true);
         setMouseEnterEd(true);
       }}
       onMouseDown={() => {
         setEnter(true);
-        setMouseEnterEd(true)
+        setMouseEnterEd(true);
       }}
       onMouseLeave={() => {
         setEnter(false);
       }}
       ref={divRef}
     >
-      {(isVisible && mouseEnterEd || mobile) && <video
-        ref={videoRef}
-        className="m-auto"
-        preload="auto"
-        controls={mobile}
-        poster={mobile ? (poster as unknown as any)?.src : undefined}
-        onEnded={togglePlay}
-        style={{ width: width || "100%" }}
-      >
-        <source src={src} type={format || "video/mp4"} />
-        Your browser does not support the video tag.
-      </video>}
+      {((isVisible && mouseEnterEd) || mobile) && (
+        <video
+          ref={videoRef}
+          className="m-auto aspect-video"
+          preload="auto"
+          controls={mobile}
+          poster={mobile ? (poster as unknown as any)?.src : undefined}
+          onEnded={togglePlay}
+          style={{ width: width || "100%" }}
+        >
+          <source src={src} type={format || "video/mp4"} />
+          Your browser does not support the video tag.
+        </video>
+      )}
       {!videoLoaded && !mobile && (
         <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
           <NextImage
             src={poster}
             alt=""
-            className=""
+            className="aspect-video"
             style={{
               width: width || "100%",
             }}
@@ -341,15 +364,19 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
         </div>
       )}
       {children?.({ mouseEnter, isPlaying, togglePlay })}
-      {mouseEnter && isPlaying !== undefined && <Controls
-        togglePlay={togglePlay}
-        videoRef={videoRef}
-        className={props?.className}
-        isPlaying={isPlaying}
-      />}
-      {!videoLoaded && mouseEnterEd && <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
-        <Loading size={50} />
-      </div>}
-    </div >
+      {mouseEnter && isPlaying !== undefined && (
+        <Controls
+          togglePlay={togglePlay}
+          videoRef={videoRef}
+          className={props?.className}
+          isPlaying={isPlaying}
+        />
+      )}
+      {!videoLoaded && mouseEnterEd && (
+        <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
+          <Loading size={50} />
+        </div>
+      )}
+    </div>
   );
 });

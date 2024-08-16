@@ -1,11 +1,10 @@
 "use client";
-import BlockchainForGoodLogo from "@/assets/Blockchain For Good Logo Black.png";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ROUTER_PATH } from "@/constants";
 import { trackSensors } from "@/lib/sensors";
 import { cn } from "@/lib";
 import { LogoSvg } from "./LogoSvg";
+import { useRef } from "react";
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -18,6 +17,31 @@ export const Footer = () => {
   const isIncubationPage = pathname === ROUTER_PATH.INCUBATION;
 
   const iconSvgFillColor = isIncubationPage ? "#7D8CA3" : "black";
+
+  const logoSvgRef = useRef<SVGSVGElement>(null);
+  const onDownloadLogo = () => {
+    var svgElement = logoSvgRef.current!;
+
+    // 创建一个Blob对象
+    var svgData = new XMLSerializer().serializeToString(svgElement);
+    var blob = new Blob([svgData], {
+      type: "image/svg+xml;charset=utf-8",
+    });
+
+    // 创建一个URL对象
+    var url = URL.createObjectURL(blob);
+
+    // 创建一个a标签并设置下载属性
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "blockchainforgood.svg";
+
+    // 触发点击事件
+    a.click();
+
+    // 释放URL对象
+    URL.revokeObjectURL(url);
+  };
   return (
     <footer
       className={cn(
@@ -27,12 +51,8 @@ export const Footer = () => {
     >
       <div className="w-full md:w-content flex-col justify-start items-start gap-8 inline-flex px-4 md:px-0">
         <div className="flex-col justify-start items-start gap-4 flex w-full">
-          {/* <Image
-            className="w-[159px] h-[42.91px]"
-            src={BlockchainForGoodLogo}
-            alt="Blockchain For Good Logo Black"
-          /> */}
           <LogoSvg
+            ref={logoSvgRef}
             style={{
               transform: "translateX(35%) scale(1.7)",
             }}
@@ -44,10 +64,12 @@ export const Footer = () => {
               "justify-center items-center gap-2 inline-flex cursor-pointer"
             )}
             onClick={() => {
-              window.open(
-                "https://drive.google.com/drive/folders/1YbdwZWnbVCwsUN_YKq9XiZlhOPeJDCpw",
-                "_blank"
-              );
+              // window.open(
+              //   "https://drive.google.com/drive/folders/1YbdwZWnbVCwsUN_YKq9XiZlhOPeJDCpw",
+              //   "_blank"
+              // );
+              onDownloadLogo();
+
               trackSensors("ButtonClicked", {
                 buttonName: `Media Kit Button`,
               });
@@ -55,7 +77,7 @@ export const Footer = () => {
           >
             <h3
               className={cn(
-                "text-black text-base font-bold font-['Inter'] leading-normal",
+                "text-black text-base font-bold font-['Inter'] leading-normal cursor-pointer",
                 isIncubationPage && "text-description"
               )}
             >

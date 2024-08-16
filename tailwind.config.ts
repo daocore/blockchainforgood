@@ -40,8 +40,8 @@ const config = {
         page: "800px",
       },
       colors: {
-        main: "#00d5bf",
-        turqoise: "#00d5bf",
+        main: "hsl(var(--main))",
+        turqoise: "hsl(var(--main))",
         halfWhite: "rgba(255, 255, 255, 0.5)",
         typography: "#576172",
         description: "#7D8CA3",
@@ -636,6 +636,14 @@ const config = {
             opacity: "0.8",
           },
         },
+        "fade-out-left": {
+          from: { left: '10%' },
+          to: { left: "-50%" },
+        },
+        "fade-out-right": {
+          from: { right: '10%' },
+          to: { right: '-50%' },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -664,6 +672,8 @@ const config = {
         "blinker-committee4-sm": "blinker-committee4-sm 20s linear infinite",
         floatY: "floatY 3s ease-in-out infinite",
         twinkle: "twinkle 3s ease-in-out infinite",
+        "fade-out-left": "fade-out-left 3s ease-in-out both 0.2s",
+        "fade-out-right": "fade-out-right 3s ease-in-out both 0.2s",
       },
     },
   },

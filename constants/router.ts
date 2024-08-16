@@ -7,6 +7,7 @@ export const ROUTER_PATH = {
     INCUBATION: '/form/incubation'
   },
   INCUBATION: '/incubation',
+  HACKATHON: '/hackathon',
   NEWS: {
     ROOT: '/news',
     DETAIL: '/news/detail/',
