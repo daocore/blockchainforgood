@@ -49,6 +49,10 @@
   animation: scale-up-earth 1.8s ease-in-out both 0.6s;
 }
 
+.earth :global(.scene-container) {
+  margin: 0 auto;
+}
+
 @keyframes bounceInUp {
   0%,60%,75%,90%,to {
     -webkit-animation-timing-function: cubic-bezier(.215,.61,.355,1);
@@ -114,14 +118,13 @@
     from {
       left: 30%;
       opacity: 1;
-      /* scale: 1.5; */
-      top: 30%;
+      top: 20%;
     }
     to {
       left: 0%;
       opacity: 0;
       scale: 2;
-      top: 70%;
+      top: 60%;
     }
   }
   
@@ -129,14 +132,13 @@
     from {
       right: 30%;
       opacity: 1;
-      /* scale: 1.5; */
-      top: 30%;
+      top: 20%;
     }
     to {
       right: 0%;
       opacity: 0;
       scale: 2;
-      top: 70%;
+      top: 60%;
     }
   }
   .right-hand {

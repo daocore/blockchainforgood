@@ -1,7 +1,11 @@
+"use client";
+
 import Hackathon from "@/assets/hackathon.png";
 import Incubation from "@/assets/incubation.png";
 import Oscar from "@/assets/oscar.png";
 import Web3KeyFund from "@/assets/web3key-fund.png";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { cn } from "@/lib";
 import Image from "next/image";
 
 const forces = [
@@ -28,8 +32,14 @@ const forces = [
 ];
 
 export function How() {
+  const ref = useIntersectionObserver<HTMLDivElement>("animate__bounceInRight");
   return (
-    <div className="w-full md:w-content mx-auto text-center">
+    <div
+      ref={ref as any}
+      className={cn(
+        "w-full md:w-content mx-auto text-center animate__animated"
+      )}
+    >
       <h2 className="text-3xl font-bold">How</h2>
       <div className="w-full mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {forces?.map((force, index) => {

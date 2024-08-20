@@ -6,8 +6,8 @@ import { useEffect } from "react";
 import { initSensors, trackSensors } from "@/lib/sensors";
 import { What } from "./home/what";
 import { How } from "./home/how";
-import { Impact } from "./home/impact";
 import { Videos } from "./home/Video";
+import "animate.css";
 
 export default function Home() {
   useEffect(() => {

@@ -1,22 +1,77 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Video } from "lucide-react";
+import BGAIconGreen from "@/assets/BGA Icon Green.png";
+import Image from "next/image";
 
 function VideoCard() {
   return (
-    <Card>
+    <Card className="row-span-2 md:row-span-1">
       <CardContent>Video</CardContent>
     </Card>
   );
 }
 
-function OurMission() {
+const KeyDataList = [
+  {
+    label: "BGA Hackathon",
+    value: "40+",
+  },
+  {
+    label: "BGA Tracks",
+    value: "12+",
+  },
+  { label: "BGA Hackathon projects", value: "70+" },
+];
+function KeyData() {
   return (
-    <Card>
+    <>
+      {KeyDataList.map((item) => (
+        <Card key={item.label} className="flex flex-col justify-between">
+          <CardHeader>
+            <CardTitle className="text-5xl">{item.value}</CardTitle>
+          </CardHeader>
+          <CardContent className="text-2xl font-semibold">
+            {item.label}
+          </CardContent>
+        </Card>
+      ))}
+    </>
+  );
+}
+
+function Collaborate() {
+  return (
+    <Card
+      className="row-span-2 text-white hidden md:block"
+      style={{
+        background:
+          "linear-gradient(52.16deg, #02CCB7 19.41%, #47E6D6 74.15%, #8DF7EC 97.6%)",
+      }}
+    >
       <CardHeader>
-        <CardTitle>Our Mission</CardTitle>
+        <CardTitle className="text-4xl flex flex-wrap gap-2 items-center">
+          <span>Collaborate</span>
+          <Image
+            className="flex-shrink-0 flex-grow-0 w-8 h-8"
+            src={BGAIconGreen}
+            alt="BGA Icon Green"
+            width={32}
+            height={32}
+          />
+          <span>with BGA</span>
+        </CardTitle>
       </CardHeader>
-      <CardContent>
-        to help you to find the best talent in the world
+    </Card>
+  );
+}
+
+function Nations() {
+  return (
+    <Card className="md:row-span-2 flex flex-col justify-between">
+      <CardHeader>
+        <CardTitle className="text-5xl">4</CardTitle>
+      </CardHeader>
+      <CardContent className="text-2xl font-semibold">
+        Illuminated Nations
       </CardContent>
     </Card>
   );
@@ -24,7 +79,7 @@ function OurMission() {
 
 function LatestHackathon() {
   return (
-    <Card className="xs:col-span-2">
+    <Card className="xs:col-span-2 row-span-2">
       <CardHeader>
         <CardTitle>Latest Hackathon</CardTitle>
       </CardHeader>
@@ -35,40 +90,19 @@ function LatestHackathon() {
   );
 }
 
-const KeyDataList = [
-  {
-    label: "Hackathon Alliance",
-    value: "40+",
-  },
-  {
-    label: "Track",
-    value: "12+",
-  },
-  { label: "Hackathon Projects", value: "70+" },
-  { label: "Illuminated Nations", value: "4+" },
-];
-function KeyData() {
-  return (
-    <>
-      {KeyDataList.map((item) => (
-        <Card key={item.label}>
-          <CardHeader>
-            <CardTitle>{item.value}</CardTitle>
-          </CardHeader>
-          <CardContent>{item.label}</CardContent>
-        </Card>
-      ))}
-    </>
-  );
-}
-
 export function Focus() {
   return (
-    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 desktop:grid-cols-4 gap-4">
-      <VideoCard />
-      <OurMission />
-      <KeyData />
-      <LatestHackathon />
+    <div className="w-full md:w-content mx-auto space-y-6 pb-20">
+      <h1 className="text-3xl font-bold text-center md:text-left">
+        Blockchain for Good Hackathon
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 grid-rows-8 md:grid-rows-3">
+        <VideoCard />
+        <KeyData />
+        <Collaborate />
+        <Nations />
+        <LatestHackathon />
+      </div>
     </div>
   );
 }
