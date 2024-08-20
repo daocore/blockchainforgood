@@ -78,7 +78,7 @@ function RootLayout({
       </head>
       <GoogleAnalytics />
 
-      <body>
+      <body className="w-screen">
         <RouterProcess>
           <SWRProvider>
             <div className="min-h-screen flex flex-col relative">

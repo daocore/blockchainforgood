@@ -1,1 +1,1 @@
-export const ApplyLink = "https://2no3tjoltg5.typeform.com/to/auwXAmjW";
+export const ApplyLink = "https://www.blockchainforgood.xyz/form/organization";

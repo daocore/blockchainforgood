@@ -23,7 +23,8 @@ const Globe = dynamic(() => import("./globe-wrapper"), {
   ssr: false,
 });
 
-const DEFAULT_WIDTH = 750;
+const HEIGHT = 80 + 40 + 40;
+const CONTENT_WIDTH = 1232;
 
 const polygonsMaterial = new THREE.MeshLambertMaterial({
   color: "#00d5bf",
@@ -94,34 +95,43 @@ export function Earth({ children }: { children: React.ReactNode }) {
   const initialGlobe = () => {
     const globe = globeEl.current;
     if (!globe || isControled) return;
-    setIsControled(true);
-    console.log("start initialGlobe");
-    /** 如何让球体的半径更大 */
-    /** 方式一 */
-    const camera = globe.camera(); // 访问相机
-    camera.position.z = 250; // 调整相机位置来"放大"球体
-    /** 方式二 */
-    // globe.pointOfView({ lat: 0, lng: 0, altitude: 1.5 }); // 调整视角
 
-    // Disable zooming
+    const camera = globe.camera();
     const controls = globe.controls();
-    controls.enableZoom = false;
+
+    // 设置目标位置（地球中心）
+    controls.target.set(0, 0, 0);
+    // 设置相机位置
+    // 新加坡的坐标
+    const latitude = 1.18;
+    const longitude = 103.51;
+    const distance = 250; // 调整这个值以改变视角距离
+    const phi = (90 - latitude) * (Math.PI / 180);
+    const theta = (longitude + 180) * (Math.PI / 180);
+    const x = distance * Math.sin(phi) * Math.cos(theta);
+    const y = distance * Math.cos(phi);
+    const z = distance * Math.sin(phi) * Math.sin(theta);
+    camera.position.set(x, y, distance);
+
+    // 设置地球旋转
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.5; // 设置自动旋转速度
+
+    // 更新控制器
+    controls.update();
+
+    setIsControled(true);
   };
-  useEffect(() => {
-    initialGlobe();
-  }, []);
 
   const isMobile = useIsMobile();
 
-  const [globeWidth, setGlobeWidth] = useState<number>(DEFAULT_WIDTH);
+  const [globeWidth, setGlobeWidth] = useState<number>(CONTENT_WIDTH);
+  const [globeHeight, setGlobeHeight] = useState<number>(750);
 
   useEffect(() => {
-    if (isMobile) {
-      const fullWidth = window.outerWidth;
-      setGlobeWidth(
-        fullWidth < DEFAULT_WIDTH ? fullWidth * 0.8 : DEFAULT_WIDTH
-      );
-    }
+    const maxWidth = window.innerWidth * 0.8;
+    setGlobeWidth(maxWidth > CONTENT_WIDTH ? CONTENT_WIDTH : maxWidth);
+    setGlobeHeight(isMobile ? maxWidth : window.innerHeight - HEIGHT);
   }, [isMobile]);
 
   const [earthIsReady, setEarthIsReady] = useState(false);
@@ -137,12 +147,29 @@ export function Earth({ children }: { children: React.ReactNode }) {
     onAddClassName();
   };
 
+  const [isRotating, setIsRotating] = useState(true);
+  // 设置自动旋转
+  useEffect(() => {
+    if (isControled) {
+      const globe = globeEl.current;
+      const controls = globe.controls();
+      if (isRotating) {
+        controls.autoRotate = true;
+        controls.update();
+      }
+      return () => {
+        controls.autoRotate = false;
+        controls.update();
+      };
+    }
+  }, [isRotating, isControled]);
+
   return (
     <div className={cn("w-full", styles.container)}>
       <div className="w-full md:w-content mx-auto flex justify-center relative">
         <div
           ref={lefthandRef}
-          className={cn("w-2/5 absolute left-[30%] top-[30%] opacity-0")}
+          className={cn("w-2/5 absolute left-[30%] top-[20%] opacity-0")}
         >
           <Image
             src="/left-hand.webp"
@@ -153,7 +180,7 @@ export function Earth({ children }: { children: React.ReactNode }) {
         </div>
         <div
           ref={righthandRef}
-          className={cn("w-2/5 absolute right-[30%] top-[30%] opacity-0")}
+          className={cn("w-2/5 absolute right-[30%] top-[20%] opacity-0")}
         >
           <Image
             src="/right-hand.webp"
@@ -162,12 +189,12 @@ export function Earth({ children }: { children: React.ReactNode }) {
             height={3000}
           />
         </div>
-        <div style={{ width: globeWidth, minHeight: globeWidth }}>
+        <div style={{ width: "100%", minHeight: globeHeight }}>
           <div ref={earthRef}>
             <Globe
               globeRef={globeEl}
               width={globeWidth}
-              height={globeWidth}
+              height={globeHeight}
               backgroundColor="rgba(0,0,0,0)"
               showGlobe={false}
               showAtmosphere={false}
@@ -179,16 +206,22 @@ export function Earth({ children }: { children: React.ReactNode }) {
               customThreeObject={createGridLineObject}
               // // HTML marks
               htmlElementsData={data}
-              htmlAltitude={0}
+              // htmlAltitude={0}
               htmlElement={(d: any) => {
                 const wrapper = document.createElement("div");
 
                 const root = createRoot(wrapper);
-                root.render(<Marker />);
+                root.render(
+                  <Marker
+                    onEnter={() => setIsRotating(false)}
+                    onLeave={() => setIsRotating(true)}
+                  />
+                );
 
                 return wrapper;
               }}
               onGlobeReady={onGlobeReady}
+              // enablePointerInteraction
             />
             {earthIsReady && children}
           </div>
@@ -199,29 +232,49 @@ export function Earth({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Marker() {
+function Marker({
+  onEnter,
+  onLeave,
+}: {
+  onEnter?: () => void;
+  onLeave?: () => void;
+}) {
+  const wrapRef = useRef<HTMLDivElement>();
   const [open, setOpen] = useState(false);
+
+  const onChange = (val: boolean) => {
+    setOpen(val);
+    if (!val) {
+      onLeave?.();
+    }
+  };
   return (
-    <HoverCard open={open} onOpenChange={setOpen}>
-      <HoverCardTrigger asChild>
-        <div className={styles.marker} onClick={() => setOpen(true)}>
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 28 28"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+    <HoverCard open={open} onOpenChange={onChange}>
+      <HoverCardTrigger>
+        <div ref={wrapRef}>
+          <div
+            className={styles.marker}
+            onClick={() => setOpen(true)}
+            onMouseEnter={onEnter}
           >
-            <circle opacity="0.25" cx="14" cy="14" r="14" fill="#FDFFB8" />
-            <circle
-              opacity="0.25"
-              cx="14"
-              cy="13.9998"
-              r="9.75758"
-              fill="#FDFFAE"
-            />
-            <circle cx="14" cy="14" r="5.51515" fill="#EEF500" />
-          </svg>
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle opacity="0.25" cx="14" cy="14" r="14" fill="#FDFFB8" />
+              <circle
+                opacity="0.25"
+                cx="14"
+                cy="13.9998"
+                r="9.75758"
+                fill="#FDFFAE"
+              />
+              <circle cx="14" cy="14" r="5.51515" fill="#EEF500" />
+            </svg>
+          </div>
         </div>
       </HoverCardTrigger>
       <HoverCardContent className="min-w-52 relative z-50 bg-white/75 shadow-lg rounded-none">

@@ -1,6 +1,17 @@
+"use client";
+
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { cn } from "@/lib";
+
 export function What() {
+  const ref = useIntersectionObserver<HTMLDivElement>("animate__bounceInLeft");
   return (
-    <div className="w-full max-w-3xl mx-auto text-center space-y-2">
+    <div
+      ref={ref as any}
+      className={cn(
+        "w-full max-w-3xl mx-auto text-center space-y-2 animate__animated"
+      )}
+    >
       <h2 className="text-3xl font-bold">What</h2>
       <h3 className="text-3xl font-bold text-main">Care. Create. Change.</h3>
       <p className="text-typography">

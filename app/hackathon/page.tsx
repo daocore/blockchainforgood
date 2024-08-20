@@ -1,15 +1,15 @@
+import { ContactUs } from "./contact-us";
 import { Focus } from "./focus";
-import { HackathonList } from "./hackathon-list";
+import { HackathonList } from "./list";
 import { Join } from "./join";
-import { Team } from "./team";
 
 export default function HackathonPage() {
   return (
-    <div className="w-full md:w-content">
+    <div className="w-full">
       <Focus />
       <Join />
       <HackathonList />
-      <Team />
+      <ContactUs />
     </div>
   );
 }

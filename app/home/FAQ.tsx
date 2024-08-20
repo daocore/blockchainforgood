@@ -58,19 +58,9 @@ const FAQItem = ({
 
 const faqs = [
   {
-    question: "What is the Blockchain for Good Alliance (BGA)?",
-    answer:
-      "The Blockchain for Good Alliance is a collaborative network of organizations, projects, and individuals committed to leveraging blockchain technology to solve global social, environmental, and economic challenges.",
-  },
-  {
     question: "Who can apply for grants or partnership",
     answer:
       "We welcome applications from projects, communities, startups, nonprofits, social enterprises, and research institutions that are using blockchain technology for social good. Both early-stage ideas and established projects seeking to scale can apply.",
-  },
-  {
-    question: "What types of partners/ projects do you support?",
-    answer:
-      "We support a wide range of partners/projects that align with our mission, including but not limited to financial inclusion, environmental conservation, healthcare innovation, educational advancement, and humanitarian aid.",
   },
   {
     question: "How does the application process work?",
@@ -90,12 +80,6 @@ const faqs = [
     question: "How can partners collaborate with BGA?",
     answer: `Potential partners can collaborate through co-funding projects, providing expertise and mentorship, offering technological resources, or by joining as a member to support the Alliance's mission. 
     <br/>We encourage interested organizations to contact us directly to explore potential collaboration opportunities.`,
-  },
-  {
-    question:
-      "What are the reporting and accountability requirements for grant recipients?",
-    answer: `Grant recipients are required to provide regular progress reports, financial accounting of grant usage, and demonstrate measurable outcomes. 
-    <br/>Specific requirements will be outlined in the grant agreement.`,
   },
 ];
 
