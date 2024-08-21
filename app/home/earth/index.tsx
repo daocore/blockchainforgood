@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import * as topojson from "topojson-client";
 import landTopo from "./earth.json";
-import data from "./data.json";
 import { type GlobeMethods } from "react-globe.gl";
 import { useIsMobile } from "@/hooks";
 import Image from "next/image";
@@ -14,10 +13,19 @@ import dynamic from "next/dynamic";
 import {
   HoverCard,
   HoverCardContent,
+  HoverCardPortal,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { createRoot } from "react-dom/client";
 import { Impact } from "../impact";
+import { useAPIGetList } from "./api";
+import { BGAEarthEnum, IEvent } from "./types";
+import { IMAGE_URL } from "@/constants";
+import Link from "next/link";
+import PartnersImage from "@/assets/earth/Collab.png";
+import IncubationImage from "@/assets/earth/Incubation.png";
+import HackathonImage from "@/assets/earth/Hackathon.png";
+import EventImage from "@/assets/earth/Event.png";
 
 const Globe = dynamic(() => import("./globe-wrapper"), {
   ssr: false,
@@ -85,6 +93,8 @@ const createGridLineObject = (line: any) => {
 };
 
 export function Earth({ children }: { children: React.ReactNode }) {
+  const { data = [], isLoading } = useAPIGetList();
+
   const globeEl = useRef<GlobeMethods>();
 
   const earthRef = useRef<HTMLDivElement>(null);
@@ -126,11 +136,12 @@ export function Earth({ children }: { children: React.ReactNode }) {
   const isMobile = useIsMobile();
 
   const [globeWidth, setGlobeWidth] = useState<number>(CONTENT_WIDTH);
-  const [globeHeight, setGlobeHeight] = useState<number>(750);
+  const [globeHeight, setGlobeHeight] = useState<number>(CONTENT_WIDTH);
 
   useEffect(() => {
     const maxWidth = window.innerWidth * 0.8;
     setGlobeWidth(maxWidth > CONTENT_WIDTH ? CONTENT_WIDTH : maxWidth);
+    console.log("height: ", window.innerHeight, window.outerHeight);
     setGlobeHeight(isMobile ? maxWidth : window.innerHeight - HEIGHT);
   }, [isMobile]);
 
@@ -205,23 +216,50 @@ export function Earth({ children }: { children: React.ReactNode }) {
               customLayerData={generateGridLines()}
               customThreeObject={createGridLineObject}
               // // HTML marks
-              htmlElementsData={data}
+              htmlElementsData={[
+                {
+                  id: "0fd59d7e-73ac-4806-86f9-7e4d48d827d5",
+                  name: "Bitrend.io",
+                  image: "/organization/378e3e8a6c98424ab08c1906a3c31725.jpeg",
+                  type: 1,
+                  location: {
+                    country: 123,
+                    latlng: [103.51, 1.18],
+                  },
+                  link: "https://bitrend.io/",
+                },
+                {
+                  id: "0fd59d7e-73ac-4806-86f9-7e4d48d827d5",
+                  name: "Bitrend.io",
+                  image: "/organization/378e3e8a6c98424ab08c1906a3c31725.jpeg",
+                  type: 1,
+                  location: {
+                    country: 123,
+                    latlng: [134.51, 10.18],
+                  },
+                  link: "https://bitrend.io/",
+                },
+              ]}
+              htmlLat={((item: IEvent) => item.location?.latlng[0]) as any}
+              htmlLng={((item: IEvent) => item.location?.latlng[1]) as any}
               // htmlAltitude={0}
-              htmlElement={(d: any) => {
-                const wrapper = document.createElement("div");
+              htmlElement={
+                ((item: IEvent) => {
+                  const wrapper = document.createElement("div");
 
-                const root = createRoot(wrapper);
-                root.render(
-                  <Marker
-                    onEnter={() => setIsRotating(false)}
-                    onLeave={() => setIsRotating(true)}
-                  />
-                );
+                  const root = createRoot(wrapper);
+                  root.render(
+                    <Marker
+                      item={item}
+                      onEnter={() => setIsRotating(false)}
+                      onLeave={() => setIsRotating(true)}
+                    />
+                  );
 
-                return wrapper;
-              }}
+                  return wrapper;
+                }) as any
+              }
               onGlobeReady={onGlobeReady}
-              // enablePointerInteraction
             />
             {earthIsReady && children}
           </div>
@@ -232,14 +270,34 @@ export function Earth({ children }: { children: React.ReactNode }) {
   );
 }
 
+const EVENT_TYPE_MAP = {
+  [BGAEarthEnum.PARTNER]: {
+    icon: PartnersImage,
+    name: "Partner",
+  },
+  [BGAEarthEnum.INCUBATION]: {
+    icon: IncubationImage,
+    name: "Incubation Project",
+  },
+  [BGAEarthEnum.ADVISOR]: {
+    icon: HackathonImage,
+    name: "Hackathon",
+  },
+  [BGAEarthEnum.EVENT]: {
+    icon: EventImage,
+    name: "Event",
+  },
+};
+
 function Marker({
+  item,
   onEnter,
   onLeave,
 }: {
+  item: IEvent;
   onEnter?: () => void;
   onLeave?: () => void;
 }) {
-  const wrapRef = useRef<HTMLDivElement>();
   const [open, setOpen] = useState(false);
 
   const onChange = (val: boolean) => {
@@ -249,36 +307,69 @@ function Marker({
     }
   };
   return (
-    <HoverCard open={open} onOpenChange={onChange}>
-      <HoverCardTrigger>
-        <div ref={wrapRef}>
-          <div
-            className={styles.marker}
-            onClick={() => setOpen(true)}
-            onMouseEnter={onEnter}
+    <HoverCard open={open} onOpenChange={onChange} closeDelay={7000}>
+      <HoverCardTrigger asChild>
+        <div
+          className={styles.marker}
+          onClick={() => setOpen(true)}
+          onMouseEnter={onEnter}
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 28 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle opacity="0.25" cx="14" cy="14" r="14" fill="#FDFFB8" />
-              <circle
-                opacity="0.25"
-                cx="14"
-                cy="13.9998"
-                r="9.75758"
-                fill="#FDFFAE"
-              />
-              <circle cx="14" cy="14" r="5.51515" fill="#EEF500" />
-            </svg>
-          </div>
+            <circle opacity="0.25" cx="14" cy="14" r="14" fill="#FDFFB8" />
+            <circle
+              opacity="0.25"
+              cx="14"
+              cy="13.9998"
+              r="9.75758"
+              fill="#FDFFAE"
+            />
+            <circle cx="14" cy="14" r="5.51515" fill="#EEF500" />
+          </svg>
         </div>
       </HoverCardTrigger>
-      <HoverCardContent className="min-w-52 relative z-50 bg-white/75 shadow-lg rounded-none">
-        <div className="flex justify-between space-x-4">test</div>
+      <HoverCardContent
+        onClick={(e) => {
+          console.log("clicked");
+          // window.open(item.link, "_blank");
+        }}
+        className="min-w-52 z-[999] relative bg-white/75 shadow-lg rounded-none p-0 cursor-pointer pointer-events-auto"
+      >
+        <div
+        // onMouseEnter={() => setOpen(true)}
+        >
+          <p className="text-xs font-bold border-b border-active p-2">
+            {item.location?.country}
+          </p>
+          <div className="px-2 py-4 space-y-2">
+            <h3 className="text-sm font-bold text-main flex items-center">
+              <Image
+                width={24}
+                height={24}
+                className="w-6 h-6"
+                src={EVENT_TYPE_MAP[item.type].icon}
+                alt={EVENT_TYPE_MAP[item.type].name}
+              />
+              {EVENT_TYPE_MAP[item.type].name}
+            </h3>
+            <div className="flex gap-2">
+              <img
+                className="w-9 h-9"
+                src={`${IMAGE_URL}${item.image}`}
+                alt={item.name}
+              />
+              <div>
+                <p className="text-xm truncate">{item.name}</p>
+                <p className="text-xs">{item.link}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </HoverCardContent>
     </HoverCard>
   );

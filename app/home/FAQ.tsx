@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
 import { ApplyLink } from "@/components/Const";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const FAQItem = ({
   question,
@@ -84,8 +87,19 @@ const faqs = [
 ];
 
 export const FAQ = () => {
+  const ref = useIntersectionObserver<HTMLDivElement>("animate__bounceInDown");
+
   return (
-    <div id="faq" className="w-full md:w-content space-y-4">
+    <div
+      ref={ref}
+      id="faq"
+      className="w-full md:w-content space-y-4 animate__animated"
+      style={
+        {
+          "--animate-duration": "1.2s",
+        } as any
+      }
+    >
       <h2 className="text-2xl font-bold">FAQ</h2>
       <div className="self-stretch flex-col justify-start items-center flex">
         {faqs.map((faq, index) => (

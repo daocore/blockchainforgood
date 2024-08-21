@@ -38,15 +38,15 @@
 }
 
 .right-hand {
-  animation: move-right-hand 1.5s ease-in-out both 0.5s;
+  animation: move-right-hand 2s ease-in-out both 0.5s;
 }
 
 .left-hand {
-  animation: move-left-hand 1.5s ease-in-out both 0.5s;
+  animation: move-left-hand 2s ease-in-out both 0.5s;
 }
 
 .earth {
-  animation: scale-up-earth 1.8s ease-in-out both 0.6s;
+  animation: scale-up-earth 2.3s ease-in-out both 0.6s;
 }
 
 .earth :global(.scene-container) {
@@ -101,7 +101,7 @@
 }
 
 .container {
-  background: url("../../../assets/cube-pattern.png") repeat, url("../../../assets/cube-pattern1.png")  no-repeat left 70%  / contain;
+  background: url("../../../assets/cube-pattern.png") repeat-x top / 100%, url("../../../assets/cube-pattern1.png")  no-repeat left 70%  / contain;
 }
 
 @media screen and (min-width: 769px) {
@@ -142,14 +142,14 @@
     }
   }
   .right-hand {
-    animation: move-right-hand 1.5s ease-in-out both 0.5s;
+    animation: move-right-hand 2s ease-in-out both 0.5s;
   }
   
   .left-hand {
-    animation: move-left-hand 1.5s ease-in-out both 0.5s;
+    animation: move-left-hand 2s ease-in-out both 0.5s;
   }
   
   .earth {
-    animation: scale-up-earth 1.8s ease-in-out both 0.6s;
+    animation: scale-up-earth 2.3s ease-in-out both 0.6s;
   }
 }

@@ -37,8 +37,14 @@ export function How() {
     <div
       ref={ref as any}
       className={cn(
-        "w-full md:w-content mx-auto text-center animate__animated"
+        "w-full md:w-content mx-auto text-center animate__animated animate__delay-1s"
       )}
+      style={
+        {
+          "--animate-duration": "1.2s",
+          "--animate-delay": "0.3s",
+        } as any
+      }
     >
       <h2 className="text-3xl font-bold">How</h2>
       <div className="w-full mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">

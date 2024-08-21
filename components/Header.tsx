@@ -6,7 +6,7 @@ import { ROUTER_PATH } from "@/constants";
 import { useRouter } from "next-nprogress-bar";
 import { LogoSvg } from "./LogoSvg";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowUp, ChevronUp, Equal, X } from "lucide-react";
+import { ChevronUp, Equal, X } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
