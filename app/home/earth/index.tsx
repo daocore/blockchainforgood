@@ -216,36 +216,14 @@ export function Earth({ children }: { children: React.ReactNode }) {
               customLayerData={generateGridLines()}
               customThreeObject={createGridLineObject}
               // // HTML marks
-              htmlElementsData={[
-                {
-                  id: "0fd59d7e-73ac-4806-86f9-7e4d48d827d5",
-                  name: "Bitrend.io",
-                  image: "/organization/378e3e8a6c98424ab08c1906a3c31725.jpeg",
-                  type: 1,
-                  location: {
-                    country: 123,
-                    latlng: [103.51, 1.18],
-                  },
-                  link: "https://bitrend.io/",
-                },
-                {
-                  id: "0fd59d7e-73ac-4806-86f9-7e4d48d827d5",
-                  name: "Bitrend.io",
-                  image: "/organization/378e3e8a6c98424ab08c1906a3c31725.jpeg",
-                  type: 1,
-                  location: {
-                    country: 123,
-                    latlng: [134.51, 10.18],
-                  },
-                  link: "https://bitrend.io/",
-                },
-              ]}
+              htmlElementsData={data}
               htmlLat={((item: IEvent) => item.location?.latlng[0]) as any}
               htmlLng={((item: IEvent) => item.location?.latlng[1]) as any}
               // htmlAltitude={0}
               htmlElement={
                 ((item: IEvent) => {
                   const wrapper = document.createElement("div");
+                  wrapper.classList.add("pointer-events-auto");
 
                   const root = createRoot(wrapper);
                   root.render(
@@ -307,7 +285,7 @@ function Marker({
     }
   };
   return (
-    <HoverCard open={open} onOpenChange={onChange} closeDelay={7000}>
+    <HoverCard open={open} onOpenChange={onChange}>
       <HoverCardTrigger asChild>
         <div
           className={styles.marker}
@@ -340,33 +318,29 @@ function Marker({
         }}
         className="min-w-52 z-[999] relative bg-white/75 shadow-lg rounded-none p-0 cursor-pointer pointer-events-auto"
       >
-        <div
-        // onMouseEnter={() => setOpen(true)}
-        >
-          <p className="text-xs font-bold border-b border-active p-2">
-            {item.location?.country}
-          </p>
-          <div className="px-2 py-4 space-y-2">
-            <h3 className="text-sm font-bold text-main flex items-center">
-              <Image
-                width={24}
-                height={24}
-                className="w-6 h-6"
-                src={EVENT_TYPE_MAP[item.type].icon}
-                alt={EVENT_TYPE_MAP[item.type].name}
-              />
-              {EVENT_TYPE_MAP[item.type].name}
-            </h3>
-            <div className="flex gap-2">
-              <img
-                className="w-9 h-9"
-                src={`${IMAGE_URL}${item.image}`}
-                alt={item.name}
-              />
-              <div>
-                <p className="text-xm truncate">{item.name}</p>
-                <p className="text-xs">{item.link}</p>
-              </div>
+        <p className="text-xs font-bold border-b border-active p-2">
+          {item.location?.country}
+        </p>
+        <div className="px-2 py-4 space-y-2">
+          <h3 className="text-sm font-bold text-main flex items-center">
+            <Image
+              width={24}
+              height={24}
+              className="w-6 h-6"
+              src={EVENT_TYPE_MAP[item.type].icon}
+              alt={EVENT_TYPE_MAP[item.type].name}
+            />
+            {EVENT_TYPE_MAP[item.type].name}
+          </h3>
+          <div className="flex gap-2">
+            <img
+              className="w-9 h-9"
+              src={`${IMAGE_URL}${item.image}`}
+              alt={item.name}
+            />
+            <div>
+              <p className="text-xm truncate">{item.name}</p>
+              <p className="text-xs">{item.link}</p>
             </div>
           </div>
         </div>
