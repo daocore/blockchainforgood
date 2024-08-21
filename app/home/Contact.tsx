@@ -1,18 +1,29 @@
+"use client";
+
 import { useState } from "react";
 import { trackSensors } from "@/lib/sensors";
 import LinkedIn from "@/assets/LinkedIn.svg";
 import X from "@/assets/X.svg";
 import Image from "next/image";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export const Contact = () => {
   const [subject, setSubject] = useState("");
   const [bodytext, setBodyText] = useState("");
   const email = "hello@blockchainforgood.xyz";
 
+  const ref = useIntersectionObserver<HTMLDivElement>("animate__bounceInUp");
+
   return (
     <div
       id="contact"
-      className="items-start justify-between gap-6 inline-flex w-full md:w-content m-auto flex-wrap px-4 md:px-0 mb-4"
+      ref={ref}
+      className="items-start justify-between gap-6 inline-flex w-full md:w-content m-auto flex-wrap px-4 md:px-0 mb-4 animate__animated"
+      style={
+        {
+          "--animate-duration": "1.2s",
+        } as any
+      }
     >
       <div className="flex-col justify-start items-start gap-2 md:gap-8 inline-flex">
         <div className="flex-col justify-start items-start flex">
