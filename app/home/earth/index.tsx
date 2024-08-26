@@ -199,6 +199,14 @@ export function Earth({ children }: { children: React.ReactNode }) {
         <div style={{ width: "100%", minHeight: globeHeight }}>
           <div ref={earthRef}>
             <Globe
+              rendererConfig={{
+                antialias: false,
+                premultipliedAlpha: false,
+                alpha: true,
+                preserveDrawingBuffer: true,
+                precision: "lowp",
+                powerPreference: "high-performance",
+              }}
               globeRef={globeEl}
               width={globeWidth}
               height={globeHeight}
