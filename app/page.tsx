@@ -7,7 +7,6 @@ import { initSensors, trackSensors } from "@/lib/sensors";
 import { What } from "./home/what";
 import { How } from "./home/how";
 import { Videos } from "./home/Video";
-import "animate.css";
 
 export default function Home() {
   useEffect(() => {

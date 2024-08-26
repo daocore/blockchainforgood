@@ -1,16 +1,14 @@
 "use client";
-import Image from "next/image";
 import { useAPIGetNewsInfinete } from "./api";
 import { EventsApproveEntity, IGetListParams, TabItem } from "./types";
-import { IMAGE_URL } from "@/constants";
+import { ADVISOR_TITLE_ITEMKEY, IMAGE_URL } from "@/constants";
 import styles from "./square.module.css";
-import { cn, IsProductionServer } from "@/lib";
+import { cn } from "@/lib";
 import { SkeletonList } from "./skeleton";
 import { CSSProperties, useEffect, useRef } from "react";
 import { PAGE_SIZE } from "../news/constants";
 import { Empty } from "@/components/Empty";
 import { LoadingMore } from "@/components/Loading";
-import { DEV_TITLE_KEY, PROD_TITLE_KEY } from "./constants";
 import {
   Tooltip,
   TooltipContent,
@@ -118,8 +116,6 @@ interface IItemProps {
 
 const itemClassNames = "w-40 xs:w-[150px] md:w-[185px]";
 
-const isProduction = IsProductionServer();
-const titleKey = isProduction ? PROD_TITLE_KEY : DEV_TITLE_KEY;
 function UserItem({ item }: IItemProps) {
   const {
     user: { avatar, name },
@@ -147,10 +143,10 @@ function UserItem({ item }: IItemProps) {
         <Tooltip>
           <TooltipTrigger asChild>
             <p className="text-sm text-typography text-center truncate">
-              {diyFormJson[titleKey]}
+              {diyFormJson[ADVISOR_TITLE_ITEMKEY]}
             </p>
           </TooltipTrigger>
-          <TooltipContent>{diyFormJson[titleKey]}</TooltipContent>
+          <TooltipContent>{diyFormJson[ADVISOR_TITLE_ITEMKEY]}</TooltipContent>
         </Tooltip>
       </TooltipProvider>
     </div>

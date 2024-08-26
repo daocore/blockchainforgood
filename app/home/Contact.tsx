@@ -6,24 +6,22 @@ import LinkedIn from "@/assets/LinkedIn.svg";
 import X from "@/assets/X.svg";
 import Image from "next/image";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import styles from "./styles.module.css";
 
 export const Contact = () => {
   const [subject, setSubject] = useState("");
   const [bodytext, setBodyText] = useState("");
   const email = "hello@blockchainforgood.xyz";
 
-  const ref = useIntersectionObserver<HTMLDivElement>("animate__bounceInUp");
+  const ref = useIntersectionObserver<HTMLDivElement>(
+    styles.moveFromRightBottom
+  );
 
   return (
     <div
       id="contact"
       ref={ref}
-      className="items-start justify-between gap-6 inline-flex w-full md:w-content m-auto flex-wrap px-4 md:px-0 mb-4 animate__animated"
-      style={
-        {
-          "--animate-duration": "1.2s",
-        } as any
-      }
+      className="items-start justify-between gap-6 inline-flex w-full md:w-content m-auto flex-wrap px-4 md:px-0 mb-4"
     >
       <div className="flex-col justify-start items-start gap-2 md:gap-8 inline-flex">
         <div className="flex-col justify-start items-start flex">
