@@ -1,0 +1,29 @@
+@keyframes moveInLeftBottom {
+  from {
+    transform: translate(-50%, 50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes moveInRightBottom {
+  from {
+    transform: translate(50%, 50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.moveFromRightBottom {
+  animation: moveInRightBottom 0.8s ease-out both;
+}
+
+.moveFromLeftBottom {
+  animation: moveInLeftBottom 0.8s ease-out both;
+}

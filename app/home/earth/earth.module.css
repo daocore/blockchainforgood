@@ -54,40 +54,35 @@
 }
 
 @keyframes bounceInUp {
-  0%,60%,75%,90%,to {
-    -webkit-animation-timing-function: cubic-bezier(.215,.61,.355,1);
-    animation-timing-function: cubic-bezier(.215,.61,.355,1)
-  }
-
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(0,3000px,0) scaleY(5);
-    transform: translate3d(0,3000px,0) scaleY(5)
-  }
-
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(0,-20px,0) scaleY(.9);
-    transform: translate3d(0,-20px,0) scaleY(.9)
-  }
-
-  75% {
-    -webkit-transform: translate3d(0,10px,0) scaleY(.95);
-    transform: translate3d(0,10px,0) scaleY(.95)
-  }
-
-  90% {
-    -webkit-transform: translate3d(0,-5px,0) scaleY(.985);
-    transform: translate3d(0,-5px,0) scaleY(.985)
   }
 
   to {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0)
+    opacity: 1;
   }
 }
 .button {
-  animation: bounceInUp ease-in-out both 2s;
+  animation: bounceInUp ease-in-out both 1s 0.5s;
+}
+
+@keyframes arrowDown {
+  0%, 100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+.arrow-down {
+  animation: arrowDown ease-in-out infinite both 2.5s 2.5s;
+}
+
+.hover-root:hover {
+  .marker {
+    scale: 1.5;
+  }
 }
 
 .marker {
@@ -96,9 +91,6 @@
   transition: scale 1s;
 }
 
-.marker:hover {
-  scale: 1.5;
-}
 
 .container {
   background: url("../../../assets/cube-pattern.png") repeat-x top / 100%, url("../../../assets/cube-pattern1.png")  no-repeat left 70%  / contain;
