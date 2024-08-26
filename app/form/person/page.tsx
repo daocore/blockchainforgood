@@ -1,6 +1,6 @@
 "use client";
 import { IFrameLoading, Loading } from "@/components/Loading";
-import { DEV_PARTNER_EVENT_ID, INDIVIDUAL_HASH_PATH, PRODUCTION_PARTNER_EVENT_ID } from "@/constants/event";
+import { INDIVIDUAL_HASH_PATH, PARTNER_EVENT_ID } from "@/constants";
 import { useGetInfamSrc } from "@/hooks";
 import { Suspense } from "react";
 
@@ -17,10 +17,7 @@ const PersonForm = () => {
 const PersonFormContent = () => {
   const personalChannel = useGetInfamSrc({
     hashPaths: INDIVIDUAL_HASH_PATH,
-    eventIds: {
-      production: PRODUCTION_PARTNER_EVENT_ID,
-      dev: DEV_PARTNER_EVENT_ID,
-    },
+    eventId: PARTNER_EVENT_ID
   });
 
   return (

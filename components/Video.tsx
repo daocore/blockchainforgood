@@ -29,7 +29,9 @@ type TVideoPlayer = Omit<HTMLAttributes<HTMLDivElement>, "children"> & {
   children?: (props: {
     mouseEnter: boolean;
     isPlaying?: boolean;
-    togglePlay: () => void;
+    play: () => void;
+    pause: () => void;
+    mouseEnterEd: boolean
   }) => ReactNode;
 } & IVideo;
 
@@ -299,59 +301,74 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
     };
   }, [isPlaying, mobile]);
 
-  const togglePlay = () => {
+  // const togglePlay = () => {
+  //   const video = videoRef.current;
+  //   if (!video) return;
+  //   if (isPlaying) {
+  //     video.pause();
+  //   } else {
+  //     video.play();
+  //   }
+  //   setPlaying(!isPlaying);
+  // };
+
+  const play = () => {
     const video = videoRef.current;
     if (!video) return;
-    if (isPlaying) {
-      video.pause();
-    } else {
-      video.play();
-    }
-    setPlaying(!isPlaying);
-  };
+    video.play();
+    setPlaying(true);
+  }
 
-  useEffect(() => {
-    const dom = videoRef.current;
-    if (!dom) return;
-    dom.addEventListener("loadedmetadata", () => {
-      setVideoLoaded(true);
-    });
-  }, [videoRef, isVisible, mouseEnterEd]);
+  const pause = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.pause();
+    setPlaying(false);
+  }
+
+  // useEffect(() => {
+  //   const dom = videoRef.current;
+  //   if (!dom) return;
+  //   dom.addEventListener("loadedmetadata", () => {
+  //     setVideoLoaded(true);
+  //   });
+  // }, [videoRef, isVisible, mouseEnter]);
 
   return (
     <div
       {...divprops}
-      className={`relative splide__slide ${width ? "md:bg-black" : ""} ${
-        props?.className
-      }`}
+      className={`relative splide__slide ${width ? "md:bg-black" : ""} ${props?.className
+        }`}
       onMouseEnter={() => {
         setEnter(true);
-        setMouseEnterEd(true);
+        play();
       }}
       onMouseDown={() => {
         setEnter(true);
-        setMouseEnterEd(true);
+        play();
       }}
       onMouseLeave={() => {
         setEnter(false);
+        setMouseEnterEd(true)
+        pause();
       }}
       ref={divRef}
     >
-      {((isVisible && mouseEnterEd) || mobile) && (
-        <video
-          ref={videoRef}
-          className="m-auto aspect-video"
-          preload="auto"
-          controls={mobile}
-          poster={mobile ? (poster as unknown as any)?.src : undefined}
-          onEnded={togglePlay}
-          style={{ width: width || "100%" }}
-        >
-          <source src={src} type={format || "video/mp4"} />
-          Your browser does not support the video tag.
-        </video>
-      )}
-      {!videoLoaded && !mobile && (
+      {/* {((isVisible && mouseEnterEd) || mobile) && ( */}
+      <video
+        ref={videoRef}
+        className="m-auto aspect-video"
+        preload="auto"
+        // controls={mobile}
+        poster={mobile ? (poster as unknown as any)?.src : undefined}
+        onEnded={pause}
+        style={{ width: width || "100%" }}
+      >
+        <source src={src} type={format || "video/mp4"} />
+        Your browser does not support the video tag.
+      </video>
+      {/* )} */}
+      {/* {!mouseEnter && !mobile && (
         <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
           <NextImage
             src={poster}
@@ -362,21 +379,21 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
             }}
           />
         </div>
-      )}
-      {children?.({ mouseEnter, isPlaying, togglePlay })}
-      {mouseEnter && isPlaying !== undefined && (
+      )} */}
+      {children?.({ mouseEnter, isPlaying, play, pause, mouseEnterEd })}
+      {/* {mouseEnter && isPlaying !== undefined && (
         <Controls
           togglePlay={togglePlay}
           videoRef={videoRef}
           className={props?.className}
           isPlaying={isPlaying}
         />
-      )}
-      {!videoLoaded && mouseEnterEd && (
+      )} */}
+      {/* {!videoLoaded && mouseEnter && !mobile && (
         <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
           <Loading size={50} />
         </div>
-      )}
+      )} */}
     </div>
   );
 });
