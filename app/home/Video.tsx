@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CustomVideoPlayer, IVideo } from "@/components/Video";
 import playicon from "@/assets/play.svg";
 import posterYH from "@/assets/video/YH.webp";
@@ -88,6 +88,7 @@ const videos: IVideo[] = [
 export const Videos = () => {
   const ref = useRef<any>();
   const mobile = useIsMobile();
+  const [clickEd, setClickEd] = useState(false);
 
   const videoStyle = {
     width: 240,
@@ -109,6 +110,15 @@ export const Videos = () => {
       },
     }).mount({ AutoScroll });
   }, [mobile]); // 通过空数组作为依赖项，确保只在组件挂载时执行一次初始化
+
+  useEffect(() => {
+    window.document.addEventListener('click', function () {
+      !clickEd && setClickEd(true)
+    });
+    return () => {
+      window.document.removeEventListener('click', () => { })
+    }
+  }, [clickEd])
 
   return (
     <div className="relative">
@@ -138,26 +148,23 @@ export const Videos = () => {
                   name={name}
                   style={videoStyle}
                 >
-                  {({ mouseEnter, isPlaying, togglePlay }) => {
+                  {({ mouseEnter, isPlaying, mouseEnterEd }) => {
                     return (
                       <>
-                        <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4 text-white">
+                        {!mouseEnter && <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4 text-white">
                           <div className="font-bold font-['Inter']">
                             {video?.name}
                           </div>
                           <div className="text-xs">{video?.from}</div>
-                        </div>
+                        </div>}
                         <div
-                          className={`absolute w-full h-full z-10 top-0 ${
-                            mouseEnter ? "bg-videoHover" : "bg-video"
-                          } md:flex justify-center items-center hidden`}
+                          className={`absolute w-full h-full z-10 top-0 bg-video flex justify-center items-center`}
                         >
-                          {!isPlaying && (
+                          {(!isPlaying || !clickEd) && (
                             <Image
                               src={playicon}
                               alt=""
                               className="w-10 h-10 cursor-pointer z-20"
-                              onClick={togglePlay}
                             />
                           )}
                         </div>

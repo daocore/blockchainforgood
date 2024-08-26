@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:zf": "NEXT_PUBLIC_IFRAME_LOCATION_HOST=http://localhost:5173 next dev",
+    "dev:zf": "NEXT_PUBLIC_BGA_ENV=zfdev next dev",
     "build": "next build",
-    "build:dev": "NEXT_PUBLIC_BASE_URL=https://beta.moledao.io NEXT_PUBLIC_IFRAME_LOCATION_HOST=https://beta.moledao.io NEXT_PUBLIC_IS_PRODUCTION=false next build",
+    "build:dev": "NEXT_PUBLIC_BGA_ENV=staging next build",
     "start": "next start",
     "lint": "next lint"
   },
