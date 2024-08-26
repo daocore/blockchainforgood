@@ -124,6 +124,12 @@ export function Earth({ children }: { children: React.ReactNode }) {
     controls.autoRotate = true;
     controls.autoRotateSpeed = 0.4; // 设置自动旋转速度
 
+    // 监听相机变更事件：包括旋转、缩放、拖拽等
+    // controls.addEventListener("change", (e) => {
+    //   const zoomLevel = controls.getDistance(); // 获取当前缩放距离
+    //   console.log("Zoom level changed:", zoomLevel);
+    // });
+
     // 更新控制器
     controls.update();
 

@@ -75,7 +75,7 @@ export const Contact = () => {
             className="cursor-pointer"
             onClick={() => {
               window.open(
-                "https://www.linkedin.cn/incareer/company/blockchainforgoodalliance",
+                "https://www.linkedin.com/company/blockchainforgoodalliance",
                 "_blank"
               );
               trackSensors("ButtonClicked", {
