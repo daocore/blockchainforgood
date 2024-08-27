@@ -4,6 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import BGAIconGreen from "@/assets/BGA Icon Green.png";
 import Image from "next/image";
 import CountUp from "react-countup";
+import { useAPIGetList } from "./api";
+import { IMAGE_URL } from "@/constants";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function VideoCard() {
   return (
@@ -31,7 +34,6 @@ function KeyData() {
         <Card key={item.label} className="flex flex-col justify-between">
           <CardHeader>
             <CardTitle className="text-5xl">
-              {/* {item.value} */}
               <CountUp start={1} end={item.value} /> +
             </CardTitle>
           </CardHeader>
@@ -86,14 +88,25 @@ function Nations() {
 }
 
 function LatestHackathon() {
+  const {
+    data: { list } = {
+      total: 0,
+      list: [],
+    },
+    error,
+    isLoading,
+  } = useAPIGetList();
+  if (isLoading || list.length === 0) {
+    return <Skeleton className="xs:col-span-2 row-span-2" />;
+  }
+  const latestHackathon = list[0];
   return (
     <Card className="xs:col-span-2 row-span-2">
-      <CardHeader>
-        <CardTitle>Latest Hackathon</CardTitle>
-      </CardHeader>
-      <CardContent>
-        to help you to find the best talent in the world
-      </CardContent>
+      <img
+        src={`${IMAGE_URL}${latestHackathon.cover}`}
+        alt={latestHackathon.name}
+        className="h-full aspect-video object-cover"
+      />
     </Card>
   );
 }

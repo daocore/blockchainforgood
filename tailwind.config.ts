@@ -35,6 +35,9 @@ const config = {
         md: "769px",
         desktop: "1441px",
       },
+      fontSize: {
+        leading: ["2rem", "2.625rem"],
+      },
       width: {
         content: "1232px",
         page: "800px",
@@ -87,6 +90,11 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -674,6 +682,8 @@ const config = {
         twinkle: "twinkle 3s ease-in-out infinite",
         "fade-out-left": "fade-out-left 3s ease-in-out both 0.2s",
         "fade-out-right": "fade-out-right 3s ease-in-out both 0.2s",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
   },

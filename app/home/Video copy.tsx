@@ -1,7 +1,3 @@
-"use client";
-
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import React from "react";
 import { HTMLAttributes, useEffect, useRef, useState } from "react";
 import { CustomVideoPlayer, IVideo } from "@/components/Video";
 import playicon from "@/assets/play.svg";
@@ -17,6 +13,10 @@ import posterJasonDou from "@/assets/video/JasonDou.jpeg";
 import posterBGA from "@/assets/video/BGA.jpg";
 import Image, { StaticImageData } from "next/image";
 import { useIsMobile } from "@/hooks";
+import Splide from "@splidejs/splide";
+import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+// 导入 Splide 的样式文件（根据你的项目配置可能会有所不同）
+import "@splidejs/splide/css";
 import { DialogsWithFooterAndTitle } from "@/components/Dialog";
 
 const videos: IVideo[] = [
@@ -52,12 +52,12 @@ const videos: IVideo[] = [
     name: "Jennifer",
     poster: posterJennifer,
   },
-  // {
-  //   src: "/video/2_YH.mp4",
-  //   from: "Web3 Lead of Moledao",
-  //   name: "YH",
-  //   poster: posterYH,
-  // },
+  {
+    src: "/video/2_YH.mp4",
+    from: "Web3 Lead of Moledao",
+    name: "YH",
+    poster: posterYH,
+  },
   {
     src: "/video/5_Saed_Co_founder_of_ICPHub_UAE.mp4",
     from: "Co-founder of ICP.Hub UAE",
@@ -162,20 +162,48 @@ const VideoItem = ({
 };
 
 export const Videos = () => {
+  const ref = useRef<any>();
+  const mobile = useIsMobile();
+
+  const videoStyle = {
+    width: 240,
+    height: 135,
+  };
+
+  useEffect(() => {
+    if (ref.current) return;
+    ref.current = new Splide(".splide", {
+      type: "loop",
+      drag: "free",
+      focus: "center",
+      fixedWidth: videoStyle.width,
+      fixedHeight: videoStyle.height,
+      arrows: false,
+      pagination: false,
+      autoScroll: {
+        speed: 1,
+      },
+    }).mount({ AutoScroll });
+  }, [mobile]); // 通过空数组作为依赖项，确保只在组件挂载时执行一次初始化
+
   return (
-    <div className="h-[135px] flex flex-col antialiased items-center justify-center relative overflow-hidden">
-      <InfiniteMovingCards
-        direction="left"
-        speed="slow"
+    <div className="relative">
+      <div
+        className="w-screen relative splide"
+        style={{ height: videoStyle.height, }}
       >
-        {/* 下一轮的时候，点击事件失效了，所以暂时让列表变长一下 */}
-        {videos?.concat(videos).map((video, index) => {
-          const { poster, name } = video;
-          return (<VideoItem key={index} project={{ video, logo: poster, name }} />)
-        })}
-      </InfiniteMovingCards>
+        <div className="splide__track">
+          <div
+            className="flex items-center m-auto gap-2 flex-nowrap splide__list"
+            style={{ height: videoStyle.height, }}
+          >
+            {videos.map((video, index) => {
+              const { poster, name } = video;
+              return (<VideoItem key={index} project={{ video, logo: poster, name }} />)
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
-
-
+};
