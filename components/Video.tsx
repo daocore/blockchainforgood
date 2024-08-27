@@ -27,11 +27,9 @@ export interface IVideo {
 
 type TVideoPlayer = Omit<HTMLAttributes<HTMLDivElement>, "children"> & {
   children?: (props: {
-    mouseEnter: boolean;
     isPlaying?: boolean;
     play: () => void;
     pause: () => void;
-    mouseEnterEd: boolean
   }) => ReactNode;
 } & IVideo;
 
@@ -253,64 +251,12 @@ const Controls = ({
 };
 
 export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
-  const { src, poster, width, from, name, format, children, ...divprops } =
+  const { src, width, from, name, format, children, ...divprops } =
     props;
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setPlaying] = useState<boolean>();
-  const [mouseEnter, setEnter] = useState(false);
-  const [mouseEnterEd, setMouseEnterEd] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const mobile = useIsMobile();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const dom = divRef.current;
-    if (!dom) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      {
-        threshold: 0.3,
-      }
-    );
-
-    observer.observe(dom);
-
-    return () => {
-      observer?.unobserve(dom);
-    };
-  }, [divRef]);
-
-  useEffect(() => {
-    let timer: any;
-    if (isPlaying && mobile) {
-      timer = setTimeout(() => {
-        setEnter(false);
-      }, 1000);
-    }
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [isPlaying, mobile]);
-
-  // const togglePlay = () => {
-  //   const video = videoRef.current;
-  //   if (!video) return;
-  //   if (isPlaying) {
-  //     video.pause();
-  //   } else {
-  //     video.play();
-  //   }
-  //   setPlaying(!isPlaying);
-  // };
 
   const play = () => {
     const video = videoRef.current;
@@ -326,74 +272,26 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
     setPlaying(false);
   }
 
-  // useEffect(() => {
-  //   const dom = videoRef.current;
-  //   if (!dom) return;
-  //   dom.addEventListener("loadedmetadata", () => {
-  //     setVideoLoaded(true);
-  //   });
-  // }, [videoRef, isVisible, mouseEnter]);
-
   return (
     <div
       {...divprops}
       className={`relative splide__slide ${width ? "md:bg-black" : ""} ${props?.className
         }`}
-      onMouseEnter={() => {
-        setEnter(true);
-        play();
-      }}
-      onMouseDown={() => {
-        setEnter(true);
-        play();
-      }}
-      onMouseLeave={() => {
-        setEnter(false);
-        setMouseEnterEd(true)
-        pause();
-      }}
       ref={divRef}
     >
-      {/* {((isVisible && mouseEnterEd) || mobile) && ( */}
       <video
         ref={videoRef}
         className="m-auto aspect-video"
         preload="auto"
-        // controls={mobile}
-        poster={mobile ? (poster as unknown as any)?.src : undefined}
+        controls
         onEnded={pause}
+        autoPlay
         style={{ width: width || "100%" }}
       >
         <source src={src} type={format || "video/mp4"} />
         Your browser does not support the video tag.
       </video>
-      {/* )} */}
-      {/* {!mouseEnter && !mobile && (
-        <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
-          <NextImage
-            src={poster}
-            alt=""
-            className="aspect-video"
-            style={{
-              width: width || "100%",
-            }}
-          />
-        </div>
-      )} */}
-      {children?.({ mouseEnter, isPlaying, play, pause, mouseEnterEd })}
-      {/* {mouseEnter && isPlaying !== undefined && (
-        <Controls
-          togglePlay={togglePlay}
-          videoRef={videoRef}
-          className={props?.className}
-          isPlaying={isPlaying}
-        />
-      )} */}
-      {/* {!videoLoaded && mouseEnter && !mobile && (
-        <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
-          <Loading size={50} />
-        </div>
-      )} */}
+      {children?.({ isPlaying, play, pause })}
     </div>
   );
 });
