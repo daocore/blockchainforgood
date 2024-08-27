@@ -3,11 +3,21 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { IFrameLoading, Loading } from "@/components/Loading";
 import { useGetInfamSrc } from "@/hooks/useGetIframSrc";
-import { INCUBATION_EVENT_ID, ORGANIZATION_HASH_PATH } from "@/constants";
+import { INCUBATION_EVENT_ID } from "@/constants/env";
+import { ORGANIZATION_HASH_PATH } from "@/constants/url";
+import { Suspense } from "react";
 
 const ELEMENT_ID = "hackathon";
 
 export const Form = () => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <FormImpl />
+    </Suspense>
+  );
+};
+
+function FormImpl() {
   const organizationalChannel = useGetInfamSrc({
     hashPaths: ORGANIZATION_HASH_PATH,
     eventId: INCUBATION_EVENT_ID,
@@ -32,4 +42,4 @@ export const Form = () => {
       </DialogContent>
     </Dialog>
   );
-};
+}

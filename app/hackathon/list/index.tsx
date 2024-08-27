@@ -1,5 +1,7 @@
 import { List } from "./list";
 import { Form } from "./form";
+import { Suspense } from "react";
+import { Loading } from "@/components/Loading";
 
 export function HackathonList() {
   return (
@@ -14,7 +16,7 @@ export function HackathonList() {
         <div className=" w-full lg:w-2/3">
           <List />
         </div>
-        <div className="w-full lg:w-1/3 h-[940px] sticky top-4">
+        <div className="w-full lg:w-1/3 h-10 sticky top-4">
           <Form />
         </div>
       </div>
