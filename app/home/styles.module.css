@@ -10,5 +10,5 @@
 }
 
 .moveFromBottom {
-  animation: moveFromBottom 0.8s ease-out both;
+  animation: moveFromBottom 0.8s ease-out both 0.5s;
 }

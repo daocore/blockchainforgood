@@ -227,7 +227,7 @@ export function Earth({ children }: { children: React.ReactNode }) {
               polygonCapMaterial={polygonsMaterial}
               polygonSideColor={() => "rgba(0, 0, 0, 0)"}
               polygonCapColor={() => "rgba(200, 0, 0, 0.6)"}
-              polygonStrokeColor={() => "#111"}
+              polygonStrokeColor={() => "rgba(255,255,255, 0.35)"}
               polygonAltitude={0.01}
               // HTML marks
               htmlElementsData={data}
@@ -319,7 +319,7 @@ function Marker({
         "cursor-pointer !pointer-events-auto !select-auto"
       )}
     >
-      <HoverCard open={open} onOpenChange={onChange}>
+      <HoverCard open={open} onOpenChange={onChange} openDelay={300}>
         <HoverCardTrigger asChild>
           <div
             className={styles.marker}
@@ -327,18 +327,26 @@ function Marker({
             onClick={clickToOpenHoverCard}
           >
             <svg
-              width="28"
-              height="28"
-              viewBox="0 0 28 28"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle opacity="0.25" cx="14" cy="14" r="14" fill="#FDFFB8" />
               <circle
+                className={styles.circle}
                 opacity="0.25"
                 cx="14"
-                cy="13.9998"
-                r="9.75758"
+                cy="14"
+                r="14"
+                fill="#FDFFB8"
+              />
+              <circle
+                className={styles.circle}
+                opacity="0.25"
+                cx="14"
+                cy="14"
+                r="9.8"
                 fill="#FDFFAE"
               />
               <circle cx="14" cy="14" r="5.51515" fill="#EEF500" />
