@@ -35,6 +35,9 @@ const config = {
         md: "769px",
         desktop: "1441px",
       },
+      fontSize: {
+        leading: ["2rem", "2.625rem"],
+      },
       width: {
         content: "1232px",
         page: "800px",
