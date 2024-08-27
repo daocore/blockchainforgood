@@ -107,6 +107,7 @@ export const Header = () => {
         <div>
           {/* Desktop */}
           <NavigationMenu
+            delayDuration={100}
             className={cn(
               "hidden md:flex",
               "justify-end items-center gap-2 md:gap-1"

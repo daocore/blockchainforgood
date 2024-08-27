@@ -5,6 +5,7 @@ import { trackSensors } from "@/lib/sensors";
 import { cn } from "@/lib";
 import { LogoSvg } from "./LogoSvg";
 import { useRef } from "react";
+import { ArrowDownToLine, Download } from "lucide-react";
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -67,11 +68,12 @@ export const Footer = () => {
           >
             <h3
               className={cn(
-                "text-black text-base font-bold font-['Inter'] leading-normal cursor-pointer",
+                "flex gap-1 text-black text-base font-bold font-['Inter'] leading-normal cursor-pointer",
                 isIncubationPage && "text-description"
               )}
             >
               Media Kit
+              <ArrowDownToLine className="w-5 h-5" />
             </h3>
           </div>
         </div>
