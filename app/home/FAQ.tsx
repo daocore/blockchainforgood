@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ApplyLink } from "@/components/Const";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import styles from "./styles.module.css";
 
 const FAQItem = ({
   question,
@@ -87,19 +88,10 @@ const faqs = [
 ];
 
 export const FAQ = () => {
-  const ref = useIntersectionObserver<HTMLDivElement>("animate__bounceInDown");
+  const ref = useIntersectionObserver<HTMLDivElement>(styles.moveFromBottom);
 
   return (
-    <div
-      ref={ref}
-      id="faq"
-      className="w-full md:w-content space-y-4 animate__animated"
-      style={
-        {
-          "--animate-duration": "1.2s",
-        } as any
-      }
-    >
+    <div ref={ref} id="faq" className="w-full md:w-content space-y-4">
       <h2 className="text-2xl font-bold">FAQ</h2>
       <div className="self-stretch flex-col justify-start items-center flex">
         {faqs.map((faq, index) => (

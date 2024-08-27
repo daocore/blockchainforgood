@@ -8,11 +8,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { JoinUs } from "@/components/JoinUs";
 import { ROUTER_PATH } from "@/constants/router";
 import Link from "next/link";
+import { ChevronDown, MoveDown } from "lucide-react";
 
 export const Hero = () => {
+  const onMoveDown = () => {
+    const innerHeight = window.innerHeight;
+    window.scrollTo({ top: innerHeight, behavior: "smooth" });
+  };
   return (
     <div className="">
       <Earth>
@@ -35,6 +39,14 @@ export const Hero = () => {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <div
+          className="justify-center mt-2 cursor-pointer hidden md:flex"
+          onClick={onMoveDown}
+        >
+          <ChevronDown
+            className={cn("text-main w-8 h-8 stroke-[3]", styles["arrow-down"])}
+          />
+        </div>
       </Earth>
     </div>
   );

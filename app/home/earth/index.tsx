@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import * as topojson from "topojson-client";
-import landTopo from "./earth.json";
+import langGeoJson from "./custom.geo.json";
 import { type GlobeMethods } from "react-globe.gl";
 import { useIsMobile } from "@/hooks";
 import Image from "next/image";
@@ -13,7 +12,6 @@ import dynamic from "next/dynamic";
 import {
   HoverCard,
   HoverCardContent,
-  HoverCardPortal,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { createRoot } from "react-dom/client";
@@ -21,11 +19,12 @@ import { Impact } from "../impact";
 import { useAPIGetList } from "./api";
 import { BGAEarthEnum, IEvent } from "./types";
 import { IMAGE_URL } from "@/constants";
-import Link from "next/link";
 import PartnersImage from "@/assets/earth/Collab.png";
 import IncubationImage from "@/assets/earth/Incubation.png";
 import HackathonImage from "@/assets/earth/Hackathon.png";
 import EventImage from "@/assets/earth/Event.png";
+import { useUpdateEffect } from "@/hooks/useUpdateEffect";
+import { COUNTRIES } from "./const";
 
 const Globe = dynamic(() => import("./globe-wrapper"), {
   ssr: false,
@@ -38,10 +37,6 @@ const polygonsMaterial = new THREE.MeshLambertMaterial({
   color: "#00d5bf",
   side: THREE.DoubleSide,
 });
-
-const landPolygons = (
-  topojson.feature(landTopo as any, (landTopo as any).objects.land) as any
-).features;
 
 const GLOBE_RADIUS = 100; // 地球半径
 const LINE_RADIUS = 0.15; // 线条半径
@@ -92,6 +87,8 @@ const createGridLineObject = (line: any) => {
   return new THREE.Line(geometry, material);
 };
 
+const layoutData = generateGridLines();
+
 export function Earth({ children }: { children: React.ReactNode }) {
   const { data = [], isLoading } = useAPIGetList();
 
@@ -125,7 +122,13 @@ export function Earth({ children }: { children: React.ReactNode }) {
 
     // 设置地球旋转
     controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.5; // 设置自动旋转速度
+    controls.autoRotateSpeed = 0.4; // 设置自动旋转速度
+
+    // 监听相机变更事件：包括旋转、缩放、拖拽等
+    // controls.addEventListener("change", (e) => {
+    //   const zoomLevel = controls.getDistance(); // 获取当前缩放距离
+    //   console.log("Zoom level changed:", zoomLevel);
+    // });
 
     // 更新控制器
     controls.update();
@@ -141,7 +144,6 @@ export function Earth({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const maxWidth = window.innerWidth * 0.8;
     setGlobeWidth(maxWidth > CONTENT_WIDTH ? CONTENT_WIDTH : maxWidth);
-    console.log("height: ", window.innerHeight, window.outerHeight);
     setGlobeHeight(isMobile ? maxWidth : window.innerHeight - HEIGHT);
   }, [isMobile]);
 
@@ -203,26 +205,39 @@ export function Earth({ children }: { children: React.ReactNode }) {
         <div style={{ width: "100%", minHeight: globeHeight }}>
           <div ref={earthRef}>
             <Globe
+              rendererConfig={{
+                antialias: false,
+                premultipliedAlpha: false,
+                alpha: true,
+                preserveDrawingBuffer: true,
+                precision: "lowp",
+                powerPreference: "high-performance",
+              }}
               globeRef={globeEl}
               width={globeWidth}
               height={globeHeight}
               backgroundColor="rgba(0,0,0,0)"
+              // custom
+              customLayerData={layoutData}
+              customThreeObject={createGridLineObject}
               showGlobe={false}
+              showGraticules={false}
               showAtmosphere={false}
-              polygonsData={landPolygons}
+              polygonsData={langGeoJson.features}
               polygonCapMaterial={polygonsMaterial}
               polygonSideColor={() => "rgba(0, 0, 0, 0)"}
-              // custom
-              customLayerData={generateGridLines()}
-              customThreeObject={createGridLineObject}
-              // // HTML marks
+              polygonCapColor={() => "rgba(200, 0, 0, 0.6)"}
+              polygonStrokeColor={() => "rgba(255,255,255, 0.35)"}
+              polygonAltitude={0.01}
+              // HTML marks
               htmlElementsData={data}
-              htmlLat={((item: IEvent) => item.location?.latlng[0]) as any}
-              htmlLng={((item: IEvent) => item.location?.latlng[1]) as any}
-              // htmlAltitude={0}
+              htmlLat={((item: IEvent) => item.location?.latlng[1]) as any}
+              htmlLng={((item: IEvent) => item.location?.latlng[0]) as any}
+              htmlAltitude={0}
               htmlElement={
                 ((item: IEvent) => {
                   const wrapper = document.createElement("div");
+                  wrapper.classList.add("!select-auto");
                   wrapper.classList.add("pointer-events-auto");
 
                   const root = createRoot(wrapper);
@@ -278,73 +293,97 @@ function Marker({
 }) {
   const [open, setOpen] = useState(false);
 
+  useUpdateEffect(() => {
+    if (!open) {
+      setTimeout(() => {
+        onLeave?.();
+      }, 300);
+    }
+  }, [open]);
+
   const onChange = (val: boolean) => {
     setOpen(val);
-    if (!val) {
-      onLeave?.();
-    }
+  };
+
+  const clickToOpenHoverCard = () => {
+    setOpen(true);
+  };
+
+  const openLink = () => {
+    window.open(item.link, "_blank");
   };
   return (
-    <HoverCard open={open} onOpenChange={onChange}>
-      <HoverCardTrigger asChild>
-        <div
-          className={styles.marker}
-          onClick={() => setOpen(true)}
-          onMouseEnter={onEnter}
-        >
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 28 28"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+    <div
+      className={cn(
+        styles["hover-root"],
+        "cursor-pointer !pointer-events-auto !select-auto"
+      )}
+    >
+      <HoverCard open={open} onOpenChange={onChange} openDelay={300}>
+        <HoverCardTrigger asChild>
+          <div
+            className={styles.marker}
+            onMouseEnter={onEnter}
+            onClick={clickToOpenHoverCard}
           >
-            <circle opacity="0.25" cx="14" cy="14" r="14" fill="#FDFFB8" />
-            <circle
-              opacity="0.25"
-              cx="14"
-              cy="13.9998"
-              r="9.75758"
-              fill="#FDFFAE"
-            />
-            <circle cx="14" cy="14" r="5.51515" fill="#EEF500" />
-          </svg>
-        </div>
-      </HoverCardTrigger>
-      <HoverCardContent
-        onClick={(e) => {
-          console.log("clicked");
-          // window.open(item.link, "_blank");
-        }}
-        className="min-w-52 z-[999] relative bg-white/75 shadow-lg rounded-none p-0 cursor-pointer pointer-events-auto"
-      >
-        <p className="text-xs font-bold border-b border-active p-2">
-          {item.location?.country}
-        </p>
-        <div className="px-2 py-4 space-y-2">
-          <h3 className="text-sm font-bold text-main flex items-center">
-            <Image
-              width={24}
-              height={24}
-              className="w-6 h-6"
-              src={EVENT_TYPE_MAP[item.type].icon}
-              alt={EVENT_TYPE_MAP[item.type].name}
-            />
-            {EVENT_TYPE_MAP[item.type].name}
-          </h3>
-          <div className="flex gap-2">
-            <img
-              className="w-9 h-9"
-              src={`${IMAGE_URL}${item.image}`}
-              alt={item.name}
-            />
-            <div>
-              <p className="text-xm truncate">{item.name}</p>
-              <p className="text-xs">{item.link}</p>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                className={styles.circle}
+                opacity="0.25"
+                cx="14"
+                cy="14"
+                r="14"
+                fill="#FDFFB8"
+              />
+              <circle
+                className={styles.circle}
+                opacity="0.25"
+                cx="14"
+                cy="14"
+                r="9.8"
+                fill="#FDFFAE"
+              />
+              <circle cx="14" cy="14" r="5.51515" fill="#EEF500" />
+            </svg>
+          </div>
+        </HoverCardTrigger>
+        <HoverCardContent className="min-w-52 z-[999] relative bg-white/75 shadow-lg rounded-none p-0 !pointer-events-auto !select-auto">
+          <p className="text-xs font-bold border-b border-active p-2">
+            {COUNTRIES[item.location?.country] ?? "Unknown"}
+          </p>
+          <div className="px-2 py-4 space-y-2">
+            <h3 className="text-sm font-bold text-main flex items-center">
+              <Image
+                width={24}
+                height={24}
+                className="w-6 h-6"
+                src={EVENT_TYPE_MAP[item.type].icon}
+                alt={EVENT_TYPE_MAP[item.type].name}
+              />
+              {EVENT_TYPE_MAP[item.type].name}
+            </h3>
+            <div className="flex gap-2">
+              <img
+                className="w-9 h-9"
+                src={`${IMAGE_URL}${item.image}`}
+                alt={item.name}
+              />
+              <div>
+                <p className="text-xs">{item.name}</p>
+                <p className="text-xs cursor-pointer" onClick={openLink}>
+                  {item.link}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </HoverCardContent>
-    </HoverCard>
+        </HoverCardContent>
+      </HoverCard>
+    </div>
   );
 }

@@ -1,0 +1,14 @@
+@keyframes moveFromBottom {
+  from {
+    transform: translate(0, 50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.moveFromBottom {
+  animation: moveFromBottom 0.8s ease-out both 0.5s;
+}
