@@ -13,9 +13,7 @@ export const Contact = () => {
   const [bodytext, setBodyText] = useState("");
   const email = "hello@blockchainforgood.xyz";
 
-  const ref = useIntersectionObserver<HTMLDivElement>(
-    styles.moveFromRightBottom
-  );
+  const ref = useIntersectionObserver<HTMLDivElement>(styles.moveFromBottom);
 
   return (
     <div

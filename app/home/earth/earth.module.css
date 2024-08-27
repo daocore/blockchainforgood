@@ -68,15 +68,15 @@
 
 @keyframes arrowDown {
   0%, 100% {
-    opacity: 0;
+    transform: translateY(0) scale(1, 1);
   }
 
   50% {
-    opacity: 1;
+    transform: translateY(10px) scale(0.8, 1.2);
   }
 }
 .arrow-down {
-  animation: arrowDown ease-in-out infinite both 2.5s 2.5s;
+  animation: arrowDown infinite both 1.5s 2.5s;
 }
 
 .hover-root:hover {
