@@ -5,9 +5,7 @@ import { cn } from "@/lib";
 import styles from "./styles.module.css";
 
 export function What() {
-  const ref = useIntersectionObserver<HTMLDivElement>(
-    styles.moveFromLeftBottom
-  );
+  const ref = useIntersectionObserver<HTMLDivElement>(styles.moveFromBottom);
   return (
     <div
       ref={ref as any}

@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ROUTER_PATH } from "@/constants/router";
 import Link from "next/link";
-import { MoveDown } from "lucide-react";
+import { ChevronDown, MoveDown } from "lucide-react";
 
 export const Hero = () => {
   const onMoveDown = () => {
@@ -43,7 +43,9 @@ export const Hero = () => {
           className="justify-center mt-2 cursor-pointer hidden md:flex"
           onClick={onMoveDown}
         >
-          <MoveDown className={cn("text-main", styles["arrow-down"])} />
+          <ChevronDown
+            className={cn("text-main w-8 h-8 stroke-[3]", styles["arrow-down"])}
+          />
         </div>
       </Earth>
     </div>

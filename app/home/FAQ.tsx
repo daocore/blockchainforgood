@@ -88,9 +88,7 @@ const faqs = [
 ];
 
 export const FAQ = () => {
-  const ref = useIntersectionObserver<HTMLDivElement>(
-    styles.moveFromLeftBottom
-  );
+  const ref = useIntersectionObserver<HTMLDivElement>(styles.moveFromBottom);
 
   return (
     <div ref={ref} id="faq" className="w-full md:w-content space-y-4">

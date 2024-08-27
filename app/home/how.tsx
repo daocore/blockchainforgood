@@ -33,9 +33,7 @@ const forces = [
 ];
 
 export function How() {
-  const ref = useIntersectionObserver<HTMLDivElement>(
-    styles.moveFromRightBottom
-  );
+  const ref = useIntersectionObserver<HTMLDivElement>(styles.moveFromBottom);
   return (
     <div
       ref={ref as any}
