@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import { ApplyLink } from "@/components/Const";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import styles from "./styles.module.css";
 
 const FAQItem = ({
   question,
@@ -26,7 +24,7 @@ const FAQItem = ({
         className="flex justify-between items-center w-full py-4 focus:outline-none cursor-pointer"
         onClick={toggleAccordion}
       >
-        <h3 className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
+        <h3 className="grow shrink basis-0 text-description text-base font-bold font-['Inter'] leading-normal">
           {index}. {question}
         </h3>
         <svg
@@ -35,9 +33,8 @@ const FAQItem = ({
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          className={`w-5 h-5 transition-transform ${
-            isOpen ? "transform rotate-180" : ""
-          }`}
+          className={`w-5 h-5 transition-transform ${isOpen ? "transform rotate-180" : ""
+            }`}
         >
           <path
             fillRule="evenodd"
@@ -48,9 +45,8 @@ const FAQItem = ({
         </svg>
       </div>
       <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "h-auto" : "h-0"
-        }`}
+        className={`overflow-hidden transition-all duration-300 ${isOpen ? "h-auto" : "h-0"
+          }`}
       >
         <div className="pb-4 text-typography">
           <p dangerouslySetInnerHTML={{ __html: answer }} />
@@ -62,37 +58,31 @@ const FAQItem = ({
 
 const faqs = [
   {
-    question: "Who can apply for grants or partnership",
-    answer:
-      "We welcome applications from projects, communities, startups, nonprofits, social enterprises, and research institutions that are using blockchain technology for social good. Both early-stage ideas and established projects seeking to scale can apply.",
+    question: "Why should you apply for hackathon?",
+    answer: "The winner of Hackathon will be awarded the grand prize, which consists of: Equity-free rewards – including funds to scale your business, complimentary speaking slot at BGA Oscar  and much more. Stay tuned for updates!",
   },
   {
-    question: "How does the application process work?",
-    answer: `Applicants must submit an online application <a href="${ApplyLink}" target="blank" style="color: #00d5bf">link</a> and will be contacted within 2 weeks for next steps.`,
+    question: "Does it cost anything to participate?",
+    answer: `Applying is free, and selection is merit-based. The grand prize is equity-free. The jury will be able to make offers to invest outside of the prize grant.`,
   },
   {
-    question: "What kind of support does BGA offer?",
-    answer:
-      "Our support ranges from financial grants, technical assistance, and mentorship, to networking opportunities with industry leaders and access to our member ecosystem for collaborations.",
+    question: "What is the application process?",
+    answer: `If you are interested in HACKATHON, please submit your application <a href="${ApplyLink}" target="blank" style="color: #00d5bf">here</a>. 
+    <br/>Once you have submitted your application, the BlockCain For Good  Review committee will review your application, along with others.
+    <br/>BlockChain For Good will announce next steps in the process to all applicants via email & TG.`,
   },
   {
-    question: "Are there any geographical restrictions for applicants?",
-    answer:
-      "While we aim to support projects with a global impact, certain grants or partnership programs may have geographical focuses depending on the strategic objectives of our partners and the specific needs of the communities we aim to serve.",
-  },
-  {
-    question: "How can partners collaborate with BGA?",
-    answer: `Potential partners can collaborate through co-funding projects, providing expertise and mentorship, offering technological resources, or by joining as a member to support the Alliance's mission. 
-    <br/>We encourage interested organizations to contact us directly to explore potential collaboration opportunities.`,
-  },
+    question: "There is a video required for the application. What is BlockChain For Good looking for?",
+    answer: `Show us your product working in real-time! This is the best way to convey the value you are looking to showcase on the Hackathon stage. Feel free to use your phone or screen grabs to record the video – production quality isn't important, the key is to see your working product in action. 
+      <br/>BGA is seeking projects that leverage blockchain technology to solve real-world problems, aligning with the United Nations' 17 Sustainable Development Goals.`,
+  }
 ];
 
-export const FAQ = () => {
-  const ref = useIntersectionObserver<HTMLDivElement>(styles.moveFromBottom);
+export const OscarFAQ = () => {
 
   return (
-    <div ref={ref} id="faq" className="w-full md:w-content space-y-4">
-      <h2 className="text-2xl font-bold">FAQ</h2>
+    <div className="w-full md:w-content m-auto">
+      <h2 className="text-xl font-bold text-oscorActive">FAQ</h2>
       <div className="self-stretch flex-col justify-start items-center flex">
         {faqs.map((faq, index) => (
           <div key={index} className="w-full">
@@ -126,7 +116,7 @@ export const FAQ = () => {
             >
               <path
                 d="M0 1.00024L1232 1.00035"
-                stroke="#283344"
+                stroke="#7D8CA3"
                 strokeDasharray="1 2"
               />
             </svg>

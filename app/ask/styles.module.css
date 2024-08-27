@@ -1,0 +1,14 @@
+.prizeBg {
+  background-image: url("../../assets/Prize-Banner-Animation.svg");
+  background-size: 100vw;
+}
+
+.prizeBgMb {
+  background-image: url("../../assets/Prize-Banner-Animation-mb.svg");
+  background-size: 1000px;
+}
+
+.processBorder {
+  border: 1px solid;
+  border-image-source: linear-gradient(63.17deg, rgba(255, 255, 255, 0.7) -31.74%, rgba(255, 255, 255, 0) 96.3%);
+}
