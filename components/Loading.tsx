@@ -1,7 +1,13 @@
+import { cn } from "@/lib";
 import { useEffect, useState } from "react";
 
-export const Loading = ({ size = 20, color = "#00d5bf" }: { size?: number; color?: string; }) => {
-
+export const Loading = ({
+  size = 20,
+  color = "#00d5bf",
+}: {
+  size?: number;
+  color?: string;
+}) => {
   return (
     <div
       className="small-loading inline-block"
@@ -14,10 +20,14 @@ export const Loading = ({ size = 20, color = "#00d5bf" }: { size?: number; color
   );
 };
 
-export const IFrameLoading = (props: {
+export const IFrameLoading = ({
+  className,
+  ...props
+}: {
   size?: number;
   color?: string;
   id: string;
+  className?: string;
 }) => {
   const { id } = props;
   const [isLoading, setIsOpen] = useState(true);
@@ -34,7 +44,12 @@ export const IFrameLoading = (props: {
   if (!isLoading) return null;
 
   return (
-    <div className="absolute z-10 bg-black opacity-20 w-screen h-screen flex justify-center items-center">
+    <div
+      className={cn(
+        "absolute z-10 bg-black opacity-20 w-screen h-screen flex justify-center items-center",
+        className
+      )}
+    >
       <Loading {...props} />
     </div>
   );
