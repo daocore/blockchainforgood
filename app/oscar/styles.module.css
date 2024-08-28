@@ -26,3 +26,35 @@
   border: 1px solid;
   border-image-source: linear-gradient(63.17deg, rgba(255, 255, 255, 0.7) -31.74%, rgba(255, 255, 255, 0) 96.3%);
 }
+
+
+.ceremony {
+  background: 
+  linear-gradient(343deg, rgba(62, 46, 9, 0) 38%, #3E2E09 95%),
+  linear-gradient(350deg, #576265 6%, #B6B6BF 48%, #576265 99%),
+  rgba(193, 168, 117, 1);
+  background-blend-mode: soft-light;
+  color: #3E2E09;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 96px 50%);
+
+}
+
+.banner {
+  clip-path: polygon(0 0, calc(100% - 96px) 0, 100% 50%, calc(100% - 96px) 100%, 0 100%);
+}
+
+.banner-title {
+  background: linear-gradient(76.82deg, #7D8CA3 11.6%, #9EA1A1 25.31%, #848B8A 48.06%, #576265 55.72%, #9FA2A5 82.54%, #D6D6D7 91.31%), linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #FFFFFF 95.95%), rgba(193, 168, 117, 1);
+  background-blend-mode: soft-light;
+  background-clip: text;
+  color: transparent;
+  /* box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 1); */
+}
+
+.banner-button {
+  box-shadow: 0px 2px 8px -2px #7E652C80;
+  color: #B5964D;
+  border: 1px solid; /* 边框宽度 */
+  /* border-image-source: linear-gradient(76.82deg, #576265 11.6%, #9EA1A1 25.31%, #848B8A 48.06%, #576265 55.72%, #576265 77.23%, #757A7B 85.34%, #576265 91.31%),
+  linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #FFFFFF 95.95%); */
+}
