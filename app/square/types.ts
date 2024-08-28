@@ -1,3 +1,5 @@
+import { SocialLinksEntity } from "@/hooks"
+
 export enum ApproveValue {
   /** 未审核 */
   NOT_SUBMITTED = 0,
@@ -44,7 +46,8 @@ export type OrganizationEntity = {
   tags: TagEntity[]; // undefined
   createDate: string; // 创建时间
   updateDate: string; // 更新时间
-  type: 0  | 1 | 2
+  type: 0  | 1 | 2;
+  links?: SocialLinksEntity[]; // undefined
 }
 export type UserEntity = {
   id: string; // id

@@ -258,6 +258,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setPlaying] = useState<boolean>();
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   const play = () => {
     const video = videoRef.current;
@@ -272,6 +273,14 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
     video.pause();
     setPlaying(false);
   }
+
+  useEffect(() => {
+    const dom = videoRef.current;
+    if (!dom) return;
+    dom.addEventListener("loadedmetadata", () => {
+      setVideoLoaded(true);
+    });
+  }, [videoRef]);
 
   return (
     <div
@@ -293,6 +302,9 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
         Your browser does not support the video tag.
       </video>
       {children?.({ isPlaying, play, pause })}
+      {!videoLoaded && <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
+        <Loading size={50} />
+      </div>}
     </div>
   );
 });

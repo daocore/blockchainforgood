@@ -33,31 +33,56 @@ export const MOLEDAO_IFRAME_URL = {
 // 顾问的title的itemkey
 export const ADVISOR_TITLE_ITEMKEY = {
     [ENetwork.PRODUCTION]: "itemkey1363983",
-    [ENetwork.DEVELOPMENT]: "itemkey759639",
-    [ENetwork.STAGING]: "itemkey759639",
+    [ENetwork.DEVELOPMENT]: "itemkey1363983",
+    [ENetwork.STAGING]: "itemkey1363983",
     [ENetwork.ZFDEV]: "itemkey7596123",
 }[BGA_ENV];
 
 // 合作伙伴事件
 export const PARTNER_EVENT_ID = {
     [ENetwork.PRODUCTION]: "230ac677-083f-4240-8f61-6a3e0d504ffd",
-    [ENetwork.DEVELOPMENT]: "090ba7c2-bc0f-4476-b58e-fe834118dd89",
-    [ENetwork.STAGING]: "090ba7c2-bc0f-4476-b58e-fe834118dd89",
-    [ENetwork.ZFDEV]: "090ba7c2-bc0f-4476-b58e-fe834118dd89",
+    [ENetwork.DEVELOPMENT]: "230ac677-083f-4240-8f61-6a3e0d504ffd",
+    [ENetwork.STAGING]: "230ac677-083f-4240-8f61-6a3e0d504ffd",
+    [ENetwork.ZFDEV]: "e4adc0cc-947d-48a7-908b-bde29e52f0ce",
 }[BGA_ENV];
 
 // 孵化活动
 export const INCUBATION_EVENT_ID = {
     [ENetwork.PRODUCTION]: "79e37236-cdf8-41ef-9337-cfcb7a4e777e",
-    [ENetwork.DEVELOPMENT]: "9b8c579d-3c1b-4e51-809a-1c47f226e799",
-    [ENetwork.STAGING]: "9b8c579d-3c1b-4e51-809a-1c47f226e799",
-    [ENetwork.ZFDEV]: "9b8c579d-3c1b-4e51-809a-1c47f226e799",
+    [ENetwork.DEVELOPMENT]: "79e37236-cdf8-41ef-9337-cfcb7a4e777e",
+    [ENetwork.STAGING]: "79e37236-cdf8-41ef-9337-cfcb7a4e777e",
+    [ENetwork.ZFDEV]: "b20ff37a-c94c-4165-9352-fd9667fa5a45",
 }[BGA_ENV];
 
-// 奥斯卡活动ID
+// Oscar 黑客松 ceremony
 export const OSCAR_EVENT_ID = {
-    [ENetwork.PRODUCTION]: "bd238aa5-9005-4165-bdcb-8e88e6ef9be0",
-    [ENetwork.DEVELOPMENT]: "081f1851-89ce-44d0-a806-695f1f503a10",
-    [ENetwork.STAGING]: "081f1851-89ce-44d0-a806-695f1f503a10",
-    [ENetwork.ZFDEV]: "9b8c579d-3c1b-4e51-809a-1c47f226e799",
+    [ENetwork.PRODUCTION]: "f7c032b2-5483-4c29-835c-2f399295ac6a",
+    [ENetwork.DEVELOPMENT]: "f7c032b2-5483-4c29-835c-2f399295ac6a",
+    [ENetwork.STAGING]: "f7c032b2-5483-4c29-835c-2f399295ac6a",
+    [ENetwork.ZFDEV]: "5307fa79-c89e-4baf-9651-4622ac740baa",
 }[BGA_ENV];
+
+// 奥斯卡黑客松事件ID
+export const OSCAR_HACKTHON_EVENT_ID = {
+    [ENetwork.PRODUCTION]: "bd238aa5-9005-4165-bdcb-8e88e6ef9be0",
+    [ENetwork.DEVELOPMENT]: "bd238aa5-9005-4165-bdcb-8e88e6ef9be0",
+    [ENetwork.STAGING]: "bd238aa5-9005-4165-bdcb-8e88e6ef9be0",
+    [ENetwork.ZFDEV]: "972ac263-0dd9-43cc-97d0-ea7fbe7477f5",
+}[BGA_ENV];
+
+// 黑客松申请事件
+export const HACKTHON_APPLY_EVENT_ID = {
+    [ENetwork.PRODUCTION]: "38111ab6-907e-4781-b30d-bdeed52d2260",
+    [ENetwork.DEVELOPMENT]: "38111ab6-907e-4781-b30d-bdeed52d2260",
+    [ENetwork.STAGING]: "38111ab6-907e-4781-b30d-bdeed52d2260",
+    [ENetwork.ZFDEV]: "e13993b6-1a72-4db1-9b58-d7adca1389f4",
+}[BGA_ENV];
+
+// BGA的一些特殊事件，有些地方的list需要过滤掉他们
+export const BGA_SPECIAL_EVENT = [
+    PARTNER_EVENT_ID,
+    INCUBATION_EVENT_ID,
+    OSCAR_EVENT_ID,
+    OSCAR_HACKTHON_EVENT_ID,
+    HACKTHON_APPLY_EVENT_ID
+]

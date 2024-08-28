@@ -15,6 +15,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useGetLink } from "@/hooks";
 
 type IProps = Omit<IGetListParams, "current" | "pageSize"> & {
   type: TabItem.ADVISORS | TabItem.PARTNERS | TabItem.PROJECTS;
@@ -114,7 +115,7 @@ interface IItemProps {
   item: EventsApproveEntity;
 }
 
-const itemClassNames = "w-40 xs:w-[150px] md:w-[185px]";
+const itemClassNames = "w-40 xs:w-[150px] md:w-[185px] cursor-pointer";
 
 function UserItem({ item }: IItemProps) {
   const {
@@ -166,8 +167,15 @@ function PartnersItem({ item }: IItemProps) {
     imageSrc = image.url;
     imageStyle = image.style;
   }
+
+  const link = useGetLink(item?.organization?.links);
+
   return (
-    <div className={itemClassNames}>
+    <div className={itemClassNames} onClick={() => {
+      if (link) {
+        window.open(link?.includes("http") ? link : `https://${link}`, "_blank");
+      }
+    }}>
       <ImageCard src={imageSrc} alt={name} style={imageStyle} />
 
       <Title name={name} />
@@ -220,6 +228,7 @@ function ProjectsItem({ item }: IItemProps) {
     imageSrc = image.url;
     imageStyle = image.style;
   }
+
   return (
     <div className={cn("relative overflow-hidden", itemClassNames)}>
       <ImageCard src={imageSrc} alt={name} style={imageStyle} />
@@ -257,7 +266,7 @@ function ImageCard({
   style?: CSSProperties;
 }) {
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="overflow-hidden" style={{ backgroundColor: style?.backgroundColor || "#ffffff" }}>
       {/* 用了Nextjs自带的Image后，打开图片就会出问题。可能是配置不正确，暂时先用img元素代替 */}
       <img
         src={`${IMAGE_URL}${src}`}
