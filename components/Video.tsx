@@ -254,6 +254,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
   const { src, width, from, name, format, children, ...divprops } =
     props;
 
+  const mobile = useIsMobile();
   const videoRef = useRef<HTMLVideoElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setPlaying] = useState<boolean>();
@@ -275,15 +276,15 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
   return (
     <div
       {...divprops}
-      className={`relative splide__slide ${width ? "md:bg-black" : ""} ${props?.className
+      className={`relative ${width ? "md:bg-black" : ""} ${props?.className
         }`}
       ref={divRef}
     >
       <video
         ref={videoRef}
-        className="m-auto aspect-video"
+        className={`m-auto ${mobile ? "rounded-md" : "rounded-xl"} aspect-video`}
         preload="auto"
-        controls
+        // controls
         onEnded={pause}
         autoPlay
         style={{ width: width || "100%" }}
