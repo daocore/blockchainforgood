@@ -104,7 +104,7 @@ const VideoItem = ({
 
   return (
     <>
-      <div className="relative splide__slide cursor-pointer" style={{ width: 240, height: 135 }} onClick={() => {
+      <div className="relative cursor-pointer" style={{ width: 240, height: 135 }} onClick={() => {
         if (video) {
           setIsOpen(true);
         } else {
@@ -138,7 +138,13 @@ const VideoItem = ({
         setOpen={() => {
           setIsOpen(false);
         }}
-        css={{ height: video?.width ? (video?.width / 9) * 18 : "auto" }}
+        css={{
+          height: video?.width ? (video?.width / 9) * 18 : "auto",
+          background: "rgba(0,0,0,0.6)",
+          borderRadius: mobile ? 10 : 20,
+          padding: mobile ? "8px 10px 0px 10px" : "16px 40px 20px 40px",
+          border: `${mobile ? "2px" : "4px"} solid rgba(225,225,225,0.4)`,
+        }}
         width={w + 300}
         close={() => {
           setIsOpen(false);

@@ -21,10 +21,10 @@ const FAQItem = ({
   return (
     <div className="w-full">
       <div
-        className="flex justify-between items-center w-full py-4 focus:outline-none cursor-pointer"
+        className="flex justify-between items-center w-full py-3 md:py-4 focus:outline-none cursor-pointer"
         onClick={toggleAccordion}
       >
-        <h3 className="grow shrink basis-0 text-description text-base font-bold font-['Inter'] leading-normal">
+        <h3 className="grow shrink basis-0 text-description text-sm md:text-base font-bold font-['Inter'] leading-normal">
           {index}. {question}
         </h3>
         <svg
@@ -45,10 +45,9 @@ const FAQItem = ({
         </svg>
       </div>
       <div
-        className={`overflow-hidden transition-all duration-300 ${isOpen ? "h-auto" : "h-0"
-          }`}
+        className={`overflow-hidden transition-all duration-300 ${isOpen ? "h-auto" : "h-0"}`}
       >
-        <div className="pb-4 text-typography">
+        <div className="pb-4 text-typography text-sm md:text-base">
           <p dangerouslySetInnerHTML={{ __html: answer }} />
         </div>
       </div>
@@ -81,8 +80,8 @@ const faqs = [
 export const OscarFAQ = () => {
 
   return (
-    <div className="w-full md:w-content m-auto">
-      <h2 className="text-xl font-bold text-oscorActive">FAQ</h2>
+    <div className="w-full md:w-content m-auto px-6 md:px-0">
+      <h2 className="text-lg md:text-xl font-bold text-oscorActive">FAQ</h2>
       <div className="self-stretch flex-col justify-start items-center flex">
         {faqs.map((faq, index) => (
           <div key={index} className="w-full">

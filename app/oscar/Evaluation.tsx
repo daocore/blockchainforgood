@@ -32,15 +32,15 @@ export const Evaluation = () => {
 
   return (
     <div className="w-full py-8 bg-white">
-      <div className="w-full md:w-content m-auto">
+      <div className="w-full md:w-content m-auto px-6 md:px-0">
         <OscorTitle text="Evaluation Criteria" />
         <div className="self-stretch flex-col justify-start items-center flex gap-2 mt-2">
           {data.map((item, index) => (
             <div className="w-full" key={index}>
-              <h3 className="text-typography text-base font-bold font-['Inter']">
+              <h3 className="text-typography text-sm md:text-base font-bold font-['Inter']">
                 {item?.question}
               </h3>
-              <p className="text-typography text-base font-normal font-['Inter']" dangerouslySetInnerHTML={{ __html: item?.answer }} />
+              <p className="text-typography text-sm md:text-base font-normal font-['Inter']" dangerouslySetInnerHTML={{ __html: item?.answer }} />
             </div>
           ))}
         </div>
