@@ -1,11 +1,11 @@
 .prizeBg {
   background-image: url("../../assets/oscar/Prize-Banner-Animation.svg");
-  background-size: 100vw;
+  background-size: 1920px
 }
 
 .prizeBgMb {
   background-image: url("../../assets/oscar/Prize-Banner-Animation-mb.svg");
-  background-size: 1000px;
+  background-size: 800px;
 }
 
 .cardBg {
@@ -15,11 +15,6 @@
 
 .cardBg:hover {
   background-image: url("../../assets/oscar/oscarCard2.png");
-}
-
-.prizeBgMb {
-  background-image: url("../../assets/oscar/Prize-Banner-Animation-mb.svg");
-  background-size: 1000px;
 }
 
 .processBorder {
