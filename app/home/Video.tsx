@@ -1,7 +1,7 @@
 "use client";
 
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import React from "react";
+import React, { useCallback } from "react";
 import { HTMLAttributes, useEffect, useRef, useState } from "react";
 import { CustomVideoPlayer, IVideo } from "@/components/Video";
 import playicon from "@/assets/play.svg";
@@ -88,6 +88,9 @@ const videos: IVideo[] = [
 
 const VideoItem = ({
   project,
+  onItemChange,
+  active,
+  index,
   ...props
 }: {
   project: {
@@ -96,21 +99,33 @@ const VideoItem = ({
     link?: string;
     name: string;
   };
+  index: number,
+  active: number | null;
+  onItemChange: (isOpen: boolean) => void
 } & HTMLAttributes<HTMLImageElement>) => {
   const { logo, video, link, name } = project;
   const [isOpen, setIsOpen] = useState(false);
   const mobile = useIsMobile();
   const w = 720;
 
+  useEffect(() => {
+    if (index === active) {
+      setIsOpen(true);
+    }
+  }, [index, active])
+
+  const click = useCallback(() => {
+    if (video) {
+      setIsOpen(true);
+      onItemChange(true);
+    } else {
+      window.open(link, "_blank");
+    }
+  }, [])
+
   return (
     <>
-      <div className="relative cursor-pointer" style={{ width: 240, height: 135 }} onClick={() => {
-        if (video) {
-          setIsOpen(true);
-        } else {
-          window.open(link, "_blank");
-        }
-      }}>
+      <div className="relative cursor-pointer" style={{ width: 240, height: 135 }} data-click2={click} onClick={click}>
         <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4 text-white">
           <div className="font-bold font-['Inter']">
             {video?.name}
@@ -148,6 +163,7 @@ const VideoItem = ({
         width={w + 300}
         close={() => {
           setIsOpen(false);
+          onItemChange(false);
         }}
       >
         <CustomVideoPlayer
@@ -168,16 +184,27 @@ const VideoItem = ({
 };
 
 export const Videos = () => {
+  const [isOpen, setSetIsOpen] = useState<boolean>(false);
+  const [active, setActive] = useState(null);
+
   return (
     <div className="h-[135px] flex flex-col antialiased items-center justify-center relative overflow-hidden">
       <InfiniteMovingCards
         direction="left"
         speed="slow"
+        isPause={isOpen}
       >
-        {/* 下一轮的时候，点击事件失效了，所以暂时让列表变长一下 */}
-        {videos?.concat(videos).map((video, index) => {
+        {videos.map((video, index) => {
           const { poster, name } = video;
-          return (<VideoItem key={index} project={{ video, logo: poster, name }} />)
+          return (<VideoItem
+            key={index}
+            index={index}
+            active={active}
+            project={{ video, logo: poster, name }}
+            onItemChange={(isOpen) => {
+              setSetIsOpen(isOpen);
+              setActive(index);
+            }} />)
         })}
       </InfiniteMovingCards>
     </div>
