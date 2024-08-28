@@ -15,4 +15,5 @@ export const ROUTER_PATH = {
     TYPE: '/news/type/'
   },
   SQUARE: '/square',
+  OSCAR: '/oscar',
 }
