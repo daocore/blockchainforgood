@@ -1,11 +1,13 @@
 "use client";
 
-import { IMAGE_URL } from "@/constants";
+import { BGA_SPECIAL_EVENT, IMAGE_URL } from "@/constants";
 import { useAPIGetList } from "../api";
 import { EventsEntity } from "../types";
 import Image from "next/image";
 import LocationImage from "@/assets/location.png";
 import { SkeletonList } from "./skeleton";
+import { cn } from "@/lib";
+import { useMemo } from "react";
 
 export function List() {
   const {
@@ -19,14 +21,24 @@ export function List() {
   if (isLoading) {
     return <SkeletonList />;
   }
+
+  // 报错了。。。。。。。 不懂next
+  // const events = useMemo(() => {
+  //   return list?.filter(item => !BGA_SPECIAL_EVENT?.includes(item?.id))
+  // }, [list])
+
   return (
     <div>
       {isLoading && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}
       {list && list.length > 0 && (
-        <div className="space-y-4">
-          {list.map((item) => (
-            <HackathonItem key={item.id} item={item} />
+        <div className="space-y-6 divide-y divide-gray-300">
+          {list.map((item, index) => (
+            <HackathonItem
+              key={item.id}
+              item={item}
+              className={index > 0 ? "pt-6" : ""}
+            />
           ))}
         </div>
       )}
@@ -34,15 +46,21 @@ export function List() {
   );
 }
 
-function HackathonItem({ item }: { item: EventsEntity }) {
+function HackathonItem({
+  item,
+  className,
+}: {
+  item: EventsEntity;
+  className?: string;
+}) {
   const { location, assets } = item;
 
   const locationObj = location ? JSON.parse(location) : {};
   const assetsList: string[] = (assets ? JSON.parse(assets) : [])?.slice(0, 2);
 
   return (
-    <div>
-      <p className="flex items-center text-main gap-1 font-semibold truncate">
+    <div className={className}>
+      <p className="flex text-base items-center text-main gap-1 font-semibold truncate">
         <Image
           alt="location w-8 h-8"
           width={32}
@@ -51,23 +69,19 @@ function HackathonItem({ item }: { item: EventsEntity }) {
         />
         {locationObj.area}
       </p>
-      <h3 className="text-3xl font-bold">{item.name}</h3>
-      <div className="grid grid-cols-3 gap-2 grid-row-2 md:grid-row-3">
+      <h3 className="text-leading font-bold">{item.name}</h3>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 grid-row-2 md:grid-row-3">
         <img
           src={`${IMAGE_URL}${item.cover}`}
           alt={item.name}
-          className="row-span-2 col-span-3 md:col-span-2 h-full object-cover"
+          className="row-span-2 col-span-2 h-full aspect-video object-cover"
         />
         {assetsList.map((asset, index) => (
           <img
             key={asset}
             src={`${IMAGE_URL}${asset}`}
             alt={asset}
-            className={
-              index === 0
-                ? "col-span-2 md:col-span-1 h-full object-cover"
-                : "col-span-1 h-full object-cover"
-            }
+            className={cn("h-full aspect-video object-cover col-span-1")}
           />
         ))}
       </div>

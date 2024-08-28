@@ -7,6 +7,7 @@ import Web3KeyFund from "@/assets/web3key-fund.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib";
 import Image from "next/image";
+import styles from "./styles.module.css";
 
 const forces = [
   {
@@ -32,19 +33,11 @@ const forces = [
 ];
 
 export function How() {
-  const ref = useIntersectionObserver<HTMLDivElement>("animate__bounceInRight");
+  const ref = useIntersectionObserver<HTMLDivElement>(styles.moveFromBottom);
   return (
     <div
       ref={ref as any}
-      className={cn(
-        "w-full md:w-content mx-auto text-center animate__animated animate__delay-1s"
-      )}
-      style={
-        {
-          "--animate-duration": "1.2s",
-          "--animate-delay": "0.3s",
-        } as any
-      }
+      className={cn("w-full md:w-content mx-auto text-center")}
     >
       <h2 className="text-3xl font-bold">How</h2>
       <div className="w-full mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">

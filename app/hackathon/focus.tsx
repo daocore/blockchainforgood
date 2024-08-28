@@ -1,6 +1,12 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import BGAIconGreen from "@/assets/BGA Icon Green.png";
 import Image from "next/image";
+import CountUp from "react-countup";
+import { useAPIGetList } from "./api";
+import { IMAGE_URL } from "@/constants";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function VideoCard() {
   return (
@@ -13,13 +19,13 @@ function VideoCard() {
 const KeyDataList = [
   {
     label: "BGA Hackathon",
-    value: "40+",
+    value: 40,
   },
   {
     label: "BGA Tracks",
-    value: "12+",
+    value: 12,
   },
-  { label: "BGA Hackathon projects", value: "70+" },
+  { label: "BGA Hackathon projects", value: 70 },
 ];
 function KeyData() {
   return (
@@ -27,7 +33,9 @@ function KeyData() {
       {KeyDataList.map((item) => (
         <Card key={item.label} className="flex flex-col justify-between">
           <CardHeader>
-            <CardTitle className="text-5xl">{item.value}</CardTitle>
+            <CardTitle className="text-5xl">
+              <CountUp start={1} end={item.value} /> +
+            </CardTitle>
           </CardHeader>
           <CardContent className="text-2xl font-semibold">
             {item.label}
@@ -68,7 +76,9 @@ function Nations() {
   return (
     <Card className="md:row-span-2 flex flex-col justify-between">
       <CardHeader>
-        <CardTitle className="text-5xl">4</CardTitle>
+        <CardTitle className="text-5xl">
+          <CountUp start={1} end={4} />
+        </CardTitle>
       </CardHeader>
       <CardContent className="text-2xl font-semibold">
         Illuminated Nations
@@ -78,14 +88,25 @@ function Nations() {
 }
 
 function LatestHackathon() {
+  const {
+    data: { list } = {
+      total: 0,
+      list: [],
+    },
+    error,
+    isLoading,
+  } = useAPIGetList();
+  if (isLoading || list.length === 0) {
+    return <Skeleton className="xs:col-span-2 row-span-2" />;
+  }
+  const latestHackathon = list[0];
   return (
     <Card className="xs:col-span-2 row-span-2">
-      <CardHeader>
-        <CardTitle>Latest Hackathon</CardTitle>
-      </CardHeader>
-      <CardContent>
-        to help you to find the best talent in the world
-      </CardContent>
+      <img
+        src={`${IMAGE_URL}${latestHackathon.cover}`}
+        alt={latestHackathon.name}
+        className="h-full aspect-video object-cover"
+      />
     </Card>
   );
 }

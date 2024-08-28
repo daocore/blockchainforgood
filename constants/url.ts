@@ -1,7 +1,9 @@
-export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
-export const IFRAME_LOCATION_HOST = process.env.NEXT_PUBLIC_IFRAME_LOCATION_HOST
+import { ASSETS_URL, BASE_URL } from "./env";
 
 export const API_URL = BASE_URL + "/api";
-export const IMAGE_URL = BASE_URL + "/assets";
+export const IMAGE_URL = ASSETS_URL;
 
 export const VISITED_PRODUCTION_URL = "https://www.blockchainforgood.xyz/"
+
+export const ORGANIZATION_HASH_PATH = "#/form/project";
+export const INDIVIDUAL_HASH_PATH = "#/form/individual";
