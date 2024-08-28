@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:zf": "NEXT_PUBLIC_BGA_ENV=zfdev next dev",
+    "dev:prod": "NEXT_PUBLIC_BGA_ENV=production next dev",
     "build": "next build",
     "build:dev": "NEXT_PUBLIC_BGA_ENV=staging next build",
     "start": "next start",
