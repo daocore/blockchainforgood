@@ -3,7 +3,7 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { IFrameLoading, Loading } from "@/components/Loading";
 import { useGetInfamSrc } from "@/hooks/useGetIframSrc";
-import { INCUBATION_EVENT_ID } from "@/constants/env";
+import { HACKTHON_APPLY_EVENT_ID } from "@/constants/env";
 import { ORGANIZATION_HASH_PATH } from "@/constants/url";
 import { Suspense } from "react";
 
@@ -20,8 +20,9 @@ export const Form = () => {
 function FormImpl() {
   const organizationalChannel = useGetInfamSrc({
     hashPaths: ORGANIZATION_HASH_PATH,
-    eventId: INCUBATION_EVENT_ID,
+    eventId: HACKTHON_APPLY_EVENT_ID,
   });
+  
   return (
     <Dialog>
       <DialogTrigger asChild>

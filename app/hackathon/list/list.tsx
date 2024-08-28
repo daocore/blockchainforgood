@@ -1,12 +1,13 @@
 "use client";
 
-import { IMAGE_URL } from "@/constants";
+import { BGA_SPECIAL_EVENT, IMAGE_URL } from "@/constants";
 import { useAPIGetList } from "../api";
 import { EventsEntity } from "../types";
 import Image from "next/image";
 import LocationImage from "@/assets/location.png";
 import { SkeletonList } from "./skeleton";
 import { cn } from "@/lib";
+import { useMemo } from "react";
 
 export function List() {
   const {
@@ -20,6 +21,12 @@ export function List() {
   if (isLoading) {
     return <SkeletonList />;
   }
+
+  // 报错了。。。。。。。 不懂next
+  // const events = useMemo(() => {
+  //   return list?.filter(item => !BGA_SPECIAL_EVENT?.includes(item?.id))
+  // }, [list])
+
   return (
     <div>
       {isLoading && <div>Loading...</div>}
