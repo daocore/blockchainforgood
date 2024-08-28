@@ -257,7 +257,7 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
   const mobile = useIsMobile();
   const videoRef = useRef<HTMLVideoElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
-  const [isPlaying, setPlaying] = useState<boolean>();
+  const [isPlaying, setPlaying] = useState<boolean>(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   const play = () => {
@@ -302,6 +302,11 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
         Your browser does not support the video tag.
       </video>
       {children?.({ isPlaying, play, pause })}
+      {!isPlaying && videoLoaded && <div className="absolute top-0 z-30 h-full w-full flex items-center justify-center">
+        <div className="h-[60px] w-[60px] cursor-pointer bg-black opacity-50 pl-1 rounded-full flex justify-center items-center" onClick={play}>
+          <img style={{ width: "100%", height: "100%" }} src={playicon?.src} alt="" />
+        </div>
+      </div>}
       {!videoLoaded && <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
         <Loading size={50} />
       </div>}

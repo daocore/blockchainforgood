@@ -100,7 +100,7 @@ const VideoItem = ({
   const { logo, video, link, name } = project;
   const [isOpen, setIsOpen] = useState(false);
   const mobile = useIsMobile();
-  const w = 1000;
+  const w = 720;
 
   return (
     <>
