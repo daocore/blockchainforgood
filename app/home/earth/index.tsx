@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import langGeoJson from "./custom.geo.json";
 import { type GlobeMethods } from "react-globe.gl";
@@ -90,7 +90,7 @@ const createGridLineObject = (line: any) => {
 const layoutData = generateGridLines();
 
 export function Earth({ children }: { children: React.ReactNode }) {
-  const { data = [], isLoading } = useAPIGetList();
+  const { data = [] } = useAPIGetList();
 
   const globeEl = useRef<GlobeMethods>();
 
@@ -98,10 +98,9 @@ export function Earth({ children }: { children: React.ReactNode }) {
   const lefthandRef = useRef<HTMLDivElement>(null);
   const righthandRef = useRef<HTMLDivElement>(null);
 
-  const [isControled, setIsControled] = useState(false);
   const initialGlobe = () => {
     const globe = globeEl.current;
-    if (!globe || isControled) return;
+    if (!globe) return;
 
     const camera = globe.camera();
     const controls = globe.controls();
@@ -132,8 +131,6 @@ export function Earth({ children }: { children: React.ReactNode }) {
 
     // 更新控制器
     controls.update();
-
-    setIsControled(true);
   };
 
   const isMobile = useIsMobile();
@@ -159,23 +156,6 @@ export function Earth({ children }: { children: React.ReactNode }) {
     initialGlobe();
     onAddClassName();
   };
-
-  const [isRotating, setIsRotating] = useState(true);
-  // 设置自动旋转
-  useEffect(() => {
-    if (isControled) {
-      const globe = globeEl.current;
-      const controls = globe.controls();
-      if (isRotating) {
-        controls.autoRotate = true;
-        controls.update();
-      }
-      return () => {
-        controls.autoRotate = false;
-        controls.update();
-      };
-    }
-  }, [isRotating, isControled]);
 
   return (
     <div className={cn("w-full", styles.container)}>
@@ -241,13 +221,7 @@ export function Earth({ children }: { children: React.ReactNode }) {
                   wrapper.classList.add("pointer-events-auto");
 
                   const root = createRoot(wrapper);
-                  root.render(
-                    <Marker
-                      item={item}
-                      onEnter={() => setIsRotating(false)}
-                      onLeave={() => setIsRotating(true)}
-                    />
-                  );
+                  root.render(<Marker item={item} globeRef={globeEl} />);
 
                   return wrapper;
                 }) as any
@@ -284,20 +258,28 @@ const EVENT_TYPE_MAP = {
 
 function Marker({
   item,
-  onEnter,
-  onLeave,
+  globeRef,
 }: {
   item: IEvent;
-  onEnter?: () => void;
-  onLeave?: () => void;
+  globeRef: MutableRefObject<GlobeMethods>;
 }) {
   const [open, setOpen] = useState(false);
 
+  const onEnter = () => {
+    const controls = globeRef.current.controls();
+    controls.autoRotate = false;
+    controls.update();
+  };
+
+  const onLeave = () => {
+    const controls = globeRef.current.controls();
+    controls.autoRotate = true;
+    controls.update();
+  };
+
   useUpdateEffect(() => {
     if (!open) {
-      setTimeout(() => {
-        onLeave?.();
-      }, 300);
+      onLeave();
     }
   }, [open]);
 
@@ -312,6 +294,8 @@ function Marker({
   const openLink = () => {
     window.open(item.link, "_blank");
   };
+
+  const circleAnimationDuringTime = 1 + Math.random() * 2;
   return (
     <div
       className={cn(
@@ -335,6 +319,9 @@ function Marker({
             >
               <circle
                 className={styles.circle}
+                style={{
+                  animationDuration: `${circleAnimationDuringTime}s`,
+                }}
                 opacity="0.25"
                 cx="14"
                 cy="14"
@@ -343,6 +330,9 @@ function Marker({
               />
               <circle
                 className={styles.circle}
+                style={{
+                  animationDuration: `${circleAnimationDuringTime}s`,
+                }}
                 opacity="0.25"
                 cx="14"
                 cy="14"
