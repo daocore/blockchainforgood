@@ -18,22 +18,22 @@ export function List() {
     error,
     isLoading,
   } = useAPIGetList();
+
+  const events = useMemo(() => {
+    return list?.filter(item => !BGA_SPECIAL_EVENT?.includes(item?.id))
+  }, [list])
+
   if (isLoading) {
     return <SkeletonList />;
   }
-
-  // 报错了。。。。。。。 不懂next
-  // const events = useMemo(() => {
-  //   return list?.filter(item => !BGA_SPECIAL_EVENT?.includes(item?.id))
-  // }, [list])
 
   return (
     <div>
       {isLoading && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}
-      {list && list.length > 0 && (
+      {events && events.length > 0 && (
         <div className="space-y-6 divide-y divide-gray-300">
-          {list.map((item, index) => (
+          {events.map((item, index) => (
             <HackathonItem
               key={item.id}
               item={item}

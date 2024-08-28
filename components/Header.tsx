@@ -18,6 +18,10 @@ import {
 
 const menuNavs = [
   {
+    name: "Oscar",
+    route: ROUTER_PATH.OSCAR,
+  },
+  {
     name: "Progarmm",
     children: [
       {
@@ -49,8 +53,9 @@ export const Header = () => {
   const isIncubationPage = pathname === ROUTER_PATH.INCUBATION;
 
   const isSquarePage = pathname === ROUTER_PATH.SQUARE;
+  const isOscar = pathname === ROUTER_PATH.OSCAR;
 
-  const iconSvgFillColor = isIncubationPage ? "white" : "black";
+  const iconSvgFillColor = isIncubationPage || isOscar ? "white" : "black";
 
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 
@@ -118,11 +123,17 @@ export const Header = () => {
                 if (nav.children?.length) {
                   return (
                     <NavigationMenuItem className="py-2 px-2 md:px-6">
-                      <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent p-0 hover:text-main">
+                      <NavigationMenuTrigger
+                        className={cn(
+                          "bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent p-0 hover:text-main",
+                          isOscar && "text-[#b6b6bf]"
+                        )}
+                      >
                         <div
                           className={cn(
-                            "justify-center items-center gap-2.5 flex",
+                            "justify-center items-center gap-2.5 flex hover:text-main",
                             isIncubationPage && "text-halfWhite",
+                            isOscar && "text-[#b6b6bf]",
                             (nav.route === ROUTER_PATH.HOME
                               ? pathname === nav.route
                               : pathname!.startsWith(nav.route)) && "text-main"
@@ -164,6 +175,7 @@ export const Header = () => {
                         className={cn(
                           "justify-center items-center gap-2.5 flex hover:text-main py-2 px-2 md:px-6",
                           isIncubationPage && "text-halfWhite",
+                          isOscar && "text-[#b6b6bf]",
                           (nav.route === ROUTER_PATH.HOME
                             ? pathname === nav.route
                             : pathname!.startsWith(nav.route)) && "text-main"
@@ -205,6 +217,7 @@ export const Header = () => {
                     className={cn(
                       "py-2 px-2 text-active",
                       isIncubationPage && "text-halfWhite",
+                      isOscar && "text-[#b6b6bf]",
                       pathname === ROUTER_PATH.HOME && "text-main"
                     )}
                   >
@@ -223,6 +236,7 @@ export const Header = () => {
                         className={cn(
                           "hover:text-main py-2 px-2 text-active",
                           isIncubationPage && "text-halfWhite",
+                          isOscar && "text-[#b6b6bf]",
                           (nav.route === ROUTER_PATH.HOME
                             ? pathname === nav.route
                             : nav.route && pathname.startsWith(nav.route)) &&
