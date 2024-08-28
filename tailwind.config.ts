@@ -50,6 +50,8 @@ const config = {
         description: "#7D8CA3",
         incubation: "#101927",
         active: "#283344",
+        oscorActive: "#B5964D",
+        oscorBlack: "rgb(16,25,39)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
