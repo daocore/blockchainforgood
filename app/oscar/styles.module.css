@@ -8,6 +8,20 @@
   background-size: 1000px;
 }
 
+.cardBg {
+  background-image: url("../../assets/oscar/oscarCard.png");
+  background-size: 100% 100%;
+}
+
+.cardBg:hover {
+  background-image: url("../../assets/oscar/oscarCard2.png");
+}
+
+.prizeBgMb {
+  background-image: url("../../assets/oscar/Prize-Banner-Animation-mb.svg");
+  background-size: 1000px;
+}
+
 .processBorder {
   border: 1px solid;
   border-image-source: linear-gradient(63.17deg, rgba(255, 255, 255, 0.7) -31.74%, rgba(255, 255, 255, 0) 96.3%);
