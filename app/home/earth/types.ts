@@ -1,3 +1,5 @@
+import { CSSProperties } from "react";
+
 export enum BGAEarthEnum {
   PARTNER = 1,
   INCUBATION = 2,
@@ -6,6 +8,10 @@ export enum BGAEarthEnum {
 }
 
 export interface IEvent {
+  diyimage?: {
+    style: CSSProperties,
+    url: string
+  }
   id: number;
   name: string;
   image: string;
