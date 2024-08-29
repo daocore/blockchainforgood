@@ -91,7 +91,11 @@ export const FAQ = () => {
   const ref = useIntersectionObserver<HTMLDivElement>(styles.moveFromBottom);
 
   return (
-    <div ref={ref} id="faq" className="w-full md:w-content space-y-4">
+    <div
+      ref={ref}
+      id="faq"
+      className="w-full md:w-content space-y-4 px-4 md:px-0"
+    >
       <h2 className="text-2xl font-bold">FAQ</h2>
       <div className="self-stretch flex-col justify-start items-center flex">
         {faqs.map((faq, index) => (

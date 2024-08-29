@@ -7,14 +7,18 @@ import CountUp from "react-countup";
 import { useAPIGetList } from "./api";
 import { IMAGE_URL } from "@/constants";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useIsMobile } from "@/hooks";
 
 function VideoCard() {
   return (
-    <Card className="row-span-2 md:row-span-1">
+    <Card className="row-span-2 md:row-span-1 hover:shadow-md rounded-none">
       <CardContent>Video</CardContent>
     </Card>
   );
 }
+
+const BG_LINEAR_GRADIENT =
+  "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)";
 
 const KeyDataList = [
   {
@@ -28,10 +32,17 @@ const KeyDataList = [
   { label: "BGA Hackathon projects", value: 70 },
 ];
 function KeyData() {
+  const isMobile = useIsMobile();
   return (
     <>
       {KeyDataList.map((item) => (
-        <Card key={item.label} className="flex flex-col justify-between">
+        <Card
+          style={{
+            background: isMobile ? "white" : BG_LINEAR_GRADIENT,
+          }}
+          key={item.label}
+          className="flex flex-col justify-between hover:shadow-md rounded-none"
+        >
           <CardHeader>
             <CardTitle className="text-5xl">
               <CountUp start={1} end={item.value} /> +
@@ -49,7 +60,7 @@ function KeyData() {
 function Collaborate() {
   return (
     <Card
-      className="row-span-2 text-white hidden md:block"
+      className="row-span-2 text-white hidden md:block rounded-none hover:shadow-md"
       style={{
         background:
           "linear-gradient(52.16deg, #02CCB7 19.41%, #47E6D6 74.15%, #8DF7EC 97.6%)",
@@ -73,8 +84,15 @@ function Collaborate() {
 }
 
 function Nations() {
+  const isMobile = useIsMobile();
+
   return (
-    <Card className="md:row-span-2 flex flex-col justify-between">
+    <Card
+      style={{
+        background: isMobile ? "white" : BG_LINEAR_GRADIENT,
+      }}
+      className="md:row-span-2 flex flex-col justify-between hover:shadow-md rounded-none"
+    >
       <CardHeader>
         <CardTitle className="text-5xl">
           <CountUp start={1} end={4} />
@@ -101,7 +119,7 @@ function LatestHackathon() {
   }
   const latestHackathon = list[0];
   return (
-    <Card className="xs:col-span-2 row-span-2">
+    <Card className="xs:col-span-2 row-span-2 rounded-none hover:shadow-md">
       <img
         src={`${IMAGE_URL}${latestHackathon.cover}`}
         alt={latestHackathon.name}

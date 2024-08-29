@@ -6,7 +6,7 @@ import { ROUTER_PATH } from "@/constants";
 import { useRouter } from "next-nprogress-bar";
 import { LogoSvg } from "./LogoSvg";
 import { useEffect, useState } from "react";
-import { ChevronUp, Equal, X } from "lucide-react";
+import { ChevronDown, ChevronUp, Equal, X } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -197,7 +197,10 @@ export const Header = () => {
           {!showMobileMenu && (
             <Equal
               size={18}
-              className="md:hidden cursor-pointer absoluted z-30 top-3 right-2"
+              className={cn(
+                "md:hidden cursor-pointer absoluted z-30 top-3 right-2",
+                (isOscar || isIncubationPage) && "text-white"
+              )}
               onClick={() => setShowMobileMenu(true)}
             />
           )}
@@ -216,7 +219,6 @@ export const Header = () => {
                   <div
                     className={cn(
                       "py-2 px-2 text-active",
-                      isIncubationPage && "text-halfWhite",
                       isOscar && "text-[#b6b6bf]",
                       pathname === ROUTER_PATH.HOME && "text-main"
                     )}
@@ -228,54 +230,19 @@ export const Header = () => {
                       Home
                     </nav>
                   </div>
-                  {menuNavs?.map((nav) => {
-                    const hasChildren = nav.children?.length;
-                    return (
-                      <div
-                        key={nav.name}
-                        className={cn(
-                          "hover:text-main py-2 px-2 text-active",
-                          isIncubationPage && "text-halfWhite",
-                          isOscar && "text-[#b6b6bf]",
-                          (nav.route === ROUTER_PATH.HOME
-                            ? pathname === nav.route
-                            : nav.route && pathname.startsWith(nav.route)) &&
-                            "text-main"
-                        )}
-                      >
-                        <nav
-                          className="font-['Inter'] cursor-pointer"
-                          onClick={() =>
-                            nav.route && onMobileTopicClick(nav.route)
-                          }
-                        >
-                          <div className="text-xl font-bold flex justify-between items-center">
-                            {nav.name}
-                            {hasChildren && <ChevronUp size={16} />}
-                          </div>
-                          {hasChildren && (
-                            <ul className="pl-2 space-y-1">
-                              {nav.children.map((child) => (
-                                <li
-                                  key={child.name}
-                                  className={cn(
-                                    "text-base",
-                                    pathname.startsWith(child.route) &&
-                                      "text-main"
-                                  )}
-                                  onClick={() =>
-                                    onMobileTopicClick(child.route)
-                                  }
-                                >
-                                  {child.name}
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </nav>
-                      </div>
-                    );
-                  })}
+                  {menuNavs?.map((nav) => (
+                    <MobileMenuItem
+                      nav={nav}
+                      onRoute={onMobileTopicClick}
+                      className={cn(
+                        isOscar && "text-[#b6b6bf]",
+                        (nav.route === ROUTER_PATH.HOME
+                          ? pathname === nav.route
+                          : nav.route && pathname.startsWith(nav.route)) &&
+                          "text-main"
+                      )}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
@@ -285,3 +252,59 @@ export const Header = () => {
     </header>
   );
 };
+
+function MobileMenuItem({
+  className,
+  nav,
+  onRoute,
+}: {
+  nav: any;
+  className: string;
+  onRoute: (route: string) => void;
+}) {
+  const pathname = usePathname();
+
+  const hasChildren = nav.children?.length;
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  const onMobileMenuClick = () => {
+    if (nav.route) {
+      onRoute(nav.route);
+    } else {
+      setIsExpanded(!isExpanded);
+    }
+  };
+  return (
+    <div
+      key={nav.name}
+      className={cn("md:hover:text-main py-2 px-2 text-active", className)}
+    >
+      <nav
+        className="font-['Inter'] cursor-pointer"
+        onClick={onMobileMenuClick}
+      >
+        <div className="text-xl font-bold flex justify-between items-center">
+          {nav.name}
+          {hasChildren &&
+            (isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />)}
+        </div>
+        {hasChildren && isExpanded && (
+          <ul className="pl-2 space-y-1">
+            {nav.children.map((child: any) => (
+              <li
+                key={child.name}
+                className={cn(
+                  "text-base",
+                  pathname.startsWith(child.route) && "text-main"
+                )}
+                onClick={() => onRoute(child.route)}
+              >
+                {child.name}
+              </li>
+            ))}
+          </ul>
+        )}
+      </nav>
+    </div>
+  );
+}

@@ -13,21 +13,27 @@ const ELEMENT_ID = "hackathon";
 
 export const Form = () => {
   return (
-    <div className="bg-white p-6 space-y-6">
+    <div
+      style={{
+        background:
+          "linear-gradient(0deg, #02CCB7 0%, #47E6D6 70%, #8DF7EC 100%)",
+      }}
+      className="bg-white p-6 space-y-6"
+    >
       <h4 className="flex items-center font-bold text-black">
         <Image src={HackathonImage} alt="Hackathon" width={31} height={31} />
         Apply Now
       </h4>
-      <Divider text="BAG Hackathon Program" />
-      <p className="text-xs text-[#9fa2a5]">
-        Are you hosting a hackathon and want to integrate sustainability into
-        your event?
+      <p className="text-xs text-typography">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
       </p>
-      <p className="text-xs text-[#9fa2a5]">
-        Join the BGA Hackathon Program! By adding a BGA track, you'll gain
-        access to our prize pool, expert judges, and enhanced visibility. Apply
-        now and let's work together to drive innovation for a sustainable
-        future!
+      <p className="text-xs text-typography">
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
       <Suspense fallback={<Loading />}>
         <FormImpl />
@@ -41,44 +47,35 @@ function FormImpl() {
     hashPaths: ORGANIZATION_HASH_PATH,
     eventId: HACKTHON_APPLY_EVENT_ID,
   });
-  
+
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="w-full cursor-pointer hover:border-main hover:border-text hover:bg-text h-8 px-6 border border-active text-center text-text text-sm font-medium font-['Inter'] leading-[14px] hover:text-main flex justify-center items-center">
+        <div
+          style={{
+            background: "linear-gradient(0deg, #97F6EC 0%, #FFFFFF 100%)",
+          }}
+          className="w-full cursor-pointer hover:shadow-lg h-8 px-6 text-center text-text text-sm font-medium font-['Inter'] leading-[14px] flex justify-center items-center"
+        >
           Apply
         </div>
       </DialogTrigger>
       <DialogContent className="w-screen max-w-screen-lg h-4/5">
-        <IFrameLoading size={60} id={ELEMENT_ID} className="w-full h-full" />
-        <iframe
-          id={ELEMENT_ID}
-          src={organizationalChannel}
-          style={{
-            width: "100%",
-            height: "100%",
-          }}
-        />
+        <div>
+          <h3 className="text-main text-2xl font-bold pb-4 px-3 md:px-10 m-auto">
+            Hackathon Collaberation Application Form
+          </h3>
+          <IFrameLoading size={60} id={ELEMENT_ID} className="w-full h-full" />
+          <iframe
+            id={ELEMENT_ID}
+            src={organizationalChannel}
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </div>
       </DialogContent>
     </Dialog>
-  );
-}
-
-function Divider({ text }: { text: string }) {
-  return (
-    <div
-      style={{
-        width: "calc(100% + 3rem)",
-        marginLeft: "-1.5rem",
-        marginRight: "-1.5rem",
-      }}
-      className="flex items-center gap-1"
-    >
-      <div className="w-6 flex-none border-b border-gray-300" />
-      <span className="text-xs text-black font-[Inter] whitespace-nowrap">
-        {text}
-      </span>
-      <div className="w-full flex-auto border-b border-gray-300" />
-    </div>
   );
 }
