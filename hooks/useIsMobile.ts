@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 export function useIsMobile(): boolean {
 
@@ -31,7 +31,7 @@ export function useIsMobile(): boolean {
 
 //   mobile = hasMobileUserAgent();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setMobile(hasMobileUserAgent());
   }, [])
 

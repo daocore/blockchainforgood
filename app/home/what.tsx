@@ -9,7 +9,9 @@ export function What() {
   return (
     <div
       ref={ref as any}
-      className={cn("w-full max-w-3xl mx-auto text-center space-y-2")}
+      className={cn(
+        "w-full max-w-3xl mx-auto text-center space-y-2 px-4 md:px-0"
+      )}
     >
       <h2 className="text-3xl font-bold">What</h2>
       <h3 className="text-3xl font-bold text-main">Care. Create. Change.</h3>

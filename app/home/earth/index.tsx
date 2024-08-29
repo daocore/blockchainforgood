@@ -211,8 +211,8 @@ export function Earth({ children }: { children: React.ReactNode }) {
               polygonAltitude={0.01}
               // HTML marks
               htmlElementsData={data}
-              htmlLat={((item: IEvent) => item.location?.latlng[1]) as any}
-              htmlLng={((item: IEvent) => item.location?.latlng[0]) as any}
+              htmlLat={((item: IEvent) => item.location?.latlng?.[1]) as any}
+              htmlLng={((item: IEvent) => item.location?.latlng?.[0]) as any}
               htmlAltitude={0}
               htmlElement={
                 ((item: IEvent) => {

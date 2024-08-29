@@ -15,13 +15,12 @@ export function List() {
       total: 0,
       list: [],
     },
-    error,
     isLoading,
   } = useAPIGetList();
 
   const events = useMemo(() => {
-    return list?.filter(item => !BGA_SPECIAL_EVENT?.includes(item?.id))
-  }, [list])
+    return list?.filter((item) => !BGA_SPECIAL_EVENT?.includes(item?.id));
+  }, [list]);
 
   if (isLoading) {
     return <SkeletonList />;
@@ -29,8 +28,6 @@ export function List() {
 
   return (
     <div>
-      {isLoading && <div>Loading...</div>}
-      {error && <div>Error: {error.message}</div>}
       {events && events.length > 0 && (
         <div className="space-y-6 divide-y divide-gray-300">
           {events.map((item, index) => (
@@ -58,6 +55,10 @@ function HackathonItem({
   const locationObj = location ? JSON.parse(location) : {};
   const assetsList: string[] = (assets ? JSON.parse(assets) : [])?.slice(0, 2);
 
+  const isSingleImage = assetsList.length === 0;
+
+  const isHalfImage = assetsList.length === 1;
+
   return (
     <div className={className}>
       <p className="flex text-base items-center text-main gap-1 font-semibold truncate">
@@ -70,18 +71,30 @@ function HackathonItem({
         {locationObj.area}
       </p>
       <h3 className="text-leading font-bold">{item.name}</h3>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 grid-row-2 md:grid-row-3">
+      <div
+        className={cn(
+          "grid grid-cols-2 md:grid-cols-3 gap-4 grid-row-2 md:grid-row-3",
+          isHalfImage && "md:grid-cols-2"
+        )}
+      >
         <img
           src={`${IMAGE_URL}${item.cover}`}
           alt={item.name}
-          className="row-span-2 col-span-2 h-full aspect-video object-cover"
+          className={cn(
+            "row-span-2 col-span-2 h-full aspect-video object-cover",
+            isSingleImage && "col-span-3",
+            isHalfImage && "col-span-1"
+          )}
         />
         {assetsList.map((asset, index) => (
           <img
             key={asset}
             src={`${IMAGE_URL}${asset}`}
             alt={asset}
-            className={cn("h-full aspect-video object-cover col-span-1")}
+            className={cn(
+              "h-full aspect-video object-cover col-span-1",
+              isHalfImage && "row-span-2 col-span-1"
+            )}
           />
         ))}
       </div>

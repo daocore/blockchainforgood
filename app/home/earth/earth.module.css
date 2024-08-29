@@ -19,6 +19,7 @@
     scale: 2;
     top: 73%;
     z-index: -1;
+    display: none;
   }
 }
 
@@ -34,15 +35,25 @@
     scale: 2;
     top: 73%;  
     z-index: -1;
+    display: none;
+  }
+}
+
+@keyframes hidden {
+  from {
+    display: block;
+  }
+  to {
+    display: none;
   }
 }
 
 .right-hand {
-  animation: move-right-hand 2s ease-in-out both 0.5s;
+  animation: move-right-hand 2s ease-in-out both 0.5s, hidden 0.1s 2.5s;
 }
 
 .left-hand {
-  animation: move-left-hand 2s ease-in-out both 0.5s;
+  animation: move-left-hand 2s ease-in-out both 0.5s, hidden 0.1s 2.5s;
 }
 
 .earth {
@@ -117,6 +128,7 @@
       opacity: 0;
       scale: 2;
       top: 70%;
+      display: none;
     }
   }
   
@@ -131,14 +143,15 @@
       opacity: 0;
       scale: 2;
       top: 70%;
+      display: none;
     }
   }
   .right-hand {
-    animation: move-right-hand 2s ease-in-out both 0.5s;
+    animation: move-right-hand 2s ease-in-out both 0.5s, hidden 0.1s 2.5s;
   }
   
   .left-hand {
-    animation: move-left-hand 2s ease-in-out both 0.5s;
+    animation: move-left-hand 2s ease-in-out both 0.5s, hidden 0.1s 2.5s;
   }
   
   .earth {
