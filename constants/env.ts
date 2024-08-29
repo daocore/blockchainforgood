@@ -43,7 +43,7 @@ export const PARTNER_EVENT_ID = {
     [ENetwork.PRODUCTION]: "230ac677-083f-4240-8f61-6a3e0d504ffd",
     [ENetwork.DEVELOPMENT]: "230ac677-083f-4240-8f61-6a3e0d504ffd",
     [ENetwork.STAGING]: "230ac677-083f-4240-8f61-6a3e0d504ffd",
-    [ENetwork.ZFDEV]: "e4adc0cc-947d-48a7-908b-bde29e52f0ce",
+    [ENetwork.ZFDEV]: "972ac263-0dd9-43cc-97d0-ea7fbe7477f5",
 }[BGA_ENV];
 
 // 孵化活动
@@ -67,7 +67,7 @@ export const OSCAR_HACKTHON_EVENT_ID = {
     [ENetwork.PRODUCTION]: "bd238aa5-9005-4165-bdcb-8e88e6ef9be0",
     [ENetwork.DEVELOPMENT]: "bd238aa5-9005-4165-bdcb-8e88e6ef9be0",
     [ENetwork.STAGING]: "bd238aa5-9005-4165-bdcb-8e88e6ef9be0",
-    [ENetwork.ZFDEV]: "972ac263-0dd9-43cc-97d0-ea7fbe7477f5",
+    [ENetwork.ZFDEV]: "e4adc0cc-947d-48a7-908b-bde29e52f0ce",
 }[BGA_ENV];
 
 // 黑客松申请事件
