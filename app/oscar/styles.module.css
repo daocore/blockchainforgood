@@ -37,6 +37,13 @@
   width: 100vw;
   height: 100vw;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25rem), 50% 100%, 0 calc(100% - 2.25rem), 0 0);
+  background: url(../../assets/oscar/overlay-mobile.png);
+}
+
+.banner-carousel {
+  background: url(../../assets/oscar/overlay-mobile.png);
+  background-repeat: no-repeat;
+  object-fit: cover;
 }
 
 @media screen and (min-width: 769px) {
@@ -48,6 +55,10 @@
     height: calc((100vw - 12rem) / 1.5);
     max-height: 90vh;
     clip-path: polygon(0 0, calc(100% - 6rem) 0, 100% 50%, calc(100% - 6rem) 100%, 0 100%);
+    
+  }
+  .banner-carousel {
+    background: url(../../assets/oscar/overlay-esktop.png);
   }
 }
 

@@ -176,9 +176,12 @@ export const Header = () => {
                           "justify-center items-center gap-2.5 flex hover:text-main py-2 px-2 md:px-6",
                           isIncubationPage && "text-halfWhite",
                           isOscar && "text-[#b6b6bf]",
+                          nav.route === ROUTER_PATH.OSCAR &&
+                            "hover:text-[#B5964D]",
                           (nav.route === ROUTER_PATH.HOME
                             ? pathname === nav.route
-                            : pathname!.startsWith(nav.route)) && "text-main"
+                            : pathname!.startsWith(nav.route)) &&
+                            (isOscar ? "text-[#B5964D]" : "text-main")
                         )}
                       >
                         <nav className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer">
