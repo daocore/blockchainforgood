@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ApplyLink } from "@/components/Const";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import styles from "./styles.module.css";
+import { PARTNER_APPLY_LINK } from "@/constants";
 
 const FAQItem = ({
   question,
@@ -68,7 +68,7 @@ const faqs = [
   },
   {
     question: "How does the application process work?",
-    answer: `Applicants must submit an online application <a href="${ApplyLink}" target="blank" style="color: #00d5bf">link</a> and will be contacted within 2 weeks for next steps.`,
+    answer: `Applicants must submit an online application <a href="${PARTNER_APPLY_LINK}" style="color: #00d5bf">link</a> and will be contacted within 2 weeks for next steps.`,
   },
   {
     question: "What kind of support does BGA offer?",
