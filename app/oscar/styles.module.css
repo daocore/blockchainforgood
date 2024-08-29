@@ -35,12 +35,25 @@
   rgba(193, 168, 117, 1);
   background-blend-mode: soft-light;
   color: #3E2E09;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 96px 50%);
-
+  clip-path: polygon(0 0, 50% 2.25rem, 100% 0, 100% 100%, 0 100%);
 }
 
 .banner {
-  clip-path: polygon(0 0, calc(100% - 96px) 0, 100% 50%, calc(100% - 96px) 100%, 0 100%);
+  width: 100vw;
+  height: 100vw;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25rem), 50% 100%, 0 calc(100% - 2.25rem), 0 0);
+}
+
+@media screen and (min-width: 769px) {
+  .ceremony {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 6rem 50%);
+  }
+  .banner {
+    width: calc(100vw - 12rem);
+    height: calc((100vw - 12rem) / 1.5);
+    max-height: 90vh;
+    clip-path: polygon(0 0, calc(100% - 6rem) 0, 100% 50%, calc(100% - 6rem) 100%, 0 100%);
+  }
 }
 
 .banner-title {
@@ -48,7 +61,6 @@
   background-blend-mode: soft-light;
   background-clip: text;
   color: transparent;
-  /* box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 1); */
 }
 
 .banner-button {

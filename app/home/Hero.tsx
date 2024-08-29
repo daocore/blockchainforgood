@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ROUTER_PATH } from "@/constants/router";
 import Link from "next/link";
-import { ChevronDown, MoveDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export const Hero = () => {
   const onMoveDown = () => {

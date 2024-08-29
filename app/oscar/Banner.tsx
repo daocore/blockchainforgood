@@ -35,10 +35,10 @@ import OscarIcon14 from "@/assets/oscar/oscar-icon14.png";
 import OscarIcon15 from "@/assets/oscar/oscar-icon15.png";
 import OscarIcon16 from "@/assets/oscar/oscar-icon16.png";
 import OscarIcon17 from "@/assets/oscar/oscar-icon17.png";
+
 import { cn } from "@/lib";
 import styles from "./styles.module.css";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -46,7 +46,6 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
-import { type CarouselApi } from "@/components/ui/carousel";
 
 const bannerList = [
   {
@@ -136,11 +135,9 @@ const bannerList = [
   },
 ];
 
-const LEN = bannerList.length;
-
 export function Banner() {
   return (
-    <div className="flex flex-col md:flex-row h-[700px] -mt-20">
+    <div className="flex flex-col md:flex-row -mt-20 -mb-9 md:mb-0 overflow-hidden w-screen">
       <BannerImpl />
       <Ceremony />
     </div>
@@ -148,27 +145,9 @@ export function Banner() {
 }
 
 function BannerImpl() {
-  const [api, setApi] = useState<CarouselApi>();
-
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    api.on("settle", () => {
-      // Do something on select.
-      console.log("settle");
-    });
-  }, [api]);
-
   return (
-    <div
-      style={{
-        width: "calc(100% - 18rem)",
-      }}
-      className={cn("flex-none relative z-10", styles.banner)}
-    >
-      <div className="absolute left-0 top-0 h-full w-full">
+    <div className={cn("flex-none relative z-10", styles.banner)}>
+      <div className="absolute left-0 top-0 w-full h-full">
         <Carousel
           opts={{
             loop: true,
@@ -183,16 +162,18 @@ function BannerImpl() {
               delay: 3000,
             }),
           ]}
-          setApi={setApi}
         >
           <CarouselContent>
             {bannerList.map((banner) => (
-              <CarouselItem key={banner.title} className="w-full h-full ">
+              <CarouselItem
+                key={banner.title}
+                className="w-full h-[100vw] md:h-full pl-0"
+              >
                 <Image
                   className="w-full h-full object-cover"
                   src={banner.cover}
-                  width={1920}
-                  height={1080}
+                  width={2240}
+                  height={1496}
                   alt={banner.title}
                 />
               </CarouselItem>
@@ -200,17 +181,22 @@ function BannerImpl() {
           </CarouselContent>
         </Carousel>
       </div>
-      <div className="absolute left-28 top-1/2 -translate-y-1/2 space-y-6">
-        <h1 className={cn(styles["banner-title"], "text-5xl font-bold")}>
+      <div className="w-screen md:w-content z-10 text-center md:text-start absolute bottom-4 left-0 md:left-[50vw] md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 space-y-2 md:space-y-6">
+        <h1
+          className={cn(
+            styles["banner-title"],
+            "text-leading md:text-5xl font-bold"
+          )}
+        >
           BGA Oscar
         </h1>
-        <p className="text-description text-2xl font-bold">
-          Sustainable Innovation Summit: <br />
+        <p className="text-description text-sm md:text-2xl font-bold">
+          Sustainable Innovation Summit: <br className="hidden md:block" />
           The 17 SDG Challenge
         </p>
         <div
           className={cn(
-            "inline-flex bg-transparent px-6 py-3 font-bold md:w-64 text-center",
+            "inline-flex bg-transparent px-6 py-1 font-bold w-[90vw] md:w-64 text-center",
             styles["banner-button"]
           )}
         >
@@ -221,6 +207,10 @@ function BannerImpl() {
             loop: true,
             duration: 60,
             containScroll: false,
+            watchDrag: false,
+            watchFocus: false,
+            watchResize: false,
+            watchSlides: false,
           }}
           plugins={[
             Autoplay({
@@ -232,8 +222,9 @@ function BannerImpl() {
           <CarouselContent>
             {bannerList.map((banner) => (
               <CarouselItem key={banner.title} className="w-full h-10">
-                <p className="text-sm text-description font-semibold flex items-center gap-2">
+                <p className="text-xs md:text-sm text-description font-semibold flex justify-center md:justify-start items-center gap-2">
                   <Image
+                    className="w-6 h-6 md:w-10 md:h-10"
                     src={banner.icon}
                     width={40}
                     height={40}
@@ -254,12 +245,14 @@ function Ceremony() {
   return (
     <div
       className={cn(
-        "flex-none flex flex-col justify-center items-center h-44 w-full md:w-96 md:h-full relative -translate-x-24",
+        "flex-none flex flex-col justify-center items-center w-full h-40 md:h-auto md:w-96 relative -translate-y-9 md:translate-y-0 md:-translate-x-24",
         styles.ceremony
       )}
     >
-      <h3 className="text-2xl font-bold text-center">Ceremony</h3>
-      <p>Stay Tuned</p>
+      <h3 className="text-xl md:text-2xl font-bold text-center mt- md:mt-0">
+        Ceremony
+      </h3>
+      <p className="text-xs md:text-base">Stay Tuned</p>
     </div>
   );
 }

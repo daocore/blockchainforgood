@@ -37,7 +37,7 @@ export function How() {
   return (
     <div
       ref={ref as any}
-      className={cn("w-full md:w-content mx-auto text-center")}
+      className={cn("w-full md:w-content mx-auto text-center px-4 md:px-0")}
     >
       <h2 className="text-3xl font-bold">How</h2>
       <div className="w-full mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
