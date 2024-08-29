@@ -7,6 +7,7 @@ export const InfiniteMovingCards = ({
     direction = "left",
     speed = "fast",
     pauseOnHover = true,
+    isPause,
     className,
     children
 }: {
@@ -15,6 +16,7 @@ export const InfiniteMovingCards = ({
     pauseOnHover?: boolean;
     className?: string;
     children: ReactNode
+    isPause?: boolean
 }) => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const scrollerRef = React.useRef<HTMLUListElement>(null);
@@ -22,13 +24,16 @@ export const InfiniteMovingCards = ({
     useEffect(() => {
         addAnimation();
     }, []);
+
     const [start, setStart] = useState(false);
     function addAnimation() {
         if (containerRef.current && scrollerRef.current) {
             const scrollerContent = Array.from(scrollerRef.current.children);
-
-            scrollerContent.forEach((item) => {
+            scrollerContent.forEach((item, index) => {
                 const duplicatedItem = item.cloneNode(true);
+                const list = (children as any[]);
+                const click = list?.[index % list?.length]?.props?.onItemChange;
+                duplicatedItem.addEventListener("click", click);
                 if (scrollerRef.current) {
                     scrollerRef.current.appendChild(duplicatedItem);
                 }
@@ -61,7 +66,7 @@ export const InfiniteMovingCards = ({
             } else if (speed === "normal") {
                 containerRef.current.style.setProperty("--animation-duration", "40s");
             } else {
-                containerRef.current.style.setProperty("--animation-duration", "200s");
+                containerRef.current.style.setProperty("--animation-duration", "100s");
             }
         }
     };
@@ -78,7 +83,8 @@ export const InfiniteMovingCards = ({
                 className={cn(
                     " flex min-w-full shrink-0 gap-4 w-max flex-nowrap",
                     start && "animate-scroll ",
-                    pauseOnHover && "hover:[animation-play-state:paused]"
+                    pauseOnHover && "hover:[animation-play-state:paused]",
+                    isPause && "[animation-play-state:paused]"
                 )}
             >
                 {children}
