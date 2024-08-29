@@ -31,6 +31,7 @@
   background-blend-mode: soft-light;
   color: #3E2E09;
   clip-path: polygon(0 0, 50% 2.25rem, 100% 0, 100% 100%, 0 100%);
+  width: 100%;
 }
 
 .banner {
@@ -49,11 +50,12 @@
 @media screen and (min-width: 769px) {
   .ceremony {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 6rem 50%);
+    width: 30vw;
   }
   .banner {
-    width: calc(100vw - 12rem);
-    height: calc((100vw - 12rem) / 1.5);
-    max-height: 90vh;
+    width: calc(70vw + 12rem);
+    height: calc((70vw + 12rem) / 2);
+    max-height: 80vh;
     clip-path: polygon(0 0, calc(100% - 6rem) 0, 100% 50%, calc(100% - 6rem) 100%, 0 100%);
     
   }

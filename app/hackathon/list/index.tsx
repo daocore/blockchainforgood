@@ -16,7 +16,7 @@ export function HackathonList() {
         <div className=" w-full lg:w-2/3">
           <List />
         </div>
-        <div className="w-full lg:w-1/3 h-80 relative md:sticky md:top-4">
+        <div className="w-full lg:w-1/3 h-[360px] md:mt-[4.625rem] relative md:sticky md:top-4">
           <Form />
         </div>
       </div>
