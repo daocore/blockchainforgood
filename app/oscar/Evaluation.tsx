@@ -24,7 +24,7 @@ const data = [
   {
     question: "Product Implementation & Experience (10 Points)",
     answer: `Evaluation Criteria: The degree of product implementation, usability, and interface design.
-      <br/>Specific Indicators: The design of smart contracts, system security, effective utilization of blockchain technology, inte`,
+      <br/>Specific Indicators: The design of smart contracts, system security, effective utilization of blockchain technology, and integration with existing systems.`,
   }
 ];
 

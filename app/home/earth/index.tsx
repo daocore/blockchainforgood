@@ -24,7 +24,7 @@ import IncubationImage from "@/assets/earth/Incubation.png";
 import HackathonImage from "@/assets/earth/Hackathon.png";
 import EventImage from "@/assets/earth/Event.png";
 import { useUpdateEffect } from "@/hooks/useUpdateEffect";
-import { COUNTRIES } from "./const";
+import { COUNTRIES, SPECIAL_AREA } from "./const";
 
 const Globe = dynamic(() => import("./globe-wrapper"), {
   ssr: false,
@@ -218,8 +218,8 @@ export function Earth({ children }: { children: React.ReactNode }) {
               polygonAltitude={0.01}
               // HTML marks
               htmlElementsData={data}
-              htmlLat={((item: IEvent) => item.location?.latlng?.[1]) as any}
-              htmlLng={((item: IEvent) => item.location?.latlng?.[0]) as any}
+              htmlLat={((item: IEvent) => item.location.latlng[1]) as any}
+              htmlLng={((item: IEvent) => item.location.latlng[0]) as any}
               htmlAltitude={0}
               htmlElement={
                 ((item: IEvent) => {
@@ -228,7 +228,9 @@ export function Earth({ children }: { children: React.ReactNode }) {
                   wrapper.classList.add("pointer-events-auto");
 
                   const root = createRoot(wrapper);
-                  root.render(<Marker item={item} globeRef={globeEl} />);
+                  root.render(
+                    <Marker item={item} globeRef={globeEl} data={data} />
+                  );
 
                   return wrapper;
                 }) as any
@@ -265,9 +267,11 @@ const EVENT_TYPE_MAP = {
 
 function Marker({
   item,
+  data,
   globeRef,
 }: {
   item: IEvent;
+  data: IEvent[];
   globeRef: MutableRefObject<GlobeMethods>;
 }) {
   const [open, setOpen] = useState(false);
@@ -295,21 +299,11 @@ function Marker({
   };
 
   const clickToOpenHoverCard = () => {
-    setOpen(true);
-  };
-
-  const openLink = () => {
-    window.open(item.link, "_blank");
+    // setOpen(true);
   };
 
   const circleAnimationDuringTime = 1 + Math.random() * 2;
 
-  let imgSrc = item.image;
-  let imgStyle = {};
-  if (item.diyimage) {
-    imgSrc = item.diyimage.url;
-    imgStyle = item.diyimage.style;
-  }
   return (
     <div
       className={cn(
@@ -358,37 +352,134 @@ function Marker({
           </div>
         </HoverCardTrigger>
         <HoverCardContent className="min-w-52 z-[999] relative bg-white/75 shadow-lg rounded-none p-0 !pointer-events-auto !select-auto">
-          <p className="text-xs font-bold border-b border-active p-2">
-            {COUNTRIES[item.location?.country] ?? "Unknown"}
-          </p>
-          <div className="px-2 py-4 space-y-2">
-            <h3 className="text-sm font-bold text-main flex items-center">
-              <Image
-                width={24}
-                height={24}
-                className="w-6 h-6"
-                src={EVENT_TYPE_MAP[item.type].icon}
-                alt={EVENT_TYPE_MAP[item.type].name}
-              />
-              {EVENT_TYPE_MAP[item.type].name}
-            </h3>
-            <div className="flex gap-2">
-              <img
-                className="w-9 h-9"
-                src={`${IMAGE_URL}${imgSrc}`}
-                alt={item.name}
-                style={{ ...imgStyle }}
-              />
-              <div>
-                <p className="text-xs">{item.name}</p>
-                <p className="text-xs cursor-pointer" onClick={openLink}>
-                  {item.link}
-                </p>
-              </div>
-            </div>
-          </div>
+          <MarkerLayout item={item} data={data} />
         </HoverCardContent>
       </HoverCard>
     </div>
   );
+}
+
+interface MarkerProps {
+  item: IEvent;
+}
+
+interface MarkerDataProps {
+  item: IEvent;
+  data: IEvent[];
+}
+
+function MarkerItem({ item }: MarkerProps) {
+  let imgSrc = item.image;
+  let imgStyle = {};
+  if (item.diyimage) {
+    imgSrc = item.diyimage.url;
+    imgStyle = item.diyimage.style;
+  }
+
+  const openLink = () => {
+    window.open(item.link, "_blank");
+  };
+  return (
+    <>
+      <p className="text-xs font-bold p-2">
+        {COUNTRIES[item.location.country] ?? "Unknown"}
+      </p>
+      <div className="px-2 py-4 space-y-2 border-t border-active">
+        <h3 className="text-sm font-bold text-main flex items-center">
+          <Image
+            width={24}
+            height={24}
+            className="w-6 h-6"
+            src={EVENT_TYPE_MAP[item.type].icon}
+            alt={EVENT_TYPE_MAP[item.type].name}
+          />
+          {EVENT_TYPE_MAP[item.type].name}
+        </h3>
+        <div className="flex gap-2">
+          <img
+            className="w-9 h-9"
+            src={`${IMAGE_URL}${imgSrc}`}
+            alt={item.name}
+            style={{ ...imgStyle }}
+          />
+          <div>
+            <p className="text-xs">{item.name}</p>
+            <p className="text-xs cursor-pointer" onClick={openLink}>
+              {item.link}
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function MakrerList({ item, data }: MarkerDataProps) {
+  const filteredData = data.filter(
+    (d) => d.location.country === item.location.country
+  );
+  // 然后再根据type分类
+  const groupedData = filteredData.reduce((acc, d) => {
+    const key = d.type;
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push(d);
+    return acc;
+  }, {} as Record<string, IEvent[]>);
+
+  return (
+    <>
+      <p className="text-xs font-bold px-2 my-4">
+        {COUNTRIES[item.location.country] ?? "Unknown"}
+      </p>
+      <div className="max-h-52 overflow-y-auto">
+        {Object.entries(groupedData).map(([type, list]) => (
+          <div
+            key={type}
+            className="border-t border-description border-dashed mb-4"
+          >
+            <h3 className="text-sm font-bold text-main flex items-center px-2 my-4">
+              <Image
+                width={24}
+                height={24}
+                className="w-6 h-6"
+                src={(EVENT_TYPE_MAP as any)[type].icon}
+                alt={(EVENT_TYPE_MAP as any)[type].name}
+              />
+              {(EVENT_TYPE_MAP as any)[type].name}
+            </h3>
+            <div className="space-y-4 px-2">
+              {list.map((item: IEvent) => {
+                let imgSrc = item.image;
+                let imgStyle = {};
+                if (item.diyimage) {
+                  imgSrc = item.diyimage.url;
+                  imgStyle = item.diyimage.style;
+                }
+                return (
+                  <div className="flex items-center gap-2">
+                    <img
+                      className="w-9 h-9"
+                      src={`${IMAGE_URL}${imgSrc}`}
+                      alt={item.name}
+                      style={{ ...imgStyle }}
+                    />
+                    <p className="text-xs">{item.name}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function MarkerLayout({ item, data }: MarkerDataProps) {
+  if (SPECIAL_AREA[item.location.country]) {
+    return <MakrerList item={item} data={data} />;
+  }
+  return <MarkerItem item={item} />;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ApplyLink } from "@/components/Const";
+import { OSCAR_HACKTHON_APPLY_LINK } from "@/constants";
 
 const FAQItem = ({
   question,
@@ -66,7 +66,7 @@ const faqs = [
   },
   {
     question: "What is the application process?",
-    answer: `If you are interested in HACKATHON, please submit your application <a href="${ApplyLink}" target="blank" style="color: #00d5bf">here</a>. 
+    answer: `If you are interested in HACKATHON, please submit your application <a href="${OSCAR_HACKTHON_APPLY_LINK}" style="color: #00d5bf">here</a>. 
     <br/>Once you have submitted your application, the BlockCain For Good  Review committee will review your application, along with others.
     <br/>BlockChain For Good will announce next steps in the process to all applicants via email & TG.`,
   },
