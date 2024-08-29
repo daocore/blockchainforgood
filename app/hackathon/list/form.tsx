@@ -1,15 +1,12 @@
 "use client";
 
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { IFrameLoading, Loading } from "@/components/Loading";
-import { useGetInfamSrc } from "@/hooks/useGetIframSrc";
+import { Loading } from "@/components/Loading";
 import { HACKTHON_APPLY_EVENT_ID } from "@/constants/env";
-import { ORGANIZATION_HASH_PATH } from "@/constants/url";
 import { Suspense } from "react";
 import HackathonImage from "@/assets/hackathon.png";
 import Image from "next/image";
-
-const ELEMENT_ID = "hackathon";
+import { useRouter } from "next-nprogress-bar";
+import { ROUTER_PATH } from "@/constants";
 
 export const Form = () => {
   return (
@@ -43,42 +40,53 @@ export const Form = () => {
 };
 
 function FormImpl() {
-  const organizationalChannel = useGetInfamSrc({
-    hashPaths: ORGANIZATION_HASH_PATH,
-    eventId: HACKTHON_APPLY_EVENT_ID,
-  });
+  const router = useRouter();
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <div
-          style={{
-            background: "linear-gradient(0deg, #97F6EC 0%, #FFFFFF 100%)",
-          }}
-          className="w-full cursor-pointer hover:shadow-lg h-8 px-6 text-center text-text text-sm font-medium font-['Inter'] leading-[14px] flex justify-center items-center"
-        >
-          Apply
-        </div>
-      </DialogTrigger>
-      <DialogContent
-        onPointerDownOutside={(e) => e.preventDefault()}
-        className="w-screen max-w-screen-lg h-4/5"
-      >
-        <div className="relative overflow-y-auto">
-          <h3 className="text-main text-2xl font-bold pb-4 px-3 md:px-10 m-auto">
-            Hackathon Collaberation Application Form
-          </h3>
-          <IFrameLoading size={60} id={ELEMENT_ID} className="w-full h-full" />
-          <iframe
-            id={ELEMENT_ID}
-            src={organizationalChannel}
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
+    <div
+      style={{
+        background: "linear-gradient(0deg, #97F6EC 0%, #FFFFFF 100%)",
+      }}
+      className="w-full cursor-pointer hover:shadow-lg h-8 px-6 text-center text-text text-sm font-medium font-['Inter'] leading-[14px] flex justify-center items-center"
+      onClick={()=>{
+        router.push(`${ROUTER_PATH.FORM.ORGANIZATION}/${HACKTHON_APPLY_EVENT_ID}`);
+      }}
+    >
+      Apply
+    </div>
+  )
+
+  // return (
+  //   <Dialog>
+  //     <DialogTrigger asChild>
+  //       <div
+  //         style={{
+  //           background: "linear-gradient(0deg, #97F6EC 0%, #FFFFFF 100%)",
+  //         }}
+  //         className="w-full cursor-pointer hover:shadow-lg h-8 px-6 text-center text-text text-sm font-medium font-['Inter'] leading-[14px] flex justify-center items-center"
+  //       >
+  //         Apply
+  //       </div>
+  //     </DialogTrigger>
+  //     <DialogContent
+  //       onPointerDownOutside={(e) => e.preventDefault()}
+  //       className="w-screen max-w-screen-lg h-4/5"
+  //     >
+  //       <div className="relative overflow-y-auto">
+  //         <h3 className="text-main text-2xl font-bold pb-4 px-3 md:px-10 m-auto">
+  //           Hackathon Collaberation Application Form
+  //         </h3>
+  //         <IFrameLoading size={60} id={ELEMENT_ID} className="w-full h-full" />
+  //         <iframe
+  //           id={ELEMENT_ID}
+  //           src={organizationalChannel}
+  //           style={{
+  //             width: "100%",
+  //             height: "100%",
+  //           }}
+  //         />
+  //       </div>
+  //     </DialogContent>
+  //   </Dialog>
+  // );
 }
