@@ -157,6 +157,13 @@ export function Earth({ children }: { children: React.ReactNode }) {
     onAddClassName();
   };
 
+  // 重新进入路由时再次触发动画
+  useEffect(() => {
+    if (globeEl.current) {
+      onGlobeReady();
+    }
+  }, []);
+
   return (
     <div className={cn("w-full", styles.container)}>
       <div className="w-full md:w-content mx-auto flex justify-center relative">
@@ -296,6 +303,13 @@ function Marker({
   };
 
   const circleAnimationDuringTime = 1 + Math.random() * 2;
+
+  let imgSrc = item.image;
+  let imgStyle = {};
+  if (item.diyimage) {
+    imgSrc = item.diyimage.url;
+    imgStyle = item.diyimage.style;
+  }
   return (
     <div
       className={cn(
@@ -361,8 +375,9 @@ function Marker({
             <div className="flex gap-2">
               <img
                 className="w-9 h-9"
-                src={`${IMAGE_URL}${item.image}`}
+                src={`${IMAGE_URL}${imgSrc}`}
                 alt={item.name}
+                style={{ ...imgStyle }}
               />
               <div>
                 <p className="text-xs">{item.name}</p>

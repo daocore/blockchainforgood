@@ -132,10 +132,10 @@ function LatestHackathon() {
 export function Focus() {
   return (
     <div className="w-full md:w-content mx-auto space-y-6 pb-20">
-      <h1 className="text-3xl font-bold text-center md:text-left">
+      <h1 className="text-3xl font-bold text-center md:text-left mx-4 md:mx-0">
         Blockchain for Good Hackathon
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 grid-rows-8 md:grid-rows-3">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 grid-rows-8 md:grid-rows-3 mx-4 md:mx-0">
         <VideoCard />
         <KeyData />
         <Collaborate />
