@@ -60,8 +60,11 @@ function FormImpl() {
           Apply
         </div>
       </DialogTrigger>
-      <DialogContent className="w-screen max-w-screen-lg h-4/5">
-        <div>
+      <DialogContent
+        onPointerDownOutside={(e) => e.preventDefault()}
+        className="w-screen max-w-screen-lg h-4/5"
+      >
+        <div className="relative overflow-y-auto">
           <h3 className="text-main text-2xl font-bold pb-4 px-3 md:px-10 m-auto">
             Hackathon Collaberation Application Form
           </h3>
