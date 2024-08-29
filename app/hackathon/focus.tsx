@@ -41,15 +41,13 @@ function KeyData() {
             background: isMobile ? "white" : BG_LINEAR_GRADIENT,
           }}
           key={item.label}
-          className="flex flex-col justify-between hover:shadow-md rounded-none"
+          className="flex flex-col justify-end hover:shadow-md rounded-none"
         >
-          <CardHeader>
-            <CardTitle className="text-5xl">
+          <CardContent className="pt-6">
+            <CardTitle className="text-5xl font-black">
               <CountUp start={1} end={item.value} /> +
             </CardTitle>
-          </CardHeader>
-          <CardContent className="text-2xl font-semibold">
-            {item.label}
+            <p className="text-xl font-semibold"> {item.label}</p>
           </CardContent>
         </Card>
       ))}
@@ -66,19 +64,22 @@ function Collaborate() {
           "linear-gradient(52.16deg, #02CCB7 19.41%, #47E6D6 74.15%, #8DF7EC 97.6%)",
       }}
     >
-      <CardHeader>
-        <CardTitle className="text-4xl flex flex-wrap gap-2 items-center">
-          <span>Collaborate</span>
+      <CardContent className="h-full pt-6">
+        <div className="text-[40px] leading-[44px] flex flex-col justify-between font-extrabold h-full">
+          <div>
+            <p>Collaborate</p>
+            <p>with</p>
+            <p>BGA</p>
+          </div>
           <Image
-            className="flex-shrink-0 flex-grow-0 w-8 h-8"
+            className="flex-shrink-0 flex-grow-0 w-24 h-24"
             src={BGAIconGreen}
             alt="BGA Icon Green"
-            width={32}
-            height={32}
+            width={107}
+            height={107}
           />
-          <span>with BGA</span>
-        </CardTitle>
-      </CardHeader>
+        </div>
+      </CardContent>
     </Card>
   );
 }
@@ -91,15 +92,13 @@ function Nations() {
       style={{
         background: isMobile ? "white" : BG_LINEAR_GRADIENT,
       }}
-      className="md:row-span-2 flex flex-col justify-between hover:shadow-md rounded-none"
+      className="md:row-span-2 flex flex-col justify-end hover:shadow-md rounded-none"
     >
-      <CardHeader>
-        <CardTitle className="text-5xl">
+      <CardContent className="pt-6">
+        <CardTitle className="text-5xl font-black">
           <CountUp start={1} end={4} />
         </CardTitle>
-      </CardHeader>
-      <CardContent className="text-2xl font-semibold">
-        Illuminated Nations
+        <p className="text-2xl font-semibold">Illuminated Nations</p>
       </CardContent>
     </Card>
   );

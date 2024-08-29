@@ -22,7 +22,7 @@ const menuNavs = [
     route: ROUTER_PATH.OSCAR,
   },
   {
-    name: "Progarmm",
+    name: "Programme",
     children: [
       {
         name: "Hackathon",

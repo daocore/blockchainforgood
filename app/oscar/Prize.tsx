@@ -16,9 +16,9 @@ export const Prizes = () => {
       >
         {Array(10)?.fill("$100,000").map((item, index) => {
           return <div
-            className="text-oscorBlack mr-4 md:mr-8 flex items-center gap-6 md:gap-10 font-black font-['Inter'] text-sm md:text-xl"
+            className="text-oscarBlack mr-4 md:mr-8 flex items-center gap-6 md:gap-10 font-black font-['Inter'] text-sm md:text-xl"
             key={index}>
-            <span className="text-oscorBlack">✧</span>
+            <span className="text-oscarBlack">✧</span>
             <span>Prize:{item}</span>
           </div>
         })}

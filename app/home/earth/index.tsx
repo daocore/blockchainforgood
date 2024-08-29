@@ -139,7 +139,7 @@ export function Earth({ children }: { children: React.ReactNode }) {
   const [globeHeight, setGlobeHeight] = useState<number>(CONTENT_WIDTH);
 
   useEffect(() => {
-    const maxWidth = window.innerWidth * 0.8;
+    const maxWidth = window.innerWidth * 0.65;
     setGlobeWidth(maxWidth > CONTENT_WIDTH ? CONTENT_WIDTH : maxWidth);
     setGlobeHeight(isMobile ? maxWidth : window.innerHeight - HEIGHT);
   }, [isMobile]);
