@@ -5,7 +5,7 @@ import { Loading } from "@/components/Loading";
 
 export function HackathonList() {
   return (
-    <div className="w-full md:w-content mx-auto py-20">
+    <div className="w-full md:w-content mx-auto py-10">
       <h3 className="text-center text-2xl font-bold text-main">
         Innovate, Collaborate, Impact
       </h3>
@@ -16,7 +16,7 @@ export function HackathonList() {
         <div className=" w-full lg:w-2/3">
           <List />
         </div>
-        <div className="w-full lg:w-1/3 h-10 sticky top-4">
+        <div className="w-full lg:w-1/3 h-80 relative md:sticky md:top-4">
           <Form />
         </div>
       </div>
