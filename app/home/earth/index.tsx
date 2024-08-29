@@ -157,6 +157,13 @@ export function Earth({ children }: { children: React.ReactNode }) {
     onAddClassName();
   };
 
+  // 重新进入路由时再次触发动画
+  useEffect(() => {
+    if (globeEl.current) {
+      onGlobeReady();
+    }
+  }, []);
+
   return (
     <div className={cn("w-full", styles.container)}>
       <div className="w-full md:w-content mx-auto flex justify-center relative">

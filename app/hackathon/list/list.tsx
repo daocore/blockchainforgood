@@ -60,8 +60,8 @@ function HackathonItem({
   const isHalfImage = assetsList.length === 1;
 
   return (
-    <div className={className}>
-      <p className="flex text-base items-center text-main gap-1 font-semibold truncate">
+    <div className={cn("mx-4 md:mx-0", className)}>
+      <p className="flex text-base items-center text-main gap-1 font-semibold truncate ">
         <Image
           alt="location w-8 h-8"
           width={32}
