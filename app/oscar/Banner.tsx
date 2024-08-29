@@ -181,7 +181,13 @@ function BannerImpl() {
           </CarouselContent>
         </Carousel>
       </div>
-      <div className="w-screen md:w-content z-10 text-center md:text-start absolute bottom-4 left-0 md:left-[50vw] md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 space-y-2 md:space-y-6">
+      <div
+        className={cn(
+          "absolute left-0 top-0 w-full h-full",
+          styles["banner-carousel"]
+        )}
+      />
+      <div className="w-screen h-min md:w-content z-10 text-center md:text-start absolute bottom-4 left-0 md:left-[50vw] md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 space-y-2 md:space-y-6">
         <h1
           className={cn(
             styles["banner-title"],
