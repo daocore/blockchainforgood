@@ -27,7 +27,7 @@ const data: IJudgeItem[] = [
 
 const JudgeItem = ({ item }: { item: IJudgeItem }) => {
   return (
-    <div className="flex flex-col items-center w-2/5 md:w-[300px] text-typography mt-8">
+    <div className="flex flex-col items-center w-2/5 md:w-[300px] text-typography mt-8" style={{ filter: "blur(4px)" }}>
       <svg className="w-4/5 h-4/5 md:w-[180px] md:h-[180px]" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="90" cy="90" r="90" fill="url(#paint0_linear_2376_9582)" />
         <defs>
@@ -85,8 +85,9 @@ export const Judge = () => {
       }}>
         <div
           className={cn(
-            "inline-flex bg-transparent px-6 py-1 font-bold h-[36px] w-[90vw] md:w-64 text-center cursor-pointer",
-            styles["banner-button"]
+            "inline-flex bg-transparent px-6 py-1 font-bold h-[36px] w-[90vw] md:w-60 text-center cursor-pointer",
+            styles["banner-button"],
+            mobile && "mt-10"
           )}
           onClick={() => {
             router.push(`${ROUTER_PATH.FORM.GUEST}/${OSCAR_HACKTHON_EVENT_ID}`)
