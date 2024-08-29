@@ -9,7 +9,7 @@ const PartnerItem = ({ item }: { item: any }) => {
     <div className="my-6 md:my-10">
       <div className="flex items-center">
         <div className="border-b-[1px] border-active flex-1 h-[0px]"></div>
-        <div className="text-base md:text-xl font-Poppins-Medium mx-2 text-oscorActive">{item?.type}</div>
+        <div className="text-base md:text-xl font-Poppins-Medium mx-2 text-oscarActive">{item?.type}</div>
         <div className="border-b-[1px] border-active flex-1 h-[0px]"></div>
       </div>
       <div className={`flex flex-wrap justify-center items-center`}>
@@ -121,7 +121,7 @@ export const Partners = () => {
 
   return (
     <div className="px-6 md:px-0">
-      <h2 className={`font-bold text-oscorActive font-['Inter'] text-[20px] md:text-[32px] text-center`}>Partners</h2>
+      <h2 className={`font-bold text-oscarActive font-['Inter'] text-[20px] md:text-[32px] text-center`}>Partners</h2>
       <div className="relative mt-4 w-full md:w-content">
         {data?.map((item: any, index: number) => {
           return (<div

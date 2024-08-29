@@ -1,6 +1,6 @@
 "use client";
 
-import { OscorTitle } from "./SummitIntro";
+import { OscarTitle } from "./SummitIntro";
 import styles from "./styles.module.css";
 
 const ProcessItem = ({
@@ -13,10 +13,10 @@ const ProcessItem = ({
   return (
     <div className={`w-full group md:w-[604px] h-auto md:h-[200px] p-6 flex-col flex gap-3 md:gap-4 transition-all ${styles.cardBg}`}>
       <h3 className="flex items-center gap-2">
-        <div className="w-6 md:w-8 h-6 md:h-8 rounded-full border border-description text-description group-hover:text-oscorActive group-hover:border-oscorActive flex items-center justify-center">{index}</div>
-        <div className="text-sm md:text-base font-bold font-['Inter'] text-white group-hover:text-oscorActive">{item?.title}</div>
+        <div className="w-6 md:w-8 h-6 md:h-8 rounded-full border border-description text-description group-hover:text-oscarActive group-hover:border-oscarActive flex items-center justify-center">{index}</div>
+        <div className="text-sm md:text-base font-bold font-['Inter'] text-white group-hover:text-oscarActive">{item?.title}</div>
       </h3>
-      <div className="text-typography font-normal font-['Inter'] text-xs md:text-sm group-hover:text-oscorActive">{item?.time}</div>
+      <div className="text-typography font-normal font-['Inter'] text-xs md:text-sm group-hover:text-oscarActive">{item?.time}</div>
       <p className="text-typography font-normal font-['Inter']  text-sm md:text-base" dangerouslySetInnerHTML={{ __html: item.desc }} />
     </div>
   );
@@ -55,7 +55,7 @@ export const SubmissionProcess = () => {
 
   return (
     <div className="w-full md:w-content m-auto px-6 md:px-0">
-      <OscorTitle text="Submission Process" center/>
+      <OscarTitle text="Submission Process" center/>
       <div className="items-center flex justify-between flex-wrap gap-6 mt-6">
         {data.map((item, index) => (
           <ProcessItem

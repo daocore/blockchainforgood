@@ -1,59 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { OSCAR_HACKTHON_APPLY_LINK } from "@/constants";
-
-const FAQItem = ({
-  question,
-  answer,
-  index,
-}: {
-  question: string;
-  answer: string;
-  index: number;
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <div className="w-full">
-      <div
-        className="flex justify-between items-center w-full py-3 md:py-4 focus:outline-none cursor-pointer"
-        onClick={toggleAccordion}
-      >
-        <h3 className="grow shrink basis-0 text-description text-sm md:text-base font-bold font-['Inter'] leading-normal">
-          {index}. {question}
-        </h3>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className={`w-5 h-5 transition-transform ${isOpen ? "transform rotate-180" : ""
-            }`}
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M6.23249 14.7935C6.53229 15.0793 7.00703 15.068 7.29285 14.7682L12.25 9.56838L17.2072 14.7682C17.493 15.068 17.9677 15.0793 18.2675 14.7935C18.5673 14.5077 18.5787 14.033 18.2928 13.7332L12.7928 7.96393C12.6513 7.81546 12.4551 7.73145 12.25 7.73145C12.0449 7.73145 11.8487 7.81546 11.7072 7.96393L6.20716 13.7332C5.92134 14.033 5.93268 14.5077 6.23249 14.7935Z"
-            fill="#283344"
-          />
-        </svg>
-      </div>
-      <div
-        className={`overflow-hidden transition-all duration-300 ${isOpen ? "h-auto" : "h-0"}`}
-      >
-        <div className="pb-4 text-typography text-sm md:text-base">
-          <p dangerouslySetInnerHTML={{ __html: answer }} />
-        </div>
-      </div>
-    </div>
-  );
-};
+import { FAQItem } from "@/components/FAQ";
 
 const faqs = [
   {
@@ -81,7 +29,7 @@ export const OscarFAQ = () => {
 
   return (
     <div className="w-full md:w-content m-auto px-6 md:px-0">
-      <h2 className="text-lg md:text-xl font-bold text-oscorActive">FAQ</h2>
+      <h2 className="text-lg md:text-xl font-bold text-oscarActive">FAQ</h2>
       <div className="self-stretch flex-col justify-start items-center flex">
         {faqs.map((faq, index) => (
           <div key={index} className="w-full">
@@ -105,6 +53,10 @@ export const OscarFAQ = () => {
               question={faq.question}
               answer={faq.answer}
               index={index + 1}
+              color={{
+                question: "text-description",
+                answer: "text-typography"
+              }}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"

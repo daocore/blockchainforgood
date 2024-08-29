@@ -1,4 +1,4 @@
-import { OscorTitle } from "./SummitIntro";
+import { OscarTitle } from "./SummitIntro";
 
 const data = [
   {
@@ -33,7 +33,7 @@ export const Evaluation = () => {
   return (
     <div className="w-full py-8 bg-white">
       <div className="w-full md:w-content m-auto px-6 md:px-0">
-        <OscorTitle text="Evaluation Criteria" />
+        <OscarTitle text="Evaluation Criteria" />
         <div className="self-stretch flex-col justify-start items-center flex gap-2 mt-2">
           {data.map((item, index) => (
             <div className="w-full" key={index}>
