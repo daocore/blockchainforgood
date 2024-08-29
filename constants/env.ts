@@ -7,6 +7,13 @@ export enum ENetwork {
 
 export const BGA_ENV = (process.env.NEXT_PUBLIC_BGA_ENV || ENetwork.PRODUCTION) as ENetwork;
 
+export const BGA_HOST_URL = {
+    [ENetwork.PRODUCTION]: "https://www.blockchainforgood.xyz",
+    [ENetwork.DEVELOPMENT]: "http://localhost:3000",
+    [ENetwork.STAGING]: "https://test.blockchainforgood.xyz",
+    [ENetwork.ZFDEV]: "http://localhost:3000",
+}[BGA_ENV];
+
 export const BASE_URL = {
     [ENetwork.PRODUCTION]: "https://a.moledao.io",
     [ENetwork.DEVELOPMENT]: "https://beta.moledao.io",

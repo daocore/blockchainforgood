@@ -46,6 +46,8 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
+import { useRouter } from "next-nprogress-bar";
+import { OSCAR_HACKTHON_EVENT_ID, ROUTER_PATH } from "@/constants";
 
 const bannerList = [
   {
@@ -145,6 +147,8 @@ export function Banner() {
 }
 
 function BannerImpl() {
+  const router = useRouter();
+
   return (
     <div className={cn("flex-none relative z-10", styles.banner)}>
       <div className="absolute left-0 top-0 w-full h-full">
@@ -202,9 +206,12 @@ function BannerImpl() {
         </p>
         <div
           className={cn(
-            "inline-flex bg-transparent px-6 py-1 font-bold w-[90vw] md:w-64 text-center",
+            "inline-flex bg-transparent px-6 py-1 font-bold w-[90vw] md:w-64 text-center cursor-pointer",
             styles["banner-button"]
           )}
+          onClick={() => {
+            router.push(`${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}`)
+          }}
         >
           <span className="mx-auto">Empower the Future</span>
         </div>
