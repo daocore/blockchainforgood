@@ -139,7 +139,7 @@ export function Earth({ children }: { children: React.ReactNode }) {
   const [globeHeight, setGlobeHeight] = useState<number>(CONTENT_WIDTH);
 
   useEffect(() => {
-    const maxWidth = window.innerWidth * 0.8;
+    const maxWidth = window.innerWidth * 0.65;
     setGlobeWidth(maxWidth > CONTENT_WIDTH ? CONTENT_WIDTH : maxWidth);
     setGlobeHeight(isMobile ? maxWidth : window.innerHeight - HEIGHT);
   }, [isMobile]);
@@ -414,12 +414,6 @@ function MarkerItem({ item }: MarkerProps) {
   );
 }
 
-type S =
-  | BGAEarthEnum.ADVISOR
-  | BGAEarthEnum.EVENT
-  | BGAEarthEnum.INCUBATION
-  | BGAEarthEnum.PARTNER;
-
 function MakrerList({ item, data }: MarkerDataProps) {
   const filteredData = data.filter(
     (d) => d.location.country === item.location.country
@@ -455,7 +449,7 @@ function MakrerList({ item, data }: MarkerDataProps) {
               />
               {(EVENT_TYPE_MAP as any)[type].name}
             </h3>
-            <div className="space-y-2 px-2">
+            <div className="space-y-4 px-2">
               {list.map((item: IEvent) => {
                 let imgSrc = item.image;
                 let imgStyle = {};

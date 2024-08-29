@@ -21,17 +21,24 @@ export const Form = () => {
         <Image src={HackathonImage} alt="Hackathon" width={31} height={31} />
         Apply Now
       </h4>
-      <p className="text-xs text-typography">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </p>
-      <p className="text-xs text-typography">
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+      <div className="text-xs text-typography space-y-6">
+        <p>
+          Are you organizing a hackathon and looking to incorporate
+          sustainability into your event?
+        </p>
+        <p>
+          Partner with us to add a dedicated BGA track to your hackathon. This
+          collaboration will provide your event access to our extensive prize
+          pool, expert judges, and increased visibility within the blockchain
+          and sustainability communities.
+        </p>
+
+        <p>
+          Apply now! Together, we can inspire and leverage blockchain technology
+          for global good.
+        </p>
+      </div>
+
       <Suspense fallback={<Loading />}>
         <FormImpl />
       </Suspense>
@@ -48,13 +55,15 @@ function FormImpl() {
         background: "linear-gradient(0deg, #97F6EC 0%, #FFFFFF 100%)",
       }}
       className="w-full cursor-pointer hover:shadow-lg h-8 px-6 text-center text-text text-sm font-medium font-['Inter'] leading-[14px] flex justify-center items-center"
-      onClick={()=>{
-        router.push(`${ROUTER_PATH.FORM.ORGANIZATION}/${HACKTHON_APPLY_EVENT_ID}`);
+      onClick={() => {
+        router.push(
+          `${ROUTER_PATH.FORM.ORGANIZATION}/${HACKTHON_APPLY_EVENT_ID}`
+        );
       }}
     >
       Apply
     </div>
-  )
+  );
 
   // return (
   //   <Dialog>

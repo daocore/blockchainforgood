@@ -210,7 +210,9 @@ function BannerImpl() {
             styles["banner-button"]
           )}
           onClick={() => {
-            router.push(`${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}`)
+            router.push(
+              `${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}`
+            );
           }}
         >
           <span className="mx-auto">Empower the Future</span>
@@ -258,7 +260,7 @@ function Ceremony() {
   return (
     <div
       className={cn(
-        "flex-none flex flex-col justify-center items-center w-full h-40 md:h-auto md:w-96 relative -translate-y-9 md:translate-y-0 md:-translate-x-24",
+        "flex-none flex flex-col justify-center items-center h-40 md:h-auto relative -translate-y-9 md:translate-y-0 md:-translate-x-24",
         styles.ceremony
       )}
     >
