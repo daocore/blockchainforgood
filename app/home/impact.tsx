@@ -4,8 +4,7 @@ export function Impact() {
       <div className="w-full md:w-content text-center mx-auto">
         <h3 className="text-main font-bold text-2xl">United in Purpose</h3>
         <p className="text-typography">
-          United in Purpose: Welcoming Visionary Partners to Forge a Brighter
-          Tomorrow
+          Welcoming Visionary Partners to Forge a Brighter Tomorrow
         </p>
       </div>
     </div>

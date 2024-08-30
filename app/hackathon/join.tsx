@@ -13,8 +13,8 @@ export function Join() {
         </Link>
         , we unite tech enthusiasts from around the globe to tackle real-world
         problems. Spark innovation, collaborate on a global scale, and create
-        lasting social impact through the BGA Track. Be part of the movement for
-        change — join us today!
+        lasting social impact through the BGA Track. <br />
+        Be part of the movement for change — join us today!
       </p>
     </div>
   );
