@@ -48,6 +48,9 @@ import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
 import { useRouter } from "next-nprogress-bar";
 import { OSCAR_HACKTHON_EVENT_ID, ROUTER_PATH } from "@/constants";
+import { useIsMobile } from "@/hooks/useIsMobile";
+import TitleDesktopImage from "@/assets/oscar/title-desktop.png";
+import TitleMobileImage from "@/assets/oscar/title-mobile.png";
 
 const bannerList = [
   {
@@ -149,6 +152,8 @@ export function Banner() {
 function BannerImpl() {
   const router = useRouter();
 
+  const isMobile = useIsMobile();
+
   return (
     <div className={cn("flex-none relative z-10", styles.banner)}>
       <div className="absolute left-0 top-0 w-full h-full">
@@ -192,31 +197,36 @@ function BannerImpl() {
         )}
       />
       <div className="w-screen h-min md:w-content z-10 text-center md:text-start absolute bottom-4 left-0 md:left-[50vw] md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 space-y-2 md:space-y-6">
-        <h1
-          className={cn(
-            styles["banner-title"],
-            "text-leading md:text-5xl font-bold"
-          )}
-        >
-          BGA Oscar
-        </h1>
-        <p className="text-description text-sm md:text-2xl font-bold">
+        {isMobile ? (
+          <Image
+            className="w-auto mx-auto"
+            src={TitleMobileImage}
+            alt="BGA Oscar"
+          />
+        ) : (
+          <Image className="w-auto" src={TitleDesktopImage} alt="BGA Oscar" />
+        )}
+
+        <p className="text-description text-sm md:text-2xl font-bold px-4 md:px-0">
           Sustainable Innovation Summit: <br className="hidden md:block" />
           The 17 SDG Challenge
         </p>
-        <div
-          className={cn(
-            "inline-flex bg-transparent px-6 py-1 font-bold w-[90vw] md:w-64 text-center cursor-pointer",
-            styles["banner-button"]
-          )}
-          onClick={() => {
-            router.push(
-              `${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}`
-            );
-          }}
-        >
-          <span className="mx-auto">Empower the Future</span>
+        <div className="w-screen md:w-64 px-4 md:px-0">
+          <div
+            className={cn(
+              "inline-flex justify-center items-center w-full font-bold cursor-pointer py-1 md:py-2",
+              styles["banner-button"]
+            )}
+            onClick={() => {
+              router.push(
+                `${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}`
+              );
+            }}
+          >
+            Empower the Future
+          </div>
         </div>
+
         <Carousel
           opts={{
             loop: true,

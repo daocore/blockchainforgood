@@ -16,24 +16,24 @@ const forces = [
     img: Hackathon,
     title: "Global Hackathons",
     path: ROUTER_PATH.HACKATHON,
-    desc: "Partners will pool resources and join existing hackathons under the hackathon track “Blockchain for Good”. Winners from this track will then be invited to an exclusive finale hackathon hosted by BGA.",
+    desc: 'Our partners come together to combine resources and organize global hackathons under the "Blockchain for Good" track with themes that foster innovation and drive impactful solutions toward global development. Winners earn the opportunity to showcase their projects at exclusive finale hackathons and pitch days hosted by BGA.',
   },
   {
     img: Incubation,
     title: "Incubation",
     path: ROUTER_PATH.INCUBATION,
-    desc: "BGA Incubation aims to support projects that solve real-world problems using blockchain technology by providing expertise, resources, branding, and market support.",
+    desc: "Our incubation program is dedicated to nurturing blockchain projects that address real-world challenges. We provide comprehensive support, including expert guidance, resources, branding, and market access, to help these projects thrive and create lasting impact.",
   },
   {
     img: Oscar,
     title: "Web3 Oscar",
     path: ROUTER_PATH.OSCAR,
-    desc: "Gathering Web3 believers and recognize their achievements in solving social problems. This will be a platform for believers to look forward to the future of Web3.",
+    desc: "Inspired by the Oscars, BGA's Web3 Oscar celebrates the visionaries and innovators in the Web3 space who are making a difference. This event recognizes outstanding achievements in solving social challenges using blockchain and provides a platform for the community to envision the future of Web3.",
   },
   {
     img: Web3KeyFund,
     title: "Web3Key Fund",
-    desc: "Sponsoring builders/projects’ initiatives who use blockchain technology to impact the world.",
+    desc: "The BGA Web3Key Fund is committed to empowering projects and initiatives that leverage blockchain technology to make a positive impact. Through strategic sponsorships, we support builders who are using Web3 to create a better world for all.",
   },
 ];
 
@@ -50,9 +50,15 @@ export function How() {
       <div className="w-full mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {forces?.map((force) => {
           return (
-            <div key={force.title} className={`space-y-2 shrink-0 ${force?.path ? "cursor-pointer" : "cursor-not-allowed"} group translate hover:scale-105 transition-all`} onClick={() => {
-              force?.path && router.push(force?.path)
-            }}>
+            <div
+              key={force.title}
+              className={`space-y-2 shrink-0 ${
+                force?.path ? "cursor-pointer" : "cursor-not-allowed"
+              } group translate hover:scale-105 transition-all`}
+              onClick={() => {
+                force?.path && router.push(force?.path);
+              }}
+            >
               <Image
                 alt={force.title}
                 width={200}
