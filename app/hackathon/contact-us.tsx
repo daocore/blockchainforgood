@@ -22,7 +22,7 @@ export function ContactUs() {
               width={32}
               height={32}
             />
-            Freya_BGA
+            Telegram
           </a>
           <a
             className="inline-flex items-center justify-center gap-2"
@@ -36,7 +36,7 @@ export function ContactUs() {
               width={32}
               height={32}
             />
-            hello@blockchainforgood.xyz
+            Email
           </a>
         </div>
       </div>

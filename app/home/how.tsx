@@ -16,7 +16,7 @@ const forces = [
     img: Hackathon,
     title: "Global Hackathons",
     path: ROUTER_PATH.HACKATHON,
-    desc: 'Our partners come together to combine resources and organize global hackathons under the "Blockchain for Good" track with themes that foster innovation and drive impactful solutions toward global development. Winners earn the opportunity to showcase their projects at exclusive finale hackathons and pitch days hosted by BGA.',
+    desc: 'Our partners come together to combine resources and organize global hackathons under the "Blockchain for Good" track with themes that foster innovation and drive impactful solutions toward global development. Winners earn the opportunity to showcase their projects.',
   },
   {
     img: Incubation,

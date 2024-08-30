@@ -112,7 +112,7 @@ export const Contact = () => {
             <div className="self-stretch h-10 bg-white shadow-inner border border-neutral-400 flex-col justify-center items-start gap-2.5 flex">
               <input
                 maxLength={100}
-                className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black focus:outline-none"
+                className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 bg-white text-black focus:outline-none"
                 placeholder="Please input"
                 value={subject}
                 onChange={(e) => {
@@ -131,7 +131,7 @@ export const Contact = () => {
               <textarea
                 maxLength={1000}
                 cols={4}
-                className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black focus:outline-none"
+                className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 bg-white text-black focus:outline-none"
                 placeholder="Please input"
                 value={bodytext}
                 onChange={(e) => {

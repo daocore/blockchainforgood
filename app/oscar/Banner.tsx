@@ -209,12 +209,12 @@ function BannerImpl() {
 
         <p className="text-description text-sm md:text-2xl font-bold px-4 md:px-0">
           Sustainable Innovation Summit: <br className="hidden md:block" />
-          The 17 SDG Challenge
+          The 17 SDGs Challenge
         </p>
         <div className="w-screen md:w-64 px-4 md:px-0">
           <div
             className={cn(
-              "inline-flex justify-center items-center w-full font-bold cursor-pointer py-1 md:py-2",
+              "inline-flex justify-center items-center w-full font-bold cursor-pointer py-1 md:py-2 relative overflow-hidden",
               styles["banner-button"]
             )}
             onClick={() => {
@@ -275,7 +275,7 @@ function Ceremony() {
       )}
     >
       <h3 className="text-xl md:text-2xl font-bold text-center mt- md:mt-0">
-        Ceremony
+        Chains of Change
       </h3>
       <p className="text-xs md:text-base">Stay Tuned</p>
     </div>
