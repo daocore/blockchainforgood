@@ -207,7 +207,7 @@ function BannerImpl() {
           <Image className="w-auto" src={TitleDesktopImage} alt="BGA Oscar" />
         )}
 
-        <p className="text-description text-sm md:text-2xl font-bold px-4 md:px-0">
+        <p className="text-sm md:text-2xl font-bold px-4 md:px-0 text-[#b6b6be]">
           Sustainable Innovation Summit: <br className="hidden md:block" />
           The 17 SDGs Challenge
         </p>
@@ -247,7 +247,7 @@ function BannerImpl() {
           <CarouselContent>
             {bannerList.map((banner) => (
               <CarouselItem key={banner.title} className="w-full h-10">
-                <p className="text-xs md:text-sm text-description font-semibold flex justify-center md:justify-start items-center gap-2">
+                <p className="text-xs md:text-sm text-[#b6b6be] font-semibold flex justify-center md:justify-start items-center gap-2">
                   <Image
                     className="w-6 h-6 md:w-10 md:h-10"
                     src={banner.icon}

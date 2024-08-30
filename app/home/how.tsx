@@ -47,14 +47,14 @@ export function How() {
       className={cn("w-full md:w-content mx-auto text-center px-4 md:px-0")}
     >
       <h2 className="text-3xl font-bold">How</h2>
-      <div className="w-full mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="w-full mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {forces?.map((force) => {
           return (
             <div
               key={force.title}
               className={`space-y-2 shrink-0 ${
                 force?.path ? "cursor-pointer" : "cursor-not-allowed"
-              } group translate hover:scale-105 transition-all`}
+              } group`}
               onClick={() => {
                 force?.path && router.push(force?.path);
               }}
@@ -63,13 +63,13 @@ export function How() {
                 alt={force.title}
                 width={200}
                 height={200}
-                className="mx-auto"
+                className="mx-auto translate group-hover:scale-105 transition-all"
                 src={force.img}
               />
-              <h4 className="text-base font-bold font-['Inter'] group-hover:text-bgaActive">
+              <h4 className="text-base  font-bold font-['Inter'] group-hover:text-bgaActive translate group-hover:scale-105 transition-all">
                 {force?.title}
               </h4>
-              <p className="grow shrink basis-0 text-typography text-base font-normal font-['Inter']">
+              <p className="grow shrink text-left basis-0 text-typography text-base font-normal font-['Inter']">
                 {force?.desc}
               </p>
             </div>
