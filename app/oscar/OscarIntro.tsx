@@ -9,7 +9,6 @@ import { SubmissionProcess } from "./SubmissionProcess";
 import { SummitInto } from "./SummitIntro";
 
 export const OscarIntro = () => {
-
   return (
     <section className="w-full bg-oscarBlack flex flex-col gap-[32px] md:gap-[96px] items-center py-[32px] md:py-[96px]">
       <SummitInto />

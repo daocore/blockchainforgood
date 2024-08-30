@@ -1,7 +1,9 @@
 "use client";
 
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { OscarTitle } from "./SummitIntro";
 import styles from "./styles.module.css";
+import homeStyles from "../home/styles.module.css";
 
 const ProcessItem = ({ item, index }: { item: IItem; index: number }) => {
   return (
@@ -57,8 +59,11 @@ const data: IItem[] = [
 ];
 
 export const SubmissionProcess = () => {
+  const ref = useIntersectionObserver<HTMLDivElement>(
+    homeStyles.moveFromBottom
+  );
   return (
-    <div className="w-full md:w-content m-auto px-6 md:px-0">
+    <div ref={ref} className="w-full md:w-content m-auto px-6 md:px-0">
       <OscarTitle text="Submission Process" center />
       <div className="items-center flex justify-between flex-wrap gap-6 mt-6">
         {data.map((item, index) => (

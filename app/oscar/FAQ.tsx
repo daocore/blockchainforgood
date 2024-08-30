@@ -2,6 +2,8 @@
 
 import { OSCAR_HACKTHON_APPLY_LINK } from "@/constants";
 import { FAQItem } from "@/components/FAQ";
+import homeStyles from "../home/styles.module.css";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const faqs = [
   {
@@ -32,8 +34,11 @@ const faqs = [
 ];
 
 export const OscarFAQ = () => {
+  const ref = useIntersectionObserver<HTMLDivElement>(
+    homeStyles.moveFromBottom
+  );
   return (
-    <div className="w-full md:w-content m-auto px-6 md:px-0">
+    <div ref={ref} className="w-full md:w-content m-auto px-6 md:px-0">
       <h2 className="text-lg md:text-xl font-bold text-oscarActive">FAQ</h2>
       <div className="self-stretch flex-col justify-start items-center flex">
         {faqs.map((faq, index) => (
