@@ -30,7 +30,7 @@ export const Contact = () => {
           </div>
           <div className="self-stretch justify-center items-center gap-2 inline-flex">
             <p className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
-              Join us to drive meaningful change together
+              Join us to drive meaningful change together.
             </p>
           </div>
         </div>
@@ -88,7 +88,7 @@ export const Contact = () => {
         <div className="self-stretch h-6 flex-col justify-start items-start flex">
           <div className="self-stretch justify-center items-center gap-2 inline-flex">
             <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
-              Send Message
+              Send Us a Message
             </div>
           </div>
         </div>
