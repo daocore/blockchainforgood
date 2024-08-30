@@ -32,7 +32,7 @@ export const SummitInto = () => {
         center
       />
       <div
-        className="text-description font-normal font-['Inter'] text-sm md:text-[16px] text-center md:text-left mt-2"
+        className="text-[#b6b6be] font-normal font-['Inter'] text-sm md:text-[16px] text-center md:text-left mt-2"
         style={{ lineHeight: "24px" }}
       >
         In a world guided by the United Nations' 17 Sustainable Development
