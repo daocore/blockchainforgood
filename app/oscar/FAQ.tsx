@@ -43,7 +43,7 @@ export const OscarFAQ = () => {
               >
                 <path
                   d="M0 1.00024L1232 1.00035"
-                  stroke="#283344"
+                  stroke="#7D8CA3"
                   strokeDasharray="1 2"
                 />
               </svg>

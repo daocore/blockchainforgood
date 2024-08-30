@@ -12,7 +12,7 @@ export function ContactUs() {
         <div className="w-full md:w-3/5 md:mx-auto flex flex-col md:flex-row justify-center md:justify-around gap-4 md:gap-0">
           <a
             className="inline-flex items-center justify-center gap-1"
-            href="tg://resolve?domain=blueshirt666"
+            href="https://t.me/shirtblue666"
             target="_blank"
           >
             <Image
