@@ -4,7 +4,7 @@ export function Join() {
   return (
     <div className="w-full bg-white text-center py-10 px-4 md:px-0">
       <h2 className="text-3xl font-bold mb-4">
-        Join the BGA Hackathon Initiative!
+        Join the BGA Hackathon Initiative
       </h2>
       <p className="w-full md:w-2/4 max-w-[900px] mx-auto text-typography">
         Inspired by the{" "}

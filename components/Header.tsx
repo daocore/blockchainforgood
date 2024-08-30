@@ -122,7 +122,10 @@ export const Header = () => {
               {menuNavs?.map((nav) => {
                 if (nav.children?.length) {
                   return (
-                    <NavigationMenuItem className="py-2 px-2 md:px-6">
+                    <NavigationMenuItem
+                      value={nav.name}
+                      className="py-2 px-2 md:px-6"
+                    >
                       <NavigationMenuTrigger
                         className={cn(
                           "bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent p-0 hover:text-main",
@@ -144,8 +147,8 @@ export const Header = () => {
                           </nav>
                         </div>
                       </NavigationMenuTrigger>
-                      <NavigationMenuContent className="rounded-none">
-                        <div className="flex gap-3 flex-col py-2 px-4 w-48 rounded-none">
+                      <NavigationMenuContent>
+                        <div className="flex gap-3 flex-col py-2 px-4 w-48">
                           {nav.children.map((child) => (
                             <NavigationMenuLink
                               key={child.name}
