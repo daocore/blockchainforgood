@@ -1,4 +1,8 @@
+"use client";
+
 import { useIsMobile } from "@/hooks";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import styles from "../home/styles.module.css";
 
 export const OscarTitle = ({
   text,
@@ -25,8 +29,10 @@ export const OscarTitle = ({
 };
 
 export const SummitInto = () => {
+  const ref = useIntersectionObserver<HTMLDivElement>(styles.moveFromBottom);
+
   return (
-    <div className="w-full md:w-content m-auto px-6 md:px-0">
+    <div ref={ref} className="w-full md:w-content m-auto px-6 md:px-0">
       <OscarTitle
         text="Sustainable Innovation Summit: The 17 SDGs Challenge"
         center
