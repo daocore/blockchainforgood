@@ -75,24 +75,26 @@
 @media screen and (min-width: 769px) {
   .ceremony {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 6rem 50%);
-    width: 30vw;
+    width: calc(25vw + 6rem);
+    min-width: calc(400px + 6rem);
     background: url(../../assets/oscar/Ceremony\ banner.webp);
   }
   .banner {
-    width: calc(70vw + 12rem);
-    height: calc((70vw + 12rem) / 2);
+    width: clamp(calc(100vw - 400px - 6rem),  75vw, 75vw);
+    height: calc(75vw / 2);
     max-height: 80vh;
     clip-path: polygon(0 0, calc(100% - 6rem) 0, 100% 50%, calc(100% - 6rem) 100%, 0 100%);
-    
   }
   .banner-carousel {
     background: url(../../assets/oscar/overlay-esktop.png);
   }
+}
 
-
-  .banner-button {
-    background-image: url(../../assets/oscar/button-desktop.png)
-  }
+/* 1653 = (400px + 6rem) / 0.3 */
+@media screen and (min-width: 1984px) {
+    .banner {
+      width: 75vw;
+    }
 }
 
 .banner-title {
