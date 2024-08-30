@@ -142,7 +142,7 @@ const bannerList = [
 
 export function Banner() {
   return (
-    <div className="flex flex-col md:flex-row -mt-20 -mb-9 md:mb-0 overflow-hidden w-screen">
+    <div className="flex flex-col md:flex-row -mt-20 -mb-9 md:mb-0 md:mx-auto overflow-hidden w-screen">
       <BannerImpl />
       <Ceremony />
     </div>
@@ -196,7 +196,7 @@ function BannerImpl() {
           styles["banner-carousel"]
         )}
       />
-      <div className="w-screen h-min md:w-content z-10 text-center md:text-start absolute bottom-4 left-0 md:left-[50vw] md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 space-y-2 md:space-y-6">
+      <div className="w-screen md:w-content md:max-w-full h-min z-10 text-center md:text-start absolute bottom-4 left-0 md:left-[50vw] md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 space-y-2 md:space-y-6">
         {isMobile ? (
           <Image
             className="w-auto mx-auto"
@@ -274,7 +274,7 @@ function Ceremony() {
         styles.ceremony
       )}
     >
-      <h3 className="text-xl md:text-2xl font-bold text-center mt- md:mt-0">
+      <h3 className="text-xl md:text-2xl font-bold text-center mt-4 md:mt-0">
         Chains of Change
       </h3>
       <p className="text-xs md:text-base">Stay Tuned</p>
