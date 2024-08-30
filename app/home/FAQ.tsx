@@ -7,28 +7,32 @@ import { FAQItem } from "@/components/FAQ";
 
 const faqs = [
   {
-    question: "Who can apply for grants or partnership?",
+    question: "Who is eligible to apply for grants or partnerships?",
     answer:
-      "We welcome applications from projects, communities, startups, nonprofits, social enterprises, and research institutions that are using blockchain technology for social good. Both early-stage ideas and established projects seeking to scale can apply.",
+      "We welcome applications from a wide range of entities, including projects, communities, startups, nonprofits, social enterprises, and research institutions that are leveraging blockchain technology for social good. Both early-stage ideas and established projects with a focus on scaling are encouraged to apply.",
   },
   {
-    question: "How does the application process work?",
-    answer: `Applicants must submit an online application <a href="${PARTNER_APPLY_LINK}" style="color: #00d5bf">link</a> and will be contacted within 2 weeks for next steps.`,
+    question: "What is the application process?",
+    answer: `Applicants are required to submit an online application via this <a href="${PARTNER_APPLY_LINK}" style="color: #00d5bf">link</a>. Once submitted, our team will review the application and contact you within two weeks to discuss any next steps. Due to high volumes of applications, only successful applications will be informed.`,
   },
   {
-    question: "What kind of support does BGA offer?",
+    question: "What criteria does BGA use to evaluate applications?",
     answer:
-      "Our support ranges from financial grants, technical assistance, and mentorship, to networking opportunities with industry leaders and access to our member ecosystem for collaborations.",
+      "We evaluate applications based on several key criteria, including the project's alignment with our mission, the potential impact of the proposed solution, the feasibility of the project, and the team's ability to execute the plan. We also consider the scalability and sustainability of the initiative, as well as its potential to contribute to global good through blockchain technology.",
   },
   {
-    question: "Are there any geographical restrictions for applicants?",
+    question: "What types of support does BGA provide?",
     answer:
-      "While we aim to support projects with a global impact, certain grants or partnership programs may have geographical focuses depending on the strategic objectives of our partners and the specific needs of the communities we aim to serve.",
+      "We offer a comprehensive range of support, including financial grants, technical assistance, and mentorship. Additionally, we provide access to networking opportunities with industry leaders and connections within our extensive member ecosystem to foster meaningful collaborations.",
+  },
+  {
+    question: "Are there any geographical limitations for applicants?",
+    answer: `While we strive to support initiatives with a global impact, some grants or partnership programs may be geographically focused based on the strategic goals of our partners and the specific needs of the communities we aim to serve. We encourage applicants from all regions to apply, as we review each application on a case-by-case basis.`,
   },
   {
     question: "How can partners collaborate with BGA?",
-    answer: `Potential partners can collaborate through co-funding projects, providing expertise and mentorship, offering technological resources, or by joining as a member to support the Alliance's mission. 
-    <br/>We encourage interested organizations to contact us directly to explore potential collaboration opportunities.`,
+    answer:
+      "Partners can collaborate with us through various avenues, including co-funding projects, offering expertise and mentorship, providing technological resources, or becoming a member to support our mission. We invite interested organizations to reach out directly to discuss potential collaboration opportunities.",
   },
 ];
 

@@ -48,6 +48,9 @@ import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
 import { useRouter } from "next-nprogress-bar";
 import { OSCAR_HACKTHON_EVENT_ID, ROUTER_PATH } from "@/constants";
+import { useIsMobile } from "@/hooks/useIsMobile";
+import TitleDesktopImage from "@/assets/oscar/title-desktop.png";
+import TitleMobileImage from "@/assets/oscar/title-mobile.png";
 
 const bannerList = [
   {
@@ -139,7 +142,7 @@ const bannerList = [
 
 export function Banner() {
   return (
-    <div className="flex flex-col md:flex-row -mt-20 -mb-9 md:mb-0 overflow-hidden w-screen">
+    <div className="flex flex-col md:flex-row -mt-20 -mb-9 md:mb-0 md:mx-auto overflow-hidden w-screen">
       <BannerImpl />
       <Ceremony />
     </div>
@@ -148,6 +151,8 @@ export function Banner() {
 
 function BannerImpl() {
   const router = useRouter();
+
+  const isMobile = useIsMobile();
 
   return (
     <div className={cn("flex-none relative z-10", styles.banner)}>
@@ -191,32 +196,37 @@ function BannerImpl() {
           styles["banner-carousel"]
         )}
       />
-      <div className="w-screen h-min md:w-content z-10 text-center md:text-start absolute bottom-4 left-0 md:left-[50vw] md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 space-y-2 md:space-y-6">
-        <h1
-          className={cn(
-            styles["banner-title"],
-            "text-leading md:text-5xl font-bold"
-          )}
-        >
-          BGA Oscar
-        </h1>
-        <p className="text-description text-sm md:text-2xl font-bold">
+      <div className="w-screen md:w-content md:max-w-full h-min z-10 text-center md:text-start absolute bottom-4 left-0 md:left-[50vw] md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 space-y-2 md:space-y-6">
+        {isMobile ? (
+          <Image
+            className="w-auto mx-auto"
+            src={TitleMobileImage}
+            alt="BGA Oscar"
+          />
+        ) : (
+          <Image className="w-auto" src={TitleDesktopImage} alt="BGA Oscar" />
+        )}
+
+        <p className="text-sm md:text-2xl font-bold px-4 md:px-0 text-[#b6b6be]">
           Sustainable Innovation Summit: <br className="hidden md:block" />
-          The 17 SDG Challenge
+          The 17 SDGs Challenge
         </p>
-        <div
-          className={cn(
-            "inline-flex bg-transparent px-6 py-1 font-bold w-[90vw] md:w-64 text-center cursor-pointer",
-            styles["banner-button"]
-          )}
-          onClick={() => {
-            router.push(
-              `${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}`
-            );
-          }}
-        >
-          <span className="mx-auto">Empower the Future</span>
+        <div className="w-screen md:w-64 px-4 md:px-0">
+          <div
+            className={cn(
+              "inline-flex justify-center items-center w-full font-bold cursor-pointer py-1 md:py-2 relative overflow-hidden",
+              styles["banner-button"]
+            )}
+            onClick={() => {
+              router.push(
+                `${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}`
+              );
+            }}
+          >
+            Empower the Future
+          </div>
         </div>
+
         <Carousel
           opts={{
             loop: true,
@@ -237,7 +247,7 @@ function BannerImpl() {
           <CarouselContent>
             {bannerList.map((banner) => (
               <CarouselItem key={banner.title} className="w-full h-10">
-                <p className="text-xs md:text-sm text-description font-semibold flex justify-center md:justify-start items-center gap-2">
+                <p className="text-xs md:text-sm text-[#b6b6be] font-semibold flex justify-center md:justify-start items-center gap-2">
                   <Image
                     className="w-6 h-6 md:w-10 md:h-10"
                     src={banner.icon}
@@ -264,8 +274,8 @@ function Ceremony() {
         styles.ceremony
       )}
     >
-      <h3 className="text-xl md:text-2xl font-bold text-center mt- md:mt-0">
-        Ceremony
+      <h3 className="text-xl md:text-2xl font-bold text-center mt-4 md:mt-0">
+        Chains of Change
       </h3>
       <p className="text-xs md:text-base">Stay Tuned</p>
     </div>

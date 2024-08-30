@@ -1,6 +1,12 @@
 "use client";
 
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import {
+  CSSProperties,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import * as THREE from "three";
 import langGeoJson from "./custom.geo.json";
 import { type GlobeMethods } from "react-globe.gl";
@@ -12,6 +18,7 @@ import dynamic from "next/dynamic";
 import {
   HoverCard,
   HoverCardContent,
+  HoverCardPortal,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { createRoot } from "react-dom/client";
@@ -351,9 +358,11 @@ function Marker({
             </svg>
           </div>
         </HoverCardTrigger>
-        <HoverCardContent className="min-w-52 z-[999] relative bg-white/75 shadow-lg rounded-none p-0 !pointer-events-auto !select-auto">
-          <MarkerLayout item={item} data={data} />
-        </HoverCardContent>
+        <HoverCardPortal>
+          <HoverCardContent className="min-w-52 z-[999] relative bg-white/75 shadow-lg rounded-none p-0 !pointer-events-auto !select-auto">
+            <MarkerLayout item={item} data={data} />
+          </HoverCardContent>
+        </HoverCardPortal>
       </HoverCard>
     </div>
   );
@@ -396,12 +405,7 @@ function MarkerItem({ item }: MarkerProps) {
           {EVENT_TYPE_MAP[item.type].name}
         </h3>
         <div className="flex gap-2">
-          <img
-            className="w-9 h-9"
-            src={`${IMAGE_URL}${imgSrc}`}
-            alt={item.name}
-            style={{ ...imgStyle }}
-          />
+          <ImageCard src={imgSrc} alt={item.name} style={imgStyle} />
           <div>
             <p className="text-xs">{item.name}</p>
             <p className="text-xs cursor-pointer" onClick={openLink}>
@@ -430,14 +434,17 @@ function MakrerList({ item, data }: MarkerDataProps) {
 
   return (
     <>
-      <p className="text-xs font-bold px-2 my-4">
+      <p className="text-xs font-bold px-2 py-4 border-b border-description border-dashed">
         {COUNTRIES[item.location.country] ?? "Unknown"}
       </p>
-      <div className="max-h-52 overflow-y-auto">
-        {Object.entries(groupedData).map(([type, list]) => (
+      <div className="max-h-96 overflow-y-auto">
+        {Object.entries(groupedData).map(([type, list], index) => (
           <div
             key={type}
-            className="border-t border-description border-dashed mb-4"
+            className={cn(
+              index !== 0 && "border-t border-description border-dashed",
+              "mb-4"
+            )}
           >
             <h3 className="text-sm font-bold text-main flex items-center px-2 my-4">
               <Image
@@ -459,12 +466,7 @@ function MakrerList({ item, data }: MarkerDataProps) {
                 }
                 return (
                   <div className="flex items-center gap-2">
-                    <img
-                      className="w-9 h-9"
-                      src={`${IMAGE_URL}${imgSrc}`}
-                      alt={item.name}
-                      style={{ ...imgStyle }}
-                    />
+                    <ImageCard src={imgSrc} alt={item.name} style={imgStyle} />
                     <p className="text-xs">{item.name}</p>
                   </div>
                 );
@@ -482,4 +484,31 @@ function MarkerLayout({ item, data }: MarkerDataProps) {
     return <MakrerList item={item} data={data} />;
   }
   return <MarkerItem item={item} />;
+}
+
+function ImageCard({
+  alt,
+  src,
+  style,
+}: {
+  alt: string;
+  src: string;
+  style?: CSSProperties;
+}) {
+  return (
+    <div
+      className="overflow-hidden"
+      style={{ backgroundColor: style?.backgroundColor || "#ffffff" }}
+    >
+      {/* 用了Nextjs自带的Image后，打开图片就会出问题。可能是配置不正确，暂时先用img元素代替 */}
+      <img
+        src={`${IMAGE_URL}${src}`}
+        alt={alt}
+        className="w-8 h-8 transition-transform duration-300 object-contain"
+        width={185}
+        height={185}
+        style={style}
+      />
+    </div>
+  );
 }

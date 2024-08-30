@@ -30,7 +30,7 @@ export const Contact = () => {
           </div>
           <div className="self-stretch justify-center items-center gap-2 inline-flex">
             <p className="grow shrink basis-0 text-[#576172] text-base font-normal font-['Inter'] leading-normal">
-              Join us to drive meaningful change together
+              Join us to drive meaningful change together.
             </p>
           </div>
         </div>
@@ -88,7 +88,7 @@ export const Contact = () => {
         <div className="self-stretch h-6 flex-col justify-start items-start flex">
           <div className="self-stretch justify-center items-center gap-2 inline-flex">
             <div className="grow shrink basis-0 text-black text-base font-bold font-['Inter'] leading-normal">
-              Send Message
+              Send Us a Message
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ export const Contact = () => {
             <div className="self-stretch h-10 bg-white shadow-inner border border-neutral-400 flex-col justify-center items-start gap-2.5 flex">
               <input
                 maxLength={100}
-                className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black focus:outline-none"
+                className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 bg-white text-black focus:outline-none"
                 placeholder="Please input"
                 value={subject}
                 onChange={(e) => {
@@ -131,7 +131,7 @@ export const Contact = () => {
               <textarea
                 maxLength={1000}
                 cols={4}
-                className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 text-black focus:outline-none"
+                className="text-xs font-normal font-['Inter'] leading-[18px] w-full h-full p-2 bg-white text-black focus:outline-none"
                 placeholder="Please input"
                 value={bodytext}
                 onChange={(e) => {
