@@ -99,9 +99,9 @@ const VideoItem = ({
     link?: string;
     name: string;
   };
-  index: number,
+  index: number;
   active: number | null;
-  onItemChange: (isOpen: boolean) => void
+  onItemChange: (isOpen: boolean) => void;
 } & HTMLAttributes<HTMLImageElement>) => {
   const { logo, video, link, name } = project;
   const [isOpen, setIsOpen] = useState(false);
@@ -112,7 +112,7 @@ const VideoItem = ({
     if (index === active) {
       setIsOpen(true);
     }
-  }, [index, active])
+  }, [index, active]);
 
   const click = useCallback(() => {
     if (video) {
@@ -121,15 +121,18 @@ const VideoItem = ({
     } else {
       window.open(link, "_blank");
     }
-  }, [])
+  }, []);
 
   return (
     <>
-      <div className="relative cursor-pointer" style={{ width: 240, height: 135 }} data-click2={click} onClick={click}>
+      <div
+        className="relative cursor-pointer"
+        style={{ width: 240, height: 135 }}
+        data-click2={click}
+        onClick={click}
+      >
         <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4 text-white">
-          <div className="font-bold font-['Inter']">
-            {video?.name}
-          </div>
+          <div className="font-bold font-['Inter']">{video?.name}</div>
           <div className="text-xs">{video?.from}</div>
         </div>
         <Image
@@ -176,8 +179,7 @@ const VideoItem = ({
             height: mobile ? `${(88 / 16) * 9}vw` : (w / 16) * 9,
             margin: "-10px auto 20px auto",
           }}
-        >
-        </CustomVideoPlayer>
+        ></CustomVideoPlayer>
       </DialogsWithFooterAndTitle>
     </>
   );
@@ -189,26 +191,23 @@ export const Videos = () => {
 
   return (
     <div className="h-[135px] flex flex-col antialiased items-center justify-center relative overflow-hidden">
-      <InfiniteMovingCards
-        direction="left"
-        speed="slow"
-        isPause={isOpen}
-      >
+      <InfiniteMovingCards direction="left" speed="slow" isPause={isOpen}>
         {videos.map((video, index) => {
           const { poster, name } = video;
-          return (<VideoItem
-            key={index}
-            index={index}
-            active={active}
-            project={{ video, logo: poster, name }}
-            onItemChange={(isOpen) => {
-              setSetIsOpen(isOpen);
-              setActive(index);
-            }} />)
+          return (
+            <VideoItem
+              key={index}
+              index={index}
+              active={active}
+              project={{ video, logo: poster, name }}
+              onItemChange={(isOpen) => {
+                setSetIsOpen(isOpen);
+                setActive(index);
+              }}
+            />
+          );
         })}
       </InfiniteMovingCards>
     </div>
   );
-}
-
-
+};
