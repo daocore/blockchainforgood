@@ -49,7 +49,7 @@ const data: IItem[] = [
   {
     title: "Get notified",
     time: "7 - 20 Oct 2024",
-    desc: `The top 10 projects will be selected as finalists, and invited to present on stage at TOKEN2049 Singapore on 18-19 September. Applications will close a few weeks before the event.`,
+    desc: `The top <b>10 projects</b> will be selected as finalists, and invited to present on stage at Oscar Bangkok on 11 Nov.`,
   },
   {
     title: "Demo Day",
