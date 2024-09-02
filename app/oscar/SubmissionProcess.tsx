@@ -18,11 +18,11 @@ const ProcessItem = ({ item, index }: { item: IItem; index: number }) => {
           {item?.title}
         </div>
       </h3>
-      <div className="text-typography font-normal font-['Inter'] text-xs md:text-sm group-hover:text-oscarActive">
+      <div className="text-[#b6b6be] font-normal font-['Inter'] text-xs md:text-sm group-hover:text-oscarActive">
         {item?.time}
       </div>
       <p
-        className="text-typography font-normal font-['Inter']  text-sm md:text-base"
+        className="text-[#b6b6be] font-normal font-['Inter']  text-sm md:text-base"
         dangerouslySetInnerHTML={{ __html: item.desc }}
       />
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { BGA_SPECIAL_EVENT, IMAGE_URL } from "@/constants";
+import { IMAGE_URL } from "@/constants";
 import { useAPIGetList } from "../api";
 import { EventsEntity } from "../types";
 import Image from "next/image";
@@ -11,16 +11,12 @@ import { useMemo } from "react";
 
 export function List() {
   const {
-    data: { list } = {
+    data: { list: events } = {
       total: 0,
       list: [],
     },
     isLoading,
   } = useAPIGetList();
-
-  const events = useMemo(() => {
-    return list?.filter((item) => !BGA_SPECIAL_EVENT?.includes(item?.id));
-  }, [list]);
 
   if (isLoading) {
     return <SkeletonList />;
