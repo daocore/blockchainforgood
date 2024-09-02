@@ -267,6 +267,10 @@ function BannerImpl() {
 }
 
 function Ceremony() {
+  const isMobile = useIsMobile();
+  const videoSrc = isMobile
+    ? "/BGA Ceremony Banner - Mobile.webm"
+    : "/BGA Ceremony Banner - Desktop.webm";
   return (
     <div
       className={cn(
@@ -274,6 +278,17 @@ function Ceremony() {
         styles.ceremony
       )}
     >
+      <div className="absolute inset-0 z-[-1]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src={videoSrc} type="video/webm" />
+        </video>
+      </div>
       <h3 className="text-xl md:text-2xl font-bold text-center mt-4 md:mt-0">
         Chains of Change
       </h3>
