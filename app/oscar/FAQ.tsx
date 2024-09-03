@@ -21,15 +21,21 @@ const faqs = [
   },
   {
     question: "What is the application process?",
-    answer: `If you are interested in HACKATHON, please submit your application <a href="${OSCAR_HACKTHON_APPLY_LINK}" style="color: #00d5bf">here</a>. 
-    <br/>Once you have submitted your application, the BlockCain For Good  Review committee will review your application, along with others.
-    <br/>BlockChain For Good will announce next steps in the process to all applicants via email & TG.`,
+    answer: `If you are interested in <b>Sustainable Innovation Summit:The 17 SDGs Challenge</b>, please submit your application <a href="${OSCAR_HACKTHON_APPLY_LINK}" style="color: #00d5bf">here</a>.
+Once you have submitted your application, the BlockChain For Good Review committee will review your application, along with others.<br />
+BGA will announce next steps in the process to all applicants via email & TG.`,
   },
   {
     question:
       "There is a video required for the application. What is BlockChain For Good looking for?",
     answer: `Show us your product working in real-time! This is the best way to convey the value you are looking to showcase on the Hackathon stage. Feel free to use your phone or screen grabs to record the video – production quality isn't important, the key is to see your working product in action. 
       <br/>BGA is seeking projects that leverage blockchain technology to solve real-world problems, aligning with the United Nations' 17 Sustainable Development Goals.`,
+  },
+  {
+    question:
+      "Can I modify or update my submission after it has been submitted?",
+    answer:
+      "Yes, you can make changes or updates to your submission. However, please avoid submitting multiple times. Once your project has been successfully submitted, you will receive a confirmation email with a link for updates. The deadline for updates is September 30 at 11:00 PM UTC+8.",
   },
 ];
 
