@@ -49,7 +49,10 @@ function HackathonItem({
   const { location, assets } = item;
 
   const locationObj = location ? JSON.parse(location) : {};
-  const assetsList: string[] = (assets ? JSON.parse(assets) : [])?.slice(0, 2);
+  const rawAssetsList = [...(assets ? JSON.parse(assets) : []), item.cover];
+  const assetsList: string[] = rawAssetsList.slice(1, 3);
+
+  const firstAssets = rawAssetsList[0];
 
   const isSingleImage = assetsList.length === 0;
 
@@ -74,7 +77,7 @@ function HackathonItem({
         )}
       >
         <img
-          src={`${IMAGE_URL}${item.cover}`}
+          src={`${IMAGE_URL}${firstAssets}`}
           alt={item.name}
           className={cn(
             "row-span-2 col-span-2 h-full aspect-video object-cover",
