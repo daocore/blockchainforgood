@@ -60,12 +60,7 @@ export function List({ type, ...props }: IProps) {
   const list = data ? [].concat(...data) : [];
   return (
     <>
-      <div
-        className={cn(
-          "grid grid-cols-auto-fill xs:grid-cols-auto-fill-xs md:grid-cols-auto-fill-md gap-6",
-          styles.container
-        )}
-      >
+      <div className={cn("grid gap-6", styles.container)}>
         {isLoading ? <SkeletonList /> : <ListImpl type={type} list={list} />}
       </div>
 
@@ -115,7 +110,7 @@ interface IItemProps {
   item: EventsApproveEntity;
 }
 
-const itemClassNames = "w-40 xs:w-[150px] md:w-[185px] cursor-pointer";
+const itemClassNames = "cursor-pointer";
 
 function UserItem({ item }: IItemProps) {
   const {
@@ -171,40 +166,52 @@ function PartnersItem({ item }: IItemProps) {
   const link = useGetLink(item?.organization?.links);
 
   return (
-    <div className={itemClassNames} onClick={() => {
-      if (link) {
-        window.open(link?.includes("http") ? link : `https://${link}`, "_blank");
-      }
-    }}>
-      <ImageCard src={imageSrc} alt={name} style={imageStyle} />
+    <div
+      className={cn(itemClassNames, "flex gap-2")}
+      onClick={() => {
+        if (link) {
+          window.open(
+            link?.includes("http") ? link : `https://${link}`,
+            "_blank"
+          );
+        }
+      }}
+    >
+      <ImageCard
+        className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] flex-none hover:shadow-lg"
+        src={imageSrc}
+        alt={name}
+        style={imageStyle}
+      />
+      <div className="w-[100px] h-[100px] md:w-[125px] md:h-[150px] flex-none flex flex-col justify-between items-start">
+        <Title name={name} />
 
-      <Title name={name} />
-
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            {/* Used to achieve overall centre and left text */}
-            <div className="flex justify-center overflow-hidden">
-              <div className="inline-flex gap-2 truncate text-xs text-white">
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              {/* Used to achieve overall centre and left text */}
+              <div className="flex justify-center overflow-hidden max-h-14">
+                <div className="inline-flex gap-2 flex-wrap text-xs text-white">
+                  {tags.map((tag) => (
+                    <div key={tag.id} className="bg-[#B6B6BF] px-1 py-0.5">
+                      {tag.name}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <div className="flex justify-center flex-wrap gap-2 text-white text-xs">
                 {tags.map((tag) => (
-                  <div key={tag.id} className="bg-[#B6B6BF] px-1 py-0.5">
+                  <div key={tag.id} className="bg-[#B6B6BF]  px-1 py-0.5">
                     {tag.name}
                   </div>
                 ))}
               </div>
-            </div>
-          </TooltipTrigger>
-          <TooltipContent>
-            <div className="flex justify-center flex-wrap gap-2 text-white text-xs">
-              {tags.map((tag) => (
-                <div key={tag.id} className="bg-[#B6B6BF]  px-1 py-0.5">
-                  {tag.name}
-                </div>
-              ))}
-            </div>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
     </div>
   );
 }
@@ -246,9 +253,7 @@ function Title({ name }: { name: string }) {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <h4 className="font-bold text-base text-center mt-2 truncate">
-            {name}
-          </h4>
+          <h4 className="font-bold text-base line-clamp-2">{name}</h4>
         </TooltipTrigger>
         <TooltipContent>{name}</TooltipContent>
       </Tooltip>
@@ -260,20 +265,25 @@ function ImageCard({
   alt,
   src,
   style,
+  className,
 }: {
   alt: string;
   src: string;
   style?: CSSProperties;
+  className?: string;
 }) {
   return (
-    <div className="overflow-hidden" style={{ backgroundColor: style?.backgroundColor || "#ffffff" }}>
+    <div
+      className={cn("overflow-hidden", className)}
+      style={{ backgroundColor: style?.backgroundColor || "#ffffff" }}
+    >
       {/* 用了Nextjs自带的Image后，打开图片就会出问题。可能是配置不正确，暂时先用img元素代替 */}
       <img
         src={`${IMAGE_URL}${src}`}
         alt={alt}
-        className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px] transition-transform duration-300 hover:scale-110 object-contain"
-        width={185}
-        height={185}
+        className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] transition-transform duration-300 hover:scale-110 object-contain"
+        width={150}
+        height={150}
         style={style}
       />
     </div>
