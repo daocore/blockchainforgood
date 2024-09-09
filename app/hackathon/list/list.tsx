@@ -80,7 +80,7 @@ function HackathonItem({
           src={`${IMAGE_URL}${firstAssets}`}
           alt={item.name}
           className={cn(
-            "row-span-2 col-span-2 h-full aspect-video object-cover",
+            "row-span-2 col-span-2 w-full aspect-video object-cover",
             isSingleImage && "col-span-3",
             isHalfImage && "col-span-1"
           )}
@@ -91,7 +91,7 @@ function HackathonItem({
             src={`${IMAGE_URL}${asset}`}
             alt={asset}
             className={cn(
-              "h-full aspect-video object-cover col-span-1",
+              "w-full aspect-video object-cover col-span-1",
               isHalfImage && "row-span-2 col-span-1"
             )}
           />
