@@ -21,6 +21,7 @@ const config = {
     extend: {
       gridTemplateColumns: {
         "2/1": "2fr 1fr",
+        '14': 'repeat(14, minmax(0, 1fr))',
         "auto-fill": "repeat(auto-fill, minmax(130px, 1fr))",
         "auto-fill-xs": "repeat(auto-fill, minmax(150px, 1fr))",
         "auto-fill-md": "repeat(auto-fill, minmax(185px, 1fr))",
