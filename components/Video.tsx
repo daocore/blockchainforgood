@@ -11,7 +11,7 @@ import {
   useCallback,
 } from "react";
 import playicon from "../assets/play.svg";
-import NextImage, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import { useIsMobile } from "@/hooks";
 import { Loading } from "./Loading";
 
@@ -251,8 +251,7 @@ const Controls = ({
 };
 
 export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
-  const { src, width, from, name, format, children, ...divprops } =
-    props;
+  const { src, width, from, name, format, children, ...divprops } = props;
 
   const mobile = useIsMobile();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -265,14 +264,15 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
     if (!video) return;
     video.play();
     setPlaying(true);
-  }
+  };
 
   const pause = () => {
+    console.log("pause");
     const video = videoRef.current;
     if (!video) return;
     video.pause();
     setPlaying(false);
-  }
+  };
 
   useEffect(() => {
     const dom = videoRef.current;
@@ -285,13 +285,14 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
   return (
     <div
       {...divprops}
-      className={`relative ${width ? "md:bg-black" : ""} ${props?.className
-        }`}
+      className={`relative ${width ? "md:bg-black" : ""} ${props?.className}`}
       ref={divRef}
     >
       <video
         ref={videoRef}
-        className={`m-auto ${mobile ? "rounded-md" : "rounded-xl"} aspect-video`}
+        className={`m-auto ${
+          mobile ? "rounded-md" : "rounded-xl"
+        } aspect-video`}
         preload="auto"
         // controls
         onEnded={pause}
@@ -302,14 +303,25 @@ export const CustomVideoPlayer: React.FC<TVideoPlayer> = memo((props) => {
         Your browser does not support the video tag.
       </video>
       {children?.({ isPlaying, play, pause })}
-      {!isPlaying && videoLoaded && <div className="absolute top-0 z-30 h-full w-full flex items-center justify-center">
-        <div className="h-[60px] w-[60px] cursor-pointer bg-black opacity-50 pl-1 rounded-full flex justify-center items-center" onClick={play}>
-          <img style={{ width: "100%", height: "100%" }} src={playicon?.src} alt="" />
+      {!isPlaying && videoLoaded && (
+        <div className="absolute top-0 z-30 h-full w-full flex items-center justify-center">
+          <div
+            className="h-[60px] w-[60px] cursor-pointer bg-black opacity-50 pl-1 rounded-full flex justify-center items-center"
+            onClick={play}
+          >
+            <img
+              style={{ width: "100%", height: "100%" }}
+              src={playicon?.src}
+              alt=""
+            />
+          </div>
         </div>
-      </div>}
-      {!videoLoaded && <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
-        <Loading size={50} />
-      </div>}
+      )}
+      {!videoLoaded && (
+        <div className="absolute top-0 z-10 h-full w-full flex items-center justify-center">
+          <Loading size={50} />
+        </div>
+      )}
     </div>
   );
 });
