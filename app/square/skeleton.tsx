@@ -15,10 +15,11 @@ export function SkeletonList() {
 
 function SkeletonItem() {
   return (
-    <div>
-      <Skeleton className="w-40 h-40 xs:w-[150px] xs:h-[150px] md:w-[185px] md:h-[185px]" />
-      <div className="mt-2">
-        <Skeleton className="h-4 w-1/2 mx-auto" />
+    <div className="flex gap-2">
+      <Skeleton className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] flex-none " />
+      <div className="w-[100px] h-[100px] md:w-[125px] md:h-[150px] flex-none flex flex-col justify-between">
+        <Skeleton className="h-6" />
+        <Skeleton className="h-6" />
       </div>
     </div>
   );
