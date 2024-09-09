@@ -1,8 +1,8 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import BGAIconGreen from "@/assets/BGA Icon Green.png";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import CountUp from "react-countup";
 import { useAPIGetList } from "./api";
 import { IMAGE_URL } from "@/constants";
@@ -17,23 +17,21 @@ import { cn } from "@/lib";
 
 function VideoCard() {
   return (
-    <Card className="row-span-2 md:row-span-1 hover:shadow-lg rounded-none">
-      <CardContent className="p-0 h-full">
-        <VideoItem
-          className="w-full h-full"
-          project={{
-            video: {
-              src: "/video/hackathon.mp4",
-              poster: HackathonVideo,
-              width: 1920,
-              name: "BGA Hackathon",
-              format: "video/mp4",
-            },
+    <div className="row-span-3 md:row-span-1 min-h-40 hover:shadow-lg rounded-none">
+      <VideoItem
+        className="w-full h-full"
+        project={{
+          video: {
+            src: "/video/hackathon.mp4",
+            poster: HackathonVideo,
+            width: 1920,
             name: "BGA Hackathon",
-          }}
-        />
-      </CardContent>
-    </Card>
+            format: "video/mp4",
+          },
+          name: "BGA Hackathon",
+        }}
+      />
+    </div>
   );
 }
 
@@ -70,15 +68,11 @@ const VideoItem = ({
         onClick={click}
         {...props}
       >
-        {/* <div className="absolute top-0 left-0 right-0 z-20 pt-3 px-4 text-white">
-          <div className="font-bold font-['Inter']">{video?.name}</div>
-          <div className="text-xs">{video?.from}</div>
-        </div> */}
         <Image
           {...props}
           src={poster}
           alt=""
-          className={`absolute cursor-pointer w-full h-full`}
+          className={`absolute cursor-pointer w-full h-full object-cover`}
         />
         <div
           className={`absolute w-full h-full z-10 top-0 bg-video flex justify-center items-center`}
@@ -146,7 +140,7 @@ function KeyData() {
             background: isMobile ? "white" : BG_LINEAR_GRADIENT,
           }}
           key={item.label}
-          className="flex flex-col justify-end hover:shadow-lg rounded-none"
+          className="row-span-2 md:row-span-1 flex flex-col justify-end hover:shadow-lg rounded-none"
         >
           <CardContent className="pt-6">
             <CardTitle className="text-5xl font-black">
@@ -197,7 +191,7 @@ function Nations() {
       style={{
         background: isMobile ? "white" : BG_LINEAR_GRADIENT,
       }}
-      className="md:row-span-2 flex flex-col justify-end hover:shadow-lg rounded-none"
+      className="row-span-2 flex flex-col justify-end hover:shadow-lg rounded-none"
     >
       <CardContent className="pt-6">
         <CardTitle className="text-5xl font-black">
@@ -219,11 +213,11 @@ function LatestHackathon() {
     isLoading,
   } = useAPIGetList();
   if (isLoading || list.length === 0) {
-    return <Skeleton className="xs:col-span-2 row-span-2" />;
+    return <Skeleton className="xs:col-span-2 row-span-3 md:row-span-2" />;
   }
   const latestHackathon = list[0];
   return (
-    <Card className="xs:col-span-2 row-span-2 rounded-none hover:shadow-lg">
+    <Card className="xs:col-span-2 row-span-3 md:row-span-2 rounded-none hover:shadow-lg">
       <img
         src={`${IMAGE_URL}${latestHackathon.cover}`}
         alt={latestHackathon.name}
@@ -236,7 +230,7 @@ function LatestHackathon() {
 export function Focus() {
   return (
     <div className="w-full md:w-content mx-auto space-y-6 pb-20">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 grid-rows-8 md:grid-rows-3 mx-4 md:mx-0">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 grid-rows-14 md:grid-rows-3 mx-4 md:mx-0">
         <VideoCard />
         <KeyData />
         <Collaborate />
