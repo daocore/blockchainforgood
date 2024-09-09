@@ -183,17 +183,20 @@ function PartnersItem({ item }: IItemProps) {
         alt={name}
         style={imageStyle}
       />
-      <div className="w-[100px] h-[100px] md:w-[125px] md:h-[150px] flex-none flex flex-col justify-between items-start">
+      <div className="w-[100px] h-[100px] md:w-[125px] md:h-[150px] flex-none flex flex-col justify-between items-start overflow-hidden">
         <Title name={name} />
 
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
               {/* Used to achieve overall centre and left text */}
-              <div className="flex justify-center overflow-hidden max-h-14">
-                <div className="inline-flex gap-2 flex-wrap text-xs text-white">
+              <div className="flex max-h-14 w-full">
+                <div className="inline-flex gap-2 flex-wrap text-xs text-white w-full">
                   {tags.map((tag) => (
-                    <div key={tag.id} className="bg-[#B6B6BF] px-1 py-0.5">
+                    <div
+                      key={tag.id}
+                      className="bg-[#B6B6BF] max-w-full px-1 py-0.5 truncate overflow-hidden"
+                    >
                       {tag.name}
                     </div>
                   ))}

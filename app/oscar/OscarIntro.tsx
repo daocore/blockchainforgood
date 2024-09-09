@@ -16,7 +16,7 @@ export const OscarIntro = () => {
       <SubmissionProcess />
       <Judge />
       <Evaluation />
-      {/* <Partners /> */}
+      <Partners />
       <OscarFAQ />
     </section>
   );
