@@ -19,7 +19,7 @@ function VideoCard() {
   return (
     <div className="row-span-3 md:row-span-1 min-h-40 hover:shadow-lg rounded-none">
       <VideoItem
-        className="w-full h-full"
+        className="w-full h-full overflow-hidden"
         project={{
           video: {
             src: "/video/hackathon.mp4",
@@ -72,7 +72,7 @@ const VideoItem = ({
           {...props}
           src={poster}
           alt=""
-          className={`absolute cursor-pointer w-full h-full object-cover`}
+          className={`absolute cursor-pointer w-full object-cover`}
         />
         <div
           className={`absolute w-full h-full z-10 top-0 bg-video flex justify-center items-center`}
@@ -221,7 +221,7 @@ function LatestHackathon() {
       <img
         src={`${IMAGE_URL}${latestHackathon.cover}`}
         alt={latestHackathon.name}
-        className="h-full aspect-video object-cover"
+        className="w-full aspect-video object-cover"
       />
     </Card>
   );
