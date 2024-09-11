@@ -124,6 +124,7 @@ export const Header = () => {
                   return (
                     <NavigationMenuItem
                       value={nav.name}
+                      key={nav.name}
                       className="py-2 px-2 md:px-6"
                     >
                       <NavigationMenuTrigger
@@ -168,7 +169,7 @@ export const Header = () => {
                 }
 
                 return (
-                  <NavigationMenuItem>
+                  <NavigationMenuItem key={nav.name}>
                     <NavigationMenuLink
                       key={nav.name}
                       onSelect={() => router.push(nav.route)}
