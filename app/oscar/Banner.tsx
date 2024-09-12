@@ -269,8 +269,8 @@ function BannerImpl() {
 function Ceremony() {
   const isMobile = useIsMobile();
   const videoSrc = isMobile
-    ? "/BGA Ceremony Banner - Mobile.webm"
-    : "/BGA Ceremony Banner - Desktop.webm";
+    ? "https://a.moledao.io/assets/other/BGACeremonyBannerMobile.webm"
+    : "https://a.moledao.io/assets/other/BGACeremonyBannerDesktop.webm";
   return (
     <div
       className={cn(

@@ -22,7 +22,7 @@ function VideoCard() {
         className="w-full h-full overflow-hidden"
         project={{
           video: {
-            src: "/video/hackathon.mp4",
+            src: "https://a.moledao.io/assets/other/bgahackathon.mp4",
             poster: HackathonVideo,
             width: 1920,
             name: "BGA Hackathon",

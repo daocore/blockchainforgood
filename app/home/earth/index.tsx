@@ -178,8 +178,8 @@ export function Earth({ children }: { children: React.ReactNode }) {
           ref={lefthandRef}
           className={cn("w-2/5 absolute left-[30%] top-[20%] opacity-0")}
         >
-          <Image
-            src="/left-hand.webp"
+          <img
+            src="https://a.moledao.io/assets/other/left-hand.webp"
             alt="left-hand"
             width={4000}
             height={3000}
@@ -189,8 +189,8 @@ export function Earth({ children }: { children: React.ReactNode }) {
           ref={righthandRef}
           className={cn("w-2/5 absolute right-[30%] top-[20%] opacity-0")}
         >
-          <Image
-            src="/right-hand.webp"
+          <img
+            src="https://a.moledao.io/assets/other/right-hand.webp"
             alt="right-hand"
             width={4000}
             height={3000}
