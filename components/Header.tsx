@@ -187,7 +187,7 @@ export const Header = () => {
                       <NavigationMenuLink
                         key={nav.name}
                         onSelect={() => router.push(nav.route)}
-
+                      >
                         <div
                           key={nav.name}
                           className={cn(
