@@ -17,4 +17,5 @@ export const ROUTER_PATH = {
   },
   SQUARE: '/square',
   OSCAR: '/oscar',
+  PROJECT: '/project/',
 }
