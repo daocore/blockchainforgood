@@ -35,8 +35,17 @@ const menuNavs = [
     ],
   },
   {
-    name: "News",
-    route: ROUTER_PATH.NEWS.ROOT,
+    name: "Updates",
+    children: [
+      {
+        name: "News Column",
+        route: ROUTER_PATH.NEWS.ROOT,
+      },
+      {
+        name: "BGA Calendar",
+        route: ROUTER_PATH.CALENDAR,
+      },
+    ],
   },
   {
     name: "Square",
