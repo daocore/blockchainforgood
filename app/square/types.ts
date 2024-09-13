@@ -48,6 +48,10 @@ export type OrganizationEntity = {
   updateDate: string; // 更新时间
   type: 0  | 1 | 2;
   links?: SocialLinksEntity[]; // undefined
+  email: {
+    email: string
+  }
+  location: string
 }
 export type UserEntity = {
   id: string; // id
