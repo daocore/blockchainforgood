@@ -38,19 +38,22 @@ const LINKS_ICON = {
 export function Links({ data }: { data: SocialLinksEntity[] }) {
   return (
     <>
-      {data.map((link) => (
-        <Tooltip key={link.id}>
-          <TooltipTrigger asChild>
-            <div className="space-x-2">
-              <span>{LINKS_ICON[link.type as 1]}</span>
-              <Link target="__blank" href={link.link}>
-                {link.link}
-              </Link>
-            </div>
-          </TooltipTrigger>
-          <TooltipContent>Created on</TooltipContent>
-        </Tooltip>
-      ))}
+      {data.map((link) => {
+        if (!link?.link) return null
+        return (
+          <Tooltip key={link.id}>
+            <TooltipTrigger asChild>
+              <div className="space-x-2">
+                <span>{LINKS_ICON[link.type as 1]}</span>
+                <Link target="__blank" className="hover:text-bgaActive" href={link.link}>
+                  {link.link}
+                </Link>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>Created on</TooltipContent>
+          </Tooltip>
+        )
+      })}
     </>
   );
 }
