@@ -8,6 +8,7 @@ export const ROUTER_PATH = {
     GUEST: '/form/guest/',
   },
   INCUBATION: '/incubation',
+  CALENDAR: '/calendar',
   HACKATHON: '/hackathon',
   NEWS: {
     ROOT: '/news',

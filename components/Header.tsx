@@ -35,8 +35,17 @@ const menuNavs = [
     ],
   },
   {
-    name: "News",
-    route: ROUTER_PATH.NEWS.ROOT,
+    name: "Pulse",
+    children: [
+      {
+        name: "News Column",
+        route: ROUTER_PATH.NEWS.ROOT,
+      },
+      {
+        name: "BGA Calendar",
+        route: ROUTER_PATH.CALENDAR,
+      },
+    ],
   },
   {
     name: "Square",
@@ -178,7 +187,7 @@ export const Header = () => {
                       <NavigationMenuLink
                         key={nav.name}
                         onSelect={() => router.push(nav.route)}
-                      >
+
                         <div
                           key={nav.name}
                           className={cn(
