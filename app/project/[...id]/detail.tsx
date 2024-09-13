@@ -2,20 +2,22 @@ import { COUNTRIES } from "@/app/home/earth/const";
 import { IMAGE_URL } from "@/constants/url";
 import Image from "next/image";
 import dayjs from "dayjs";
-import { CalendarPlus, Mail, MapPin } from "lucide-react";
+import { CalendarPlus, MapPin } from "lucide-react";
 import { Tooltip, TooltipProvider } from "@/components/ui/tooltip";
 import { TooltipContent, TooltipTrigger } from "@radix-ui/react-tooltip";
 import { EventsApproveEntity } from "./types";
-import { SocialLinksEnumValue, useGetLink } from "@/hooks/useLink";
 import { Links } from "./links";
-import { Span } from "next/dist/trace";
+import Link from "next/link";
+import { OrganizationEntity } from "@/app/square/types";
 
 export function Detail({ item }: { item: EventsApproveEntity }) {
-  const { organization } = item;
+  const { organization = {} as OrganizationEntity } = item;
 
   const links = organization.links ?? [];
 
-  const location = JSON.parse(organization.location);
+  const location = organization.location
+    ? JSON.parse(organization.location)
+    : {};
 
   return (
     <div className="w-full md:w-content mx-auto pb-16">
@@ -35,18 +37,6 @@ export function Detail({ item }: { item: EventsApproveEntity }) {
         </h1>
         <div className="border-b-2 py-4 border-gray-300 grid grid-cols-2 gap-4">
           <TooltipProvider>
-            {/* <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="space-x-2">
-                  <span>
-                    <Mail className="inline-block mr-1 w-5 h-5" />
-                  </span>
-                  <span>{organization.email.email}</span>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>Email</TooltipContent>
-            </Tooltip> */}
-
             <Tooltip>
               <TooltipTrigger asChild>
                 <div className="space-x-2">
@@ -77,6 +67,7 @@ export function Detail({ item }: { item: EventsApproveEntity }) {
             <Links data={links} />
           </TooltipProvider>
         </div>
+
         <div className="space-y-4 mt-4">
           <Description title="Introduction">{organization.intro}</Description>
           <Description title="Label">
@@ -120,6 +111,10 @@ function DiyformDescription({
 }) {
   return data.map((item) => {
     let children: React.ReactNode = item.value;
+    if (item.type === "file") {
+      const href = IMAGE_URL + item.value;
+      children = <Link href={href}>{href}</Link>;
+    }
     return (
       <Description key={item.label} title={item.label}>
         {children}
