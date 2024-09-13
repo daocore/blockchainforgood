@@ -35,7 +35,7 @@ const menuNavs = [
     ],
   },
   {
-    name: "News",
+    name: "Updates",
     children: [
       {
         name: "News Column",
