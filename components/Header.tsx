@@ -131,14 +131,10 @@ export const Header = () => {
               {menuNavs?.map((nav) => {
                 if (nav.children?.length) {
                   return (
-                    <NavigationMenuItem
-                      value={nav.name}
-                      key={nav.name}
-                      className="py-2 px-2 md:px-6"
-                    >
+                    <NavigationMenuItem key={nav.name}>
                       <NavigationMenuTrigger
                         className={cn(
-                          "bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent p-0 hover:text-main",
+                          "py-2 px-2 md:px-6 bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent p-0 hover:text-main",
                           isOscar && "text-[#b6b6bf]"
                         )}
                       >
