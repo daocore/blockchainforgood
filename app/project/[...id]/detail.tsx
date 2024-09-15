@@ -1,6 +1,5 @@
 import { COUNTRIES } from "@/app/home/earth/const";
 import { IMAGE_URL } from "@/constants/url";
-import Image from "next/image";
 import dayjs from "dayjs";
 import { CalendarPlus, MapPin } from "lucide-react";
 import { Tooltip, TooltipProvider } from "@/components/ui/tooltip";
@@ -19,10 +18,12 @@ export function Detail({ item }: { item: EventsApproveEntity }) {
     ? JSON.parse(organization.location)
     : {};
 
+  if (!Object.keys(organization)?.length) return null
+
   return (
-    <div className="w-full md:w-content mx-auto pb-16">
+    <div className="w-full md:w-content mx-auto pb-16 px-4 md:px-0">
       <div>
-        <Image
+        <img
           className="w-full object-contain max-h-80"
           width={1920}
           height={320}
@@ -71,8 +72,8 @@ export function Detail({ item }: { item: EventsApproveEntity }) {
         <div className="space-y-4 mt-4">
           <Description title="Introduction">{organization.intro}</Description>
           <Description title="Label">
-            <div className="space-x-2">
-              {organization.tags.map((tag) => (
+            <div className="flex flex-wrap gap-2">
+              {organization?.tags?.map((tag) => (
                 <span
                   key={tag.id}
                   className="bg-[#B6B6BF]  px-2 py-1 whitespace-nowrap"
@@ -99,7 +100,7 @@ function Description({
   return (
     <div>
       <h3 className="text-2xl font-bold py-2">{title}</h3>
-      <div>{children}</div>
+      <div>{children || "-"}</div>
     </div>
   );
 }
@@ -111,14 +112,23 @@ function DiyformDescription({
 }) {
   return data.map((item) => {
     let children: React.ReactNode = item.value;
-    if (item.type === "file") {
+
+    // 类型是file的代表是上传到我们平台的文件，数据库保存的只是路径，未来全部转移到其他平台，那么更换前缀即可。
+    if (item.type === "file" && item?.value) {
       const href = IMAGE_URL + item.value;
-      children = <Link href={href} className="text-bgaActive flex item-center gap-2" target="_blank">Link <svg viewBox="0 0 1024 1024" className="mt-[3px]" version="1.1" xmlns="http://www.w3.org/2000/svg" id="mx_n_1726213104869" width="16" height="16"><path d="M924.402464 1023.068211H0.679665V99.345412h461.861399v98.909208H99.596867v725.896389h725.896389V561.206811h98.909208z" fill="#00d5bf"></path><path d="M930.805104 22.977336l69.965436 69.965436-453.492405 453.492404-69.965435-69.901489z" fill="#00d5bf"></path><path d="M1022.464381 304.030081h-98.917201V99.345412H709.230573V0.428211h313.233808z" fill="#00d5bf"></path></svg></Link>;
+      children = <BGAAnswerLink href={href} />;
+    } else if (/^(https?:\/\/)?([^\/\s]+\.[^\/\s]+)(\/\S*)?$/.test(item?.value)) {
+      children = <BGAAnswerLink href={item.value} text={item.value} />
     }
+
     return (
       <Description key={item.label} title={item.label}>
         {children}
       </Description>
     );
   });
+}
+
+const BGAAnswerLink = ({ href, text }: { href: string, text?: string }) => {
+  return <Link href={href} className="text-bgaActive flex item-center gap-2" target="_blank">{text || "Link"} <svg viewBox="0 0 1024 1024" className="mt-[3px]" version="1.1" xmlns="http://www.w3.org/2000/svg" id="mx_n_1726213104869" width="16" height="16"><path d="M924.402464 1023.068211H0.679665V99.345412h461.861399v98.909208H99.596867v725.896389h725.896389V561.206811h98.909208z" fill="#00d5bf"></path><path d="M930.805104 22.977336l69.965436 69.965436-453.492405 453.492404-69.965435-69.901489z" fill="#00d5bf"></path><path d="M1022.464381 304.030081h-98.917201V99.345412H709.230573V0.428211h313.233808z" fill="#00d5bf"></path></svg></Link>
 }
