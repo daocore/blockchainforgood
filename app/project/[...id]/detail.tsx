@@ -113,7 +113,7 @@ function DiyformDescription({
     let children: React.ReactNode = item.value;
     if (item.type === "file") {
       const href = IMAGE_URL + item.value;
-      children = <Link href={href}>{href}</Link>;
+      children = <Link href={href} className="text-bgaActive flex item-center gap-2" target="_blank">Link <svg viewBox="0 0 1024 1024" className="mt-[3px]" version="1.1" xmlns="http://www.w3.org/2000/svg" id="mx_n_1726213104869" width="16" height="16"><path d="M924.402464 1023.068211H0.679665V99.345412h461.861399v98.909208H99.596867v725.896389h725.896389V561.206811h98.909208z" fill="#00d5bf"></path><path d="M930.805104 22.977336l69.965436 69.965436-453.492405 453.492404-69.965435-69.901489z" fill="#00d5bf"></path><path d="M1022.464381 304.030081h-98.917201V99.345412H709.230573V0.428211h313.233808z" fill="#00d5bf"></path></svg></Link>;
     }
     return (
       <Description key={item.label} title={item.label}>
