@@ -26,7 +26,7 @@ export const ASSETS_URL = {
     [ENetwork.PRODUCTION]: "https://a.moledao.io/assets",
     [ENetwork.DEVELOPMENT]: "https://beta.moledao.io/assets",
     [ENetwork.STAGING]: "https://beta.moledao.io/assets",
-    [ENetwork.ZFDEV]: "http://localhost:8080/static",
+    [ENetwork.ZFDEV]: "https://beta.moledao.io/assets",
 }[BGA_ENV];
 
 // 表单的iframe页面url
