@@ -1,18 +1,12 @@
 "use client";
 
 import { IVoteResult } from "@/app/vote/[id]/types";
-import { Button } from "@/components/ui";
 import { IMAGE_URL } from "@/constants";
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { ArrowDown, ArrowUp } from "lucide-react";
+import { ReactNode } from "react";
 
 export const columns: ColumnDef<IVoteResult>[] = [
   {
@@ -20,7 +14,8 @@ export const columns: ColumnDef<IVoteResult>[] = [
     header: "RANKING",
   },
   {
-    accessorKey: "project",
+    accessorKey: "project.name",
+    id: "projectName",
     header: "NAME",
     cell: ({ row }) => {
       const {
@@ -41,25 +36,22 @@ export const columns: ColumnDef<IVoteResult>[] = [
     },
   },
   {
-    header: "NUMBER OF VOTES",
+    // header: "NUMBER OF VOTES",
+    id: "process",
+    header: () => {
+      return <span className="hidden md:block">NUMBER OF VOTES</span>;
+    },
     cell: ({ row }) => {
       const {
         original: { count, total },
       } = row;
       const precentValue = Math.round((count / total) * 100);
       return (
-        <TooltipProvider delayDuration={200}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Progress
-                childrenClassName="bg-oscarActive"
-                className="h-1 bg-white/10"
-                value={precentValue}
-              />
-            </TooltipTrigger>
-            <TooltipContent>{count}</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <Progress
+          childrenClassName="bg-oscarActive"
+          className="h-1 bg-white/10 hidden md:block"
+          value={precentValue}
+        />
       );
     },
   },
@@ -67,43 +59,20 @@ export const columns: ColumnDef<IVoteResult>[] = [
     header: "TRENDS",
     cell: ({ row }) => {
       const {
-        original: { trend },
+        original: { trend, count },
       } = row;
+      let icon: ReactNode = <span className="text-description">--</span>;
       if (trend > 0) {
-        return (
-          <div className="text-oscarActive flex items-center gap-2">
-            <ArrowUp className="w-4 h-4" />
-            <span>{trend}</span>
-          </div>
-        );
+        icon = <ArrowUp className="text-oscarActive w-4 h-4" />;
+      } else if (trend < 0) {
+        icon = <ArrowDown className="text-description w-4 h-4" />;
       }
-      if (trend < 0) {
-        return (
-          <div className="flex items-center gap-2">
-            <ArrowDown className="text-description w-4 h-4" />
-            <span className="text-oscarActive">{Math.abs(trend)}</span>
-          </div>
-        );
-      }
-      if (trend === 0) {
-        return <span className="text-description">--</span>;
-      }
+      return (
+        <div className="flex items-center gap-2">
+          {icon}
+          <span className="text-oscarActive">{count}</span>
+        </div>
+      );
     },
   },
-  // {
-  //   id: "action",
-  //   header: "ACTION",
-  //   cell: ({ row }) => (
-  //     <Button
-  //       style={{
-  //         background: "linear-gradient(254.42deg, #FFCA5C 0%, #C09845 83.9%)",
-  //         color: "#101927",
-  //       }}
-  //       className="px-6 rounded-full leading-7 h-7"
-  //       size="sm"
-  //     >
-  //       Vote
-  //     </Button>
-  //   ),
-  // },
 ];

@@ -15,7 +15,8 @@ import { APIGetVoteResult, useAPIVoteDetail } from "./api";
 import { IMAGE_URL } from "@/constants";
 import { Loading } from "./skeleton-loading";
 import { getTime, getTimeData, getTimeZone } from "./utils";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { Successed } from "./successed";
 
 export function VoteDetail({ id }: { id: string }) {
   const { data, isLoading } = useAPIVoteDetail(id);
@@ -28,12 +29,20 @@ export function VoteDetail({ id }: { id: string }) {
       });
     }
   }, [data]);
+
+  const successedRef = useRef<{ onSuccessed: () => void }>();
   if (isLoading || !data) {
     return <Loading />;
   }
 
+  const onVoteSuccessed = () => {
+    successedRef.current?.onSuccessed();
+  };
+
   return (
     <div className="w-full md:w-content mx-auto mb-8">
+      <Successed ref={successedRef} />
+
       <Card>
         <Image
           src={`${IMAGE_URL}${data.event.cover}`}
@@ -105,7 +114,11 @@ export function VoteDetail({ id }: { id: string }) {
 
       <Card className="mt-4">
         <CardContent className="pt-6">
-          <VoteForm id={id} orgs={data.organizations} />
+          <VoteForm
+            id={id}
+            orgs={data.organizations}
+            onSuccessed={onVoteSuccessed}
+          />
         </CardContent>
       </Card>
     </div>

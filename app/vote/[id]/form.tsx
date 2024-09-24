@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -35,9 +34,11 @@ const formSchema = z.object({
 export function VoteForm({
   id,
   orgs,
+  onSuccessed,
 }: {
   id: string;
   orgs: OrganizationEntity[];
+  onSuccessed: () => void;
 }) {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -60,8 +61,8 @@ export function VoteForm({
         verifyCode: values.verifyCode,
         candidates: values.candidates,
       });
+      onSuccessed();
     } catch (err) {
-      console.log(err);
     } finally {
       setSubmitLoading(false);
     }
@@ -88,6 +89,8 @@ export function VoteForm({
     APISendEmailCode({ email });
     setIsCounting(true);
   };
+
+  const [filterProject, setFilterProject] = useState("");
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -137,44 +140,55 @@ export function VoteForm({
           render={() => (
             <FormItem>
               <div className="mb-4">
-                <FormLabel className="text-base">
-                  <span className="text-red-500">*</span>Candidates
+                <FormLabel className="text-base flex items-center gap-2">
+                  <span>
+                    <span className="text-red-500">*</span>Candidate projects
+                  </span>
+                  <Input
+                    // className="outline-none! focus-visible:ring-0 focus-visible:ring-offset-0"
+                    placeholder="Search Project Here"
+                    onChange={(e) => setFilterProject(e.target.value)}
+                  />
                 </FormLabel>
               </div>
               <div className="grid grid-cols-2 gap-2">
-                {orgs.map((org) => (
-                  <FormField
-                    key={org.id}
-                    control={form.control}
-                    name="candidates"
-                    render={({ field }) => {
-                      return (
-                        <FormItem
-                          key={org.id}
-                          className="flex flex-row items-start space-x-3 space-y-0"
-                        >
-                          <FormControl>
-                            <Checkbox
-                              checked={field.value?.includes(org.id)}
-                              onCheckedChange={(checked) => {
-                                return checked
-                                  ? field.onChange([...field.value, org.id])
-                                  : field.onChange(
-                                      field.value?.filter(
-                                        (value) => value !== org.id
-                                      )
-                                    );
-                              }}
-                            />
-                          </FormControl>
-                          <FormLabel className="font-normal">
-                            {org.name}
-                          </FormLabel>
-                        </FormItem>
-                      );
-                    }}
-                  />
-                ))}
+                {orgs
+                  .filter((org) =>
+                    org.name.toLowerCase().includes(filterProject.toLowerCase())
+                  )
+                  .map((org) => (
+                    <FormField
+                      key={org.id}
+                      control={form.control}
+                      name="candidates"
+                      render={({ field }) => {
+                        return (
+                          <FormItem
+                            key={org.id}
+                            className="flex flex-row items-start space-x-3 space-y-0"
+                          >
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value?.includes(org.id)}
+                                onCheckedChange={(checked) => {
+                                  return checked
+                                    ? field.onChange([...field.value, org.id])
+                                    : field.onChange(
+                                        field.value?.filter(
+                                          (value) => value !== org.id
+                                        )
+                                      );
+                                }}
+                              />
+                            </FormControl>
+                            <FormLabel className="font-normal">
+                              {org.name}
+                            </FormLabel>
+                          </FormItem>
+                        );
+                      }}
+                    />
+                  ))}
               </div>
 
               <FormMessage />
