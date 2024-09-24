@@ -15,8 +15,9 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import { useState } from "react";
+import { OSCAR_VOTE_ID } from "@/constants";
 
-const ID = "2";
+const ID = OSCAR_VOTE_ID;
 
 export function Vote() {
   const { data, isLoading } = useAPIGetVoteResult({ id: ID });
