@@ -43,7 +43,7 @@ export interface IVoteResult {
   project: OrganizationEntity;
   count: number;
   total: number;
-  formId: string;
+  formId?: string;
   ranking: number;
   trend: number;
 }
