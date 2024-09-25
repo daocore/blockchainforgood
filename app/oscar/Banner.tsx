@@ -223,7 +223,7 @@ function BannerImpl() {
               );
             }}
           >
-            Empower the Future
+            Submit Your Project
           </div>
         </div>
 
