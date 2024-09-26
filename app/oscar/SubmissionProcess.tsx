@@ -38,17 +38,17 @@ interface IItem {
 const data: IItem[] = [
   {
     title: "Complete & submit your application",
-    time: "9 Sep - 1 Oct 2024",
+    time: "9 Sep - 7 Oct 2024",
     desc: "Show us how you are changing the world. Hundreds of the most ambitious projects are applying, and only 10 will be selected.",
   },
   {
     title: "Application Review",
-    time: "1 - 7 Oct 2024",
+    time: "8 - 14 Oct 2024",
     desc: `Committee will assess each application, ranking them based on innovation, impact, and the potential to scale globally.`,
   },
   {
     title: "Get notified",
-    time: "7 - 20 Oct 2024",
+    time: "14 - 20 Oct 2024",
     desc: `The top <b>10 projects</b> will be selected as finalists, and invited to present on stage at Oscar Bangkok on 11 Nov.`,
   },
   {
