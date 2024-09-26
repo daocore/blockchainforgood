@@ -12,7 +12,7 @@ import { useState } from "react";
 export function Hero() {
   const [isHover, setIsHover] = useState(false);
   return (
-    <div className="relative flex -mt-20 max-h-[720px]">
+    <div className="relative flex -mt-20 h-[720px]">
       {/*left  */}
       <div
         className={cn(
@@ -24,16 +24,16 @@ export function Hero() {
         onMouseLeave={(e) => setIsHover(false)}
       >
         <Image
-          className="h-full object-cover"
+          className="w-full object-left-top cursor-pointer"
           // src={isHover ? HeroLeftFullImage : HeroLeftImage}
           src={HeroLeftFullImage}
           alt="17 SDGS"
         />
       </div>
       {/* right */}
-      <div className={cn("w-full -ml-36", styles["hero-right"])}>
+      <div className={cn("w-full -ml-16", styles["hero-right"])}>
         <Image
-          className="h-full object-cover"
+          className="w-full h-full object-left-top cursor-pointer"
           // src={isHover ? HeroRightImage : HeroRightFullImage}
           src={HeroRightFullImage}
           alt="Web3.0 Oscar"
