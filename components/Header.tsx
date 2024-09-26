@@ -63,10 +63,12 @@ export const Header = () => {
 
   const isSquarePage = pathname === ROUTER_PATH.SQUARE;
   const isOscar = pathname === ROUTER_PATH.OSCAR;
+  const isOscarCeremony = pathname === ROUTER_PATH.OSCAR_CEREMONY;
 
   const isProject = pathname.startsWith(ROUTER_PATH.PROJECT);
 
-  const iconSvgFillColor = isIncubationPage || isOscar ? "white" : "black";
+  const iconSvgFillColor =
+    isIncubationPage || isOscar || isOscarCeremony ? "white" : "black";
 
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 
@@ -142,14 +144,14 @@ export const Header = () => {
                         <NavigationMenuTrigger
                           className={cn(
                             "bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent p-0 hover:text-main",
-                            isOscar && "text-[#b6b6bf]"
+                            (isOscar || isOscarCeremony) && "text-[#b6b6bf]"
                           )}
                         >
                           <div
                             className={cn(
                               "justify-center items-center gap-2.5 flex hover:text-main",
                               isIncubationPage && "text-halfWhite",
-                              isOscar && "text-[#b6b6bf]",
+                              (isOscar || isOscarCeremony) && "text-[#b6b6bf]",
                               (nav.route === ROUTER_PATH.HOME
                                 ? pathname === nav.route
                                 : pathname!.startsWith(nav.route)) &&
@@ -193,13 +195,15 @@ export const Header = () => {
                           className={cn(
                             "justify-center items-center gap-2.5 flex hover:text-main py-2 px-2 md:px-6",
                             isIncubationPage && "text-halfWhite",
-                            isOscar && "text-[#b6b6bf]",
+                            (isOscar || isOscarCeremony) && "text-[#b6b6bf]",
                             nav.route === ROUTER_PATH.OSCAR &&
                               "hover:text-[#B5964D]",
                             (nav.route === ROUTER_PATH.HOME
                               ? pathname === nav.route
                               : pathname!.startsWith(nav.route)) &&
-                              (isOscar ? "text-[#B5964D]" : "text-main")
+                              (isOscar || isOscarCeremony
+                                ? "text-[#B5964D]"
+                                : "text-main")
                           )}
                         >
                           <nav className="text-center text-text text-xs md:text-sm font-medium font-['Inter'] leading-[14px] cursor-pointer">
@@ -220,7 +224,8 @@ export const Header = () => {
                 size={18}
                 className={cn(
                   "md:hidden cursor-pointer absoluted z-30 top-3 right-2",
-                  (isOscar || isIncubationPage) && "text-white"
+                  (isOscar || isIncubationPage || isOscarCeremony) &&
+                    "text-white"
                 )}
                 onClick={() => setShowMobileMenu(true)}
               />
@@ -240,7 +245,7 @@ export const Header = () => {
                     <div
                       className={cn(
                         "py-2 px-2 text-active",
-                        isOscar && "text-[#b6b6bf]",
+                        (isOscar || isOscarCeremony) && "text-[#b6b6bf]",
                         pathname === ROUTER_PATH.HOME && "text-main"
                       )}
                     >
@@ -256,7 +261,7 @@ export const Header = () => {
                         nav={nav}
                         onRoute={onMobileTopicClick}
                         className={cn(
-                          isOscar && "text-[#b6b6bf]",
+                          (isOscar || isOscarCeremony) && "text-[#b6b6bf]",
                           (nav.route === ROUTER_PATH.HOME
                             ? pathname === nav.route
                             : nav.route && pathname.startsWith(nav.route)) &&
