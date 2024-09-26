@@ -10,6 +10,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  FormDescription,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -141,8 +142,9 @@ export function VoteForm({
             <FormItem>
               <div className="mb-4">
                 <FormLabel className="text-base flex items-center gap-2">
-                  <span>
-                    <span className="text-red-500">*</span>Candidate projects
+                  <span className="whitespace-nowrap">
+                    <span className="text-red-500 ">*</span>
+                    Candidate projects
                   </span>
                   <Input
                     // className="outline-none! focus-visible:ring-0 focus-visible:ring-offset-0"
@@ -150,6 +152,10 @@ export function VoteForm({
                     onChange={(e) => setFilterProject(e.target.value)}
                   />
                 </FormLabel>
+                <FormDescription>
+                  Each email account is allowed one vote, with the option to
+                  select between 1 and 10 projects
+                </FormDescription>
               </div>
               <div className="grid grid-cols-2 gap-2">
                 {orgs
