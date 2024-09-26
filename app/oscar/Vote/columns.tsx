@@ -14,6 +14,24 @@ export const columns: ColumnDef<IVoteResult>[] = [
     header: "RANKING",
   },
   {
+    id: "avator",
+    header: "",
+    cell: ({ row }) => {
+      const {
+        original: { project },
+      } = row;
+      return (
+        <Image
+          width={24}
+          height={24}
+          className="rounded-full w-6 h-6"
+          src={`${IMAGE_URL}${project.logo}`}
+          alt={project.name}
+        />
+      );
+    },
+  },
+  {
     accessorKey: "project.name",
     id: "projectName",
     header: "NAME",
@@ -22,16 +40,9 @@ export const columns: ColumnDef<IVoteResult>[] = [
         original: { project },
       } = row;
       return (
-        <div className="flex gap-2">
-          <Image
-            width={24}
-            height={24}
-            className="rounded-full w-6 h-6"
-            src={`${IMAGE_URL}${project.logo}`}
-            alt={project.name}
-          />
-          <span className="font-bold">{project.name}</span>
-        </div>
+        <span className="inlin-block font-bold whitespace-normal">
+          {project.name}
+        </span>
       );
     },
   },

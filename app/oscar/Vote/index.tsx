@@ -51,7 +51,7 @@ export function Vote() {
         <h3 className="text-[28px] leading-[42px] font-bold text-white">
           Top 10 projects
         </h3>
-        <div className="flex flex-col md:flex-row items-center gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           {vote && <CountDown endTime={+vote.etimestampms} />}
           <Search table={table} />
         </div>

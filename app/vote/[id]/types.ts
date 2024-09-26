@@ -27,6 +27,12 @@ export interface ICreateVote {
   email: string;
   verifyCode: string;
   candidates: string[];
+  nickname: string;
+  walletAddress: string;
+  link: {
+    telgram?: string;
+    linkedin?: string;
+  };
 }
 
 export interface IEmail {

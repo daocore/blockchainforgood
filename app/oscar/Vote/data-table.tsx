@@ -29,9 +29,18 @@ export function DataTable({ table, id }: DataTableProps) {
               className="border-none hover:bg-transparent"
               key={headerGroup.id}
             >
-              {headerGroup.headers.map((header) => {
+              {headerGroup.headers.map((header, index) => {
+                const isName = index === 2;
+
                 return (
-                  <TableHead className={cn("text-description")} key={header.id}>
+                  <TableHead
+                    className={cn(
+                      "text-description",
+                      index < 2 && "w-20",
+                      isName && "w-min inlin-block max-w-96"
+                    )}
+                    key={header.id}
+                  >
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -55,14 +64,24 @@ export function DataTable({ table, id }: DataTableProps) {
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell className={cn("text-white py-1")} key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
+                  {row.getVisibleCells().map((cell, index) => {
+                    const isName = index === 2;
+                    return (
+                      <TableCell
+                        className={cn(
+                          "text-white py-1",
+                          index === 0 && "text-center",
+                          isName && "w-min inlin-block max-w-96"
+                        )}
+                        key={cell.id}
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    );
+                  })}
                 </TableRow>
               ))
           ) : (
