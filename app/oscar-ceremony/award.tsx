@@ -1,8 +1,12 @@
+"use client";
+
 import { cn } from "@/lib";
 import styles from "./index.module.css";
 import TrophyImage from "@/assets/oscar-ceremony/trophy.png";
 import Image from "next/image";
 import { Button } from "@/components/ui";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import homeStyles from "../home/styles.module.css";
 
 const AWARD_LIST = [
   {
@@ -54,8 +58,12 @@ function AwardItem({
   item: (typeof AWARD_LIST)[number];
   isFirst: boolean;
 }) {
+  const ref = useIntersectionObserver<HTMLDivElement>(
+    homeStyles.moveFromBottom
+  );
   return (
     <div
+      ref={ref}
       className={cn(
         "flex gap-2 items-center p-6 mt-6",
         styles["award-item"],
