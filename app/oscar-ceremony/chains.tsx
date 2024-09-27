@@ -6,8 +6,8 @@ import { cn } from "@/lib";
 export function Chains() {
   return (
     <div className={cn(styles.chains, "flex items-center px-2 py-4")}>
-      <Image className="" src={ChainsImage} alt="Chains" />
-      <section className={"space-y-2"}>
+      {/* <Image className="" src={ChainsImage} alt="Chains" /> */}
+      <section className="space-y-2 pl-96">
         <h2 className="text-5xl font-semibold leading-tight">
           Chains of Change
         </h2>
