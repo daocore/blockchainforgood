@@ -11,24 +11,20 @@ export function Hero() {
   const [isHover, setIsHover] = useState(false);
 
   const onHover = () => {
-    setTimeout(() => {
-      setIsHover(true);
-    }, 200);
+    setIsHover(true);
   };
 
   const onHoverOut = () => {
-    setTimeout(() => {
-      setIsHover(false);
-    }, 200);
+    setIsHover(false);
   };
   return (
     <div className="relative flex -mt-20 h-[40vw]">
       {/*left  */}
       <div
         className={cn(
-          "flex w-[30%] flex-none relative z-10",
+          "flex flex-none relative z-10 transition-all duration-200",
           styles["hero-left"],
-          isHover && "w-[70%]"
+          isHover ? "w-[70%]" : "w-[30%]"
         )}
         onMouseEnter={onHover}
         onMouseLeave={onHoverOut}
@@ -51,9 +47,17 @@ export function Hero() {
         </div>
       </div>
       {/* right */}
-      <div className={cn("w-full -ml-32 relative", styles["hero-right"])}>
+      <div
+        className={cn(
+          "w-full -ml-32 relative transition-all duration-200",
+          styles["hero-right"]
+        )}
+      >
         <Image
-          className={cn("w-full h-full object-left-top object-cover")}
+          className={cn(
+            "w-full h-full object-cover",
+            isHover ? "object-left-top" : "object-right-bottom"
+          )}
           src={HeroRightFullImage}
           alt="Web3.0 Oscar"
         />
