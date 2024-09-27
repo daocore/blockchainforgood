@@ -31,10 +31,10 @@ const formSchema = z.object({
       message: "You can select up to 10 items.",
     }),
   nickname: z.string().min(1),
-  walletAddress: z.string(),
+  walletAddress: z.string().optional(),
   link: z.object({
-    telgram: z.string(),
-    linkedin: z.string(),
+    telgram: z.string().optional(),
+    linkedin: z.string().optional(),
   }),
 });
 
