@@ -51,7 +51,7 @@ export function CountDown({ endTime }: CountDownProps) {
 
   return (
     <div
-      className={cn("text-description px-4 py-2", styles["count-down-wrapper"])}
+      className={cn("text-description px-4 py-1", styles["count-down-wrapper"])}
     >
       {isTimeOver && <TimeOver />}
       {!isTimeOver && <CountDownImpl {...timeLeft} />}
@@ -60,7 +60,7 @@ export function CountDown({ endTime }: CountDownProps) {
 }
 
 function TimeOver() {
-  return <p>Voting is closed!</p>;
+  return <p className="h-10 leading-[2.5rem]">Voting is closed!</p>;
 }
 
 function CountDownImpl({ days, hours, minutes }: TimeLeft) {
@@ -83,7 +83,7 @@ function CountDownImplItem({ label, value }: { label: string; value: number }) {
   }, [value]);
   return (
     <div className="text-center">
-      <div className="relative w-full h-8 overflow-hidden">
+      <div className="relative w-full h-6 overflow-hidden">
         <div
           className={cn(
             "absolute top-0 left-0 w-full h-full text-center opacity-0",
@@ -93,10 +93,10 @@ function CountDownImplItem({ label, value }: { label: string; value: number }) {
           <div className="font-bold text-2xl text-white/60">{prevValue}</div>
         </div>
         <div className="absolute top-0 left-0 w-full h-full text-center">
-          <div className="font-bold text-2xl text-white/60">{value}</div>
+          <div className="font-bold text-xl text-white/60">{value}</div>
         </div>
       </div>
-      <div className="text-sm">{label}</div>
+      <div className="text-xs">{label}</div>
     </div>
   );
 }

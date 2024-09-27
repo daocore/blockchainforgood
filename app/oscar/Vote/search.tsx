@@ -13,12 +13,12 @@ export function Search({ table }: IProps) {
       style={{
         background: "rgba(249, 250, 251, 0.06)",
       }}
-      className="flex items-center pl-3 text-description w-80 h-10"
+      className="flex items-center pl-3 text-description w-80"
     >
       <SearchIcon className="w-4 h-4" />
       <Input
         placeholder="Search Project Here"
-        className="border-none bg-transparent text-base outline-none! focus-visible:ring-0 focus-visible:ring-offset-0"
+        className="h-full border-none bg-transparent text-base outline-none! focus-visible:ring-0 focus-visible:ring-offset-0"
         value={
           (table.getColumn("projectName")?.getFilterValue() as string) ?? ""
         }

@@ -25,9 +25,7 @@ export function Vote() {
 
   const { data: vote } = useAPIVoteDetail(ID);
 
-  const tableData =
-    data?.length > 0 ? data : initialTableData(vote?.organizations);
-
+  const tableData = initialTableData(data, vote?.organizations);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const table = useReactTable({
     data: tableData,
@@ -35,7 +33,6 @@ export function Vote() {
     state: {
       columnFilters,
     },
-    enableRowSelection: true,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -51,7 +48,7 @@ export function Vote() {
         <h3 className="text-[28px] leading-[42px] font-bold text-white">
           Top 10 projects
         </h3>
-        <div className="flex flex-col md:flex-row items-center gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           {vote && <CountDown endTime={+vote.etimestampms} />}
           <Search table={table} />
         </div>
@@ -62,15 +59,29 @@ export function Vote() {
   );
 }
 
-function initialTableData(orgs: IVote["organizations"] = []): IVoteResult[] {
-  return orgs.map((org) => {
-    return {
-      id: org.id,
-      total: 0,
-      ranking: "-" as unknown as number,
-      trend: 0,
-      count: 0,
-      project: org,
-    };
-  });
+function initialTableData(
+  data: IVoteResult[] = [],
+  orgs: IVote["organizations"] = []
+): IVoteResult[] {
+  if (data.length === orgs.length) {
+    return data;
+  }
+  const newRes = [...data];
+  const existedProjectIds = data.map((project) => project.id);
+  const notExistedProject = orgs.filter(
+    (org) => !existedProjectIds.includes(org.id)
+  );
+  newRes.push(
+    ...notExistedProject.map((org) => {
+      return {
+        id: org.id,
+        total: 0,
+        ranking: "-" as unknown as number,
+        trend: 0,
+        count: 0,
+        project: org,
+      };
+    })
+  );
+  return newRes;
 }

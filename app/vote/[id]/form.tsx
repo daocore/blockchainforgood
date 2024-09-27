@@ -30,6 +30,12 @@ const formSchema = z.object({
     .refine((value) => value.length <= 10, {
       message: "You can select up to 10 items.",
     }),
+  nickname: z.string().min(1),
+  walletAddress: z.string().optional(),
+  link: z.object({
+    telgram: z.string().optional(),
+    linkedin: z.string().optional(),
+  }),
 });
 
 export function VoteForm({
@@ -48,6 +54,7 @@ export function VoteForm({
       email: "",
       verifyCode: "",
       candidates: [],
+      nickname: "",
     },
   });
 
@@ -61,6 +68,9 @@ export function VoteForm({
         email: values.email,
         verifyCode: values.verifyCode,
         candidates: values.candidates,
+        nickname: values.nickname,
+        walletAddress: values.walletAddress,
+        link: values.link,
       });
       onSuccessed();
     } catch (err) {
@@ -147,7 +157,6 @@ export function VoteForm({
                     Candidate projects
                   </span>
                   <Input
-                    // className="outline-none! focus-visible:ring-0 focus-visible:ring-offset-0"
                     placeholder="Search Project Here"
                     onChange={(e) => setFilterProject(e.target.value)}
                   />
@@ -197,6 +206,64 @@ export function VoteForm({
                   ))}
               </div>
 
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="nickname"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                <span className="text-red-500">*</span>Nickname
+              </FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="walletAddress"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Wallet Address</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormDescription>
+                Enter your wallet address for a chance to receive a limited-time
+                POAP.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="link.telgram"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Telgram</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="link.linkedin"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>LinkedIn</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}

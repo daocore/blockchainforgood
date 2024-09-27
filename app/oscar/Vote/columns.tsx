@@ -12,6 +12,26 @@ export const columns: ColumnDef<IVoteResult>[] = [
   {
     accessorKey: "ranking",
     header: "RANKING",
+    size: 100,
+  },
+  {
+    id: "avator",
+    header: "",
+    size: 50,
+    cell: ({ row }) => {
+      const {
+        original: { project },
+      } = row;
+      return (
+        <Image
+          width={24}
+          height={24}
+          className="rounded-full w-6 h-6 hidden md:block"
+          src={`${IMAGE_URL}${project.logo}`}
+          alt={project.name}
+        />
+      );
+    },
   },
   {
     accessorKey: "project.name",
@@ -22,21 +42,13 @@ export const columns: ColumnDef<IVoteResult>[] = [
         original: { project },
       } = row;
       return (
-        <div className="flex gap-2">
-          <Image
-            width={24}
-            height={24}
-            className="rounded-full w-6 h-6"
-            src={`${IMAGE_URL}${project.logo}`}
-            alt={project.name}
-          />
-          <span className="font-bold">{project.name}</span>
-        </div>
+        <span className="inline-block w-full font-bold whitespace-normal">
+          {project.name}
+        </span>
       );
     },
   },
   {
-    // header: "NUMBER OF VOTES",
     id: "process",
     header: () => {
       return <span className="hidden md:block">NUMBER OF VOTES</span>;
@@ -57,6 +69,8 @@ export const columns: ColumnDef<IVoteResult>[] = [
   },
   {
     header: "TRENDS",
+    size: 100,
+    maxSize: 120,
     cell: ({ row }) => {
       const {
         original: { trend, count },

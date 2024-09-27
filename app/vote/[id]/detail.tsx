@@ -17,7 +17,7 @@ import { Loading } from "./skeleton-loading";
 import { getTime, getTimeData, getTimeZone } from "./utils";
 import { useEffect, useRef } from "react";
 import { Successed } from "./successed";
-import VoteDetailCoverImage from "@/assets/vote/bg.jpg";
+import VoteDetailCoverImage from "@/assets/vote/bg.jpeg";
 
 export function VoteDetail({ id }: { id: string }) {
   const { data, isLoading } = useAPIVoteDetail(id);
@@ -41,7 +41,7 @@ export function VoteDetail({ id }: { id: string }) {
   };
 
   return (
-    <div className="w-full md:w-content mx-auto mb-8">
+    <div className="w-full max-w-[768px] mx-auto mb-8">
       <Successed ref={successedRef} />
 
       <Card>
@@ -49,7 +49,7 @@ export function VoteDetail({ id }: { id: string }) {
           // src={`${IMAGE_URL}${data.event.cover}`}
           src={VoteDetailCoverImage}
           alt={data.event.name}
-          className="h-full max-h-96 object-contain"
+          className="h-full w-full object-contain rounded-md"
         />
       </Card>
 
