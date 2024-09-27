@@ -1,9 +1,13 @@
+"use client";
+
 import Image, { StaticImageData } from "next/image";
 import ProcessIconImage from "@/assets/oscar-ceremony/process-icon.png";
 import styles from "./index.module.css";
 import { cn } from "@/lib";
 import AgendaImage from "@/assets/oscar-ceremony/agenda.png";
 import UserImage from "@/assets/oscar-ceremony/user.png";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import homeStyles from "../home/styles.module.css";
 
 export function SubmissionProcess() {
   return (
@@ -124,6 +128,9 @@ function PartItem({
   title: string;
   children: React.ReactNode;
 }) {
+  const ref = useIntersectionObserver<HTMLDivElement>(
+    homeStyles.moveFromBottom
+  );
   return (
     <div className="flex gap-2">
       <div
