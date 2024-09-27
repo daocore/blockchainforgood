@@ -33,7 +33,7 @@ const formSchema = z.object({
   nickname: z.string().min(1),
   walletAddress: z.string().optional(),
   link: z.object({
-    telgram: z.string().optional(),
+    telegram: z.string().optional(),
     linkedin: z.string().optional(),
   }),
 });
@@ -244,7 +244,7 @@ export function VoteForm({
         />
         <FormField
           control={form.control}
-          name="link.telgram"
+          name="link.telegram"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Telgram</FormLabel>
