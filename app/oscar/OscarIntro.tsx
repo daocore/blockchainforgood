@@ -5,6 +5,7 @@ import { OscarFAQ } from "./FAQ";
 import { Judge } from "./Judge";
 import { Partners } from "./Partners";
 import { Prizes } from "./Prize";
+import { Sponsors } from "./Sponsors";
 import { SubmissionProcess } from "./SubmissionProcess";
 import { SummitInto } from "./SummitIntro";
 import { Vote } from "./Vote";
@@ -18,6 +19,7 @@ export const OscarIntro = () => {
       <SubmissionProcess />
       <Judge />
       <Evaluation />
+      <Sponsors />
       <Partners />
       <OscarFAQ />
     </section>

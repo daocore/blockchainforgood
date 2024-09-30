@@ -25,63 +25,70 @@ export function SubmissionProcess() {
         </div>
 
         <div className="space-y-8">
-          <PartItem time="9: 00 AM-10:00" title="The Opening Act">
+          <PartItem time="9:00 AM - 9:30 AM" title="The Opening Act">
             <PartContentItem
-              title="AM The Red Carpet"
-              desc="Registration for event participants begins."
+              title="The Red Carpet"
+              desc="Registration for event participants begins. In true glamour and excitement, take a snapshot to remember this event at our red carpet and photobooth."
             />
             <PartContentItem
               title="Opening Premiere"
-              desc="Acinematic, epicstyle opening video will highlight the current
-                  global sustainabilitychallenges, juxtaposed with innovative
-                  blockchain solutions that have made a diference."
+              desc="A cinematic, epic style opening video will highlight the current global sustainability challenges, juxtaposed with innovative blockchain solutions that have made a difference. "
+            />
+            <PartContentItem
+              title="The Spotlight"
+              desc="A BGA member introduces the theme and agenda and gives an opening welcome."
             />
           </PartItem>
 
-          <PartItem time="10:00AM-10:20AM" title="The Spotlight">
-            <div>
-              <p className={cn(styles.description, "py-2")}>
-                Registration for event participants begins.
-              </p>
-              <UserAvater
-                img={UserImage}
-                name="Allan"
-                org="MoleDAO"
-                relation="Partners"
-              />
-            </div>
-          </PartItem>
-        </div>
-      </div>
-
-      <div className="mt-8 space-y-8">
-        <div className={cn(styles["process-title"], "text-xl font-medium")}>
-          <p>The 17SDGs Challenge, Part2</p>
-        </div>
-
-        <div className="space-y-8">
-          <PartItem time="10:30 AM-12:00AM" title="The Arena of Heroes">
+          <PartItem time="9:30 AM - 12:30 PM" title="The Arena of Heroes">
             <PartContentItem
               title="Rising Stars"
-              desc="10 shortlisted projects from a cross the globe, who have
-                  participated in the Sustainable Innovation Summit: The 17 SDGs
-                  Challenge, will step into the spotlight, presenting their
-                  blockchain solutions that confront sustainability challenges."
+              desc="10 shortlisted projects from across the globe, who have participated in the Sustainable Innovation Summit: The 17 SDGs Challenge, will step into the spotlight, presenting their blockchain solutions that confront sustainability challenges."
             />
-
             <PartContentItem
-              title="Academy of Innovation"
-              desc="Acinematic, epicstyle opening video will highlight the current
-                  global sustainabilitychallenges, juxtaposed with innovative
-                  blockchain solutions that have made a diference."
+              title="Academy of Innovation (name of panel to put on website)"
+              desc="The judging panel, known as The Academy, comprises esteemed leaders and visionaries from the blockchain, sustainability, and tech industries. These experts will evaluate the pitches based on innovation, impact, and potential for global scalability. "
             />
 
             <PartContentItem
               title="The People's Choice"
-              desc="In the spit of audience engagement atedee will
-                  avetheopporturity to casthei votes live wi dedicated
-                  ap,selectingtheirfavorite project as the People’s Choiceamong
-                  the inovative blockchain solutions."
+              desc={`In the spirit of audience engagement, attendees will have the opportunity to cast their votes live via a dedicated app, selecting their favorite project as the "People’s Choice" among the innovative blockchain solutions.`}
+            />
+          </PartItem>
+
+          <PartItem time="12:30 PM - 1:30 PM" title="Intermission">
+            <p className={cn(styles.description)}>
+              Lunch break and mini networking.
+            </p>
+          </PartItem>
+
+          <PartItem time="1:30 PM - 3:30 PM" title="A Stage of Visionaries">
+            <PartContentItem
+              title="The Luminaries"
+              desc="The BGA will open the afternoon segment by introducing leaders from the blockchain and sustainability sectors, along with the organizations they represent, in preparation for their keynotes. (10 minutes)
+Delivered by the gathering of prominent thought leaders, a series of insightful and exciting keynotes will outline the current state of global sustainability efforts and how blockchain is uniquely positioned to contribute."
+            />
+          </PartItem>
+
+          <PartItem time="3:30 PM - 4:30 PM" title="The Oscar Awards">
+            <PartContentItem
+              title="The Hall of Fame"
+              desc="An awards ceremony is conducted to recognize BGA members such as ambassadors, advisors, partners, and project teams making strides in promoting blockchain for good. 
+Each award presentation should include a brief narrative of the recipient's journey and impact."
+            />
+          </PartItem>
+
+          <PartItem time="4:30 PM - 5:30 PM" title="The Chains of Change">
+            <PartContentItem
+              title="The New Age"
+              desc="A closing speech will close in on the future of blockchain for sustainability, outlining the BGA's vision for the next decade, focused on the exciting grants and programmes planned and awarded by the BGA beyond the Oscars."
+            />
+          </PartItem>
+
+          <PartItem time="5:30 PM - 7:00 PM" title="The Gala">
+            <PartContentItem
+              title="Encore"
+              desc="Networking session with an afterparty and light refreshments and networking before the event ends."
             />
           </PartItem>
         </div>
