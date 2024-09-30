@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Banner } from "./Banner";
 import { OscarIntro } from "./OscarIntro";
 import OscarImage1 from "@/assets/oscar/oscar1.png";
+import { IMAGE_URL } from "@/constants";
 
 export default function Oscar() {
   return (
@@ -13,8 +14,7 @@ export default function Oscar() {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const coverImage = OscarImage1.src;
-
+  const coverImage = IMAGE_URL + OscarImage1.src;
   const name = "BGA Oscar";
   const desc =
     "Discover Blockchain for Good Alliance (BGA) and our mission to leverage blockchain technology for social impact. Join us to explore, innovate, and implement blockchain solutions for societal challenges.";
