@@ -40,6 +40,8 @@ export function Vote() {
     getSortedRowModel: getSortedRowModel(),
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
+    manualPagination: true, //turn off client-side pagination
+    rowCount: tableData.length,
   });
 
   return (
