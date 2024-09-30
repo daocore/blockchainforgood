@@ -32,8 +32,11 @@ const AWARD_LIST = [
 ] as const;
 
 export function Award() {
+  const ref = useIntersectionObserver<HTMLDivElement>(
+    homeStyles.moveFromBottom
+  );
   return (
-    <div id="award" className="pt-6">
+    <div ref={ref} id="award" className="pt-6">
       <div className="text-center">
         <h2
           className={cn(

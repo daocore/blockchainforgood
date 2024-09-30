@@ -1,12 +1,16 @@
-import Image from "next/image";
-import ChainsImage from "@/assets/oscar-ceremony/chains.png";
+"use client";
+
 import styles from "./index.module.css";
 import { cn } from "@/lib";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import homeStyles from "../home/styles.module.css";
 
 export function Chains() {
+  const ref = useIntersectionObserver<HTMLDivElement>(
+    homeStyles.moveFromBottom
+  );
   return (
-    <div className={cn(styles.chains, "flex items-center px-2 py-4")}>
-      {/* <Image className="" src={ChainsImage} alt="Chains" /> */}
+    <div ref={ref} className={cn(styles.chains, "flex items-center px-2 py-4")}>
       <section className="space-y-2 pl-96">
         <h2 className="text-5xl font-semibold leading-tight">
           Chains of Change
