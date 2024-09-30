@@ -33,7 +33,7 @@ const formSchema = z.object({
   nickname: z.string().min(1),
   walletAddress: z.string().optional(),
   link: z.object({
-    telgram: z.string().optional(),
+    telegram: z.string().optional(),
     linkedin: z.string().optional(),
   }),
 });
@@ -107,6 +107,21 @@ export function VoteForm({
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
+          name="nickname"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                <span className="text-red-500">*</span>Nickname
+              </FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
@@ -140,6 +155,49 @@ export function VoteForm({
                     {isCounting ? `${countdown}s` : "Send Code"}
                   </Button>
                 </div>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="walletAddress"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Wallet Address</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormDescription>
+                Enter your wallet address for a chance to receive a limited-time
+                POAP.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="link.telegram"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Telgram</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="link.linkedin"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>LinkedIn</FormLabel>
+              <FormControl>
+                <Input {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -206,64 +264,6 @@ export function VoteForm({
                   ))}
               </div>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="nickname"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                <span className="text-red-500">*</span>Nickname
-              </FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="walletAddress"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Wallet Address</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormDescription>
-                Enter your wallet address for a chance to receive a limited-time
-                POAP.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="link.telgram"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Telgram</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="link.linkedin"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>LinkedIn</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
               <FormMessage />
             </FormItem>
           )}
