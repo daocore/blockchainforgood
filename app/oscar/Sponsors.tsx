@@ -96,6 +96,7 @@ export const Sponsors = () => {
                       src={HemereImage}
                       alt={item}
                       className="w-5 object-contain"
+                      style={{ filter: "grayscale(1)" }}
                     />
                     <span>{item}</span>
                   </div>
