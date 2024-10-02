@@ -11,6 +11,7 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { useIsMobile } from "@/hooks";
 import HemereImage from "@/assets/oscar/hemera-logo.webp";
 import Image from "next/image";
+import Link from "next/link";
 
 export const partersData = [
   {
@@ -86,17 +87,19 @@ export const Sponsors = () => {
             ?.fill("Hemera")
             .map((item, index) => {
               return (
-                <div
-                  className="text-description mr-4 md:mr-8 flex items-center gap-2 font-['Inter'] text-sm md:text-base"
-                  key={index}
-                >
-                  <Image
-                    src={HemereImage}
-                    alt={item}
-                    className="w-5 object-contain"
-                  />
-                  <span>{item}</span>
-                </div>
+                <Link target="__blank" href="https://www.thehemera.com/">
+                  <div
+                    className="text-description mr-4 md:mr-8 flex items-center gap-2 font-['Inter'] text-sm md:text-base"
+                    key={index}
+                  >
+                    <Image
+                      src={HemereImage}
+                      alt={item}
+                      className="w-5 object-contain"
+                    />
+                    <span>{item}</span>
+                  </div>
+                </Link>
               );
             })}
         </InfiniteMovingCards>
