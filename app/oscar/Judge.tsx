@@ -311,6 +311,70 @@ const JUDGE_LIST: IJudgeItem[] = [
     ],
   },
   {
+    name: "Neil",
+    title: "Founder&CEO",
+    avatar: JudgeImage21,
+    company: "Reddio",
+    links: [
+      {
+        type: 1,
+        link: "https://x.com/NeilHANYD",
+      },
+      {
+        type: 1,
+        link: "",
+      },
+    ],
+  },
+  {
+    name: "JayKoh",
+    title: "Vice President",
+    avatar: JudgeImage22,
+    company: "Association Blockchain Asia",
+    links: [
+      {
+        type: 1,
+        link: "https://x.com/Krypto_JayK",
+      },
+      {
+        type: 1,
+        link: "",
+      },
+    ],
+  },
+  {
+    name: "Adam",
+    title: "Venture Partner",
+    avatar: JudgeImage23,
+    company: "3 Comma Capital SCR",
+    links: [
+      {
+        type: 1,
+        link: "https://x.com/@adamwebthree",
+      },
+      {
+        type: 1,
+        link: "https://www.linkedin.com/in/adamihsanboon/",
+      },
+    ],
+  },
+  {
+    name: "Bruce",
+    title: "CSO",
+    avatar: JudgeImage24,
+    company: "Partisia Blockchain Foundation",
+    links: [
+      {
+        type: 1,
+        link: "https://x.com/@bruce_pbc",
+      },
+      {
+        type: 1,
+        link: "https://linkedin.com/in/ahnbruce",
+      },
+    ],
+  },
+  {
     name: "Coco",
     title: "Head Of BD",
     avatar: JudgeImage13,
@@ -439,70 +503,6 @@ const JUDGE_LIST: IJudgeItem[] = [
     ],
   },
   {
-    name: "Neil",
-    title: "Founder&CEO",
-    avatar: JudgeImage21,
-    company: "Reddio",
-    links: [
-      {
-        type: 1,
-        link: "https://x.com/NeilHANYD",
-      },
-      {
-        type: 1,
-        link: "",
-      },
-    ],
-  },
-  {
-    name: "JayKoh",
-    title: "Vice President",
-    avatar: JudgeImage22,
-    company: "Association Blockchain Asia",
-    links: [
-      {
-        type: 1,
-        link: "https://x.com/Krypto_JayK",
-      },
-      {
-        type: 1,
-        link: "",
-      },
-    ],
-  },
-  {
-    name: "Adam",
-    title: "Venture Partner",
-    avatar: JudgeImage23,
-    company: "3 Comma Capital SCR",
-    links: [
-      {
-        type: 1,
-        link: "https://x.com/@adamwebthree",
-      },
-      {
-        type: 1,
-        link: "https://www.linkedin.com/in/adamihsanboon/",
-      },
-    ],
-  },
-  {
-    name: "Bruce",
-    title: "CSO",
-    avatar: JudgeImage24,
-    company: "Partisia Blockchain Foundation",
-    links: [
-      {
-        type: 1,
-        link: "https://x.com/@bruce_pbc",
-      },
-      {
-        type: 1,
-        link: "https://linkedin.com/in/ahnbruce",
-      },
-    ],
-  },
-  {
     name: "Daniel Zou",
     title: "Incubation Lead & Partner",
     avatar: JudgeImage25,
@@ -594,7 +594,7 @@ const JUDGE_LIST: IJudgeItem[] = [
       },
       {
         type: 1,
-        link: "https://linkedin.com/in/@sergiomoralesAR",
+        link: "https://linkedin.com/in/sergiomoralesAR",
       },
     ],
   },
