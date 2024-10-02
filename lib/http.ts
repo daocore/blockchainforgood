@@ -1,5 +1,7 @@
 import { API_URL } from "@/constants";
 import axios, { type AxiosPromise } from "axios";
+import { toast } from "sonner"
+
 
 const HTTP_STATUS = {
   OK: 200,
@@ -14,7 +16,7 @@ http.interceptors.response.use((response) => {
   if (res.code === HTTP_STATUS.OK) {
     return res.data;
   }
-  return Promise.reject(res?.message);
+  return Promise.reject(res?.msg);
 })
 
 export const Q = async <T>(
@@ -23,13 +25,24 @@ export const Q = async <T>(
 	return new Promise<T>((resolve, reject) => {
 		axiosPromise
 			.then((response) => {
-				return response;
+				return resolve(response as T);
 			})
 			.catch((error) => {
-				
 				if (!axios.isCancel(error)) {
+					toast.error(getErrorMsg(error), {
+						style: {
+							color: 'red',
+						}
+					});
 					reject(error);
 				}
 			});
 	});
 };
+
+const getErrorMsg = (error: Error | string) => {
+	if (typeof error === 'string') {
+		return error
+	}
+	return error?.message
+}

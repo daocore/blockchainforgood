@@ -62,7 +62,6 @@ export const Sponsors = () => {
   const ref = useIntersectionObserver<HTMLDivElement>(
     homeStyles.moveFromBottom
   );
-
   return (
     <div ref={ref} className="px-6 md:px-0">
       <div className="text-center">
