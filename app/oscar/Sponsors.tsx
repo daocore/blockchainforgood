@@ -6,7 +6,7 @@ import PBPositiveBlockchainImage from "@/assets/oscar/PBPositiveBlockchain.io.pn
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 import { cn } from "@/lib";
-import styles from "../oscar-ceremony/index.module.css";
+import styles from "./styles.module.css";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { useIsMobile } from "@/hooks";
 import HemereImage from "@/assets/oscar/hemera-logo.webp";
@@ -62,9 +62,6 @@ export const Sponsors = () => {
   const ref = useIntersectionObserver<HTMLDivElement>(
     homeStyles.moveFromBottom
   );
-
-  const mobile = useIsMobile();
-
   return (
     <div ref={ref} className="px-6 md:px-0">
       <div className="text-center">
@@ -78,9 +75,7 @@ export const Sponsors = () => {
         </h2>
       </div>
       <div
-        className={`h-8 md:h-[42px] py-1 md:py-2 flex flex-col antialiased items-center justify-center relative overflow-hidden ${
-          mobile ? styles.prizeBgMb : styles.prizeBg
-        }`}
+        className={`h-8 md:h-[42px] py-1 md:py-2 flex flex-col antialiased items-center justify-center relative overflow-hidden`}
       >
         <InfiniteMovingCards direction="left" speed="normal">
           {Array(10)

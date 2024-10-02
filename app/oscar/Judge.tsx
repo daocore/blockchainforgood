@@ -151,18 +151,18 @@ const JUDGE_LIST: IJudgeItem[] = [
     ],
   },
   {
-    name: "Ren",
-    title: "Growth Marketer",
-    avatar: JudgeImage3,
-    company: "Eclipse",
+    name: "Felixsim",
+    title: "Founder",
+    avatar: JudgeImage28,
+    company: "Salad Ventures",
     links: [
       {
         type: 1,
-        link: "https://x.com/purplepill3m",
+        link: "https://x.com/felixsim",
       },
       {
         type: 1,
-        link: "",
+        link: "https://www.linkedin.com/in/simfelix",
       },
     ],
   },
@@ -311,6 +311,70 @@ const JUDGE_LIST: IJudgeItem[] = [
     ],
   },
   {
+    name: "Neil",
+    title: "Founder&CEO",
+    avatar: JudgeImage21,
+    company: "Reddio",
+    links: [
+      {
+        type: 1,
+        link: "https://x.com/NeilHANYD",
+      },
+      {
+        type: 1,
+        link: "",
+      },
+    ],
+  },
+  {
+    name: "JayKoh",
+    title: "Vice President",
+    avatar: JudgeImage22,
+    company: "Association Blockchain Asia",
+    links: [
+      {
+        type: 1,
+        link: "https://x.com/Krypto_JayK",
+      },
+      {
+        type: 1,
+        link: "",
+      },
+    ],
+  },
+  {
+    name: "Adam",
+    title: "Venture Partner",
+    avatar: JudgeImage23,
+    company: "3 Comma Capital SCR",
+    links: [
+      {
+        type: 1,
+        link: "https://x.com/@adamwebthree",
+      },
+      {
+        type: 1,
+        link: "https://www.linkedin.com/in/adamihsanboon/",
+      },
+    ],
+  },
+  {
+    name: "Bruce",
+    title: "CSO",
+    avatar: JudgeImage24,
+    company: "Partisia Blockchain Foundation",
+    links: [
+      {
+        type: 1,
+        link: "https://x.com/@bruce_pbc",
+      },
+      {
+        type: 1,
+        link: "https://linkedin.com/in/ahnbruce",
+      },
+    ],
+  },
+  {
     name: "Coco",
     title: "Head Of BD",
     avatar: JudgeImage13,
@@ -439,70 +503,6 @@ const JUDGE_LIST: IJudgeItem[] = [
     ],
   },
   {
-    name: "Neil",
-    title: "Founder&CEO",
-    avatar: JudgeImage21,
-    company: "Reddio",
-    links: [
-      {
-        type: 1,
-        link: "https://x.com/NeilHANYD",
-      },
-      {
-        type: 1,
-        link: "",
-      },
-    ],
-  },
-  {
-    name: "JayKoh",
-    title: "Vice President",
-    avatar: JudgeImage22,
-    company: "Association Blockchain Asia",
-    links: [
-      {
-        type: 1,
-        link: "https://x.com/Krypto_JayK",
-      },
-      {
-        type: 1,
-        link: "",
-      },
-    ],
-  },
-  {
-    name: "Adam",
-    title: "Venture Partner",
-    avatar: JudgeImage23,
-    company: "3 Comma Capital SCR",
-    links: [
-      {
-        type: 1,
-        link: "https://x.com/@adamwebthree",
-      },
-      {
-        type: 1,
-        link: "https://www.linkedin.com/in/adamihsanboon/",
-      },
-    ],
-  },
-  {
-    name: "Bruce",
-    title: "CSO",
-    avatar: JudgeImage24,
-    company: "Partisia Blockchain Foundation",
-    links: [
-      {
-        type: 1,
-        link: "https://x.com/@bruce_pbc",
-      },
-      {
-        type: 1,
-        link: "https://linkedin.com/in/ahnbruce",
-      },
-    ],
-  },
-  {
     name: "Daniel Zou",
     title: "Incubation Lead & Partner",
     avatar: JudgeImage25,
@@ -551,18 +551,18 @@ const JUDGE_LIST: IJudgeItem[] = [
     ],
   },
   {
-    name: "Felixsim",
-    title: "Founder",
-    avatar: JudgeImage28,
-    company: "Salad Ventures",
+    name: "Ren",
+    title: "Growth Marketer",
+    avatar: JudgeImage3,
+    company: "Eclipse",
     links: [
       {
         type: 1,
-        link: "https://x.com/felixsim",
+        link: "https://x.com/purplepill3m",
       },
       {
         type: 1,
-        link: "https://www.linkedin.com/in/simfelix",
+        link: "",
       },
     ],
   },
@@ -594,7 +594,7 @@ const JUDGE_LIST: IJudgeItem[] = [
       },
       {
         type: 1,
-        link: "https://linkedin.com/in/@sergiomoralesAR",
+        link: "https://linkedin.com/in/sergiomoralesAR",
       },
     ],
   },
