@@ -45,12 +45,17 @@ export function VoteDetail({ id }: { id: string }) {
       <Successed ref={successedRef} />
 
       <Card>
-        <Image
+        {/* <Image
           src={`${IMAGE_URL}${data.event.cover}`}
           // src={VoteDetailCoverImage}
           alt={data.event.name}
           width={768}
           height={300}
+          className="h-full w-full object-contain rounded-md"
+        /> */}
+        <img
+          src={`${IMAGE_URL}${data.event.cover}`}
+          alt={data.event.name}
           className="h-full w-full object-contain rounded-md"
         />
       </Card>
@@ -66,7 +71,14 @@ export function VoteDetail({ id }: { id: string }) {
         <CardContent>
           <div className="flex gap-2">
             <div className="w-10 h-10 rounded-full overflow-hidden">
-              <Image
+              {/* <Image
+                src={`${IMAGE_URL}${data.event.belonging.logo}`}
+                alt="logo"
+                width={40}
+                height={40}
+                className="felx-none"
+              /> */}
+              <img
                 src={`${IMAGE_URL}${data.event.belonging.logo}`}
                 alt="logo"
                 width={40}
