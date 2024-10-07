@@ -46,9 +46,11 @@ export function VoteDetail({ id }: { id: string }) {
 
       <Card>
         <Image
-          // src={`${IMAGE_URL}${data.event.cover}`}
-          src={VoteDetailCoverImage}
+          src={`${IMAGE_URL}${data.event.cover}`}
+          // src={VoteDetailCoverImage}
           alt={data.event.name}
+          width={768}
+          height={300}
           className="h-full w-full object-contain rounded-md"
         />
       </Card>
