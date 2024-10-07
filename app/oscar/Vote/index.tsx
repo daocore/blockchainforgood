@@ -41,7 +41,7 @@ export function Vote() {
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
     manualPagination: true, //turn off client-side pagination
-    rowCount: tableData.length,
+    rowCount: tableData?.length,
   });
 
   return (
@@ -65,7 +65,9 @@ function initialTableData(
   data: IVoteResult[] = [],
   orgs: IVote["organizations"] = []
 ): IVoteResult[] {
-  if (data.length === orgs.length) {
+  if(!data?.length) return []
+
+  if (data?.length === orgs?.length) {
     return data;
   }
   const newRes = [...data];
