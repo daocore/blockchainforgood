@@ -59,7 +59,7 @@ interface IJudgeItem {
 
 const JudgeItem = ({ item }: { item: IJudgeItem }) => {
   return (
-    <div className="flex flex-col items-center w-2/5 md:w-[300px] text-typography mt-8">
+    <div className="flex flex-col items-center w-1/2 md:w-[300px] text-typography mt-8">
       <Image
         className="w-4/5 h-4/5 md:w-[140px] md:h-[140px]"
         src={item.avatar}
