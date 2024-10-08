@@ -25,7 +25,11 @@ export function Vote() {
 
   const { data: vote } = useAPIVoteDetail(ID);
 
-  const tableData = initialTableData(data, vote?.organizations);
+  const tableData = initialTableData(
+    data,
+    vote?.organizations,
+    vote?.event?.id
+  );
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const table = useReactTable({
     data: tableData,
@@ -63,12 +67,14 @@ export function Vote() {
 
 function initialTableData(
   data: IVoteResult[] = [],
-  orgs: IVote["organizations"] = []
+  orgs: IVote["organizations"] = [],
+  eventId: string
 ): IVoteResult[] {
+  const newRes = [...data.map((item) => ({ ...item, eventId }))];
+
   if (data?.length === orgs?.length) {
-    return data;
+    return newRes;
   }
-  const newRes = [...data];
   const existedProjectIds = data.map((project) => project.id);
   const notExistedProject = orgs.filter(
     (org) => !existedProjectIds.includes(org.id)
@@ -82,6 +88,7 @@ function initialTableData(
         trend: 0,
         count: 0,
         project: org,
+        eventId,
       };
     })
   );
