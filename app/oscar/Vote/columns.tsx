@@ -24,7 +24,7 @@ export const columns: ColumnDef<IVoteResult>[] = [
         original: { project },
       } = row;
       return (
-        <Image
+        <img
           width={24}
           height={24}
           className="rounded-full w-6 h-6 hidden md:block"
