@@ -43,7 +43,7 @@ export const columns: ColumnDef<IVoteResult>[] = [
         original: { project, eventId },
       } = row;
       return (
-        <Link href={`/project/${eventId}/${project.id}`}>
+        <Link target="_blank" href={`/project/${eventId}/${project.id}`}>
           <span className="inline-block w-full font-bold whitespace-normal">
             {project.name}
           </span>
