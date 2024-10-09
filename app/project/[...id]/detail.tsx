@@ -111,7 +111,7 @@ function DiyformDescription({
   data: Array<{ label: string; value: string; type: string }>;
 }) {
   return data.map((item) => {
-    let children: React.ReactNode = item.value;
+    let children: React.ReactNode = <p dangerouslySetInnerHTML={{ __html: item.value?.replace(/\n/g, "<br />") }} />;
 
     // 类型是file的代表是上传到我们平台的文件，数据库保存的只是路径，未来全部转移到其他平台，那么更换前缀即可。
     if (item.type === "file" && item?.value) {

@@ -25,6 +25,9 @@ export function useAPIVoteDetail(id: string) {
     const response = (await Q(
       http.get(url, {
         params: querys,
+        headers: {
+          "Cache-Control": "no-cache",
+        },
       })
     )) as IVote;
     let loc = {
@@ -64,6 +67,9 @@ export function APIGetVoteResult(params: IVoteResultParams) {
   return Q<IVoteResult[]>(
     http.get(API_PATH.GET_VOTE_RESULT, {
       params,
+      headers: {
+        "Cache-Control": "no-cache",
+      },
     })
   );
 }

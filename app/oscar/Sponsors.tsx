@@ -63,7 +63,7 @@ export const Sponsors = () => {
     homeStyles.moveFromBottom
   );
   return (
-    <div ref={ref} className="px-6 md:px-0">
+    <div ref={ref}>
       <div className="text-center">
         <h2
           className={cn(

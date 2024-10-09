@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import { ReactNode } from "react";
+import Link from "next/link";
 
 export const columns: ColumnDef<IVoteResult>[] = [
   {
@@ -39,12 +40,14 @@ export const columns: ColumnDef<IVoteResult>[] = [
     header: "NAME",
     cell: ({ row }) => {
       const {
-        original: { project },
+        original: { project, eventId },
       } = row;
       return (
-        <span className="inline-block w-full font-bold whitespace-normal">
-          {project.name}
-        </span>
+        <Link target="_blank" href={`/project/${eventId}/${project.id}`}>
+          <span className="inline-block w-full font-bold whitespace-normal">
+            {project.name}
+          </span>
+        </Link>
       );
     },
   },

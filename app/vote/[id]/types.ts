@@ -52,4 +52,5 @@ export interface IVoteResult {
   formId?: string;
   ranking: number;
   trend: number;
+  eventId: string;
 }

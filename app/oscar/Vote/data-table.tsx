@@ -87,10 +87,11 @@ export function DataTable({ table, id }: DataTableProps) {
                 </TableRow>
               ))
           ) : (
-            <TableRow>
+            <TableRow className="hover:bg-transparent">
               <TableCell
-                colSpan={table.getHeaderGroups().length}
-                className="h-24 text-center"
+                // colSpan={table.getHeaderGroups().length}
+                colSpan={5}
+                className="h-24 text-center text-description"
               >
                 No results.
               </TableCell>

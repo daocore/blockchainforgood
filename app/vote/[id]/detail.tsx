@@ -17,7 +17,6 @@ import { Loading } from "./skeleton-loading";
 import { getTime, getTimeData, getTimeZone } from "./utils";
 import { useEffect, useRef } from "react";
 import { Successed } from "./successed";
-import VoteDetailCoverImage from "@/assets/vote/bg.jpeg";
 
 export function VoteDetail({ id }: { id: string }) {
   const { data, isLoading } = useAPIVoteDetail(id);
@@ -47,7 +46,6 @@ export function VoteDetail({ id }: { id: string }) {
       <Card>
         <Image
           src={`${IMAGE_URL}${data.event.cover}`}
-          // src={VoteDetailCoverImage}
           alt={data.event.name}
           width={768}
           height={300}

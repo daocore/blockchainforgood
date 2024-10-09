@@ -27,7 +27,7 @@ const formSchema = z.object({
     .refine((value) => value.some((item) => item), {
       message: "You have to select at least one item.",
     })
-    .refine((value) => value.length <= 10, {
+    .refine((value) => value?.length <= 10, {
       message: "You can select up to 10 items.",
     }),
   nickname: z.string().min(1),
