@@ -6,98 +6,13 @@ import { OSCAR_EVENT_ID } from "@/constants/env";
 import BC100Image from "@/assets/oscar/BC1000.png";
 import InatbaImage from "@/assets/oscar/INATBA.png";
 import PBPositiveBlockchainImage from "@/assets/oscar/PBPositiveBlockchain.io.png";
+import UWebImage from "@/assets/oscar/uweb.png";
+import XDImage from "@/assets/oscar/xd.png";
+import NapulethImage from "@/assets/oscar/napuleth.png";
+import APUImage from "@/assets/oscar/apu.png";
+import GrowthChargerImage from "@/assets/oscar/growth-charger.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
-
-export const partersData = [
-  {
-    approve: 0,
-    id: "3",
-    name: "BC100+",
-    sort: 2,
-    type: 1,
-    logo: BC100Image,
-    link: "https://bc100plus.org/",
-    partnersType: 0,
-    style: '{"height":"34px"}',
-    mobileStyle: '{"height":"22px"}',
-    createDate: "2023-01-17T06:40:21.384Z",
-    updateDate: "2023-01-17T06:40:21.384Z",
-  },
-  {
-    approve: 0,
-    id: "4",
-    name: "Inatba",
-    sort: 0,
-    type: 1,
-    logo: InatbaImage,
-    link: "https://inatba.org/",
-    partnersType: 0,
-    style: '{"height":"38px"}',
-    mobileStyle: '{"height":"24px"}',
-    createDate: "2023-01-17T06:40:21.388Z",
-    updateDate: "2023-01-17T06:40:21.388Z",
-  },
-  {
-    approve: 0,
-    id: "104",
-    name: "positive blockchain",
-    sort: 0,
-    type: 0,
-    logo: PBPositiveBlockchainImage,
-    link: "https://positiveblockchain.io/",
-    partnersType: 0,
-    style: '{"height": "24px"}',
-    mobileStyle: '{"height":"18px"}',
-    createDate: "2023-11-08T14:33:10.047Z",
-    updateDate: "2023-11-08T14:33:10.047Z",
-  },
-];
-
-const PartnerItem = ({ item }: { item: any }) => {
-  const mobile = useIsMobile();
-
-  return (
-    <div className="my-6 md:my-10">
-      <div className={`flex flex-wrap justify-center items-center`}>
-        {item?.list?.map((ite: any, i: number) => {
-          return (
-            <a
-              key={i}
-              className={`inline-block p-1 mb-1 sx:w-full`}
-              style={
-                mobile
-                  ? {
-                      height: ["Media Partners", "Community"].includes(
-                        item.type
-                      )
-                        ? 50
-                        : 64,
-                      width: `${(1 / item.ratio) * 100}%`,
-                    }
-                  : item.style || {}
-              }
-              target="_blank"
-              href={ite?.link}
-              rel="noreferrer"
-            >
-              <div
-                className="overflow-hidden rounded-md  flex justify-center items-center w-full h-full"
-                style={{ padding: 10, ...(mobile ? {} : item?.imgStyle || {}) }}
-              >
-                <img
-                  src={ite?.logo.src}
-                  style={{ ...((mobile ? ite.mobileStyle : ite?.style) || {}) }}
-                  alt=""
-                />
-              </div>
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
 
 const partnerObj = [
   {
@@ -110,6 +25,7 @@ const partnerObj = [
   },
   {
     type: "Platinum Sponsors",
+    name: "Strategic Partner",
     style: {
       width: "220px",
       height: "110px",
@@ -137,6 +53,7 @@ const partnerObj = [
   },
   {
     type: "Media Partners",
+    name: "Media Partner",
     style: {
       width: "140px",
       height: "70px",
@@ -145,6 +62,7 @@ const partnerObj = [
   },
   {
     type: "Community Partners",
+    name: "Community Partner",
     style: {
       width: "140px",
       height: "70px",
@@ -152,6 +70,126 @@ const partnerObj = [
     ratio: 4,
   },
 ];
+
+const partersData = [
+  {
+    name: "BC100+",
+    type: 1,
+    logo: BC100Image,
+    link: "https://bc100plus.org/",
+    partnersType: 0,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"22px"}',
+  },
+  {
+    name: "Inatba",
+    type: 1,
+    logo: InatbaImage,
+    link: "https://inatba.org/",
+    partnersType: 0,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "positive blockchain",
+    type: 0,
+    logo: PBPositiveBlockchainImage,
+    link: "https://positiveblockchain.io/",
+    partnersType: 0,
+    style: '{"height": "24px"}',
+    mobileStyle: '{"height":"18px"}',
+  },
+  {
+    name: "uweb",
+    type: 4,
+    logo: UWebImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"22px"}',
+  },
+  {
+    name: "xuedao",
+    type: 4,
+    logo: XDImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "napuleth",
+    type: 4,
+    logo: NapulethImage,
+    link: "https://napul.eth.limo",
+    partnersType: 5,
+    style: '{"height": "38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "apu blockchain",
+    type: 4,
+    logo: APUImage,
+    link: "https://apubcc.org/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"22px"}',
+  },
+  {
+    name: "growth charger",
+    type: 4,
+    logo: GrowthChargerImage,
+    link: "https://www.growthcharger.com/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+];
+
+const PartnerItem = ({ item }: { item: any }) => {
+  const mobile = useIsMobile();
+
+  return (
+    <div className="my-6 md:my-10">
+      <div className={`flex flex-wrap justify-center items-center`}>
+        {item?.list?.map((ite: any, i: number) => {
+          return (
+            <a
+              key={i}
+              className={`inline-block p-1 mb-1 sx:w-full`}
+              style={
+                mobile
+                  ? {
+                      height: ["Media Partners", "Community"].includes(
+                        item.type
+                      )
+                        ? 50
+                        : 64,
+                      width: `${(1 / item.ratio) * 100}%`,
+                    }
+                  : item.style || {}
+              }
+              target={ite?.link ? "_blank" : "_self"}
+              href={ite?.link || undefined}
+              rel="noreferrer"
+            >
+              <div
+                className="overflow-hidden rounded-md  flex justify-center items-center w-full h-full"
+                style={{ padding: 10, ...(mobile ? {} : item?.imgStyle || {}) }}
+              >
+                <img
+                  src={ite?.logo.src}
+                  style={{ ...((mobile ? ite.mobileStyle : ite?.style) || {}) }}
+                  alt=""
+                />
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 export const Partners = () => {
   const data: any[] = useMemo(() => {
@@ -190,6 +228,8 @@ export const Partners = () => {
     return data;
   }, []);
 
+  console.log(data);
+
   const ref = useIntersectionObserver<HTMLDivElement>(
     homeStyles.moveFromBottom
   );
@@ -199,7 +239,7 @@ export const Partners = () => {
       <h2
         className={`font-bold text-oscarActive font-['Inter'] text-[20px] md:text-[32px] text-center`}
       >
-        Partners
+        Strategic Partner
       </h2>
       <div className="text-description text-center">
         <p>Interested in becoming our partner?</p>
@@ -218,9 +258,16 @@ export const Partners = () => {
         {data?.map((item: any, index: number) => {
           return (
             <div
-              key={index}
+              key={item.name}
               className="-mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             >
+              {index !== 0 && (
+                <h2
+                  className={`font-bold text-oscarActive font-['Inter'] text-[20px] md:text-[32px] text-center`}
+                >
+                  {item.name}
+                </h2>
+              )}
               <PartnerItem item={item} />
             </div>
           );
