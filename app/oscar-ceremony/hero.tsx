@@ -4,7 +4,7 @@ import { cn } from "@/lib";
 import styles from "./index.module.css";
 import Image from "next/image";
 import HeroLeftFullImage from "@/assets/oscar-ceremony/hero-left-full1.png";
-import HeroRightFullImage from "@/assets/oscar-ceremony/hero-right-full1.png";
+// import HeroRightFullImage from "@/assets/oscar-ceremony/hero-right-full1.png";
 import { useState } from "react";
 
 export function Hero() {
@@ -53,14 +53,18 @@ export function Hero() {
           styles["hero-right"]
         )}
       >
-        <Image
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className={cn(
             "w-full h-full object-cover",
             isHover ? "object-left-top" : "object-right-bottom"
           )}
-          src={HeroRightFullImage}
-          alt="Web3.0 Oscar"
-        />
+        >
+          <source src="/hero-right-full.webm" type="video/webm" />
+        </video>
         <div className="absolute top-1/2 left-32 -translate-y-1/2">
           <p
             className={cn(
