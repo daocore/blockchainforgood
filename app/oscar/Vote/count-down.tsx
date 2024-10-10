@@ -51,7 +51,10 @@ export function CountDown({ endTime }: CountDownProps) {
 
   return (
     <div
-      className={cn("text-description px-4 py-1", styles["count-down-wrapper"])}
+      className={cn(
+        "text-description px-4 py-1 relative",
+        styles["count-down-wrapper"]
+      )}
     >
       {isTimeOver && <TimeOver />}
       {!isTimeOver && <CountDownImpl {...timeLeft} />}
@@ -60,12 +63,14 @@ export function CountDown({ endTime }: CountDownProps) {
 }
 
 function TimeOver() {
-  return <p className="h-10 leading-[2.5rem]">Voting is closed!</p>;
+  return (
+    <p className="h-10 leading-[2.5rem] relative z-10">Voting is closed!</p>
+  );
 }
 
 function CountDownImpl({ days, hours, minutes }: TimeLeft) {
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="grid grid-cols-3 gap-2 relative z-10">
       <CountDownImplItem label="DAYS" value={days} />
       <CountDownImplItem label="HOURS" value={hours} />
       <CountDownImplItem label="MINUTES" value={minutes} />
