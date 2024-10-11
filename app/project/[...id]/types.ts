@@ -15,6 +15,7 @@ export interface IParams {
     | EventsRoleValue.PERSONAL
     | EventsRoleValue.PROJECT
     | EventsRoleValue.JUDGE;
+  judge?: "1";
 }
 
 export interface EventsApproveEntity {
