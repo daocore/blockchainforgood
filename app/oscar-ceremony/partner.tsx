@@ -79,8 +79,8 @@ const PartnerItem = ({ item }: { item: any }) => {
                     }
                   : item.style || {}
               }
-              target="_blank"
-              href={ite?.link}
+              target={ite?.link ? "_blank" : "_self"}
+              href={ite?.link || undefined}
               rel="noreferrer"
             >
               <div
@@ -201,7 +201,7 @@ export const Partners = () => {
       <h2
         className={`font-bold text-oscarActive font-['Inter'] text-[20px] md:text-[32px] text-center`}
       >
-        Partners
+        Strategic Partner
       </h2>
       <div className="text-description text-center">
         <p>Interested in becoming our partner?</p>
