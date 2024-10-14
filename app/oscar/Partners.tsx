@@ -11,6 +11,22 @@ import XDImage from "@/assets/oscar/xd.png";
 import NapulethImage from "@/assets/oscar/napuleth.png";
 import APUImage from "@/assets/oscar/apu.png";
 import GrowthChargerImage from "@/assets/oscar/growth-charger.png";
+
+import CatDigitalImage from "@/assets/oscar/9 CAT DIGITAL.png";
+import AmigooVenturesImage from "@/assets/oscar/Amigoo Ventures.png";
+import BeosinImage from "@/assets/oscar/Beosin.png";
+import ChainCapitalImage from "@/assets/oscar/Chain Capital.png";
+import CluboutImage from "@/assets/oscar/Clubout.png";
+import DevsOnChainImage from "@/assets/oscar/DevsOnChain.png";
+import MetaScheoolImage from "@/assets/oscar/Metaschool.png";
+import PentabaseImage from "@/assets/oscar/Pentabase.png";
+import SupertamMalaysiaImage from "@/assets/oscar/Superteam Malaysia.png";
+import TintinlandImage from "@/assets/oscar/tintinland.png";
+import TradeCoinVNImage from "@/assets/oscar/TradeCoinVN.png";
+import WTechLabsImage from "@/assets/oscar/W Tech Labs.png";
+import BitcoinAddictThailandImage from "@/assets/oscar/0_Bitcoin Addict Thailand.png";
+import BlocktempoImage from "@/assets/oscar/0_BlockTempo.png";
+import TechFlameImage from "@/assets/oscar/0_TechFlame.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 
@@ -141,6 +157,141 @@ const partersData = [
     logo: GrowthChargerImage,
     link: "https://www.growthcharger.com/",
     partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "9 CAT DIGITAL",
+    type: 4,
+    logo: CatDigitalImage,
+    link: "https://9catdigital.com/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Amigoo Ventures",
+    type: 4,
+    logo: AmigooVenturesImage,
+    link: "https://www.amigoo.xyz/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Beosin",
+    type: 4,
+    logo: BeosinImage,
+    link: "https://www.beosin.com/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Chain Capital",
+    type: 4,
+    logo: ChainCapitalImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Clubout",
+    type: 4,
+    logo: CluboutImage,
+    link: "https://clubout.pro/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "DevsOnChain",
+    type: 4,
+    logo: DevsOnChainImage,
+    link: "https://x.com/DevsOnChain",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "metaschool",
+    type: 4,
+    logo: MetaScheoolImage,
+    link: "https://metaschool.so/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "pentabase",
+    type: 4,
+    logo: PentabaseImage,
+    link: "https://pentabase.io/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "superteam malaysia",
+    type: 4,
+    logo: SupertamMalaysiaImage,
+    link: "https://my.superteam.fun/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "tintinland",
+    type: 4,
+    logo: TintinlandImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "TradeCoinVN",
+    type: 4,
+    logo: TradeCoinVNImage,
+    link: "https://tradecoinvn.net/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "W Tech Labs",
+    type: 4,
+    logo: WTechLabsImage,
+    link: "https://www.wtechlabs.xyz/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Bitcoin Addict Thailand",
+    type: 4,
+    logo: BitcoinAddictThailandImage,
+    link: "https://bitcoinaddict.org/",
+    partnersType: 4,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Block tempo",
+    type: 4,
+    logo: BlocktempoImage,
+    link: "https://www.blocktempo.com/",
+    partnersType: 4,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "TechFlame",
+    type: 4,
+    logo: TechFlameImage,
+    link: "https://techflame.com/",
+    partnersType: 4,
     style: '{"height":"38px"}',
     mobileStyle: '{"height":"24px"}',
   },
