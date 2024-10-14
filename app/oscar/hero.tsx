@@ -4,8 +4,8 @@ import { cn } from "@/lib";
 import styles from "../oscar-ceremony/index.module.css";
 import Image from "next/image";
 import HeroLeftFullImage from "@/assets/oscar-ceremony/hero-left-full1.png";
-import OscarGlobeImage from "@/assets/oscar/BGA Oscar Globe Only.png";
-import { Dispatch, SetStateAction, useState } from "react";
+// import OscarGlobeImage from "@/assets/oscar/BGA Oscar Globe Only.png";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 
 export function Hero({
   onChange,
@@ -14,14 +14,22 @@ export function Hero({
 }) {
   const [isHover, setIsHover] = useState(true);
 
+  const videoRef = useRef<HTMLVideoElement>();
+
   const onHoverLeft = () => {
     setIsHover(true);
     onChange(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
   };
 
   const onHoverRight = () => {
     setIsHover(false);
     onChange(true);
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
   };
   return (
     <div className="relative flex flex-col md:flex-row -mt-20 h-screen">
@@ -95,37 +103,25 @@ export function Hero({
             type="video/webm"
           />
         </video>
-        {isHover && (
-          <Image
-            className={cn(
-              "absolute z-10 top-0 left-1/2 md:left-0 md:top-1/2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 transform-all",
-              isHover
-                ? "w-32 h-32 md:w-64 md:h-64"
-                : "-top-4 w-64 h-64 md:w-96 md:h-96"
-            )}
-            src={OscarGlobeImage}
-            alt="oscar globe"
+
+        <video
+          ref={videoRef}
+          autoPlay={!isHover}
+          loop
+          muted
+          playsInline
+          className={cn(
+            "absolute z-10 top-0 left-1/2 md:left-0 md:top-1/2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 transform-all",
+            isHover
+              ? "w-32 h-32 md:w-64 md:h-64"
+              : "-top-4 w-64 h-64 md:w-96 md:h-96"
+          )}
+        >
+          <source
+            src="/BGA-Oscar-Static-Globe-Text-Animated.webm"
+            type="video/webm"
           />
-        )}
-        {!isHover && (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className={cn(
-              "absolute z-10 top-0 left-1/2 md:left-0 md:top-1/2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 transform-all",
-              isHover
-                ? "w-32 h-32 md:w-64 md:h-64"
-                : "-top-4 w-64 h-64 md:w-96 md:h-96"
-            )}
-          >
-            <source
-              src="/BGA-Oscar-Static-Globe-Text-Animated.webm"
-              type="video/webm"
-            />
-          </video>
-        )}
+        </video>
 
         <div
           className={cn(
