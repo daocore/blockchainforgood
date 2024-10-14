@@ -52,7 +52,7 @@ export function Hero({
         />
         <div
           className={cn(
-            "absolute z-10 w-full md:w-auto bottom-48 md:bottom-1/2 translate-y-1/2 transform-all",
+            "absolute z-10 w-full md:w-auto bottom-48 md:bottom-1/2 translate-y-1/2 transition-all duration-200",
             isHover ? "md:left-32" : "md:right-64 opacity-80"
           )}
         >
@@ -111,7 +111,7 @@ export function Hero({
           muted
           playsInline
           className={cn(
-            "absolute z-10 top-0 left-1/2 md:left-0 md:top-1/2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 transform-all",
+            "absolute z-10 top-0 left-1/2 md:left-0 md:top-1/2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 transition-all duration-200",
             isHover
               ? "w-32 h-32 md:w-64 md:h-64"
               : "-top-4 w-64 h-64 md:w-96 md:h-96"
