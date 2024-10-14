@@ -44,8 +44,8 @@ export function Hero({
         />
         <div
           className={cn(
-            "absolute z-10 w-full md:w-auto bottom-48 md:bottom-1/2 translate-y-1/2",
-            isHover ? "md:left-32" : "md:right-64"
+            "absolute z-10 w-full md:w-auto bottom-48 md:bottom-1/2 translate-y-1/2 transform-all",
+            isHover ? "md:left-32" : "md:right-64 opacity-80"
           )}
         >
           <div
@@ -130,7 +130,9 @@ export function Hero({
         <div
           className={cn(
             "absolute right-0 bottom-1/3 md:bottom-1/2  md:translate-y-1/2 text-right",
-            isHover ? "w-full md:w-auto md:right-10" : "w-auto md:right-64"
+            isHover
+              ? "w-full md:w-auto md:right-10 opacity-70"
+              : "w-auto md:right-64"
           )}
         >
           <div
