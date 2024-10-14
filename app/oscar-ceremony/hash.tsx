@@ -32,7 +32,7 @@ const HASH_LIST = [
 
 export function Hash() {
   return (
-    <div className="grid grid-cols-4">
+    <div className="grid grid-cols-2 md:grid-cols-4">
       {HASH_LIST.map((hash) => (
         <Link href={hash.hash}>
           <div

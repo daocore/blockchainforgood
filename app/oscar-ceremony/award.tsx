@@ -41,7 +41,7 @@ export function Award() {
         <h2
           className={cn(
             styles["award-title"],
-            "text-oscarActive inline-block mx-auto text-center text-3xl font-semibold"
+            "text-oscarActive inline-block mx-auto text-center text-xl md:text-3xl font-semibold"
           )}
         >
           Award
@@ -102,7 +102,7 @@ function AwardItem({
         </div>
       </div>
       <div className={cn("w-0 py-6", styles["award-line"])}></div>
-      <div className="flex flex-wrap gap-2 h-min">
+      <div className=" hidden md:flex flex-wrap gap-2 h-min">
         {item.tags.map((tag, index) => (
           <div
             key={tag}
@@ -113,10 +113,20 @@ function AwardItem({
           >{`${index + 1}. ${tag}`}</div>
         ))}
       </div>
-      <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+      <Button
+        className={cn(
+          "hidden md:block px-4 rounded-none",
+          styles["award-btn-rule"]
+        )}
+      >
         <span>Rule</span>
       </Button>
-      <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
+      <Button
+        className={cn(
+          "hidden md:block px-8 rounded-none",
+          styles["award-btn-apply"]
+        )}
+      >
         <span>Apply</span>
       </Button>
     </div>

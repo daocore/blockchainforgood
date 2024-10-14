@@ -228,8 +228,6 @@ export const Partners = () => {
     return data;
   }, []);
 
-  console.log(data);
-
   const ref = useIntersectionObserver<HTMLDivElement>(
     homeStyles.moveFromBottom
   );

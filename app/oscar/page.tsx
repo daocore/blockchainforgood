@@ -1,15 +1,9 @@
 import { Metadata } from "next";
-import { Banner } from "./Banner";
-import { OscarIntro } from "./OscarIntro";
 import ShareBgImage from "@/assets/oscar/share-bg.jpeg";
+import { OscarWrapper } from "./wrapper";
 
 export default function Oscar() {
-  return (
-    <div>
-      <Banner />
-      <OscarIntro />
-    </div>
-  );
+  return <OscarWrapper />;
 }
 
 export async function generateMetadata(): Promise<Metadata> {

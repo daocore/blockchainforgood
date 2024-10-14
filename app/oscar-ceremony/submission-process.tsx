@@ -139,7 +139,7 @@ function PartItem({
     homeStyles.moveFromBottom
   );
   return (
-    <div className="flex gap-2">
+    <div className="block md:flex space-y-2 md:space-y-0 md:space-x-2">
       <div
         className={cn(
           styles["process-part-title"],

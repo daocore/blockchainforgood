@@ -1,7 +1,5 @@
 "use client";
 
-import { useIsMobile } from "@/hooks";
-import { useRouter } from "next-nprogress-bar";
 import { cn } from "@/lib";
 import homeStyles from "../home/styles.module.css";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
