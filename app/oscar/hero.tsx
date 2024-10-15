@@ -177,7 +177,7 @@ export function Hero({
           <div
             className={cn(
               "flex justify-center gap-1 md:block font-extrabold md:text-5xl",
-              isHover ? "text-3xl" : "text-base"
+              isHover ? "text-[32px]" : "text-base"
             )}
           >
             <p className={cn(styles["hero-title"])}>17 SDGS</p>
@@ -189,7 +189,7 @@ export function Hero({
             className={cn(
               "md:text-xl text-center md:text-left",
               styles["hero-description"],
-              isHover && "text-sm md:text-xl"
+              isHover ? "text-sm" : "text-xs"
             )}
           >
             Sustainable Innovation Summit
