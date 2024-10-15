@@ -1,5 +1,6 @@
 import AgendaImage from "@/assets/oscar-ceremony/agenda.png";
-import AwardImage from "@/assets/oscar-ceremony/award.png";
+import JudgeImage from "@/assets/oscar/Judge.webp";
+import RocketImage from "@/assets/oscar/Rocket.webp";
 import PartnerImage from "@/assets/oscar-ceremony/partner.png";
 import FAQImage from "@/assets/oscar-ceremony/faq.png";
 import Image from "next/image";
@@ -10,7 +11,7 @@ import { cn } from "@/lib";
 const HASH_LIST = [
   {
     label: "Projects",
-    image: AgendaImage,
+    image: RocketImage,
     hash: "#projects",
   },
   {
@@ -20,7 +21,7 @@ const HASH_LIST = [
   },
   {
     label: "Judges",
-    image: AwardImage,
+    image: JudgeImage,
     hash: "#judges",
   },
   {
