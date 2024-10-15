@@ -75,7 +75,7 @@ export const Sponsors = () => {
         </h2>
       </div>
       <div
-        className={`h-8 md:h-[42px] py-1 md:py-2 flex flex-col antialiased items-center justify-center relative overflow-hidden`}
+        className={`h-28 py-1 md:py-2 flex flex-col antialiased items-center justify-center relative overflow-hidden`}
       >
         <InfiniteMovingCards direction="left" speed="normal">
           {Array(10)
@@ -90,7 +90,7 @@ export const Sponsors = () => {
                     <Image
                       src={HemereImage}
                       alt={item}
-                      className="w-5 object-contain"
+                      className="h-12 md:h-14 object-contain"
                       style={{ filter: "grayscale(1)" }}
                     />
                     <span>{item}</span>
