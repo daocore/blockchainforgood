@@ -2,7 +2,7 @@ import { Award } from "./award";
 import { Chains } from "./chains";
 import { FAQ } from "./faq";
 import { Hash } from "./hash";
-import { Partners } from "./partner";
+import { Partners } from "../oscar/Partners";
 import { SubmissionProcess } from "./submission-process";
 
 export function Intro() {

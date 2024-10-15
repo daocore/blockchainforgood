@@ -3,9 +3,101 @@
 import { cn } from "@/lib";
 import styles from "../oscar-ceremony/index.module.css";
 import Image from "next/image";
-import HeroLeftFullImage from "@/assets/oscar-ceremony/hero-left-full1.png";
-// import OscarGlobeImage from "@/assets/oscar/BGA Oscar Globe Only.png";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
+import OscarImage1 from "@/assets/oscar/oscar1.png";
+import OscarImage2 from "@/assets/oscar/oscar2.png";
+import OscarImage3 from "@/assets/oscar/oscar3.png";
+import OscarImage4 from "@/assets/oscar/oscar4.png";
+import OscarImage5 from "@/assets/oscar/oscar5.png";
+import OscarImage6 from "@/assets/oscar/oscar6.png";
+import OscarImage7 from "@/assets/oscar/oscar7.png";
+import OscarImage8 from "@/assets/oscar/oscar8.png";
+import OscarImage9 from "@/assets/oscar/oscar9.png";
+import OscarImage10 from "@/assets/oscar/oscar10.png";
+import OscarImage11 from "@/assets/oscar/oscar11.png";
+import OscarImage12 from "@/assets/oscar/oscar12.png";
+import OscarImage13 from "@/assets/oscar/oscar13.png";
+import OscarImage14 from "@/assets/oscar/oscar14.png";
+import OscarImage15 from "@/assets/oscar/oscar15.png";
+import OscarImage16 from "@/assets/oscar/oscar16.png";
+import OscarImage17 from "@/assets/oscar/oscar17.png";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
+const bannerList = [
+  {
+    cover: OscarImage1,
+    title: "NO POVERTY",
+  },
+  {
+    cover: OscarImage2,
+    title: "Zero Hunger",
+  },
+  {
+    cover: OscarImage3,
+    title: "Good Health And Well-Being",
+  },
+  {
+    cover: OscarImage4,
+    title: "Quality Education",
+  },
+  {
+    cover: OscarImage5,
+    title: "Gender Equality",
+  },
+  {
+    cover: OscarImage6,
+    title: "Clean Water And Sanitation",
+  },
+  {
+    cover: OscarImage7,
+    title: "Affordable And Clean Energy",
+  },
+  {
+    cover: OscarImage8,
+    title: "Decent Work And Economic Growth",
+  },
+  {
+    cover: OscarImage9,
+    title: "Industry And Infrastructure",
+  },
+  {
+    cover: OscarImage10,
+    title: "Reduced Inequalities",
+  },
+  {
+    cover: OscarImage11,
+    title: "Sustainable Cities And Communities",
+  },
+  {
+    cover: OscarImage12,
+    title: "Responsible Consumption And Production",
+  },
+  {
+    cover: OscarImage13,
+    title: "Climate Action",
+  },
+  {
+    cover: OscarImage14,
+    title: "Life Below Water",
+  },
+  {
+    cover: OscarImage15,
+    title: "Life On Land",
+  },
+  {
+    cover: OscarImage16,
+    title: "Peace, Justice And Strong Institutions",
+  },
+  {
+    cover: OscarImage17,
+    title: "Partnerships For The Goals",
+  },
+];
 
 export function Hero({
   onChange,
@@ -43,13 +135,39 @@ export function Hero({
         onMouseEnter={onHoverLeft}
         onClick={onHoverLeft}
       >
-        <Image
-          className={cn(
-            "w-full h-full object-center md:object-left-top object-cover"
-          )}
-          src={HeroLeftFullImage}
-          alt="17 SDGS"
-        />
+        <div className="tw-carousel w-full h-full">
+          <Carousel
+            opts={{
+              loop: true,
+              duration: 60,
+              containScroll: false,
+              watchDrag: false,
+              watchFocus: false,
+              watchResize: true,
+              watchSlides: false,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+              }),
+            ]}
+            className="h-full"
+          >
+            <CarouselContent className="h-full">
+              {bannerList.map((banner) => (
+                <CarouselItem key={banner.title} className="w-full h-full">
+                  <Image
+                    className="w-full h-full object-center md:object-left-top object-cover"
+                    src={banner.cover}
+                    width={2240}
+                    height={1496}
+                    alt={banner.title}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
         <div
           className={cn(
             "absolute z-10 w-full md:w-auto bottom-48 md:bottom-1/2 translate-y-1/2 transition-all duration-200",
