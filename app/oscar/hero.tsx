@@ -27,6 +27,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import GlobeStaticImage from "@/assets/oscar/BGA Oscar Globe Only.png";
 
 const bannerList = [
   {
@@ -216,6 +217,7 @@ export function Hero({
               ? "object-right-bottom md:object-left-top"
               : "object-left-top md:object-right-bottom"
           )}
+          preload="auto"
         >
           <source
             src="/BGA Ceremony Animation-Background blur.webm"
@@ -225,7 +227,6 @@ export function Hero({
 
         <video
           ref={videoRef}
-          autoPlay={!isHover}
           loop
           muted
           playsInline
@@ -235,6 +236,8 @@ export function Hero({
               ? "w-32 h-32 md:w-64 md:h-64"
               : "-top-4 w-64 h-64 md:w-96 md:h-96"
           )}
+          preload="auto"
+          poster={GlobeStaticImage.src}
         >
           <source
             src="/BGA-Oscar-Static-Globe-Text-Animated.webm"
