@@ -162,6 +162,7 @@ export function Hero({
                     width={2240}
                     height={1496}
                     alt={banner.title}
+                    priority
                   />
                 </CarouselItem>
               ))}
