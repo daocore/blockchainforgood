@@ -621,7 +621,7 @@ export const Judge = () => {
   return (
     <div ref={ref} className={cn("md:w-content w-full")}>
       <h2 className="font-bold text-oscarActive font-['Inter'] mx-auto text-[20px] md:text-[32px] text-center">
-        Judge
+        Judges
       </h2>
       <div
         className={cn(
