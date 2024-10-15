@@ -35,7 +35,7 @@ const partnerObj = [
     ratio: 3,
     type: "Diamond Sponsors",
     style: {
-      width: "220px",
+      // width: "220px",
       height: "110px",
     },
   },
@@ -43,7 +43,7 @@ const partnerObj = [
     type: "Platinum Sponsors",
     name: "Strategic Partner",
     style: {
-      width: "220px",
+      // width: "220px",
       height: "110px",
     },
     ratio: 3,
@@ -51,7 +51,7 @@ const partnerObj = [
   {
     type: "Gold Sponsors",
     style: {
-      width: "140px",
+      // width: "140px",
       height: "70px",
     },
     ratio: 3,
@@ -59,7 +59,7 @@ const partnerObj = [
   {
     type: "Silver Sponsors",
     style: {
-      width: "140px",
+      // width: "140px",
       height: "70px",
     },
     imgStyle: {
@@ -71,7 +71,7 @@ const partnerObj = [
     type: "Media Partners",
     name: "Media Partner",
     style: {
-      width: "140px",
+      // width: "140px",
       height: "70px",
     },
     ratio: 4,
@@ -80,7 +80,7 @@ const partnerObj = [
     type: "Community Partners",
     name: "Community Partner",
     style: {
-      width: "140px",
+      // width: "140px",
       height: "70px",
     },
     ratio: 4,
@@ -130,8 +130,8 @@ const partersData = [
     logo: XDImage,
     link: "",
     partnersType: 5,
-    style: '{"height":"38px"}',
-    mobileStyle: '{"height":"24px"}',
+    style: '{"height":"32px"}',
+    mobileStyle: '{"height":"20px"}',
   },
   {
     name: "napuleth",
@@ -166,8 +166,8 @@ const partersData = [
     logo: CatDigitalImage,
     link: "https://9catdigital.com/",
     partnersType: 5,
-    style: '{"height":"38px"}',
-    mobileStyle: '{"height":"24px"}',
+    style: '{"height":"30px"}',
+    mobileStyle: '{"height":"20px"}',
   },
   {
     name: "Amigoo Ventures",
@@ -202,8 +202,8 @@ const partersData = [
     logo: CluboutImage,
     link: "https://clubout.pro/",
     partnersType: 5,
-    style: '{"height":"38px"}',
-    mobileStyle: '{"height":"24px"}',
+    style: '{"height":"32px"}',
+    mobileStyle: '{"height":"20px"}',
   },
   {
     name: "DevsOnChain",
@@ -211,8 +211,8 @@ const partersData = [
     logo: DevsOnChainImage,
     link: "https://x.com/DevsOnChain",
     partnersType: 5,
-    style: '{"height":"38px"}',
-    mobileStyle: '{"height":"24px"}',
+    style: '{"height":"32px"}',
+    mobileStyle: '{"height":"20px"}',
   },
   {
     name: "metaschool",
@@ -220,8 +220,8 @@ const partersData = [
     logo: MetaScheoolImage,
     link: "https://metaschool.so/",
     partnersType: 5,
-    style: '{"height":"38px"}',
-    mobileStyle: '{"height":"24px"}',
+    style: '{"height":"30px"}',
+    mobileStyle: '{"height":"20px"}',
   },
   {
     name: "pentabase",
@@ -316,7 +316,7 @@ const PartnerItem = ({ item }: { item: any }) => {
                       )
                         ? 50
                         : 64,
-                      width: `${(1 / item.ratio) * 100}%`,
+                      // width: `${(1 / item.ratio) * 100}%`,
                     }
                   : item.style || {}
               }
