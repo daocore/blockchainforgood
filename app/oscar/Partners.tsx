@@ -1,3 +1,5 @@
+"use client";
+
 import { useMemo } from "react";
 import { useIsMobile } from "@/hooks";
 import Link from "next/link";
