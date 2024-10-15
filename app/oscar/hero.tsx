@@ -136,7 +136,7 @@ export function Hero({
         onMouseEnter={onHoverLeft}
         onClick={onHoverLeft}
       >
-        <div className="tw-carousel w-full h-full">
+        <div className="w-full h-full">
           <Carousel
             opts={{
               loop: true,
@@ -156,7 +156,7 @@ export function Hero({
           >
             <CarouselContent className="h-full">
               {bannerList.map((banner) => (
-                <CarouselItem key={banner.title} className="w-full h-full">
+                <CarouselItem key={banner.title} className="w-full h-full pl-0">
                   <Image
                     className="w-full h-full object-center md:object-left-top object-cover"
                     src={banner.cover}
@@ -178,8 +178,8 @@ export function Hero({
         >
           <div
             className={cn(
-              "flex justify-center gap-1 md:block font-extrabold md:text-5xl",
-              isHover ? "text-[32px]" : "text-base"
+              "flex justify-center gap-1 md:block font-extrabold",
+              isHover ? "text-[32px] md:text-5xl" : "text-base md:text-4xl"
             )}
           >
             <p className={cn(styles["hero-title"])}>17 SDGS</p>
@@ -255,8 +255,8 @@ export function Hero({
         >
           <div
             className={cn(
-              "w-full flex gap-1 justify-center md:block font-extrabold md:text-4xl",
-              isHover ? "text-base " : "text-3xl"
+              "w-full flex gap-1 justify-center md:block font-extrabold",
+              isHover ? "text-base md:text-4xl" : "text-3xl md:text-5xl"
             )}
           >
             <p className={cn("leading-tight", styles["hero-title"])}>
