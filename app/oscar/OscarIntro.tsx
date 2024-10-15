@@ -2,6 +2,7 @@
 
 import { Evaluation } from "./Evaluation";
 import { OscarFAQ } from "./FAQ";
+import { Hash } from "./Hash";
 import { Judge } from "./Judge";
 import { Partners } from "./Partners";
 import { Prizes } from "./Prize";
@@ -13,6 +14,7 @@ import { Vote } from "./Vote";
 export const OscarIntro = () => {
   return (
     <section className="w-full bg-oscarBlack flex flex-col gap-[32px] md:gap-[96px] items-center py-[32px] md:py-[96px]">
+      <Hash />
       <Vote />
       <SummitInto />
       <Prizes />

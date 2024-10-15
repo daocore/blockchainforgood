@@ -386,7 +386,7 @@ export const Partners = () => {
   );
 
   return (
-    <div ref={ref} className="px-6 md:px-0">
+    <div id="partner" ref={ref} className="px-6 md:px-0">
       <h2
         className={`font-bold text-oscarActive font-['Inter'] text-[20px] md:text-[32px] text-center`}
       >
