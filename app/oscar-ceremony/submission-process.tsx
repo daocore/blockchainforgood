@@ -11,7 +11,7 @@ import homeStyles from "../home/styles.module.css";
 
 export function SubmissionProcess() {
   return (
-    <div>
+    <div className="px-2 md:px-0">
       <div id="agenda" className="flex items-center gap-2">
         <Image width={40} height={40} src={ProcessIconImage} alt="Process" />
         <h2 className="text-oscarActive text-3xl font-bold">
@@ -29,14 +29,38 @@ export function SubmissionProcess() {
             <PartContentItem
               title="The Red Carpet"
               desc="Registration for event participants begins. In true glamour and excitement, take a snapshot to remember this event at our red carpet and photobooth."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+              ]}
             />
             <PartContentItem
               title="Opening Premiere"
               desc="A cinematic, epic style opening video will highlight the current global sustainability challenges, juxtaposed with innovative blockchain solutions that have made a difference. "
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+              ]}
             />
             <PartContentItem
               title="The Spotlight"
               desc="A BGA member introduces the theme and agenda and gives an opening welcome."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+              ]}
             />
           </PartItem>
 
@@ -44,15 +68,39 @@ export function SubmissionProcess() {
             <PartContentItem
               title="Rising Stars"
               desc="10 shortlisted projects from across the globe, who have participated in the Sustainable Innovation Summit: The 17 SDGs Challenge, will step into the spotlight, presenting their blockchain solutions that confront sustainability challenges."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+              ]}
             />
             <PartContentItem
               title="Academy of Innovation (name of panel to put on website)"
               desc="The judging panel, known as The Academy, comprises esteemed leaders and visionaries from the blockchain, sustainability, and tech industries. These experts will evaluate the pitches based on innovation, impact, and potential for global scalability. "
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+              ]}
             />
 
             <PartContentItem
               title="The People's Choice"
               desc={`In the spirit of audience engagement, attendees will have the opportunity to cast their votes live via a dedicated app, selecting their favorite project as the "People’s Choice" among the innovative blockchain solutions.`}
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+              ]}
             />
           </PartItem>
 
@@ -67,6 +115,14 @@ export function SubmissionProcess() {
               title="The Luminaries"
               desc="The BGA will open the afternoon segment by introducing leaders from the blockchain and sustainability sectors, along with the organizations they represent, in preparation for their keynotes. (10 minutes)
 Delivered by the gathering of prominent thought leaders, a series of insightful and exciting keynotes will outline the current state of global sustainability efforts and how blockchain is uniquely positioned to contribute."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+              ]}
             />
           </PartItem>
 
@@ -75,6 +131,14 @@ Delivered by the gathering of prominent thought leaders, a series of insightful 
               title="The Hall of Fame"
               desc="An awards ceremony is conducted to recognize BGA members such as ambassadors, advisors, partners, and project teams making strides in promoting blockchain for good. 
 Each award presentation should include a brief narrative of the recipient's journey and impact."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+              ]}
             />
           </PartItem>
 
@@ -82,6 +146,14 @@ Each award presentation should include a brief narrative of the recipient's jour
             <PartContentItem
               title="The New Age"
               desc="A closing speech will close in on the future of blockchain for sustainability, outlining the BGA's vision for the next decade, focused on the exciting grants and programmes planned and awarded by the BGA beyond the Oscars."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+              ]}
             />
           </PartItem>
 
@@ -89,6 +161,20 @@ Each award presentation should include a brief narrative of the recipient's jour
             <PartContentItem
               title="Encore"
               desc="Networking session with an afterparty and light refreshments and networking before the event ends."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+                {
+                  img: UserImage,
+                  name: "Allan1",
+                  org: "Moledao",
+                  relation: "Partners",
+                },
+              ]}
             />
           </PartItem>
         </div>
@@ -160,17 +246,29 @@ function PartItem({
   );
 }
 
-function PartContentItem({ title, desc }: { title: string; desc: string }) {
+function PartContentItem({
+  title,
+  desc,
+  spearks,
+}: {
+  title: string;
+  desc: string;
+  spearks: any[];
+}) {
   return (
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
-      <UserAvater
-        img={UserImage}
-        name="Allan"
-        org="MoleDAO"
-        relation="Partners"
-      />
+      <div className="flex gap-2">
+        {spearks.map((speark) => (
+          <UserAvater
+            img={speark.img}
+            name={speark.name}
+            org={speark.org}
+            relation={speark.relation}
+          />
+        ))}
+      </div>
     </div>
   );
 }

@@ -36,7 +36,7 @@ export function Award() {
     homeStyles.moveFromBottom
   );
   return (
-    <div ref={ref} id="award" className="pt-6">
+    <div ref={ref} id="award" className="pt-6 px-2 md:px-0">
       <div className="text-center">
         <h2
           className={cn(
@@ -80,7 +80,7 @@ function AwardItem({
         alt="trophy"
       />
       <div>
-        <h3 className={cn(styles["award-name"], "text-2xl mb-2")}>
+        <h3 className={cn(styles["award-name"], "text-xl md:text-2xl mb-2")}>
           {item.name}
         </h3>
         <div
@@ -101,7 +101,9 @@ function AwardItem({
           <span className={cn(styles["award-description"])}>{item.prize}</span>
         </div>
       </div>
-      <div className={cn("w-0 py-6", styles["award-line"])}></div>
+      <div
+        className={cn("w-0 py-6 hidden md:block", styles["award-line"])}
+      ></div>
       <div className=" hidden md:flex flex-wrap gap-2 h-min">
         {item.tags.map((tag, index) => (
           <div
