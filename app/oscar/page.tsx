@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const coverImage = "https://www.blockchainforgood.xyz" + ShareBgImage.src;
   const name = "BGA Oscar";
   const desc =
-    "Discover Blockchain for Good Alliance (BGA) and our mission to leverage blockchain technology for social impact. Join us to explore, innovate, and implement blockchain solutions for societal challenges.";
+    "Discover Blockchain for Good Alliance (BGA) and our mission to leverage blockchain technology for social impact. Join our web3 Oscar (BGA Oscar).";
   return {
     title: name,
     description: desc,
