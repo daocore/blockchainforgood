@@ -216,7 +216,7 @@ export function Hero({
           >
             <Link
               target="__blank"
-              href={`${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}`}
+              href={`${ROUTER_PATH.FORM.PERSON}/${OSCAR_HACKTHON_EVENT_ID}`}
             >
               <div
                 className={cn(
@@ -318,7 +318,7 @@ export function Hero({
           >
             <Link
               target="__blank"
-              href={`${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_EVENT_ID}`}
+              href={`${ROUTER_PATH.FORM.PERSON}/${OSCAR_EVENT_ID}`}
             >
               <div
                 className={cn(
