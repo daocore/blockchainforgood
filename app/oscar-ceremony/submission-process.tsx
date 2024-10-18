@@ -124,7 +124,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   img: AdzImage,
                   name: "Adz",
                   org: "Partisia Blockchain Foundation",
-                  relation: "Foundation CEO",
+                  relation: "CEO",
                   link: "https://www.linkedin.com/in/adrienneyoungman/",
                 },
                 {
@@ -268,7 +268,7 @@ function PartContentItem({
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-4">
         {spearks.map((speark) => (
           <UserAvater
             img={speark.img}
