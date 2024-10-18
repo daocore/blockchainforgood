@@ -26,7 +26,7 @@ export function useAPIVoteDetail(id: string) {
       http.get(url, {
         params: querys,
         headers: {
-          "Cache-Control": "no-cache",
+          "Cache-Control": "max-age=10",
         },
       })
     )) as IVote;
@@ -68,7 +68,7 @@ export function APIGetVoteResult(params: IVoteResultParams) {
     http.get(API_PATH.GET_VOTE_RESULT, {
       params,
       headers: {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=10",
       },
     })
   );
