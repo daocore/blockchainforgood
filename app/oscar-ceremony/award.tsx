@@ -8,16 +8,40 @@ import { Button } from "@/components/ui";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 import Link from "next/link";
+import { HACKTHON_APPLY_EVENT_ID, ROUTER_PATH } from "@/constants";
 
 const AWARD_LIST = [
   {
-    name: "BGA Ambassador Star",
-    ambassador: "Ambassador",
-    prize: "Price Worth 500 U",
+    name: "Collaboration Bridge Award ",
+    ambassador: "Individual",
+    prize: "Price Worth 3000 U",
     tags: [
-      "150 U Gift(Michelle Retro Speaker/JBL Sports Speaker/Apple Gift Card/Amazon Gift)",
-      "BGA Full Set of Merchandise(hat, clothing, and badges)",
-      "On-chain Certificate",
+      "BGA Merchandise Package(A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
+      "On-Chain Certificate(Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
+      "$500 Cash Reward（A cash prize awarded to the winner）",
+    ],
+    buttons: [
+      <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+        <span>Rule</span>
+      </Button>,
+      <Button
+        className={cn(
+          "px-8 rounded-none opacity-70",
+          styles["award-btn-invatation"]
+        )}
+      >
+        <span>Exclusive Invitation</span>
+      </Button>,
+    ],
+  },
+  {
+    name: "Public Welfare Contribution Award",
+    ambassador: "Individual",
+    prize: "Price Worth 1000 U",
+    tags: [
+      "BGA Merchandise Package(A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
+      "On-Chain Certificate(Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
+      "$500 Cash Reward（A cash prize awarded to the winner）",
     ],
     buttons: [
       <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
@@ -25,7 +49,7 @@ const AWARD_LIST = [
       </Button>,
       <Link
         target="__blank"
-        href="https://moledao.io/#/form/individual/38111ab6-907e-4781-b30d-bdeed52d2260"
+        href={`${ROUTER_PATH.FORM.ORGANIZATION}/${HACKTHON_APPLY_EVENT_ID}`}
       >
         <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
           <span>Apply</span>
@@ -34,21 +58,26 @@ const AWARD_LIST = [
     ],
   },
   {
-    name: "Collaboration Bridge Award ",
+    name: "BGA Ambassador Star",
     ambassador: "Ambassador",
-    prize: "Price Worth 3000 U",
+    prize: "Price Worth 300 U",
     tags: [
-      "BGA Full Set of Merchandise (hat, clothing, and badges)",
-      "On-chain Certificate & Trophy",
-      "2000 USD Reimbursement for Bangkok trip",
+      "$150 Gift(Choose from a selection of exciting items: Michelle Retro Speaker, JBL Sports Speaker, Apple Gift Card, Amazon Gift Card)",
+      "BGA Merchandise Package(A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
+      "On-Chain Certificate(Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
     ],
     buttons: [
       <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
         <span>Rule</span>
       </Button>,
-      <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
-        <span>Exclusive Invitation</span>
-      </Button>,
+      <Link
+        target="__blank"
+        href={`${ROUTER_PATH.FORM.ORGANIZATION}/${HACKTHON_APPLY_EVENT_ID}`}
+      >
+        <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
+          <span>Apply</span>
+        </Button>
+      </Link>,
     ],
   },
 ] as const;
@@ -58,7 +87,11 @@ export function Award() {
     homeStyles.moveFromBottom
   );
   return (
-    <div ref={ref} id="award" className="pt-6 px-2 md:px-0">
+    <div
+      ref={ref}
+      id="award"
+      className="w-full md:w-content mx-auto pt-6 px-2 md:px-0"
+    >
       <div className="text-center">
         <h2
           className={cn(

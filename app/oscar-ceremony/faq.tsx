@@ -1,6 +1,11 @@
 "use client";
 
-import { OSCAR_HACKTHON_APPLY_LINK } from "@/constants";
+import {
+  OSCAR_EVENT_ID,
+  OSCAR_HACKTHON_APPLY_LINK,
+  OSCAR_HACKTHON_EVENT_ID,
+  ROUTER_PATH,
+} from "@/constants";
 import { FAQItem } from "@/components/FAQ";
 import homeStyles from "../home/styles.module.css";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
@@ -9,8 +14,8 @@ const faqs = [
   {
     question:
       "Do I need to register twice to participate in the full-day event?",
-    answer: `The event is divided into two sessions. The morning session is the 17 SDGs Challenge Roadshow—click <a target="__blank" href="https://moledao.io/#/form/individual/bd238aa5-9005-4165-bdcb-8e88e6ef9be0" style="color: #00d5bf">here</a> to register. The afternoon session is The Chains of 
-    Change—click <a target="__blank" href="https://moledao.io/#/form/individual/f7c032b2-5483-4c29-835c-2f399295ac6a" style="color: #00d5bf">here</a> to register.`,
+    answer: `The event is divided into two sessions. The morning session is the 17 SDGs Challenge Roadshow—click <a target="__blank" href="${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}" style="color: #00d5bf">here</a> to register. The afternoon session is The Chains of 
+    Change—click <a target="__blank" href="${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_EVENT_ID}" style="color: #00d5bf">here</a> to register.`,
   },
   {
     question: "Will meals be provided during the event?",
