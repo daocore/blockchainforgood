@@ -6,6 +6,7 @@ import { OSCAR_EVENT_ID } from "@/constants/env";
 import BC100Image from "@/assets/oscar/BC1000.png";
 import InatbaImage from "@/assets/oscar/INATBA.png";
 import PBPositiveBlockchainImage from "@/assets/oscar/PBPositiveBlockchain.io.png";
+import OffChainGlobalImage from "@/assets/oscar/OffChain Global.png";
 import UWebImage from "@/assets/oscar/uweb.png";
 import XDImage from "@/assets/oscar/xd.png";
 import NapulethImage from "@/assets/oscar/napuleth.png";
@@ -27,6 +28,12 @@ import WTechLabsImage from "@/assets/oscar/W Tech Labs.png";
 import BitcoinAddictThailandImage from "@/assets/oscar/0_Bitcoin Addict Thailand.png";
 import BlocktempoImage from "@/assets/oscar/0_BlockTempo.png";
 import TechFlameImage from "@/assets/oscar/0_TechFlame.png";
+import TrustSwapImage from "@/assets/oscar/TrustSwap.png";
+import HERDAOImage from "@/assets/oscar/H.E.R. DAO.png";
+import SaladVenturesImage from "@/assets/oscar/Salad Ventures.png";
+import GroupFiImage from "@/assets/oscar/GroupFi.png";
+import MaschainImage from "@/assets/oscar/Maschain.png";
+
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 
@@ -114,6 +121,15 @@ const partersData = [
     partnersType: 0,
     style: '{"height": "24px"}',
     mobileStyle: '{"height":"18px"}',
+  },
+  {
+    name: "OffChain Global",
+    type: 1,
+    logo: OffChainGlobalImage,
+    link: "http://offchain.social/",
+    partnersType: 0,
+    style: '{"height":"30px"}',
+    mobileStyle: '{"height":"20px"}',
   },
   {
     name: "uweb",
@@ -294,6 +310,51 @@ const partersData = [
     partnersType: 4,
     style: '{"height":"38px"}',
     mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "TrustSwap",
+    type: 4,
+    logo: TrustSwapImage,
+    link: "https://trustswap.com/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "H.E.R. DAO",
+    type: 4,
+    logo: HERDAOImage,
+    link: "https://www.her-dao.xyz/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Salad Ventures",
+    type: 4,
+    logo: SaladVenturesImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "GroupFi",
+    type: 4,
+    logo: GroupFiImage,
+    link: "https://groupfi.ai/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Masverse/Maschain",
+    type: 4,
+    logo: MaschainImage,
+    link: "https://www.maschain.com/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
   },
 ];
 
