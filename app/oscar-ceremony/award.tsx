@@ -7,26 +7,48 @@ import Image from "next/image";
 import { Button } from "@/components/ui";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
+import Link from "next/link";
 
 const AWARD_LIST = [
   {
-    name: "冠军",
-    ambassador: "ambassador",
-    prize: "prize worth 300 U",
+    name: "BGA Ambassador Star",
+    ambassador: "Ambassador",
+    prize: "Price Worth 500 U",
     tags: [
-      "Hat, clothing, badges",
-      "$2000 Travel Expense Reimbursement",
-      "$200 gift card equivalent",
+      "150 U Gift(Michelle Retro Speaker/JBL Sports Speaker/Apple Gift Card/Amazon Gift)",
+      "BGA Full Set of Merchandise(hat, clothing, and badges)",
+      "On-chain Certificate",
+    ],
+    buttons: [
+      <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+        <span>Rule</span>
+      </Button>,
+      <Link
+        target="__blank"
+        href="https://moledao.io/#/form/individual/38111ab6-907e-4781-b30d-bdeed52d2260"
+      >
+        <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
+          <span>Apply</span>
+        </Button>
+      </Link>,
     ],
   },
   {
-    name: "亚军",
-    ambassador: "ambassador",
-    prize: "prize worth 300 U",
+    name: "Collaboration Bridge Award ",
+    ambassador: "Ambassador",
+    prize: "Price Worth 3000 U",
     tags: [
-      "Hat, clothing, badges",
-      "$2000 Travel Expense Reimbursement",
-      "$200 gift card equivalent",
+      "BGA Full Set of Merchandise (hat, clothing, and badges)",
+      "On-chain Certificate & Trophy",
+      "2000 USD Reimbursement for Bangkok trip",
+    ],
+    buttons: [
+      <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+        <span>Rule</span>
+      </Button>,
+      <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
+        <span>Exclusive Invitation</span>
+      </Button>,
     ],
   },
 ] as const;
@@ -48,19 +70,13 @@ export function Award() {
         </h2>
       </div>
       {AWARD_LIST.map((award, index) => (
-        <AwardItem key={award.name} item={award} isFirst={index === 0} />
+        <AwardItem key={award.name} item={award} />
       ))}
     </div>
   );
 }
 
-function AwardItem({
-  item,
-  isFirst,
-}: {
-  item: (typeof AWARD_LIST)[number];
-  isFirst: boolean;
-}) {
+function AwardItem({ item }: { item: (typeof AWARD_LIST)[number] }) {
   const ref = useIntersectionObserver<HTMLDivElement>(
     homeStyles.moveFromBottom
   );
@@ -72,14 +88,14 @@ function AwardItem({
         styles["award-item"]
       )}
     >
-      <div className="flex gap-2 mr-3">
+      <div className="flex gap-2 mr-3 w-80 flex-none">
         <Image
           height={80}
           className={cn("h-20 w-auto", styles["trophy-gray"])}
           src={TrophyImage}
           alt="trophy"
         />
-        <div>
+        <div className="flex flex-col justify-around">
           <h3 className={cn(styles["award-name"], "text-xl md:text-2xl mb-2")}>
             {item.name}
           </h3>
@@ -116,18 +132,13 @@ function AwardItem({
             key={tag}
             className={cn(
               styles["award-tag"],
-              "px-4 py-1 rounded-full text-sm whitespace-nowrap"
+              "px-4 py-1 rounded-full text-sm"
             )}
           >{`${index + 1}. ${tag}`}</div>
         ))}
       </div>
       <div className="flex gap-2">
-        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-          <span>Rule</span>
-        </Button>
-        <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
-          <span>Apply</span>
-        </Button>
+        {item.buttons.map((button, index) => button)}
       </div>
     </div>
   );
