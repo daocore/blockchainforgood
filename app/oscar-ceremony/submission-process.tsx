@@ -6,8 +6,15 @@ import styles from "./index.module.css";
 import { cn } from "@/lib";
 import AgendaImage from "@/assets/oscar-ceremony/agenda.png";
 import UserImage from "@/assets/oscar-ceremony/user.png";
+import HelenImage from "@/assets/oscar/Avatar Helen.png";
+import AdzImage from "@/assets/oscar/Avatar Adz.png";
+import LucasImage from "@/assets/oscar/Avatar Lucas.png";
+import MarianaImage from "@/assets/oscar/Avatar Mariana.png";
+import VenusKhorImage from "@/assets/oscar/Avatar VenusKhor.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
+import Link from "next/link";
+import { link } from "fs";
 
 export function SubmissionProcess() {
   return (
@@ -21,7 +28,7 @@ export function SubmissionProcess() {
 
       <div className="mt-8 space-y-8">
         <div className={cn(styles["process-title"], "text-xl font-medium")}>
-          <p>The 17SDGs Challenge, Part I</p>
+          <p>The 17SDGs Challenge, Part 1</p>
         </div>
 
         <div className="space-y-8">
@@ -29,78 +36,32 @@ export function SubmissionProcess() {
             <PartContentItem
               title="The Red Carpet"
               desc="Registration for event participants begins. In true glamour and excitement, take a snapshot to remember this event at our red carpet and photobooth."
-              spearks={[
-                {
-                  img: UserImage,
-                  name: "Allan",
-                  org: "Moledao",
-                  relation: "Partners",
-                },
-              ]}
             />
             <PartContentItem
               title="Opening Premiere"
-              desc="A cinematic, epic style opening video will highlight the current global sustainability challenges, juxtaposed with innovative blockchain solutions that have made a difference. "
-              spearks={[
-                {
-                  img: UserImage,
-                  name: "Allan",
-                  org: "Moledao",
-                  relation: "Partners",
-                },
-              ]}
+              desc="A cinematic, epic style opening video will highlight the current global sustainability challenges, juxtaposed with innovative blockchain solutions that have made a difference."
             />
             <PartContentItem
               title="The Spotlight"
               desc="A BGA member introduces the theme and agenda and gives an opening welcome."
-              spearks={[
-                {
-                  img: UserImage,
-                  name: "Allan",
-                  org: "Moledao",
-                  relation: "Partners",
-                },
-              ]}
             />
           </PartItem>
 
           <PartItem time="9:30 AM - 12:30 PM" title="The Arena of Heroes">
             <PartContentItem
               title="Rising Stars"
-              desc="10 shortlisted projects from across the globe, who have participated in the Sustainable Innovation Summit: The 17 SDGs Challenge, will step into the spotlight, presenting their blockchain solutions that confront sustainability challenges."
-              spearks={[
-                {
-                  img: UserImage,
-                  name: "Allan",
-                  org: "Moledao",
-                  relation: "Partners",
-                },
-              ]}
+              desc={`10 shortlisted projects from across the globe, who have participated in the Sustainable Innovation Summit: The 17 SDGs Challenge, will step into the spotlight, presenting their blockchain solutions that confront sustainability challenges. 
+In true cinematic fashion, each project pitch will have to tell the story of a "hero" facing a global crisis (one of the 17 SDGs), with blockchain as the "tool" they wield to drive change and create a better future.`}
             />
             <PartContentItem
               title="Academy of Innovation (name of panel to put on website)"
-              desc="The judging panel, known as The Academy, comprises esteemed leaders and visionaries from the blockchain, sustainability, and tech industries. These experts will evaluate the pitches based on innovation, impact, and potential for global scalability. "
-              spearks={[
-                {
-                  img: UserImage,
-                  name: "Allan",
-                  org: "Moledao",
-                  relation: "Partners",
-                },
-              ]}
+              desc={`The judging panel, known as The Academy, comprises esteemed leaders and visionaries from the blockchain, sustainability, and tech industries. These experts will evaluate the pitches based on innovation, impact, and potential for global scalability. 
+Just as the Academy determines the best in film, our "Academy of Innovation" will determine which project stands as the beacon of blockchain excellence, shaping the future of sustainable development.`}
             />
 
             <PartContentItem
               title="The People's Choice"
               desc={`In the spirit of audience engagement, attendees will have the opportunity to cast their votes live via a dedicated app, selecting their favorite project as the "People’s Choice" among the innovative blockchain solutions.`}
-              spearks={[
-                {
-                  img: UserImage,
-                  name: "Allan",
-                  org: "Moledao",
-                  relation: "Partners",
-                },
-              ]}
             />
           </PartItem>
 
@@ -109,18 +70,76 @@ export function SubmissionProcess() {
               Lunch break and mini networking.
             </p>
           </PartItem>
+        </div>
+      </div>
 
+      <div className="mt-8 space-y-8">
+        <div className={cn(styles["process-title"], "text-xl font-medium")}>
+          <p>The Chain Of Change , Part 2</p>
+        </div>
+
+        <div className="space-y-8">
           <PartItem time="1:30 PM - 3:30 PM" title="A Stage of Visionaries">
             <PartContentItem
-              title="The Luminaries"
-              desc="The BGA will open the afternoon segment by introducing leaders from the blockchain and sustainability sectors, along with the organizations they represent, in preparation for their keynotes. (10 minutes)
-Delivered by the gathering of prominent thought leaders, a series of insightful and exciting keynotes will outline the current state of global sustainability efforts and how blockchain is uniquely positioned to contribute."
+              title=""
+              desc="The BGA will open the afternoon segment by introducing leaders from the blockchain and sustainability sectors, along with the organizations they represent, in preparation for their keynotes."
+              // spearks={[
+              //   {
+              //     img: UserImage,
+              //     name: "Allan",
+              //     org: "Moledao",
+              //     relation: "Partners",
+              //     link: "https://www.linkedin.com/in/allanfang/",
+              //   },
+              // ]}
+            />
+            <PartContentItem
+              title=""
+              desc="The founder of BGA, Helen, COO of Bybit, will then take the stage to present on the origins and mission of the Blockchain for Good Alliance. (15 minutes)"
               spearks={[
                 {
-                  img: UserImage,
-                  name: "Allan",
-                  org: "Moledao",
+                  img: HelenImage,
+                  name: "Helen",
+                  org: "Bybit",
                   relation: "Partners",
+                },
+              ]}
+            />
+            <PartContentItem
+              title="The Frontiers of Tech – Unlocking Blockchain's Full Potential for Sustainability"
+              desc="A detailed exploration of how the Ethereum ecosystem is addressing the challenges of funding public goods and the protocol-level innovations driving sustainable solutions for public welfare applications."
+            />
+            <PartContentItem
+              title="Impact Pathways – Blockchain as a Catalyst for Social and Environmental Change"
+              desc="This panel will feature discussions on how blockchain can be leveraged to create meaningful social and environmental impact. The conversation will focus on blockchain’s potential in tackling critical issues such as poverty, inequality, and climate change. Panelists will share success stories of blockchain-based solutions making real-world differences and outline the pathways for scaling these initiatives. The discussion will also address the ethical implications of using blockchain in social contexts and how to ensure inclusivity and fairness in its applications."
+              spearks={[
+                {
+                  img: AdzImage,
+                  name: "Adz",
+                  org: "Partisia Blockchain Foundation",
+                  relation: "Partners",
+                  link: "https://www.linkedin.com/in/adrienneyoungman/",
+                },
+                {
+                  img: LucasImage,
+                  name: "LucasZhgr",
+                  org: "PositiveBlockchain",
+                  relation: "Partners",
+                  link: "https://www.linkedin.com/in/lucas-zaehringer-65725145/",
+                },
+                {
+                  img: MarianaImage,
+                  name: "MarianadlRW",
+                  org: "Inatba",
+                  relation: "Partners",
+                  link: "https://www.linkedin.com/in/mariana-de-la-roche-es?utm_source=share&utm_campaign=share_via&utm_conte",
+                },
+                {
+                  img: VenusKhorImage,
+                  name: "VenusKhor",
+                  org: "Masverse/Maschain",
+                  relation: "Partners",
+                  link: "https://my.linkedin.com/in/vgotlight",
                 },
               ]}
             />
@@ -129,29 +148,22 @@ Delivered by the gathering of prominent thought leaders, a series of insightful 
           <PartItem time="3:30 PM - 4:30 PM" title="The Oscar Awards">
             <PartContentItem
               title="The Hall of Fame"
-              desc="An awards ceremony is conducted to recognize BGA members such as ambassadors, advisors, partners, and project teams making strides in promoting blockchain for good. 
-Each award presentation should include a brief narrative of the recipient's journey and impact."
-              spearks={[
-                {
-                  img: UserImage,
-                  name: "Allan",
-                  org: "Moledao",
-                  relation: "Partners",
-                },
-              ]}
+              desc={`An awards ceremony is conducted to recognize BGA members such as ambassadors, advisors, partners, and project teams making strides in promoting blockchain for good. 
+Each award presentation should include a brief narrative of the recipient's journey and impact.`}
             />
           </PartItem>
 
           <PartItem time="4:30 PM - 5:30 PM" title="The Chains of Change">
             <PartContentItem
               title="The New Age"
-              desc="A closing speech will close in on the future of blockchain for sustainability, outlining the BGA's vision for the next decade, focused on the exciting grants and programmes planned and awarded by the BGA beyond the Oscars."
+              desc={`A closing speech will close in on the future of blockchain for sustainability, outlining the BGA's vision for the next decade, focused on the exciting grants and programmes planned and awarded by the BGA beyond the Oscars.`}
               spearks={[
                 {
                   img: UserImage,
                   name: "Allan",
                   org: "Moledao",
                   relation: "Partners",
+                  link: "https://www.linkedin.com/in/allanfang/",
                 },
               ]}
             />
@@ -161,20 +173,6 @@ Each award presentation should include a brief narrative of the recipient's jour
             <PartContentItem
               title="Encore"
               desc="Networking session with an afterparty and light refreshments and networking before the event ends."
-              spearks={[
-                {
-                  img: UserImage,
-                  name: "Allan",
-                  org: "Moledao",
-                  relation: "Partners",
-                },
-                {
-                  img: UserImage,
-                  name: "Allan1",
-                  org: "Moledao",
-                  relation: "Partners",
-                },
-              ]}
             />
           </PartItem>
         </div>
@@ -188,27 +186,31 @@ function UserAvater({
   name,
   org,
   relation,
+  link = "",
 }: {
   img: string | StaticImageData;
   name: string;
   org: string;
   relation: string;
+  link?: string;
 }) {
   return (
-    <div className="flex gap-2">
-      <Image
-        width={56}
-        height={56}
-        className="w-14 h-14 rounded-full"
-        src={img}
-        alt="User"
-      />
-      <div>
-        <p className={cn(styles.typ, "font-semibold")}>{name}</p>
-        <p className={cn(styles.typ, "text-xs")}>{org}</p>
-        <p className={cn(styles["typ-description"], "text-xs")}>{relation}</p>
+    <a target="__blank" href={link || undefined}>
+      <div className={cn("flex gap-2", styles.speaker)}>
+        <Image
+          width={56}
+          height={56}
+          className="w-14 h-14 rounded-full"
+          src={img}
+          alt="User"
+        />
+        <div>
+          <p className={cn(styles.typ, "font-semibold")}>{name}</p>
+          <p className={cn(styles.typ, "text-xs")}>{org}</p>
+          <p className={cn(styles["typ-description"], "text-xs")}>{relation}</p>
+        </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -249,23 +251,24 @@ function PartItem({
 function PartContentItem({
   title,
   desc,
-  spearks,
+  spearks = [],
 }: {
   title: string;
   desc: string;
-  spearks: any[];
+  spearks?: any[];
 }) {
   return (
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {spearks.map((speark) => (
           <UserAvater
             img={speark.img}
             name={speark.name}
             org={speark.org}
             relation={speark.relation}
+            link={speark.link}
           />
         ))}
       </div>

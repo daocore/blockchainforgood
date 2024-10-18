@@ -68,43 +68,49 @@ function AwardItem({
     <div
       ref={ref}
       className={cn(
-        "flex gap-2 items-center p-6 mt-6",
-        styles["award-item"],
-        isFirst && styles["award-first"]
+        "flex flex-col md:flex-row gap-6 items-center p-6 mt-6",
+        styles["award-item"]
       )}
     >
-      <Image
-        height={80}
-        className={cn("h-20 w-auto", !isFirst && styles["trophy-gray"])}
-        src={TrophyImage}
-        alt="trophy"
-      />
-      <div>
-        <h3 className={cn(styles["award-name"], "text-xl md:text-2xl mb-2")}>
-          {item.name}
-        </h3>
-        <div
-          className={cn(
-            "flex justify-around items-center gap-1 whitespace-nowrap"
-          )}
-        >
-          <span className={cn(styles["award-description"])}>
-            {item.ambassador}
-          </span>
-          <span
-            style={{
-              width: "1px",
-              borderRight: "1px solid #2D3541",
-            }}
-            className="py-1 flex-none h-4"
-          ></span>
-          <span className={cn(styles["award-description"])}>{item.prize}</span>
+      <div className="flex gap-2 mr-3">
+        <Image
+          height={80}
+          className={cn("h-20 w-auto", styles["trophy-gray"])}
+          src={TrophyImage}
+          alt="trophy"
+        />
+        <div>
+          <h3 className={cn(styles["award-name"], "text-xl md:text-2xl mb-2")}>
+            {item.name}
+          </h3>
+          <div
+            className={cn(
+              "flex justify-around items-center gap-1 whitespace-nowrap"
+            )}
+          >
+            <span className={cn(styles["award-description"])}>
+              {item.ambassador}
+            </span>
+            <span
+              style={{
+                width: "1px",
+                borderRight: "1px solid #2D3541",
+              }}
+              className="py-1 flex-none h-4"
+            ></span>
+            <span className={cn(styles["award-description"])}>
+              {item.prize}
+            </span>
+          </div>
         </div>
       </div>
+
       <div
-        className={cn("w-0 py-6 hidden md:block", styles["award-line"])}
-      ></div>
-      <div className=" hidden md:flex flex-wrap gap-2 h-min">
+        className={cn(
+          "w-full border-b border-oscarActive md:w-0 md:h-10 md:border-l"
+        )}
+      />
+      <div className="flex flex-wrap gap-2 h-min">
         {item.tags.map((tag, index) => (
           <div
             key={tag}
@@ -115,22 +121,14 @@ function AwardItem({
           >{`${index + 1}. ${tag}`}</div>
         ))}
       </div>
-      <Button
-        className={cn(
-          "hidden md:block px-4 rounded-none",
-          styles["award-btn-rule"]
-        )}
-      >
-        <span>Rule</span>
-      </Button>
-      <Button
-        className={cn(
-          "hidden md:block px-8 rounded-none",
-          styles["award-btn-apply"]
-        )}
-      >
-        <span>Apply</span>
-      </Button>
+      <div className="flex gap-2">
+        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+          <span>Rule</span>
+        </Button>
+        <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
+          <span>Apply</span>
+        </Button>
+      </div>
     </div>
   );
 }

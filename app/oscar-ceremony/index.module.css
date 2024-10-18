@@ -4,6 +4,7 @@
   --bg: rgba(192, 152, 69, 0.16);
   --dark-gray: #B6B6BF;
   --typ: 240 14 91;
+  --typ-active: 42.12deg 41.27% 50.59%;
 }
 
 .hash:hover {
@@ -130,10 +131,14 @@ text-shadow: 0px 2px 12px #000000;
   filter:grayscale(1)
 }
 
-.award-first {
+
+.award-item:hover {
   background-image: url(../..//assets/oscar-ceremony/award-first-bg.png);
   background-repeat: no-repeat;
   background-size: 100% auto;
+  .trophy-gray {
+    filter:none;
+  }
 }
 
 .process-title {
@@ -171,12 +176,23 @@ text-shadow: 0px 2px 12px #000000;
   color: var(--dark-gray)
 }
 /* 段落 */
+
 .typ {
   color: hsl(var(--typ))
 }
 
 .typ-description {
   color: hsl(var(--typ) / .6)
+}
+
+.speaker:hover {
+  .typ {
+    color: hsl(var(--typ-active))
+  }
+  
+  .typ-description {
+    color: hsl(var(--typ-active) / .6)
+  }
 }
 
 .hero {
@@ -259,7 +275,7 @@ text-shadow: 0px 2px 12px #000000;
     background-size: auto 100%;
   }
 
-  .award-first {
+  .award-item:hover {
     background-size: auto 100%;
   }
 

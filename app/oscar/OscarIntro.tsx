@@ -13,7 +13,7 @@ import { Vote } from "./Vote";
 
 export const OscarIntro = () => {
   return (
-    <section className="w-full bg-oscarBlack flex flex-col gap-[32px] md:gap-[96px] items-center py-[32px] md:py-[96px]">
+    <section className="w-full bg-oscarBlack flex flex-col gap-8 items-center pt-4 md:pt-8">
       <Hash />
       <Vote />
       <SummitInto />

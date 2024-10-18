@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import GlobeStaticImage from "@/assets/oscar/BGA Oscar Globe Only.png";
+import Link from "next/link";
 
 const bannerList = [
   {
@@ -125,7 +126,12 @@ export function Hero({
     }
   };
   return (
-    <div className="relative flex flex-col md:flex-row -mt-20 h-screen">
+    <div
+      className="relative flex flex-col md:flex-row -mt-20"
+      style={{
+        height: "calc(100vh - 80px)",
+      }}
+    >
       {/*left  */}
       <div
         className={cn(
@@ -196,6 +202,27 @@ export function Hero({
           >
             Sustainable Innovation Summit
           </p>
+          <div
+            className={cn(
+              "w-full px-8 md:px-0 md:mt-14",
+              isHover && "mt-4",
+              !isHover && "hidden md:block"
+            )}
+          >
+            <Link
+              target="__blank"
+              href="https://moledao.io/#/form/individual/bd238aa5-9005-4165-bdcb-8e88e6ef9be0"
+            >
+              <div
+                className={cn(
+                  "inline-flex justify-center items-center w-full font-bold cursor-pointer py-1 md:py-2 relative overflow-hidden",
+                  styles["hero-button"]
+                )}
+              >
+                REGISTER HERE
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
       {/* right */}
@@ -284,14 +311,19 @@ export function Hero({
               !isHover && "mt-4"
             )}
           >
-            <div
-              className={cn(
-                "inline-flex justify-center items-center w-full font-bold cursor-pointer py-1 md:py-2 relative overflow-hidden",
-                styles["hero-button"]
-              )}
+            <Link
+              target="__blank"
+              href="https://moledao.io/#/form/individual/f7c032b2-5483-4c29-835c-2f399295ac6a"
             >
-              REGISTER HERE
-            </div>
+              <div
+                className={cn(
+                  "inline-flex justify-center items-center w-full font-bold cursor-pointer py-1 md:py-2 relative overflow-hidden",
+                  styles["hero-button"]
+                )}
+              >
+                REGISTER HERE
+              </div>
+            </Link>
           </div>
         </div>
       </div>
