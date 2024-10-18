@@ -13,8 +13,6 @@ import MarianaImage from "@/assets/oscar/Avatar Mariana.png";
 import VenusKhorImage from "@/assets/oscar/Avatar VenusKhor.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
-import Link from "next/link";
-import { link } from "fs";
 
 export function SubmissionProcess() {
   return (
@@ -44,6 +42,15 @@ export function SubmissionProcess() {
             <PartContentItem
               title="The Spotlight"
               desc="A BGA member introduces the theme and agenda and gives an opening welcome."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                  link: "https://www.linkedin.com/in/allanfang/",
+                },
+              ]}
             />
           </PartItem>
 
@@ -101,7 +108,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   img: HelenImage,
                   name: "Helen",
                   org: "Bybit",
-                  relation: "Partners",
+                  relation: "COO",
                 },
               ]}
             />
@@ -117,28 +124,28 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   img: AdzImage,
                   name: "Adz",
                   org: "Partisia Blockchain Foundation",
-                  relation: "Partners",
+                  relation: "Foundation CEO",
                   link: "https://www.linkedin.com/in/adrienneyoungman/",
                 },
                 {
                   img: LucasImage,
                   name: "LucasZhgr",
                   org: "PositiveBlockchain",
-                  relation: "Partners",
+                  relation: "Founder",
                   link: "https://www.linkedin.com/in/lucas-zaehringer-65725145/",
                 },
                 {
                   img: MarianaImage,
                   name: "MarianadlRW",
                   org: "Inatba",
-                  relation: "Partners",
+                  relation: "BoD",
                   link: "https://www.linkedin.com/in/mariana-de-la-roche-es?utm_source=share&utm_campaign=share_via&utm_conte",
                 },
                 {
                   img: VenusKhorImage,
                   name: "VenusKhor",
                   org: "Masverse/Maschain",
-                  relation: "Partners",
+                  relation: "Chief Brand Officer",
                   link: "https://my.linkedin.com/in/vgotlight",
                 },
               ]}
