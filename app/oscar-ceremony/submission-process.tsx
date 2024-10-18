@@ -44,6 +44,15 @@ export function SubmissionProcess() {
             <PartContentItem
               title="The Spotlight"
               desc="A BGA member introduces the theme and agenda and gives an opening welcome."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                  link: "https://www.linkedin.com/in/allanfang/",
+                },
+              ]}
             />
           </PartItem>
 
