@@ -10,7 +10,13 @@ export function Chains() {
     homeStyles.moveFromBottom
   );
   return (
-    <div ref={ref} className={cn(styles.chains, "flex items-center px-2 py-4")}>
+    <div
+      ref={ref}
+      className={cn(
+        styles.chains,
+        "w-full md:w-content mx-auto flex items-center px-2 py-4"
+      )}
+    >
       <section className="space-y-2 pl-0 md:pl-96">
         <h2 className="text-2xl md:text-5xl font-semibold leading-tight">
           Chains of Change

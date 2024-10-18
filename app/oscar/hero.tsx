@@ -29,6 +29,11 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import GlobeStaticImage from "@/assets/oscar/BGA Oscar Globe Only.png";
 import Link from "next/link";
+import {
+  OSCAR_EVENT_ID,
+  OSCAR_HACKTHON_EVENT_ID,
+  ROUTER_PATH,
+} from "@/constants";
 
 const bannerList = [
   {
@@ -211,7 +216,7 @@ export function Hero({
           >
             <Link
               target="__blank"
-              href="https://moledao.io/#/form/individual/bd238aa5-9005-4165-bdcb-8e88e6ef9be0"
+              href={`${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}`}
             >
               <div
                 className={cn(
@@ -313,7 +318,7 @@ export function Hero({
           >
             <Link
               target="__blank"
-              href="https://moledao.io/#/form/individual/f7c032b2-5483-4c29-835c-2f399295ac6a"
+              href={`${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_EVENT_ID}`}
             >
               <div
                 className={cn(

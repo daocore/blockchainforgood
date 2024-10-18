@@ -38,21 +38,23 @@ const HASH_LIST = [
 
 export function Hash() {
   return (
-    <div className="w-full md:w-content grid grid-cols-3 md:grid-cols-5 sticky top-0 z-50 bg-oscarBlack">
-      {HASH_LIST.map((hash) => (
-        <Link href={hash.hash}>
-          <div
-            key={hash.label}
-            className={cn(
-              "text-description flex justify-center items-center gap-2 py-3",
-              styles.hash
-            )}
-          >
-            <Image className="w-5" src={hash.image} alt={hash.label} />
-            <span className="text-xl">{hash.label}</span>
-          </div>
-        </Link>
-      ))}
+    <div className="w-full sticky top-0 z-50 bg-oscarBlack">
+      <div className="mx-auto w-full md:w-content grid grid-cols-3 md:grid-cols-5">
+        {HASH_LIST.map((hash) => (
+          <Link href={hash.hash}>
+            <div
+              key={hash.label}
+              className={cn(
+                "text-description flex justify-center items-center gap-2 py-3",
+                styles.hash
+              )}
+            >
+              <Image className="w-5" src={hash.image} alt={hash.label} />
+              <span className="text-xl">{hash.label}</span>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
