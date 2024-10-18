@@ -19,9 +19,7 @@ export function SubmissionProcess() {
     <div className="w-full md:w-content mx-auto px-2 md:px-0">
       <div id="agenda" className="flex items-center gap-2">
         <Image width={40} height={40} src={ProcessIconImage} alt="Process" />
-        <h2 className="text-oscarActive text-3xl font-bold">
-          Submission Process
-        </h2>
+        <h2 className="text-oscarActive text-3xl font-bold">Event Agenda</h2>
       </div>
 
       <div className="mt-8 space-y-8">
