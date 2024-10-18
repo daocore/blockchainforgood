@@ -8,6 +8,7 @@ import { Button } from "@/components/ui";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 import Link from "next/link";
+import { HACKTHON_APPLY_EVENT_ID, ROUTER_PATH } from "@/constants";
 
 const AWARD_LIST = [
   {
@@ -48,7 +49,7 @@ const AWARD_LIST = [
       </Button>,
       <Link
         target="__blank"
-        href="https://moledao.io/#/form/individual/72b1661e-19df-47de-b3ed-d8aaad84aba4"
+        href={`${ROUTER_PATH.FORM.ORGANIZATION}/${HACKTHON_APPLY_EVENT_ID}`}
       >
         <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
           <span>Apply</span>
@@ -71,7 +72,7 @@ const AWARD_LIST = [
       </Button>,
       <Link
         target="__blank"
-        href="https://moledao.io/#/form/individual/38111ab6-907e-4781-b30d-bdeed52d2260"
+        href={`${ROUTER_PATH.FORM.ORGANIZATION}/${HACKTHON_APPLY_EVENT_ID}`}
       >
         <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
           <span>Apply</span>
@@ -86,7 +87,11 @@ export function Award() {
     homeStyles.moveFromBottom
   );
   return (
-    <div ref={ref} id="award" className="pt-6 px-2 md:px-0">
+    <div
+      ref={ref}
+      id="award"
+      className="w-full md:w-content mx-auto pt-6 px-2 md:px-0"
+    >
       <div className="text-center">
         <h2
           className={cn(

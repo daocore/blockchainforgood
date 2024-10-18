@@ -16,7 +16,7 @@ import homeStyles from "../home/styles.module.css";
 
 export function SubmissionProcess() {
   return (
-    <div className="px-2 md:px-0">
+    <div className="w-full md:w-content mx-auto px-2 md:px-0">
       <div id="agenda" className="flex items-center gap-2">
         <Image width={40} height={40} src={ProcessIconImage} alt="Process" />
         <h2 className="text-oscarActive text-3xl font-bold">
@@ -268,7 +268,7 @@ function PartContentItem({
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-">
         {spearks.map((speark) => (
           <UserAvater
             img={speark.img}

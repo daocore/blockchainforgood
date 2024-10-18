@@ -154,7 +154,7 @@ text-shadow: 0px 2px 12px #000000;
 .award-item:hover {
   background-image: url(../..//assets/oscar-ceremony/award-first-bg.png);
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: 100% 100%;
   .trophy-gray {
     filter:none;
   }
@@ -296,7 +296,7 @@ text-shadow: 0px 2px 12px #000000;
   }
 
   .award-item:hover {
-    background-size: auto 100%;
+    background-size: 100% 100%;
   }
 
   .hero-left {
