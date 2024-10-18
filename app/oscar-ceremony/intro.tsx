@@ -7,7 +7,7 @@ import { SubmissionProcess } from "./submission-process";
 
 export function Intro() {
   return (
-    <div className="bg-oscarBlack pt-8">
+    <div className="bg-oscarBlack pt-4 md:pt-8">
       <div className="w-full md:w-content mx-auto space-y-8">
         <Hash />
         <Chains />
