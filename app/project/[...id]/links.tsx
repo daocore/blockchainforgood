@@ -39,20 +39,40 @@ export function Links({ data }: { data: SocialLinksEntity[] }) {
   return (
     <>
       {data.map((link) => {
-        if (!link?.link) return null
+        if (!link?.link) return null;
+        let fullLink = link?.link;
+        if (link.type === SocialLinksEnum.TWITTER) {
+          if (fullLink?.startsWith("@")) {
+            fullLink = fullLink?.substring(1); // Remove the '@' symbol
+          }
+          if (
+            !fullLink?.startsWith("https://") &&
+            !fullLink?.startsWith("http://")
+          ) {
+            fullLink = `https://x.com/${fullLink}`;
+          }
+        } else if (!fullLink.startsWith("http")) {
+          fullLink = `https://${fullLink}`;
+        }
         return (
-          <Tooltip key={link.id}>
-            <TooltipTrigger asChild>
-              <div className="space-x-2">
-                <span>{LINKS_ICON[link.type as 1]}</span>
-                <Link target="__blank" className="hover:text-bgaActive" href={link.link}>
-                  {link.link}
-                </Link>
-              </div>
-            </TooltipTrigger>
-            <TooltipContent>Created on</TooltipContent>
-          </Tooltip>
-        )
+          <div>
+            <Tooltip key={link.id}>
+              <TooltipTrigger>
+                <div className="space-x-2">
+                  <span>{LINKS_ICON[link.type as 1]}</span>
+                  <Link
+                    target="__blank"
+                    className="hover:text-bgaActive"
+                    href={fullLink}
+                  >
+                    {link.link}
+                  </Link>
+                </div>
+              </TooltipTrigger>
+              {/* <TooltipContent>{fullLink}</TooltipContent> */}
+            </Tooltip>
+          </div>
+        );
       })}
     </>
   );

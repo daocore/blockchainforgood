@@ -42,33 +42,37 @@ export function Detail({
         </h1>
         <div className="border-b-2 py-4 border-gray-300 grid grid-cols-2 gap-4">
           <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="space-x-2">
-                  <span>
-                    <MapPin className="inline-block mr-1 w-5 h-5" />
-                  </span>
-                  <span>{COUNTRIES[location.country]}</span>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>Location</TooltipContent>
-            </Tooltip>
+            <div>
+              <Tooltip>
+                <TooltipTrigger>
+                  <div className="space-x-2">
+                    <span>
+                      <MapPin className="inline-block mr-1 w-5 h-5" />
+                    </span>
+                    <span>{COUNTRIES[location.country]}</span>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>Location</TooltipContent>
+              </Tooltip>
+            </div>
+            <div>
+              <Tooltip>
+                <TooltipTrigger>
+                  <div className="space-x-2">
+                    <span>
+                      <CalendarPlus className="inline-block mr-1 w-5 h-5" />
+                    </span>
+                    <span>
+                      {dayjs(new Date(organization.createDate)).format(
+                        "DD/MM/YYYY"
+                      )}
+                    </span>
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>Created on</TooltipContent>
+              </Tooltip>
+            </div>
 
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="space-x-2">
-                  <span>
-                    <CalendarPlus className="inline-block mr-1 w-5 h-5" />
-                  </span>
-                  <span>
-                    {dayjs(new Date(organization.createDate)).format(
-                      "DD/MM/YYYY"
-                    )}
-                  </span>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>Created on</TooltipContent>
-            </Tooltip>
             <Links data={links} />
           </TooltipProvider>
         </div>
