@@ -14,8 +14,8 @@ const faqs = [
   {
     question:
       "Do I need to register twice to participate in the full-day event?",
-    answer: `The event is divided into two sessions. The morning session is the 17 SDGs Challenge Roadshow—click <a target="__blank" href="${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_HACKTHON_EVENT_ID}" style="color: #00d5bf">here</a> to register. The afternoon session is The Chains of 
-    Change—click <a target="__blank" href="${ROUTER_PATH.FORM.ORGANIZATION}/${OSCAR_EVENT_ID}" style="color: #00d5bf">here</a> to register.`,
+    answer: `The event is divided into two sessions. The morning session is the 17 SDGs Challenge Roadshow—click <a target="__blank" href="${ROUTER_PATH.FORM.PERSON}/${OSCAR_HACKTHON_EVENT_ID}" style="color: #00d5bf">here</a> to register. The afternoon session is The Chains of 
+    Change—click <a target="__blank" href="${ROUTER_PATH.FORM.PERSON}/${OSCAR_EVENT_ID}" style="color: #00d5bf">here</a> to register.`,
   },
   {
     question: "Will meals be provided during the event?",

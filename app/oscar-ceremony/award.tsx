@@ -49,7 +49,7 @@ const AWARD_LIST = [
       </Button>,
       <Link
         target="__blank"
-        href={`${ROUTER_PATH.FORM.ORGANIZATION}/${HACKTHON_APPLY_EVENT_ID}`}
+        href={`${ROUTER_PATH.FORM.PERSON}/${HACKTHON_APPLY_EVENT_ID}`}
       >
         <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
           <span>Apply</span>
@@ -72,7 +72,7 @@ const AWARD_LIST = [
       </Button>,
       <Link
         target="__blank"
-        href={`${ROUTER_PATH.FORM.ORGANIZATION}/${HACKTHON_APPLY_EVENT_ID}`}
+        href={`${ROUTER_PATH.FORM.PERSON}/${HACKTHON_APPLY_EVENT_ID}`}
       >
         <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
           <span>Apply</span>
