@@ -165,7 +165,7 @@ function AwardItem({ item }: { item: (typeof AWARD_LIST)[number] }) {
             key={tag}
             className={cn(
               styles["award-tag"],
-              "px-4 py-1 rounded-full text-sm"
+              "px-6 py-2 md:px-4 md:py-1 rounded-full text-sm"
             )}
           >{`${index + 1}. ${tag}`}</div>
         ))}
