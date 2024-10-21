@@ -100,6 +100,15 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="An Intro the BGA"
               desc="BGA's Partner, Allan, will introduce Blockchain for Good Alliance and outline its mission to harness blockchain technology for positive impact, emphasizing the importance of collaboration across industries."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                  link: "https://www.linkedin.com/in/allanfang/",
+                },
+              ]}
             />
           </PartItem>
 
