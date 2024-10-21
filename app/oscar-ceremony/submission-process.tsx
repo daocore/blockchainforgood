@@ -266,7 +266,7 @@ function PartContentItem({
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-col md:flex-row flex-wrap gap-4">
         {spearks.map((speark) => (
           <UserAvater
             img={speark.img}

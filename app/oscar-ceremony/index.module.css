@@ -87,7 +87,7 @@ background: linear-gradient(0deg, #000000, #000000), linear-gradient(339.03deg, 
 background-clip: text;
 text-fill-color: transparent;
 background-blend-mode: color, overlay, normal;
-text-shadow: 0px 2px 12px #000000;
+/* text-shadow: 0px 2px 12px #000000; */
 }
 
 .award-btn-rule {
