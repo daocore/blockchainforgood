@@ -36,6 +36,7 @@ import ArmadaLabsImage from "@/assets/oscar/Armada Labs.png";
 import BitcoinAddictThailandImage from "@/assets/oscar/0_Bitcoin Addict Thailand.png";
 import BlocktempoImage from "@/assets/oscar/0_BlockTempo.png";
 import TechFlameImage from "@/assets/oscar/0_TechFlame.png";
+
 import CryptoNewsImage from "@/assets/oscar/crypto.news.png";
 import BitcoinWorldImage from "@/assets/oscar/BitcoinWorld Media.png";
 import TrustSwapImage from "@/assets/oscar/TrustSwap.png";
