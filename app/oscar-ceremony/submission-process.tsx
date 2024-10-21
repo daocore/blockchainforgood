@@ -94,12 +94,21 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
           </PartItem>
 
           <PartItem
-            time="1:55 PM - 2:40 PM"
+            time="1:40 PM - 1:50 PM"
             title="Leading the Future: Blockchain for Good"
           >
             <PartContentItem
               title="An Intro the BGA"
               desc="BGA's Partner, Allan, will introduce Blockchain for Good Alliance and outline its mission to harness blockchain technology for positive impact, emphasizing the importance of collaboration across industries."
+              spearks={[
+                {
+                  img: UserImage,
+                  name: "Allan",
+                  org: "Moledao",
+                  relation: "Partners",
+                  link: "https://www.linkedin.com/in/allanfang/",
+                },
+              ]}
             />
           </PartItem>
 
@@ -200,20 +209,11 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="The Hall of Fame"
               desc="The Chains of Change Hall of Fame will honor visionary leaders, trailblazing projects and BGA members that have leveraged blockchain technology to drive real-world positive impact."
-              spearks={[
-                {
-                  img: UserImage,
-                  name: "Allan",
-                  org: "Moledao",
-                  relation: "Partners",
-                  link: "https://www.linkedin.com/in/allanfang/",
-                },
-              ]}
             />
           </PartItem>
 
           <PartItem
-            time="5:35 PM - 5:50 PM"
+            time="5:35 PM - 5:40 PM"
             title="A Call to Action for the Future"
           >
             <PartContentItem
