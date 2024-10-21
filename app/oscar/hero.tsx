@@ -34,6 +34,7 @@ import {
   OSCAR_HACKTHON_EVENT_ID,
   ROUTER_PATH,
 } from "@/constants";
+import { useIsMobile } from "@/hooks";
 
 const bannerList = [
   {
@@ -130,6 +131,8 @@ export function Hero({
       videoRef.current.play();
     }
   };
+
+  const isMobile = useIsMobile();
   return (
     <div
       className="relative flex flex-col md:flex-row -mt-20"
@@ -257,25 +260,37 @@ export function Hero({
           />
         </video>
 
-        <video
-          ref={videoRef}
-          loop
-          muted
-          playsInline
+        <div
           className={cn(
             "absolute z-10 top-0 left-1/2 md:left-0 md:top-1/2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 transition-all duration-200",
             isHover
               ? "w-32 h-32 md:w-64 md:h-64"
               : "-top-4 w-64 h-64 md:w-96 md:h-96"
           )}
-          preload="auto"
-          poster={GlobeStaticImage.src}
         >
-          <source
-            src="/BGA-Oscar-Static-Globe-Text-Animated.webm"
-            type="video/webm"
-          />
-        </video>
+          {isMobile && <Image src={GlobeStaticImage} alt="globe" />}
+          {!isMobile && (
+            <video
+              ref={videoRef}
+              loop
+              muted
+              playsInline
+              className={cn(
+                "absolute z-10 top-0 left-1/2 md:left-0 md:top-1/2 -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 transition-all duration-200",
+                isHover
+                  ? "w-32 h-32 md:w-64 md:h-64"
+                  : "-top-4 w-64 h-64 md:w-96 md:h-96"
+              )}
+              preload="auto"
+              poster={GlobeStaticImage.src}
+            >
+              <source
+                src="/BGA-Oscar-Static-Globe-Text-Animated.webm"
+                type="video/webm"
+              />
+            </video>
+          )}
+        </div>
 
         <div
           className={cn(
