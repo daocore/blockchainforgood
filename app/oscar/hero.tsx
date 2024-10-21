@@ -34,7 +34,8 @@ import {
   OSCAR_HACKTHON_EVENT_ID,
   ROUTER_PATH,
 } from "@/constants";
-import { useIsMobile } from "@/hooks";
+import { useIsMobile } from "@/hooks/useIsMobile";
+import { useIsSafari } from "@/hooks/useIsSafari";
 
 const bannerList = [
   {
@@ -133,6 +134,9 @@ export function Hero({
   };
 
   const isMobile = useIsMobile();
+  const isSafari = useIsSafari();
+
+  const hiddenGlobe = isMobile || isSafari;
   return (
     <div
       className="relative flex flex-col md:flex-row -mt-20"
@@ -268,8 +272,8 @@ export function Hero({
               : "-top-4 w-64 h-64 md:w-96 md:h-96"
           )}
         >
-          {isMobile && <Image src={GlobeStaticImage} alt="globe" />}
-          {!isMobile && (
+          {hiddenGlobe && <Image src={GlobeStaticImage} alt="globe" />}
+          {!hiddenGlobe && (
             <video
               ref={videoRef}
               loop
