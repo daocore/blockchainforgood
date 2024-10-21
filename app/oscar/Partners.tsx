@@ -5,6 +5,7 @@ import { useIsMobile } from "@/hooks";
 import Link from "next/link";
 import { ROUTER_PATH } from "@/constants/router";
 import { OSCAR_EVENT_ID } from "@/constants/env";
+import MoledaoImage from "@/assets/oscar/Moledao.png";
 import BC100Image from "@/assets/oscar/BC1000.png";
 import InatbaImage from "@/assets/oscar/INATBA.png";
 import PBPositiveBlockchainImage from "@/assets/oscar/PBPositiveBlockchain.io.png";
@@ -27,15 +28,22 @@ import SupertamMalaysiaImage from "@/assets/oscar/Superteam Malaysia.png";
 import TintinlandImage from "@/assets/oscar/tintinland.png";
 import TradeCoinVNImage from "@/assets/oscar/TradeCoinVN.png";
 import WTechLabsImage from "@/assets/oscar/W Tech Labs.png";
+import CocolabsImage from "@/assets/oscar/cocolabs.png";
+import BDeskImage from "@/assets/oscar/13Desk.png";
+import Web3GlobalConferenceLLCImage from "@/assets/oscar/Web3 Global Conference LLC.png";
+import Web3FlorenceConnectionsInTechImage from "@/assets/oscar/Web3 Florence _ Connections in Tech.png";
+import ArmadaLabsImage from "@/assets/oscar/Armada Labs.png";
 import BitcoinAddictThailandImage from "@/assets/oscar/0_Bitcoin Addict Thailand.png";
 import BlocktempoImage from "@/assets/oscar/0_BlockTempo.png";
 import TechFlameImage from "@/assets/oscar/0_TechFlame.png";
+
+import CryptoNewsImage from "@/assets/oscar/crypto.news.png";
+import BitcoinWorldImage from "@/assets/oscar/BitcoinWorld Media.png";
 import TrustSwapImage from "@/assets/oscar/TrustSwap.png";
 import HERDAOImage from "@/assets/oscar/H.E.R. DAO.png";
 import SaladVenturesImage from "@/assets/oscar/Salad Ventures.png";
 import GroupFiImage from "@/assets/oscar/GroupFi.png";
 import MaschainImage from "@/assets/oscar/Maschain.png";
-
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 
@@ -97,6 +105,15 @@ const partnerObj = [
 ];
 
 const partersData = [
+  {
+    name: "Moledao",
+    type: 1,
+    logo: MoledaoImage,
+    link: "https://moledao.io/",
+    partnersType: 0,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"22px"}',
+  },
   {
     name: "BC100+",
     type: 1,
@@ -287,6 +304,51 @@ const partersData = [
     mobileStyle: '{"height":"24px"}',
   },
   {
+    name: "cocolabs",
+    type: 4,
+    logo: CocolabsImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "13Desk",
+    type: 4,
+    logo: BDeskImage,
+    link: "https://13desk.news/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Web3 Global Conference LLC",
+    type: 4,
+    logo: Web3GlobalConferenceLLCImage,
+    link: "https://web3globalconference.com/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Web3 Florence | Connections in Tech",
+    type: 4,
+    logo: Web3FlorenceConnectionsInTechImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Armada Labs",
+    type: 4,
+    logo: ArmadaLabsImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
     name: "Bitcoin Addict Thailand",
     type: 4,
     logo: BitcoinAddictThailandImage,
@@ -314,49 +376,22 @@ const partersData = [
     mobileStyle: '{"height":"24px"}',
   },
   {
-    name: "TrustSwap",
+    name: "crypto.news",
     type: 4,
-    logo: TrustSwapImage,
-    link: "https://trustswap.com/",
-    partnersType: 5,
-    style: '{"height":"34px"}',
-    mobileStyle: '{"height":"20px"}',
-  },
-  {
-    name: "H.E.R. DAO",
-    type: 4,
-    logo: HERDAOImage,
-    link: "https://www.her-dao.xyz/",
-    partnersType: 5,
+    logo: CryptoNewsImage,
+    link: "https://crypto.news/",
+    partnersType: 4,
     style: '{"height":"38px"}',
     mobileStyle: '{"height":"24px"}',
   },
   {
-    name: "Salad Ventures",
+    name: "BitcoinWorld",
     type: 4,
-    logo: SaladVenturesImage,
-    link: "",
-    partnersType: 5,
+    logo: BitcoinWorldImage,
+    link: "https://bitcoinworld.co.in/",
+    partnersType: 4,
     style: '{"height":"38px"}',
     mobileStyle: '{"height":"24px"}',
-  },
-  {
-    name: "GroupFi",
-    type: 4,
-    logo: GroupFiImage,
-    link: "https://groupfi.ai/",
-    partnersType: 5,
-    style: '{"height":"38px"}',
-    mobileStyle: '{"height":"24px"}',
-  },
-  {
-    name: "Masverse/Maschain",
-    type: 4,
-    logo: MaschainImage,
-    link: "https://www.maschain.com/",
-    partnersType: 5,
-    style: '{"height":"34px"}',
-    mobileStyle: '{"height":"20px"}',
   },
 ];
 
