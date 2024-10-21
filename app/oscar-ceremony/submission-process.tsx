@@ -11,6 +11,8 @@ import AdzImage from "@/assets/oscar/Avatar Adz.png";
 import LucasImage from "@/assets/oscar/Avatar Lucas.png";
 import MarianaImage from "@/assets/oscar/Avatar Mariana.png";
 import VenusKhorImage from "@/assets/oscar/Avatar VenusKhor.png";
+import MikeImage from "@/assets/oscar/Avatar Mike.png";
+import ScootImage from "@/assets/oscar/Avatar Scott Moore.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 
@@ -84,39 +86,47 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
         </div>
 
         <div className="space-y-8">
-          <PartItem time="1:30 PM - 3:30 PM" title="A Stage of Visionaries">
+          <PartItem time="1:30 PM - 1:35 PM" title="A Vision for Global Change">
             <PartContentItem
-              title=""
-              desc="The BGA will open the afternoon segment by introducing leaders from the blockchain and sustainability sectors, along with the organizations they represent, in preparation for their keynotes."
-              // spearks={[
-              //   {
-              //     img: UserImage,
-              //     name: "Allan",
-              //     org: "Moledao",
-              //     relation: "Partners",
-              //     link: "https://www.linkedin.com/in/allanfang/",
-              //   },
-              // ]}
+              title="Opening Remarks"
+              desc="The United Nations Development Programme (UNDP) will highlight the critical role blockchain can play in accelerating global development."
             />
+          </PartItem>
+
+          <PartItem
+            time="1:55 PM - 2:40 PM"
+            title="Leading the Future: Blockchain for Good"
+          >
             <PartContentItem
-              title=""
-              desc="The founder of BGA, Helen, COO of Bybit, will then take the stage to present on the origins and mission of the Blockchain for Good Alliance. (15 minutes)"
-              spearks={[
-                {
-                  img: HelenImage,
-                  name: "Helen",
-                  org: "Bybit",
-                  relation: "COO",
-                },
-              ]}
+              title="An Intro the BGA"
+              desc="BGA's Partner, Allan, will introduce Blockchain for Good Alliance and outline its mission to harness blockchain technology for positive impact, emphasizing the importance of collaboration across industries."
             />
+          </PartItem>
+
+          <PartItem
+            time="1:55 PM - 2:40 PM"
+            title="Governments on the Cutting Edge: Blockchain as a Global Enabler"
+          >
             <PartContentItem
-              title="The Frontiers of Tech – Unlocking Blockchain's Full Potential for Sustainability"
-              desc="A detailed exploration of how the Ethereum ecosystem is addressing the challenges of funding public goods and the protocol-level innovations driving sustainable solutions for public welfare applications."
+              title="A Take from Global Governments"
+              desc="Representatives from various institutions across India, Malaysia, Japan, South Korea, Hong Kong, Abu Dhabi, and Thailand, will come together in a high-level panel, discussing national initiatives to adopt blockchain for public good."
             />
+          </PartItem>
+
+          <PartItem time="2:45 PM - 2:55 PM" title="A View from EthicHub">
             <PartContentItem
-              title="Impact Pathways – Blockchain as a Catalyst for Social and Environmental Change"
-              desc="This panel will feature discussions on how blockchain can be leveraged to create meaningful social and environmental impact. The conversation will focus on blockchain’s potential in tackling critical issues such as poverty, inequality, and climate change. Panelists will share success stories of blockchain-based solutions making real-world differences and outline the pathways for scaling these initiatives. The discussion will also address the ethical implications of using blockchain in social contexts and how to ensure inclusivity and fairness in its applications."
+              title="EthicHub's Keynote"
+              desc="EthicHub, one of the flagship projects of BGA's incubation, will present its groundbreaking work in using blockchain to support farmers in developing countries through decentralized finance (DeFi). "
+            />
+          </PartItem>
+
+          <PartItem
+            time="3:00 PM - 3:45 PM"
+            title="A Real-World Impact - Strategies, Opportunities, and Challenges"
+          >
+            <PartContentItem
+              title="Impact Panel"
+              desc="A powerful panel discusses the impact of blockchain for public good, diving deep into the potential of blockchain as a tool for addressing some of the world’s most critical social challenges, providing insights into scaling blockchain initiatives for a broader, global reach."
               spearks={[
                 {
                   img: AdzImage,
@@ -150,18 +160,46 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             />
           </PartItem>
 
-          <PartItem time="3:30 PM - 4:30 PM" title="The Oscar Awards">
+          <PartItem
+            time="3:50 PM - 3:55 PM"
+            title="Advancing Public Goods through Blockchain"
+          >
             <PartContentItem
-              title="The Hall of Fame"
-              desc={`An awards ceremony is conducted to recognize BGA members such as ambassadors, advisors, partners, and project teams making strides in promoting blockchain for good. 
-Each award presentation should include a brief narrative of the recipient's journey and impact.`}
+              title="A View from Bybit"
+              desc={`Ben, CEO of Bybit and the initiator of the Blockchain for Good Alliance, will deliver an insightful keynote address on the transformative potential of blockchain in supporting public goods.`}
             />
           </PartItem>
 
-          <PartItem time="4:30 PM - 5:30 PM" title="The Chains of Change">
+          <PartItem
+            time="4:00 PM - 4:45 PM"
+            title="Catalyzing Change: Protocol-Level Innovations Empowering Public Goods Funding in Ethereum"
+          >
             <PartContentItem
-              title="The New Age"
-              desc={`A closing speech will close in on the future of blockchain for sustainability, outlining the BGA's vision for the next decade, focused on the exciting grants and programmes planned and awarded by the BGA beyond the Oscars.`}
+              title="Tech Panel"
+              desc={`This tech-focused panel will explore how blockchain, notably Ethereum, is revolutionizing the funding of public goods at the protocol-level.`}
+              spearks={[
+                {
+                  img: MikeImage,
+                  name: "Mike",
+                  org: "Immunefi",
+                  relation: "Head Of Sales",
+                  link: "",
+                },
+                {
+                  img: ScootImage,
+                  name: "Scott Moore",
+                  org: "Gitcoin",
+                  relation: "Co-Found",
+                  link: "",
+                },
+              ]}
+            />
+          </PartItem>
+
+          <PartItem time="4:50 PM - 5:30 PM" title="Celebrating Excellence">
+            <PartContentItem
+              title="The Hall of Fame"
+              desc="The Chains of Change Hall of Fame will honor visionary leaders, trailblazing projects and BGA members that have leveraged blockchain technology to drive real-world positive impact."
               spearks={[
                 {
                   img: UserImage,
@@ -174,10 +212,21 @@ Each award presentation should include a brief narrative of the recipient's jour
             />
           </PartItem>
 
-          <PartItem time="5:30 PM - 7:00 PM" title="The Gala">
+          <PartItem
+            time="5:35 PM - 5:50 PM"
+            title="A Call to Action for the Future"
+          >
             <PartContentItem
-              title="Encore"
-              desc="Networking session with an afterparty and light refreshments and networking before the event ends."
+              title="Closing Remarks"
+              desc="Helen, Bybit's COO, will deliver a final message to wrap up the event, focusing on the benefits of collective action on a global scale, powered by blockchain."
+              spearks={[
+                {
+                  img: HelenImage,
+                  name: "Helen",
+                  org: "Bybit",
+                  relation: "COO",
+                },
+              ]}
             />
           </PartItem>
         </div>
