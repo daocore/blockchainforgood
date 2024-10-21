@@ -308,7 +308,7 @@ const partersData = [
     type: 4,
     logo: CocolabsImage,
     link: "",
-    partnersType: 5,
+    partnersType: 0,
     style: '{"height":"38px"}',
     mobileStyle: '{"height":"24px"}',
   },
