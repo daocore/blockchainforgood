@@ -114,16 +114,6 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
 
           <PartItem
             time="1:55 PM - 2:40 PM"
-            title="Leading the Future: Blockchain for Good"
-          >
-            <PartContentItem
-              title="An Intro the BGA"
-              desc="BGA's Partner, Allan, will introduce Blockchain for Good Alliance and outline its mission to harness blockchain technology for positive impact, emphasizing the importance of collaboration across industries."
-            />
-          </PartItem>
-
-          <PartItem
-            time="1:55 PM - 2:40 PM"
             title="Governments on the Cutting Edge: Blockchain as a Global Enabler"
           >
             <PartContentItem
