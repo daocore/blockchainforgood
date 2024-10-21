@@ -43,7 +43,7 @@ import TrustSwapImage from "@/assets/oscar/TrustSwap.png";
 import HERDAOImage from "@/assets/oscar/H.E.R. DAO.png";
 import SaladVenturesImage from "@/assets/oscar/Salad Ventures.png";
 import GroupFiImage from "@/assets/oscar/GroupFi.png";
-import MaschainImage from "@/assets/oscar/Maschain.png";
+import MaschainImage from "@/assets/oscar/Masverse/Maschain.png";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
