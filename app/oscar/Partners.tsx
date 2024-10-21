@@ -44,6 +44,7 @@ import HERDAOImage from "@/assets/oscar/H.E.R. DAO.png";
 import SaladVenturesImage from "@/assets/oscar/Salad Ventures.png";
 import GroupFiImage from "@/assets/oscar/GroupFi.png";
 import MaschainImage from "@/assets/oscar/Maschain.png";
+
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 
@@ -374,6 +375,51 @@ const partersData = [
     partnersType: 4,
     style: '{"height":"38px"}',
     mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "TrustSwap",
+    type: 4,
+    logo: TrustSwapImage,
+    link: "https://trustswap.com/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "H.E.R. DAO",
+    type: 4,
+    logo: HERDAOImage,
+    link: "https://www.her-dao.xyz/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Salad Ventures",
+    type: 4,
+    logo: SaladVenturesImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "GroupFi",
+    type: 4,
+    logo: GroupFiImage,
+    link: "https://groupfi.ai/",
+    partnersType: 5,
+    style: '{"height":"38px"}',
+    mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Masverse/Maschain",
+    type: 4,
+    logo: MaschainImage,
+    link: "https://www.maschain.com/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
   },
   {
     name: "crypto.news",
