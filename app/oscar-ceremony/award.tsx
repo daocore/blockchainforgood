@@ -9,6 +9,7 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 import Link from "next/link";
 import { HACKTHON_APPLY_EVENT_ID, ROUTER_PATH } from "@/constants";
+import { useIsSafari } from "@/hooks/useIsSafari";
 
 const AWARD_LIST = [
   {
@@ -18,7 +19,7 @@ const AWARD_LIST = [
     tags: [
       "BGA Merchandise Package(A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
       "On-Chain Certificate(Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
-      "$500 Cash Reward（A cash prize awarded to the winner）",
+      "Bangkok Trip Reimbursement – A $2000 reimbursement for your trip to Bangkok.",
     ],
     buttons: [
       <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
@@ -113,6 +114,8 @@ function AwardItem({ item }: { item: (typeof AWARD_LIST)[number] }) {
   const ref = useIntersectionObserver<HTMLDivElement>(
     homeStyles.moveFromBottom
   );
+
+  const isSafari = useIsSafari();
   return (
     <div
       ref={ref}
@@ -137,7 +140,11 @@ function AwardItem({ item }: { item: (typeof AWARD_LIST)[number] }) {
               "flex justify-around items-center gap-1 whitespace-nowrap"
             )}
           >
-            <span className={cn(styles["award-description"])}>
+            <span
+              className={cn(
+                isSafari ? "text-description" : styles["award-description"]
+              )}
+            >
               {item.ambassador}
             </span>
             <span
@@ -147,7 +154,11 @@ function AwardItem({ item }: { item: (typeof AWARD_LIST)[number] }) {
               }}
               className="py-1 flex-none h-4"
             ></span>
-            <span className={cn(styles["award-description"])}>
+            <span
+              className={cn(
+                isSafari ? "text-description" : styles["award-description"]
+              )}
+            >
               {item.prize}
             </span>
           </div>
