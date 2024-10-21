@@ -22,17 +22,27 @@ const AWARD_LIST = [
       "Bangkok Trip Reimbursement – A $2000 reimbursement for your trip to Bangkok.",
     ],
     buttons: [
-      <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-        <span>Rule</span>
-      </Button>,
-      <Button
-        className={cn(
-          "px-8 rounded-none opacity-70",
-          styles["award-btn-invatation"]
-        )}
-      >
-        <span>Exclusive Invitation</span>
-      </Button>,
+      (isSafari: boolean) => (
+        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+          <span
+            className={cn(
+              isSafari ? "text-description" : styles["award-btn-rule-span"]
+            )}
+          >
+            Rule
+          </span>
+        </Button>
+      ),
+      () => (
+        <Button
+          className={cn(
+            "px-8 rounded-none opacity-70",
+            styles["award-btn-invatation"]
+          )}
+        >
+          <span>Exclusive Invitation</span>
+        </Button>
+      ),
     ],
   },
   {
@@ -45,17 +55,29 @@ const AWARD_LIST = [
       "$500 Cash Reward（A cash prize awarded to the winner）",
     ],
     buttons: [
-      <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-        <span>Rule</span>
-      </Button>,
-      <Link
-        target="__blank"
-        href={`${ROUTER_PATH.FORM.PERSON}/${HACKTHON_APPLY_EVENT_ID}`}
-      >
-        <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
-          <span>Apply</span>
+      (isSafari: boolean) => (
+        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+          <span
+            className={cn(
+              isSafari ? "text-description" : styles["award-btn-rule-span"]
+            )}
+          >
+            Rule
+          </span>
         </Button>
-      </Link>,
+      ),
+      () => (
+        <Link
+          target="__blank"
+          href={`${ROUTER_PATH.FORM.PERSON}/${HACKTHON_APPLY_EVENT_ID}`}
+        >
+          <Button
+            className={cn("px-8 rounded-none", styles["award-btn-apply"])}
+          >
+            <span>Apply</span>
+          </Button>
+        </Link>
+      ),
     ],
   },
   {
@@ -68,17 +90,29 @@ const AWARD_LIST = [
       "On-Chain Certificate(Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
     ],
     buttons: [
-      <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-        <span>Rule</span>
-      </Button>,
-      <Link
-        target="__blank"
-        href={`${ROUTER_PATH.FORM.PERSON}/${HACKTHON_APPLY_EVENT_ID}`}
-      >
-        <Button className={cn("px-8 rounded-none", styles["award-btn-apply"])}>
-          <span>Apply</span>
+      (isSafari: boolean) => (
+        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+          <span
+            className={cn(
+              isSafari ? "text-description" : styles["award-btn-rule-span"]
+            )}
+          >
+            Rule
+          </span>
         </Button>
-      </Link>,
+      ),
+      () => (
+        <Link
+          target="__blank"
+          href={`${ROUTER_PATH.FORM.PERSON}/${HACKTHON_APPLY_EVENT_ID}`}
+        >
+          <Button
+            className={cn("px-8 rounded-none", styles["award-btn-apply"])}
+          >
+            <span>Apply</span>
+          </Button>
+        </Link>
+      ),
     ],
   },
 ] as const;
@@ -182,7 +216,7 @@ function AwardItem({ item }: { item: (typeof AWARD_LIST)[number] }) {
         ))}
       </div>
       <div className="flex gap-2">
-        {item.buttons.map((button, index) => button)}
+        {item.buttons.map((fn, index) => fn(isSafari))}
       </div>
     </div>
   );
