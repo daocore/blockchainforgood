@@ -14,6 +14,11 @@ import VenusKhorImage from "@/assets/oscar/Avatar VenusKhor.png";
 import MikeImage from "@/assets/oscar/Avatar Mike.png";
 import ScootImage from "@/assets/oscar/Avatar Scott Moore.png";
 import BenImage from "@/assets/oscar/Avatar Ben.png";
+import HarnImage from "@/assets/oscar/Avatar Harn.png";
+import GianlucaImage from "@/assets/oscar/Avatar Gianluca.png";
+import KCImage from "@/assets/oscar/Avatar KC.png";
+import AdamImage from "@/assets/oscar/Avatar Adam.png";
+import Adam2Image from "@/assets/oscar/Avatar Adam2.png";
 import RodrigoVasquezImage from "@/assets/oscar/Avatar Rodrigo Vasquez.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
@@ -27,7 +32,12 @@ export function SubmissionProcess() {
       </div>
 
       <div className="mt-8 space-y-8">
-        <div className={cn(styles["process-title"], "text-xl font-medium")}>
+        <div
+          className={cn(
+            styles["process-title"],
+            "text-xl font-medium whitespace-nowrap"
+          )}
+        >
           <p>Session 1: The 17 SDGs Challenge </p>
         </div>
 
@@ -66,6 +76,43 @@ In true cinematic fashion, each project pitch will have to tell the story of a "
               title="Academy of Innovation (name of panel to put on website)"
               desc={`The judging panel, known as The Academy, comprises esteemed leaders and visionaries from the blockchain, sustainability, and tech industries. These experts will evaluate the pitches based on innovation, impact, and potential for global scalability. 
 Just as the Academy determines the best in film, our "Academy of Innovation" will determine which project stands as the beacon of blockchain excellence, shaping the future of sustainable development.`}
+              spearks={[
+                {
+                  img: HarnImage,
+                  name: "Harn",
+                  org: "Trigger Asset Management",
+                  relation: "CEO",
+                  link: "",
+                },
+                {
+                  img: KCImage,
+                  name: "KC",
+                  org: "AYA Foundation",
+                  relation: "Investments, Impact Lead",
+                  link: "",
+                },
+                {
+                  img: GianlucaImage,
+                  name: "Gianluca",
+                  org: "NapulETH",
+                  relation: "CEO & Co-Founder",
+                  link: "",
+                },
+                {
+                  img: AdamImage,
+                  name: "Adam",
+                  org: "3 Comma Capital SCR",
+                  relation: "Venture Partner",
+                  link: "",
+                },
+                {
+                  img: Adam2Image,
+                  name: "Adam",
+                  org: "Growth Ensemble",
+                  relation: "Co-Founder",
+                  link: "",
+                },
+              ]}
             />
 
             <PartContentItem
@@ -83,7 +130,12 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
       </div>
 
       <div className="mt-8 space-y-8">
-        <div className={cn(styles["process-title"], "text-xl font-medium")}>
+        <div
+          className={cn(
+            styles["process-title"],
+            "text-xl font-medium whitespace-nowrap"
+          )}
+        >
           <p>Session 2: The Chains of Change</p>
         </div>
 
