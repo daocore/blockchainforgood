@@ -86,7 +86,7 @@ const partnerObj = [
   },
   {
     type: "Media Partners",
-    name: "Media Partner",
+    name: "Media Partners",
     style: {
       // width: "140px",
       height: "70px",
@@ -95,7 +95,7 @@ const partnerObj = [
   },
   {
     type: "Community Partners",
-    name: "Community Partner",
+    name: "Community Partners",
     style: {
       // width: "140px",
       height: "70px",
@@ -535,7 +535,7 @@ export const Partners = () => {
       <h2
         className={`font-bold text-oscarActive font-['Inter'] text-[20px] md:text-[32px] text-center`}
       >
-        Strategic Partner
+        Strategic Partners
       </h2>
       <div className="text-description text-center">
         <p>Interested in becoming our partner?</p>
