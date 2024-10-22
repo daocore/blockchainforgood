@@ -21,6 +21,9 @@ import AdamImage from "@/assets/oscar/Avatar Adam.png";
 import Adam2Image from "@/assets/oscar/Avatar Adam2.png";
 import ComposeusImage from "@/assets/oscar/Avatar Composeus.png";
 import RodrigoVasquezImage from "@/assets/oscar/Avatar Rodrigo Vasquez.png";
+import FelixsimImage from "@/assets/oscar/Avatar28.png";
+import JayKohImage from "@/assets/oscar/Avatar22.png";
+
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 
@@ -112,6 +115,20 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   org: "Growth Ensemble",
                   relation: "Co-Founder",
                   link: "https://www.linkedin.com/in/adamflinter/",
+                },
+                {
+                  img: FelixsimImage,
+                  name: "Felixsim",
+                  org: "Salad Ventures",
+                  relation: "Founder",
+                  link: "https://www.linkedin.com/in/simfelix",
+                },
+                {
+                  img: JayKohImage,
+                  name: "JayKoh",
+                  org: "Association Blockchain Asia",
+                  relation: "Vice President",
+                  link: "https://x.com/Krypto_JayK",
                 },
               ]}
             />
@@ -394,7 +411,7 @@ function PartContentItem({
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
-      <div className="flex flex-col md:flex-row flex-wrap gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {spearks.map((speark) => (
           <UserAvater
             img={speark.img}
