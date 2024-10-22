@@ -19,7 +19,7 @@ const AWARD_LIST = [
     tags: [
       "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
       "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
-      "Bangkok Trip Reimbursement – A $2000 reimbursement for your trip to Bangkok.",
+      "Bangkok Trip Reimbursement (A $2000 reimbursement for your trip to Bangkok)",
     ],
     buttons: [
       (isSafari: boolean) => (
