@@ -19,6 +19,7 @@ import GianlucaImage from "@/assets/oscar/Avatar Gianluca.png";
 import KCImage from "@/assets/oscar/Avatar KC.png";
 import AdamImage from "@/assets/oscar/Avatar Adam.png";
 import Adam2Image from "@/assets/oscar/Avatar Adam2.png";
+import ComposeusImage from "@/assets/oscar/Avatar Composeus.png";
 import RodrigoVasquezImage from "@/assets/oscar/Avatar Rodrigo Vasquez.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
@@ -251,10 +252,10 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
               desc={`This tech-focused panel will explore how blockchain, notably Ethereum, is revolutionizing the funding of public goods at the protocol-level.`}
               spearks={[
                 {
-                  img: MikeImage,
-                  name: "Mike",
-                  org: "Immunefi",
-                  relation: "Head Of Sales",
+                  img: RodrigoVasquezImage,
+                  name: "Rodrigo Vasquez",
+                  org: "Ethereum Foundation",
+                  relation: "Ecosystem Funding Initiative Lead",
                   link: "",
                 },
                 {
@@ -265,10 +266,17 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   link: "",
                 },
                 {
-                  img: RodrigoVasquezImage,
-                  name: "Rodrigo Vasquez",
-                  org: "Ethereum Foundation",
-                  relation: "Ecosystem Funding Initiative Lead",
+                  img: MikeImage,
+                  name: "Mike",
+                  org: "Immunefi",
+                  relation: "Head Of Sales",
+                  link: "",
+                },
+                {
+                  img: ComposeusImage,
+                  name: "Composeus",
+                  org: "DV Labs",
+                  relation: "Chief Growth Officer",
                   link: "",
                 },
               ]}
