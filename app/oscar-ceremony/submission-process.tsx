@@ -14,6 +14,7 @@ import VenusKhorImage from "@/assets/oscar/Avatar VenusKhor.png";
 import MikeImage from "@/assets/oscar/Avatar Mike.png";
 import ScootImage from "@/assets/oscar/Avatar Scott Moore.png";
 import BenImage from "@/assets/oscar/Avatar Ben.png";
+import RodrigoVasquezImage from "@/assets/oscar/Avatar Rodrigo Vasquez.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 
@@ -209,6 +210,13 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   name: "Scott Moore",
                   org: "Gitcoin",
                   relation: "Co-Founder",
+                  link: "",
+                },
+                {
+                  img: RodrigoVasquezImage,
+                  name: "Rodrigo Vasquez",
+                  org: "Ethereum Foundation",
+                  relation: "Ecosystem Funding Initiative Lead",
                   link: "",
                 },
               ]}
