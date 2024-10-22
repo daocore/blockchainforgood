@@ -1,7 +1,5 @@
 "use client";
 
-import { useIsMobile } from "@/hooks";
-import { useRouter } from "next-nprogress-bar";
 import { cn } from "@/lib";
 import homeStyles from "../home/styles.module.css";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
@@ -120,7 +118,7 @@ const JudgeItem = ({ item }: { item: IJudgeItem }) => {
 const JUDGE_LIST: IJudgeItem[] = [
   {
     name: "Allan",
-    title: "Partners",
+    title: "Partner",
     avatar: JudgeImage1,
     company: "MoleDAO",
     links: [
@@ -621,7 +619,7 @@ export const Judge = () => {
     homeStyles.moveFromBottom
   );
   return (
-    <div ref={ref} className={cn("md:w-content w-full")}>
+    <div id="judges" ref={ref} className={cn("md:w-content w-full")}>
       <h2 className="font-bold text-oscarActive font-['Inter'] mx-auto text-[20px] md:text-[32px] text-center">
         Judges
       </h2>
