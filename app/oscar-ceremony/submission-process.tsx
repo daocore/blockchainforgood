@@ -141,7 +141,8 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
         </div>
 
         <div className="space-y-8">
-          <PartItem time="1:30 PM - 1:35 PM" title="A Vision for Global Change">
+          <PartItem time="1:15 PM - 1:40 PM" title="A Vision for Global Change">
+            <PartContentItem title="Opening Dance Performance" desc="" />
             <PartContentItem
               title="Opening Remarks"
               desc="The United Nations Development Programme (UNDP) will highlight the critical role blockchain can play in accelerating global development."
@@ -168,7 +169,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
           </PartItem>
 
           <PartItem
-            time="1:55 PM - 2:40 PM"
+            time="1:50 PM - 2:40 PM"
             title="Governments on the Cutting Edge: Blockchain as a Global Enabler"
           >
             <PartContentItem
@@ -177,7 +178,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             />
           </PartItem>
 
-          <PartItem time="2:45 PM - 2:55 PM" title="A View from EthicHub">
+          <PartItem time="2:40 PM - 3:00 PM" title="A View from EthicHub">
             <PartContentItem
               title="EthicHub's Keynote"
               desc="EthicHub, one of the flagship projects of BGA's incubation, will present its groundbreaking work in using blockchain to support farmers in developing countries through decentralized finance (DeFi). "
@@ -225,7 +226,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
           </PartItem>
 
           <PartItem
-            time="3:50 PM - 3:55 PM"
+            time="3:45 PM - 4:00 PM"
             title="Advancing Public Goods through Blockchain"
           >
             <PartContentItem
@@ -283,7 +284,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             />
           </PartItem>
 
-          <PartItem time="4:50 PM - 5:30 PM" title="Celebrating Excellence">
+          <PartItem time="4:45 PM - 5:30 PM" title="Celebrating Excellence">
             <PartContentItem
               title="The Hall of Fame"
               desc="The Chains of Change Hall of Fame will honor visionary leaders, trailblazing projects and BGA members that have leveraged blockchain technology to drive real-world positive impact."
@@ -291,7 +292,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
           </PartItem>
 
           <PartItem
-            time="5:35 PM - 5:40 PM"
+            time="5:30 PM - 5:40 PM"
             title="A Call to Action for the Future"
           >
             <PartContentItem
