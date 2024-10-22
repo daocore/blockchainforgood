@@ -15,10 +15,10 @@ const AWARD_LIST = [
   {
     name: "Collaboration Bridge Award ",
     ambassador: "Individual",
-    prize: "Price Worth 3000 U",
+    prize: "Price Worth $3000",
     tags: [
-      "BGA Merchandise Package(A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
-      "On-Chain Certificate(Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
+      "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
+      "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
       "Bangkok Trip Reimbursement – A $2000 reimbursement for your trip to Bangkok.",
     ],
     buttons: [
@@ -29,7 +29,7 @@ const AWARD_LIST = [
               isSafari ? "text-description" : styles["award-btn-rule-span"]
             )}
           >
-            Rule
+            Rules
           </span>
         </Button>
       ),
@@ -48,11 +48,11 @@ const AWARD_LIST = [
   {
     name: "Public Welfare Contribution Award",
     ambassador: "Individual",
-    prize: "Price Worth 1000 U",
+    prize: "Price Worth $1000",
     tags: [
-      "BGA Merchandise Package(A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
-      "On-Chain Certificate(Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
-      "$500 Cash Reward（A cash prize awarded to the winner）",
+      "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
+      "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
+      "$500 Cash Reward (A cash prize awarded to the winner)",
     ],
     buttons: [
       (isSafari: boolean) => (
@@ -62,7 +62,7 @@ const AWARD_LIST = [
               isSafari ? "text-description" : styles["award-btn-rule-span"]
             )}
           >
-            Rule
+            Rules
           </span>
         </Button>
       ),
@@ -83,11 +83,11 @@ const AWARD_LIST = [
   {
     name: "BGA Ambassador Star",
     ambassador: "Ambassador",
-    prize: "Price Worth 300 U",
+    prize: "Price Worth $300",
     tags: [
-      "$150 Gift(Choose from a selection of exciting items: Michelle Retro Speaker, JBL Sports Speaker, Apple Gift Card, Amazon Gift Card)",
-      "BGA Merchandise Package(A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
-      "On-Chain Certificate(Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
+      "$150 Gift (Choose from a selection of exciting items: Michelle Retro Speaker, JBL Sports Speaker, Apple Gift Card, Amazon Gift Card)",
+      "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
+      "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
     ],
     buttons: [
       (isSafari: boolean) => (
@@ -97,7 +97,7 @@ const AWARD_LIST = [
               isSafari ? "text-description" : styles["award-btn-rule-span"]
             )}
           >
-            Rule
+            Rules
           </span>
         </Button>
       ),
@@ -134,7 +134,7 @@ export function Award() {
             "text-oscarActive inline-block mx-auto text-center text-xl md:text-3xl font-semibold"
           )}
         >
-          Award
+          Awards
         </h2>
       </div>
       {AWARD_LIST.map((award, index) => (

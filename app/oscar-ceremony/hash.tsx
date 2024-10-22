@@ -14,7 +14,7 @@ const HASH_LIST = [
     hash: "#agenda",
   },
   {
-    label: "Award",
+    label: "Awards",
     image: AwardImage,
     hash: "#award",
   },
@@ -24,7 +24,7 @@ const HASH_LIST = [
     hash: "#partner",
   },
   {
-    label: "Q&A",
+    label: "FAQ",
     image: FAQImage,
     hash: "#faq",
   },

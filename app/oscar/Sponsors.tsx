@@ -71,7 +71,7 @@ export const Sponsors = () => {
             "font-bold text-oscarActive font-['Inter'] inline-block mx-auto text-[20px] md:text-[32px] text-center"
           )}
         >
-          Sponsor
+          Sponsors
         </h2>
       </div>
       <div
