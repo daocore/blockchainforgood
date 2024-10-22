@@ -13,6 +13,7 @@ import MarianaImage from "@/assets/oscar/Avatar Mariana.png";
 import VenusKhorImage from "@/assets/oscar/Avatar VenusKhor.png";
 import MikeImage from "@/assets/oscar/Avatar Mike.png";
 import ScootImage from "@/assets/oscar/Avatar Scott Moore.png";
+import BenImage from "@/assets/oscar/Avatar Ben.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 
@@ -26,7 +27,7 @@ export function SubmissionProcess() {
 
       <div className="mt-8 space-y-8">
         <div className={cn(styles["process-title"], "text-xl font-medium")}>
-          <p>The 17SDGs Challenge, Part 1</p>
+          <p>Session 1: The 17 SDGs Challenge </p>
         </div>
 
         <div className="space-y-8">
@@ -47,7 +48,7 @@ export function SubmissionProcess() {
                   img: UserImage,
                   name: "Allan",
                   org: "Moledao",
-                  relation: "Partners",
+                  relation: "Partner",
                   link: "https://www.linkedin.com/in/allanfang/",
                 },
               ]}
@@ -82,7 +83,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
 
       <div className="mt-8 space-y-8">
         <div className={cn(styles["process-title"], "text-xl font-medium")}>
-          <p>The Chain Of Change , Part 2</p>
+          <p>Session 2: The Chains of Change</p>
         </div>
 
         <div className="space-y-8">
@@ -105,7 +106,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   img: UserImage,
                   name: "Allan",
                   org: "Moledao",
-                  relation: "Partners",
+                  relation: "Partner",
                   link: "https://www.linkedin.com/in/allanfang/",
                 },
               ]}
@@ -176,6 +177,15 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="A View from Bybit"
               desc={`Ben, CEO of Bybit and the initiator of the Blockchain for Good Alliance, will deliver an insightful keynote address on the transformative potential of blockchain in supporting public goods.`}
+              spearks={[
+                {
+                  img: BenImage,
+                  name: "Ben",
+                  org: "Bybit",
+                  relation: "CEO",
+                  link: "",
+                },
+              ]}
             />
           </PartItem>
 
@@ -198,7 +208,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   img: ScootImage,
                   name: "Scott Moore",
                   org: "Gitcoin",
-                  relation: "Co-Found",
+                  relation: "Co-Founder",
                   link: "",
                 },
               ]}

@@ -19,7 +19,7 @@ export function Chains() {
     >
       <section className="space-y-2 pl-0 md:pl-96">
         <h2 className="text-2xl md:text-5xl font-semibold leading-tight">
-          Chains of Change
+          The Chains of Change Section
         </h2>
         <p>
           is a premier event that celebrates groundbreaking blockchain projects

@@ -1,41 +1,37 @@
 "use client";
 
-import { OSCAR_HACKTHON_APPLY_LINK } from "@/constants";
 import { FAQItem } from "@/components/FAQ";
 import homeStyles from "../home/styles.module.css";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const faqs = [
   {
-    question: "What types of projects can participate in?",
-    answer: `Projects that align with the  <a href="https://sdgs.un.org/goals" style="color: #00d5bf">17 Sustainable Development Goals</a> and use blockchain to solve real-life problems.`,
+    question: "What types of projects are eligible for participation?",
+    answer: `We welcome projects that align with the United Nations' <a href="https://sdgs.un.org/goals" style="color: #00d5bf">17 Sustainable Development Goals (SDGs) </a> and leverage blockchain technology to address real-world challenges. Projects of all stages are welcome, but a final working demo should be available by the end of the hackathon.`,
   },
   {
-    question: "Why should you apply for hackathon?",
+    question: "Why should you apply for this hackathon?",
     answer:
-      "The winner of Hackathon will be awarded the grand prize, which consists of: Equity-free rewards – including funds to scale your business, complimentary speaking slot at BGA Oscar  and much more. Stay tuned for updates!",
+      "Hackathon winners share a part of the grand prize pool, which includes equity-free rewards, funding to help scale your business, and a complimentary speaking opportunity at the BGA Oscar. Additional benefits may be announced—stay tuned!",
   },
   {
     question: "Does it cost anything to participate?",
-    answer: `Applying is free, and selection is merit-based. The grand prize is equity-free. The jury will be able to make offers to invest outside of the prize grant.`,
+    answer: `Participation is free, and the selection process is based on merit. The grand prize is equity-free, and jury members may also extend investment offers beyond the prize grant.`,
   },
   {
     question: "What is the application process?",
-    answer: `If you are interested in <b>Sustainable Innovation Summit:The 17 SDGs Challenge</b>, please submit your application <a href="${OSCAR_HACKTHON_APPLY_LINK}" style="color: #00d5bf">here</a>.
-Once you have submitted your application, the BlockChain For Good Review committee will review your application, along with others.<br />
-BGA will announce next steps in the process to all applicants via email & TG.`,
+    answer: `To apply for the Sustainable Innovation Summit: The 17 SDGs Challenge, submit your application through the provided link. Once your submission is received, the Blockchain for Good Review Committee will evaluate it alongside other entries. All applicants will be informed of the next steps via email and Telegram.`,
   },
   {
     question:
-      "There is a video required for the application. What is BlockChain For Good looking for?",
-    answer: `Show us your product working in real-time! This is the best way to convey the value you are looking to showcase on the Hackathon stage. Feel free to use your phone or screen grabs to record the video – production quality isn't important, the key is to see your working product in action. 
-      <br/>BGA is seeking projects that leverage blockchain technology to solve real-world problems, aligning with the United Nations' 17 Sustainable Development Goals.`,
+      "There is a video required for the application. What is the BGA looking for?",
+    answer: `We ask for a video to demonstrate your product in real time, showcasing its value for the hackathon. Feel free to use any device—production quality isn't a priority, but seeing your product in action is key. We are particularly interested in projects that use blockchain technology to solve real-world issues in line with the United Nations' 17 Sustainable Development Goals.`,
   },
   {
     question:
       "Can I modify or update my submission after it has been submitted?",
     answer:
-      "Yes, you can make changes or updates to your submission. However, please avoid submitting multiple times. Once your project has been successfully submitted, you will receive a confirmation email with a link for updates. The deadline for updates is September 30 at 11:00 PM UTC+8.",
+      "Yes, you can modify or update your submission after it has been sent. Please avoid submitting multiple entries. Once your project is successfully submitted, you’ll receive a confirmation email with an update link. The deadline for updates is 25 October 2024 at 11:00 PM UTC+8.",
   },
 ];
 

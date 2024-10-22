@@ -200,7 +200,7 @@ export function Hero({
               isHover ? "text-[32px] md:text-5xl" : "text-base md:text-4xl"
             )}
           >
-            <p className={cn(styles["hero-title"])}>17 SDGS</p>
+            <p className={cn(styles["hero-title"])}>17 SDGs</p>
             <p className={cn("leading-tight", styles["hero-title"])}>
               Challenge
             </p>

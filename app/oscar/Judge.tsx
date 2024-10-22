@@ -118,7 +118,7 @@ const JudgeItem = ({ item }: { item: IJudgeItem }) => {
 const JUDGE_LIST: IJudgeItem[] = [
   {
     name: "Allan",
-    title: "Partners",
+    title: "Partner",
     avatar: JudgeImage1,
     company: "MoleDAO",
     links: [

@@ -30,7 +30,7 @@ const HASH_LIST = [
     hash: "#partner",
   },
   {
-    label: "Q&A",
+    label: "FAQ",
     image: FAQImage,
     hash: "#faq",
   },
