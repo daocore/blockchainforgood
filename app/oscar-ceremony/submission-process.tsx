@@ -158,8 +158,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
         </div>
 
         <div className="space-y-8">
-          <PartItem time="1:15 PM - 1:40 PM" title="A Vision for Global Change">
-            <PartContentItem title="Opening Dance Performance" desc="" />
+          <PartItem time="1:30 PM - 1:40 PM" title="A Vision for Global Change">
             <PartContentItem
               title="Opening Remarks"
               desc="The United Nations Development Programme (UNDP) will highlight the critical role blockchain can play in accelerating global development."
