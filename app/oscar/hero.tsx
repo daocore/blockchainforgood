@@ -259,7 +259,7 @@ export function Hero({
           preload="auto"
         >
           <source
-            src="/BGA Ceremony Animation-Background blur.webm"
+            src="https://a.moledao.io/assets/other/BGA Ceremony Animation-Background blur.webm"
             type="video/webm"
           />
         </video>
@@ -289,7 +289,7 @@ export function Hero({
               poster={GlobeStaticImage.src}
             >
               <source
-                src="/BGA-Oscar-Static-Globe-Text-Animated.webm"
+                src="https://a.moledao.io/assets/other/BGA-Oscar-Static-Globe-Text-Animated.webm"
                 type="video/webm"
               />
             </video>

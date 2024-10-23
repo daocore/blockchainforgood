@@ -25,6 +25,17 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import crypto from "crypto"
+
+const publicKey = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt8icam8RbPeukZi5Vzj1
++eOmH+u9ELD0nAzdLOw6UUfsHw0eTJkyH3SisU68YQ7y6OX3/nGE6Wsm/nJR+/OM
+aTb7yrK3PqSOUFrjzsH5aau/PTsNg0++EHuZJhZHoMw7iZLw30UZY0MO5rKS55JV
+qthADATkixmF824qo6fyZZRmdmNdDwBju3U7kSEy178rzZNeM0h6YP4zjwTIUGdD
+ICAE6FUzN4wGO93uoAx/uXAo5Nf/0iq9WqVGwSvB28D5Oh6sc9DJhHKJtrOXJuNw
+uTlG6yi9QGuMNL+5alRn6/7JmqHzzGVxgJsuaOaF1eAFs+ndPqSA/8auYcdQoCc1
+WwIDAQAB
+-----END PUBLIC KEY-----`
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -231,10 +242,10 @@ export function VoteForm({
                                   return checked
                                     ? field.onChange([...field.value, org.id])
                                     : field.onChange(
-                                        field.value?.filter(
-                                          (value) => value !== org.id
-                                        )
-                                      );
+                                      field.value?.filter(
+                                        (value) => value !== org.id
+                                      )
+                                    );
                                 }}
                               />
                             </FormControl>
@@ -311,8 +322,18 @@ export function SendEmail({ form }: { form: any }) {
     }
   };
 
+  const encryptedData = (data: any) => {
+    return crypto.publicEncrypt(
+      {
+        key: publicKey,
+        padding: crypto.constants.RSA_PKCS1_OAEP_PADDING // 使用 RSA_PKCS1_PADDING 填充方案
+      },
+      Buffer.from(JSON.stringify(data), 'utf8') as any
+    );
+  };
+
   const onSendEmailCodeImpl = () => {
-    APISendEmailCode({ email: form.getValues().email });
+    APISendEmailCode({ email: encryptedData({ fuckSybil: form.getValues().email }).toString('base64') });
     setIsCounting(true);
     handleDialogOpenChange(false);
   };
