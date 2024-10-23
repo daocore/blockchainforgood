@@ -11,24 +11,15 @@ import { Clock3, MapPin } from "lucide-react";
 import Image from "next/image";
 import { VoteForm } from "./form";
 import { Separator } from "@/components/ui/separator";
-import { APIGetVoteResult, useAPIVoteDetail } from "./api";
+import { useAPIVoteDetail } from "./api";
 import { IMAGE_URL } from "@/constants";
 import { Loading } from "./skeleton-loading";
 import { getTime, getTimeData, getTimeZone } from "./utils";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Successed } from "./successed";
 
 export function VoteDetail({ id }: { id: string }) {
   const { data, isLoading } = useAPIVoteDetail(id);
-  useEffect(() => {
-    if (data) {
-      APIGetVoteResult({
-        id,
-      }).then((res) => {
-        console.log(res);
-      });
-    }
-  }, [data]);
 
   const successedRef = useRef<{ onSuccessed: () => void }>();
   if (isLoading || !data) {
