@@ -116,6 +116,7 @@ export function VoteForm({
   };
 
   const onSendEmailCode = () => {
+    if(isCounting) return
     const email = form.getValues().email;
     if (!email) return;
     APISendEmailCode({
@@ -173,7 +174,7 @@ export function VoteForm({
                   <Button
                     type="button"
                     onClick={onSendEmailCode}
-                    className="bg-main w-24"
+                    className={`bg-main w-24 ${isCounting ? "cursor-not-allowed" : "cursor-pointer"}`}
                     size="sm"
                   >
                     {isCounting ? `${countdown}s` : "Send Code"}
