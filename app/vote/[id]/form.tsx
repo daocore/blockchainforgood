@@ -29,9 +29,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 const formSchema = z.object({
   email: z.string().email(),
   verifyCode: z.string().min(1),
-  captchaCode: z.string().refine((value) => value.length === 6, {
-    message: "Captcha code must be exactly 6 characters long.",
-  }),
+  captchaCode: z.string().optional(),
   candidates: z
     .array(z.string())
     .refine((value) => value.some((item) => item), {
@@ -273,6 +271,8 @@ export function SendEmail({ form }: { form: any }) {
   const handleDialogOpenChange = (open: boolean) => {
     if (!open) {
       setCaptchaCodeOpen(false);
+      form.setValue("captchaCode", "");
+      form.clearErrors("captchaCode");
     } else {
       setTimeout(() => {
         loadCaptchaEnginge(6);
@@ -297,7 +297,7 @@ export function SendEmail({ form }: { form: any }) {
 
   const onShowCaptchaCode = () => {
     const email = form.getValues().email;
-    if (!email) return;
+    if (!email || isCounting) return;
     setCaptchaCodeOpen(true);
   };
 
@@ -314,7 +314,7 @@ export function SendEmail({ form }: { form: any }) {
   const onSendEmailCodeImpl = () => {
     APISendEmailCode({ email: form.getValues().email });
     setIsCounting(true);
-    setCaptchaCodeOpen(false);
+    handleDialogOpenChange(false);
   };
 
   return (
@@ -325,6 +325,7 @@ export function SendEmail({ form }: { form: any }) {
           onClick={onShowCaptchaCode}
           className="bg-main w-24"
           size="sm"
+          disabled={isCounting}
         >
           {isCounting ? `${countdown}s` : "Send Code"}
         </Button>
@@ -342,7 +343,7 @@ export function SendEmail({ form }: { form: any }) {
                 <FormControl>
                   <div className="flex gap-2 items-center">
                     <Input {...field} />
-                    <LoadCanvasTemplate />
+                    <LoadCanvasTemplate reloadText="Reload" />
                   </div>
                 </FormControl>
                 <FormMessage />
