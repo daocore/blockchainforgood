@@ -8,7 +8,11 @@ import { Button } from "@/components/ui";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 import Link from "next/link";
-import { HACKTHON_APPLY_EVENT_ID, ROUTER_PATH } from "@/constants";
+import {
+  HACKTHON_APPLY_EVENT_ID,
+  OSCAR_CONTRIBUTION_AWARD_EVENT_ID,
+  ROUTER_PATH,
+} from "@/constants";
 import { useIsSafari } from "@/hooks/useIsSafari";
 
 const AWARD_LIST = [
@@ -69,7 +73,7 @@ const AWARD_LIST = [
       () => (
         <Link
           target="__blank"
-          href={`${ROUTER_PATH.FORM.PERSON}/${HACKTHON_APPLY_EVENT_ID}`}
+          href={`${ROUTER_PATH.FORM.PERSON}/${OSCAR_CONTRIBUTION_AWARD_EVENT_ID}`}
         >
           <Button
             className={cn("px-8 rounded-none", styles["award-btn-apply"])}
