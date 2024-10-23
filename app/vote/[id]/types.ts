@@ -33,6 +33,7 @@ export interface ICreateVote {
     telgram?: string;
     linkedin?: string;
   };
+  token: string;
 }
 
 export interface IEmail {

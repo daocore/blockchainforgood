@@ -18,10 +18,18 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { APICreateVote, APISendEmailCode } from "./api";
 import { useEffect, useState } from "react";
 import { OrganizationEntity } from "@/app/square/types";
+import { encryptToken } from "./actions";
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  validateCaptcha,
+} from "react-simple-captcha";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 const formSchema = z.object({
   email: z.string().email(),
   verifyCode: z.string().min(1),
+  captchaCode: z.string().optional(),
   candidates: z
     .array(z.string())
     .refine((value) => value.some((item) => item), {
@@ -63,7 +71,7 @@ export function VoteForm({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setSubmitLoading(true);
-      await APICreateVote({
+      const apiData = {
         id,
         email: values.email,
         verifyCode: values.verifyCode,
@@ -71,6 +79,11 @@ export function VoteForm({
         nickname: values.nickname,
         walletAddress: values.walletAddress,
         link: values.link,
+      };
+      const token = await encryptToken(JSON.stringify(apiData));
+      await APICreateVote({
+        ...apiData,
+        token,
       });
       onSuccessed();
     } catch (err) {
@@ -78,28 +91,6 @@ export function VoteForm({
       setSubmitLoading(false);
     }
   }
-  const [countdown, setCountdown] = useState(60);
-  const [isCounting, setIsCounting] = useState(false);
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (isCounting && countdown > 0) {
-      timer = setInterval(() => {
-        setCountdown((prevCountdown) => prevCountdown - 1);
-      }, 1000);
-    } else if (countdown === 0) {
-      setIsCounting(false);
-      setCountdown(60);
-    }
-    return () => clearInterval(timer);
-  }, [isCounting, countdown]);
-
-  const onSendEmailCode = () => {
-    const email = form.getValues().email;
-    if (!email) return;
-    APISendEmailCode({ email });
-    setIsCounting(true);
-  };
 
   const [filterProject, setFilterProject] = useState("");
   return (
@@ -146,14 +137,7 @@ export function VoteForm({
               <FormControl>
                 <div className="flex gap-2 items-center">
                   <Input {...field} />
-                  <Button
-                    type="button"
-                    onClick={onSendEmailCode}
-                    className="bg-main w-24"
-                    size="sm"
-                  >
-                    {isCounting ? `${countdown}s` : "Send Code"}
-                  </Button>
+                  <SendEmail form={form} />
                 </div>
               </FormControl>
               <FormMessage />
@@ -279,5 +263,98 @@ export function VoteForm({
         </Button>
       </form>
     </Form>
+  );
+}
+
+export function SendEmail({ form }: { form: any }) {
+  const [captchaCodeOpen, setCaptchaCodeOpen] = useState(false);
+  const handleDialogOpenChange = (open: boolean) => {
+    if (!open) {
+      setCaptchaCodeOpen(false);
+      form.setValue("captchaCode", "");
+      form.clearErrors("captchaCode");
+    } else {
+      setTimeout(() => {
+        loadCaptchaEnginge(6);
+      }, 200);
+    }
+  };
+
+  const [countdown, setCountdown] = useState(60);
+  const [isCounting, setIsCounting] = useState(false);
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isCounting && countdown > 0) {
+      timer = setInterval(() => {
+        setCountdown((prevCountdown) => prevCountdown - 1);
+      }, 1000);
+    } else if (countdown === 0) {
+      setIsCounting(false);
+      setCountdown(60);
+    }
+    return () => clearInterval(timer);
+  }, [isCounting, countdown]);
+
+  const onShowCaptchaCode = () => {
+    const email = form.getValues().email;
+    if (!email || isCounting) return;
+    setCaptchaCodeOpen(true);
+  };
+
+  const onSendEmailCode = () => {
+    if (validateCaptcha(form.getValues().captchaCode)) {
+      onSendEmailCodeImpl();
+    } else {
+      form.setError("captchaCode", {
+        message: "Captcha code is incorrect.",
+      });
+    }
+  };
+
+  const onSendEmailCodeImpl = () => {
+    APISendEmailCode({ email: form.getValues().email });
+    setIsCounting(true);
+    handleDialogOpenChange(false);
+  };
+
+  return (
+    <Dialog open={captchaCodeOpen} onOpenChange={handleDialogOpenChange}>
+      <DialogTrigger asChild>
+        <Button
+          type="button"
+          onClick={onShowCaptchaCode}
+          className="bg-main w-24"
+          size="sm"
+          disabled={isCounting}
+        >
+          {isCounting ? `${countdown}s` : "Send Code"}
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        <div>
+          <FormField
+            control={form.control}
+            name="captchaCode"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  <span className="text-red-500">*</span>Captcha Code
+                </FormLabel>
+                <FormControl>
+                  <div className="flex gap-2 items-center">
+                    <Input {...field} />
+                    <LoadCanvasTemplate reloadText="Reload" />
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <div>
+          <Button onClick={onSendEmailCode}>Check</Button>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
