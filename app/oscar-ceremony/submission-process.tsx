@@ -19,7 +19,11 @@ import GianlucaImage from "@/assets/oscar/Avatar Gianluca.png";
 import KCImage from "@/assets/oscar/Avatar KC.png";
 import AdamImage from "@/assets/oscar/Avatar Adam.png";
 import Adam2Image from "@/assets/oscar/Avatar Adam2.png";
+import ComposeusImage from "@/assets/oscar/Avatar Composeus.png";
 import RodrigoVasquezImage from "@/assets/oscar/Avatar Rodrigo Vasquez.png";
+import FelixsimImage from "@/assets/oscar/Avatar28.png";
+import JayKohImage from "@/assets/oscar/Avatar22.png";
+
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 
@@ -89,28 +93,42 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   name: "KC",
                   org: "AYA Foundation",
                   relation: "Investments, Impact Lead",
-                  link: "",
+                  link: "https://www.linkedin.com/in/ong-kok-chung/",
                 },
                 {
                   img: GianlucaImage,
                   name: "Gianluca",
                   org: "NapulETH",
                   relation: "CEO & Co-Founder",
-                  link: "",
+                  link: "https://www.linkedin.com/in/gdbmoodglobalservices/?utm_source=share&utm_campaign=share_via&utm_conte",
                 },
                 {
                   img: AdamImage,
                   name: "Adam",
                   org: "3 Comma Capital SCR",
                   relation: "Venture Partner",
-                  link: "",
+                  link: "https://www.linkedin.com/in/adamihsanboon/",
                 },
                 {
                   img: Adam2Image,
                   name: "Adam",
                   org: "Growth Ensemble",
                   relation: "Co-Founder",
-                  link: "",
+                  link: "https://www.linkedin.com/in/adamflinter/",
+                },
+                {
+                  img: FelixsimImage,
+                  name: "Felixsim",
+                  org: "Salad Ventures",
+                  relation: "Founder",
+                  link: "https://www.linkedin.com/in/simfelix",
+                },
+                {
+                  img: JayKohImage,
+                  name: "JayKoh",
+                  org: "Association Blockchain Asia",
+                  relation: "Vice President",
+                  link: "https://x.com/Krypto_JayK",
                 },
               ]}
             />
@@ -140,7 +158,8 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
         </div>
 
         <div className="space-y-8">
-          <PartItem time="1:30 PM - 1:35 PM" title="A Vision for Global Change">
+          <PartItem time="1:15 PM - 1:40 PM" title="A Vision for Global Change">
+            <PartContentItem title="Opening Dance Performance" desc="" />
             <PartContentItem
               title="Opening Remarks"
               desc="The United Nations Development Programme (UNDP) will highlight the critical role blockchain can play in accelerating global development."
@@ -167,7 +186,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
           </PartItem>
 
           <PartItem
-            time="1:55 PM - 2:40 PM"
+            time="1:50 PM - 2:40 PM"
             title="Governments on the Cutting Edge: Blockchain as a Global Enabler"
           >
             <PartContentItem
@@ -176,7 +195,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             />
           </PartItem>
 
-          <PartItem time="2:45 PM - 2:55 PM" title="A View from EthicHub">
+          <PartItem time="2:40 PM - 3:00 PM" title="A View from EthicHub">
             <PartContentItem
               title="EthicHub's Keynote"
               desc="EthicHub, one of the flagship projects of BGA's incubation, will present its groundbreaking work in using blockchain to support farmers in developing countries through decentralized finance (DeFi). "
@@ -224,7 +243,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
           </PartItem>
 
           <PartItem
-            time="3:50 PM - 3:55 PM"
+            time="3:45 PM - 4:00 PM"
             title="Advancing Public Goods through Blockchain"
           >
             <PartContentItem
@@ -251,31 +270,38 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
               desc={`This tech-focused panel will explore how blockchain, notably Ethereum, is revolutionizing the funding of public goods at the protocol-level.`}
               spearks={[
                 {
-                  img: MikeImage,
-                  name: "Mike",
-                  org: "Immunefi",
-                  relation: "Head Of Sales",
-                  link: "",
+                  img: RodrigoVasquezImage,
+                  name: "Rodrigo Vasquez",
+                  org: "Ethereum Foundation",
+                  relation: "Ecosystem Funding Initiative Lead",
+                  link: "https://www.linkedin.com/in/rodrigo-vasquez-89514569/",
                 },
                 {
                   img: ScootImage,
                   name: "Scott Moore",
                   org: "Gitcoin",
                   relation: "Co-Founder",
-                  link: "",
+                  link: "https://www.linkedin.com/in/notscottmoore",
                 },
                 {
-                  img: RodrigoVasquezImage,
-                  name: "Rodrigo Vasquez",
-                  org: "Ethereum Foundation",
-                  relation: "Ecosystem Funding Initiative Lead",
-                  link: "",
+                  img: MikeImage,
+                  name: "Mike",
+                  org: "Immunefi",
+                  relation: "Head Of Sales",
+                  link: "https://www.linkedin.com/in/mike-o-keeffe/",
+                },
+                {
+                  img: ComposeusImage,
+                  name: "Composeus",
+                  org: "DV Labs",
+                  relation: "Chief Growth Officer",
+                  link: "https://x.com/composeus",
                 },
               ]}
             />
           </PartItem>
 
-          <PartItem time="4:50 PM - 5:30 PM" title="Celebrating Excellence">
+          <PartItem time="4:45 PM - 5:30 PM" title="Celebrating Excellence">
             <PartContentItem
               title="The Hall of Fame"
               desc="The Chains of Change Hall of Fame will honor visionary leaders, trailblazing projects and BGA members that have leveraged blockchain technology to drive real-world positive impact."
@@ -283,7 +309,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
           </PartItem>
 
           <PartItem
-            time="5:35 PM - 5:40 PM"
+            time="5:30 PM - 5:40 PM"
             title="A Call to Action for the Future"
           >
             <PartContentItem
@@ -385,7 +411,7 @@ function PartContentItem({
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
-      <div className="flex flex-col md:flex-row flex-wrap gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {spearks.map((speark) => (
           <UserAvater
             img={speark.img}
