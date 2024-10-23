@@ -37,24 +37,24 @@ interface IItem {
 
 const data: IItem[] = [
   {
-    title: "Complete & submit your application",
-    time: "9 Sep - 1 Oct 2024",
+    title: "Application Submission",
+    time: "9 Sep - 21 Oct 2024",
     desc: "Show us how you are changing the world. Hundreds of the most ambitious projects are applying, and only 10 will be selected.",
   },
   {
     title: "Application Review",
-    time: "1 - 7 Oct 2024",
-    desc: `Committee will assess each application, ranking them based on innovation, impact, and the potential to scale globally.`,
+    time: "8 - 25 Oct 2024",
+    desc: `Our BGA Committee will assess all applications and rank them based on innovation, impact and the potential to scale globally.`,
   },
   {
-    title: "Get notified",
-    time: "7 - 20 Oct 2024",
-    desc: `The top <b>10 projects</b> will be selected as finalists, and invited to present on stage at Oscar Bangkok on 11 Nov.`,
+    title: "Get Notified",
+    time: "14 - 30 Oct 2024",
+    desc: `After the review by the BGA committee, the finalist projects will be notified and invited to pitch their projects at an exclusive Demo Day.`,
   },
   {
     title: "Demo Day",
     time: "11 Nov 2024",
-    desc: `Showcase your project in Bangkok.`,
+    desc: `The top <b>10 projects</b> will pitch live on-site, on 11 Nov 2024 at Grand Hyatt Erawan Bangkok.`,
   },
 ];
 

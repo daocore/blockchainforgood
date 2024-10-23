@@ -223,7 +223,7 @@ function BannerImpl() {
               );
             }}
           >
-            Empower the Future
+            Submit Your Project
           </div>
         </div>
 
@@ -290,7 +290,7 @@ function Ceremony() {
         </video>
       </div>
       <h3 className="text-xl md:text-2xl font-bold text-center mt-4 md:mt-0">
-        Chains of Change
+        The Chains of Change
       </h3>
       <p className="text-xs md:text-base">Stay Tuned</p>
     </div>

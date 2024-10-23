@@ -24,7 +24,7 @@ export const Prizes = () => {
                 key={index}
               >
                 <span className="text-oscarBlack">✧</span>
-                <span>Prize:{item}</span>
+                <span>{`Prize: ${item}`}</span>
               </div>
             );
           })}
