@@ -118,7 +118,10 @@ export function VoteForm({
   const onSendEmailCode = () => {
     const email = form.getValues().email;
     if (!email) return;
-    APISendEmailCode({ email: encryptedData({ fuckSybil: email }).toString('base64') });
+    APISendEmailCode({
+      // email: encryptedData({ fuckSybil: email }).toString('base64') 
+      email
+    });
     setIsCounting(true);
   };
 
