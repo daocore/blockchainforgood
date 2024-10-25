@@ -3,11 +3,15 @@ import { IFrameForm } from "@/components/IframePage";
 import { INDIVIDUAL_PATH } from "@/constants";
 import { useGetInfamSrc } from "@/hooks";
 
-export default function CommonPersonForm({ params }: { params: { id: string } }) {
-    const channel = useGetInfamSrc({
-        path: INDIVIDUAL_PATH,
-        eventId: params?.id
-    });
+interface IProps {
+  params: { id: string };
+}
 
-    return (<IFrameForm channel={channel} id={params?.id} />);
-};
+export default function CommonPersonForm({ params }: IProps) {
+  const channel = useGetInfamSrc({
+    path: INDIVIDUAL_PATH,
+    eventId: params?.id,
+  });
+
+  return <IFrameForm channel={channel} id={params?.id} />;
+}

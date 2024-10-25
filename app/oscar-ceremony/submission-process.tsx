@@ -11,9 +11,12 @@ import AdzImage from "@/assets/oscar/Avatar Adz.png";
 import LucasImage from "@/assets/oscar/Avatar Lucas.png";
 import MarianaImage from "@/assets/oscar/Avatar Mariana.png";
 import VenusKhorImage from "@/assets/oscar/Avatar VenusKhor.png";
+import MeetImage from "@/assets/oscar/Avatar Meet.png";
 import MikeImage from "@/assets/oscar/Avatar Mike.png";
 import ScootImage from "@/assets/oscar/Avatar Scott Moore.png";
 import BenImage from "@/assets/oscar/Avatar Ben.png";
+import DilipChenoyImage from "@/assets/oscar/Avatar DilipChenoy.png";
+import DFBAWImage from "@/assets/oscar/Avatar Datuk Fadzli Bin Abdul Wahit.png";
 import HarnImage from "@/assets/oscar/Avatar Harn.png";
 import GianlucaImage from "@/assets/oscar/Avatar Gianluca.png";
 import KCImage from "@/assets/oscar/Avatar KC.png";
@@ -77,7 +80,7 @@ export function SubmissionProcess() {
 In true cinematic fashion, each project pitch will have to tell the story of a "hero" facing a global crisis (one of the 17 SDGs), with blockchain as the "tool" they wield to drive change and create a better future.`}
             />
             <PartContentItem
-              title="Academy of Innovation (name of panel to put on website)"
+              title="Academy of Innovation"
               desc={`The judging panel, known as The Academy, comprises esteemed leaders and visionaries from the blockchain, sustainability, and tech industries. These experts will evaluate the pitches based on innovation, impact, and potential for global scalability. 
 Just as the Academy determines the best in film, our "Academy of Innovation" will determine which project stands as the beacon of blockchain excellence, shaping the future of sustainable development.`}
               spearks={[
@@ -191,6 +194,22 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="A Take from Global Governments"
               desc="Representatives from various institutions across India, Malaysia, Japan, South Korea, Hong Kong, Abu Dhabi, and Thailand, will come together in a high-level panel, discussing national initiatives to adopt blockchain for public good."
+              spearks={[
+                {
+                  img: DilipChenoyImage,
+                  name: "DilipChenoy",
+                  org: "Bharat Web3 Association",
+                  relation: "Chairman",
+                  link: "https://www.linkedin.com/in/dilip-chenoy-59613215/",
+                },
+                {
+                  img: DFBAWImage,
+                  name: "Datuk Fadzli Bin Abdul Wahit",
+                  org: "Digital Industry Development at Malaysia Digital Economy Corporation (MDEC)",
+                  relation: "Head/Senior",
+                  link: "https://www.linkedin.com/in/datuk-ts-fadzli-abdul-wahit-6813244b/",
+                },
+              ]}
             />
           </PartItem>
 
@@ -236,6 +255,13 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   org: "Masverse/Maschain",
                   relation: "Chief Brand Officer",
                   link: "https://my.linkedin.com/in/vgotlight",
+                },
+                {
+                  img: MeetImage,
+                  name: "Meet",
+                  org: "Algorand Foundation",
+                  relation: "Engagement Support Engineer",
+                  link: "https://www.linkedin.com/in/meet-thosar-bb049225/",
                 },
               ]}
             />
