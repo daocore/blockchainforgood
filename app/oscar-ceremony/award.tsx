@@ -19,7 +19,7 @@ const AWARD_LIST = [
   {
     name: "Collaboration Bridge Award ",
     ambassador: "Individual",
-    prize: "Price Worth $3000",
+    prize: "Prize Worth $3000",
     tags: [
       "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
       "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
@@ -52,7 +52,7 @@ const AWARD_LIST = [
   {
     name: "Public Welfare Contribution Award",
     ambassador: "Individual",
-    prize: "Price Worth $1000",
+    prize: "Prize Worth $1000",
     tags: [
       "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
       "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
@@ -87,7 +87,7 @@ const AWARD_LIST = [
   {
     name: "BGA Ambassador Star",
     ambassador: "Ambassador",
-    prize: "Price Worth $300",
+    prize: "Prize Worth $300",
     tags: [
       "$150 Gift (Choose from a selection of exciting items: Michelle Retro Speaker, JBL Sports Speaker, Apple Gift Card, Amazon Gift Card)",
       "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
