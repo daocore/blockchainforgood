@@ -221,10 +221,7 @@ export function Hero({
               !isHover && "hidden md:block"
             )}
           >
-            <Link
-              target="__blank"
-              href={`${ROUTER_PATH.FORM.PERSON}/${OSCAR_HACKTHON_EVENT_ID}`}
-            >
+            <Link target="__blank" href={`https://bit.ly/17SDGsChallenge`}>
               <div
                 className={cn(
                   "inline-flex justify-center items-center w-full font-bold cursor-pointer py-1 md:py-2 relative overflow-hidden",
@@ -335,10 +332,7 @@ export function Hero({
               !isHover && "mt-4"
             )}
           >
-            <Link
-              target="__blank"
-              href={`${ROUTER_PATH.FORM.PERSON}/${OSCAR_EVENT_ID}`}
-            >
+            <Link target="__blank" href={`https://bit.ly/ChainsOfChange`}>
               <div
                 className={cn(
                   "inline-flex justify-center items-center w-full font-bold cursor-pointer py-1 md:py-2 relative overflow-hidden",
