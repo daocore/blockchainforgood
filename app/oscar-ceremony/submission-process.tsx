@@ -197,7 +197,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
               spearks={[
                 {
                   img: DilipChenoyImage,
-                  name: "DilipChenoy",
+                  name: "Dilip Chenoy",
                   org: "Bharat Web3 Association",
                   relation: "Chairman",
                   link: "https://www.linkedin.com/in/dilip-chenoy-59613215/",
