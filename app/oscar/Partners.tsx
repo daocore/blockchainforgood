@@ -43,6 +43,14 @@ import HERDAOImage from "@/assets/oscar/H.E.R. DAO.png";
 import SaladVenturesImage from "@/assets/oscar/Salad Ventures.png";
 import GroupFiImage from "@/assets/oscar/GroupFi.png";
 import MaschainImage from "@/assets/oscar/Masverse/Maschain.png";
+import AssociationBlockchainAsiaImage from "@/assets/oscar/Association Blockchain Asia.png";
+import TheFinalFrontierImage from "@/assets/oscar/The Final Frontier.png";
+import OpenBuildImage from "@/assets/oscar/OpenBuild.png";
+import RefiStarterImage from "@/assets/oscar/ReFi Starter.png";
+import Tech4EarthImage from "@/assets/oscar/Tech4Earth.png";
+import RenoraImage from "@/assets/oscar/Renora，.png";
+import BDVenturesImage from "@/assets/oscar/BD Ventures.png";
+import RefiDAOImage from "@/assets/oscar/ReFi DAO.png";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
@@ -437,6 +445,78 @@ const partersData = [
     partnersType: 4,
     style: '{"height":"38px"}',
     mobileStyle: '{"height":"24px"}',
+  },
+  {
+    name: "Association Blockchain Asia",
+    type: 4,
+    logo: AssociationBlockchainAsiaImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "The Final Frontier",
+    type: 4,
+    logo: TheFinalFrontierImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "OpenBuild",
+    type: 4,
+    logo: OpenBuildImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "ReFi Starter",
+    type: 4,
+    logo: RefiStarterImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "Tech4Earth",
+    type: 4,
+    logo: Tech4EarthImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "Renora",
+    type: 4,
+    logo: RenoraImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "BD Ventures",
+    type: 4,
+    logo: BDVenturesImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "ReFi DAO",
+    type: 4,
+    logo: RefiDAOImage,
+    link: "",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
   },
 ];
 
