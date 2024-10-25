@@ -14,7 +14,7 @@ const faqs = [
   {
     question:
       "Do I need to register separately for the morning and afternoon sessions?",
-    answer: `Yes, the event is divided into two main sessions. The morning session features the 17 SDGs Challenge Roadshow, and the afternoon session focuses on The Chains of Change. Please register for both sessions individually via the provided registration links: <a target="__blank" href="${ROUTER_PATH.FORM.PERSON}/${OSCAR_HACKTHON_EVENT_ID}" style="color: #00d5bf">here</a> and <a target="__blank" href="${ROUTER_PATH.FORM.PERSON}/${OSCAR_EVENT_ID}" style="color: #00d5bf">here</a>`,
+    answer: `Yes, the event is divided into two main sessions. The morning session features the 17 SDGs Challenge Roadshow, and the afternoon session focuses on The Chains of Change. Please register for both sessions individually via the provided registration links: <a target="__blank" href="https://bit.ly/17SDGsChallenge" style="color: #00d5bf">here</a> and <a target="__blank" href="https://bit.ly/ChainsOfChange" style="color: #00d5bf">here</a>`,
   },
   {
     question: "Are refreshments provided during the event?",
