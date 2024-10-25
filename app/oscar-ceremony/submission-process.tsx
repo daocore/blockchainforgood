@@ -204,7 +204,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 },
                 {
                   img: DFBAWImage,
-                  name: "Datuk Fadzli Bin Abdul Wahit",
+                  name: "Datuk Ts. Fadzli Abdul Wahit",
                   org: "Digital Industry Development at Malaysia Digital Economy Corporation (MDEC)",
                   relation: "Head/Senior",
                   link: "https://www.linkedin.com/in/datuk-ts-fadzli-abdul-wahit-6813244b/",
