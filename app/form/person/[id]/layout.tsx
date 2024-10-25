@@ -15,9 +15,9 @@ export default function Layout({
 }
 export async function generateMetadata({ params }: IProps): Promise<Metadata> {
   const { id } = params;
-  if (id !== OSCAR_HACKTHON_EVENT_ID && id === OSCAR_EVENT_ID) {
-    return null;
-  }
+  // if (id !== OSCAR_HACKTHON_EVENT_ID && id === OSCAR_EVENT_ID) {
+  //   return null;
+  // }
   const coverImage = "https://www.blockchainforgood.xyz" + ShareBgImage.src;
   const name = "Blockchain for Good";
   const description =
