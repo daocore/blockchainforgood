@@ -1,0 +1,51 @@
+.voting {
+  background-image: url(../../assets/vote/bg.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+.title {
+  background: linear-gradient(0deg, #C1A875, #C1A875), linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #FFFFFF 95.95%), linear-gradient(76.82deg, #7D8CA3 11.6%, #9EA1A1 25.31%, #848B8A 48.06%, #576265 55.72%, #9FA2A5 82.54%, #D6D6D7 91.31%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-blend-mode: color, overlay, normal;
+}
+
+.top-item-image {
+  /* 使用 border-image 属性将渐变应用到边框 */
+  border: 5px solid transparent; /* 设置边框宽度和透明边框 */
+  background: linear-gradient(0deg, #C1A875, #C1A875), linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #FFFFFF 95.95%), linear-gradient(76.82deg, #7D8CA3 11.6%, #9EA1A1 25.31%, #848B8A 48.06%, #576265 55.72%, #9FA2A5 82.54%, #D6D6D7 91.31%);
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+}
+
+.top-item-image-inner {
+  background-image: url(../../assets/vote/bg.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+.top-item-name {
+  background: linear-gradient(76.82deg, #576265 11.6%, #9EA1A1 25.31%, #848B8A 48.06%, #576265 55.72%, #576265 77.23%, #757A7B 85.34%, #576265 91.31%);
+background-blend-mode: overlay;
+background: linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #FFFFFF 95.95%);
+background-blend-mode: color;
+background: rgba(193, 168, 117, 1);
+
+}
+
+.top-item-bar {
+  background: linear-gradient(90deg, rgba(255, 202, 92, 0.2) 0%, #C09845 100%);
+}
+
+.qrcode {
+  background: linear-gradient(180deg, rgba(16, 25, 39, 0) 0%, rgba(125, 140, 163, 0.2) 100%),
+linear-gradient(290.27deg, rgba(192, 152, 69, 0) 37.08%, rgba(192, 152, 69, 0.3) 111.36%),
+linear-gradient(290.69deg, rgba(255, 217, 137, 0) 78.82%, #FFD989 131.97%),
+linear-gradient(120.51deg, rgba(255, 217, 137, 0) 89.66%, #FFD989 167.63%),
+linear-gradient(0deg, rgba(22, 17, 7, 0.4), rgba(22, 17, 7, 0.4));
+border: 1px solid;
+border-image-source: linear-gradient(63.17deg, #FFD989 -31.74%, rgba(255, 255, 255, 0) 96.3%);
+}
