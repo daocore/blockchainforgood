@@ -31,7 +31,7 @@ export function ProjectsTrends({ dataSource }: { dataSource: IVoteResult[] }) {
     rowCount: restProject?.length,
   });
   return (
-    <div>
+    <div className="h-full">
       <DataTable table={table} />
     </div>
   );

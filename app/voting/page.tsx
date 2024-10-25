@@ -1,6 +1,8 @@
+import { cn } from "@/lib";
 import { IVoteResult } from "../vote/[id]/types";
 import { Layout } from "./components/layout";
 import { ProjectsTrends } from "./projects-trend";
+import styles from "./styles.module.css";
 
 const data = [
   {
@@ -310,7 +312,13 @@ const data = [
 export default function VotePage() {
   return (
     <Layout title="TOP 10 PROJECTS">
-      <div>
+      <div className={cn("w-full relative p-4", styles["right-wrapper"])}>
+        <div
+          className={cn(
+            styles["right-wrapper-bg"],
+            "absolute inset-0 opacity-20"
+          )}
+        />
         <ProjectsTrends dataSource={data} />
       </div>
     </Layout>

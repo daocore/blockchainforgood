@@ -12,12 +12,25 @@ import Link from "next/link";
 export const columns: ColumnDef<IVoteResult>[] = [
   {
     accessorKey: "ranking",
-    header: "RANKING",
+    header: "RANK",
     size: 100,
+    cell: ({ row }) => {
+      const {
+        original: { ranking },
+      } = row;
+      return (
+        <span
+          style={{ color: "#c5cfe0" }}
+          className="w-20 font-medium text-2xl italic"
+        >
+          {ranking}
+        </span>
+      );
+    },
   },
   {
     id: "LOGO",
-    header: "",
+    header: "LOGO",
     size: 50,
     cell: ({ row }) => {
       const {
@@ -45,16 +58,25 @@ export const columns: ColumnDef<IVoteResult>[] = [
       const precentValue = Math.round((count / total) * 100);
 
       return (
-        <Link target="_blank" href={`/project/${eventId}/${project.id}`}>
-          <span className="inline-block w-full font-bold whitespace-normal">
-            {project.name}
-          </span>
+        <div className="relative h-11">
           <Progress
             childrenClassName="bg-oscarActive"
-            className="h-1 bg-white/10 hidden md:block"
+            className="h-full bg-white/10 hidden md:block absolute inset-0 rounded-none"
             value={precentValue}
           />
-        </Link>
+          <Link
+            className="absolute top-1/2 -translate-y-1/2"
+            target="_blank"
+            href={`/project/${eventId}/${project.id}`}
+          >
+            <span
+              style={{ color: "#ffd989" }}
+              className="inline-block w-full text-xl font-semibol italic whitespace-nowrap indent-2"
+            >
+              {project.name}
+            </span>
+          </Link>
+        </div>
       );
     },
   },
@@ -67,9 +89,9 @@ export const columns: ColumnDef<IVoteResult>[] = [
         original: { trend, count },
       } = row;
       return (
-        <div className="flex items-center gap-2">
-          <span className="text-oscarActive">{count}</span>
-        </div>
+        <span className="text-oscarActive font-bold text-2xl italic">
+          {count}
+        </span>
       );
     },
   },

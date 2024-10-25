@@ -41,7 +41,7 @@ function TopItem({
   const { count } = project;
   return (
     <div className="flex gap-2 flex-col justify-end text-white ">
-      <div className={cn("w-36 h-36 rounded-full", styles["top-item-image"])}>
+      <div className={cn("w-32 h-32 rounded-full", styles["top-item-image"])}>
         <div
           className={cn(
             styles["top-item-image-inner"],

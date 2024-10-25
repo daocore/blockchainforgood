@@ -323,7 +323,7 @@ export function Layout({
       <div className="w-full md:w-content mx-auto">
         <Title>{title}</Title>
 
-        <div className="flex gap-2">
+        <div className="flex gap-16 mt-10">
           <div className="space-y-8">
             <TopThree dataSource={data} />
             <QRCode />
