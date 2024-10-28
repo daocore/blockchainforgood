@@ -52,7 +52,6 @@ import RenoraImage from "@/assets/oscar/Renora，.png";
 import BDVenturesImage from "@/assets/oscar/BD Ventures.png";
 import RefiDAOImage from "@/assets/oscar/ReFi DAO.png";
 import DogLiberImage from "@/assets/oscar/DogLibre.png";
-import AttGlobalImage from "@/assets/oscar/ATT Global.png";
 import BybitWeb3Image from "@/assets/oscar/bybit.png";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
@@ -536,15 +535,6 @@ const partersData = [
     type: 4,
     logo: DogLiberImage,
     link: "https://www.doglibre.com/en",
-    partnersType: 5,
-    style: '{"height":"34px"}',
-    mobileStyle: '{"height":"20px"}',
-  },
-  {
-    name: "ATT Global",
-    type: 4,
-    logo: AttGlobalImage,
-    link: "http://attglobal.io/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',

@@ -8,6 +8,7 @@ import HemereImage from "@/assets/oscar/hemera-logo.webp";
 import PingoImage from "@/assets/oscar/PinGo.png";
 import SendingLabsImage from "@/assets/oscar/Sending Labs.png";
 import Image from "next/image";
+import AttGlobalImage from "@/assets/oscar/ATT Global.png";
 
 const list = [
   {
@@ -25,6 +26,15 @@ const list = [
     name: "Sending Labs",
     link: "",
     image: SendingLabsImage,
+  },
+  {
+    name: "ATT Global",
+    // type: 4,
+    image: AttGlobalImage,
+    link: "http://attglobal.io/",
+    // partnersType: 5,
+    // style: '{"height":"34px"}',
+    // mobileStyle: '{"height":"20px"}',
   },
 ];
 
@@ -51,7 +61,7 @@ export const Sponsors = () => {
           <a
             target={item.link ? "_blank" : "_self"}
             href={item.link || undefined}
-            className="flex justify-center w-1/3"
+            className="flex justify-center w-1/4"
           >
             <div
               className="text-description mr-4 md:mr-8 flex items-center gap-2 font-['Inter'] text-sm md:text-base"
@@ -63,7 +73,9 @@ export const Sponsors = () => {
                 className="h-12 md:h-14 w-auto object-contain"
                 style={item.style}
               />
-              <span className="text-xl font-semibold">{item.name}</span>
+              <span className="text-xl font-semibold whitespace-nowrap">
+                {item.name}
+              </span>
             </div>
           </a>
         ))}
