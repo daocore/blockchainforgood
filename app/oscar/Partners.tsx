@@ -53,7 +53,7 @@ import BDVenturesImage from "@/assets/oscar/BD Ventures.png";
 import RefiDAOImage from "@/assets/oscar/ReFi DAO.png";
 import DogLiberImage from "@/assets/oscar/DogLibre.png";
 import AttGlobalImage from "@/assets/oscar/ATT Global.png";
-import BybitWeb3Image from "@/assets/oscar/bybit.jpeg";
+import BybitWeb3Image from "@/assets/oscar/bybit.png";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
