@@ -17,6 +17,9 @@ const SHOW_PROJECT_TIME = 30 * SECNODE;
 
 const REFRESH_TIME = 30 * SECNODE;
 
+const TRENDS_TITLE = "TOP 10 PROJECTS";
+const PROJECT_TITLE = "PROJECTS INTRO";
+
 export default function VotePage() {
   const { data = [], isLoading } = useAPIGetVoteResult(
     { id: OSCAR_VOTE_ID },
@@ -24,6 +27,8 @@ export default function VotePage() {
   );
 
   const topTenData = data.slice(0, 10);
+
+  const [title, setTitle] = useState(TRENDS_TITLE);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showTrends, setShowTrends] = useState(true);
@@ -37,6 +42,7 @@ export default function VotePage() {
       }, SHOW_PROJECT_TIME);
     }).then(() => {
       setShowTrends(true);
+      setTitle(TRENDS_TITLE);
       showTrensRef.current = true;
     });
 
@@ -47,6 +53,7 @@ export default function VotePage() {
       }, SHOW_TRENDS_TIME);
     }).then(() => {
       setShowTrends(false);
+      setTitle(PROJECT_TITLE);
       showTrensRef.current = false;
     });
 
@@ -68,7 +75,7 @@ export default function VotePage() {
   return (
     <Layout
       dataSource={topTenData}
-      title="TOP 10 PROJECTS"
+      title={title}
       onProjectSelected={setCurrentIndex}
     >
       <div className={cn("w-full relative p-4", styles["right-wrapper"])}>
