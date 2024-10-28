@@ -120,7 +120,12 @@ export const Header = () => {
         "relative"
       )}
     >
-      <div className="py-3 justify-between items-center flex w-full md:w-content m-auto">
+      <div
+        className={cn(
+          "py-3 justify-between items-center flex w-full",
+          isVoting ? "px-16" : "md:w-content mx-auto"
+        )}
+      >
         <Link
           href={isProject ? "" : ROUTER_PATH.HOME}
           className="flex items-center gap-2 cursor-pointer"

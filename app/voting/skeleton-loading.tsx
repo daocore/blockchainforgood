@@ -2,10 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export function Loading() {
   return (
-    <div
-      className="w-full md:w-content mx-auto"
-      style={{ height: "calc(100vh - 5rem)" }}
-    >
+    <div className="w-full px-16" style={{ height: "calc(100vh - 5rem)" }}>
       <Skeleton className="w-full h-14"></Skeleton>
       <div
         className="flex gap-16 mt-10"
