@@ -74,10 +74,13 @@ export function APIGetVoteResult(params: IVoteResultParams) {
   );
 }
 
-export function useAPIGetVoteResult(params: IVoteResultParams) {
+export function useAPIGetVoteResult(
+  params: IVoteResultParams,
+  refreshInterval: number = 10000
+) {
   return useSWR<IVoteResult[]>(
     [API_PATH.GET_VOTE_RESULT, params],
     () => APIGetVoteResult(params),
-    { refreshInterval: 10000 }
+    { refreshInterval }
   );
 }

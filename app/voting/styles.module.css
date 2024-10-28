@@ -116,6 +116,7 @@
     linear-gradient(290.69deg, rgba(255, 217, 137, 0) 78.82%, #ffd989 131.97%),
     linear-gradient(120.51deg, rgba(255, 217, 137, 0) 89.66%, #ffd989 167.63%),
     linear-gradient(0deg, rgba(22, 17, 7, 0.4), rgba(22, 17, 7, 0.4));
+  height: calc(100vh - 5rem - 3.5rem - 2.5rem - 2rem);
 }
 
 .right-wrapper-bg {

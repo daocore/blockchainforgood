@@ -12,7 +12,7 @@ export function TopThree({ dataSource }: { dataSource: IVoteResult[] }) {
   const second = dataSource[1];
   const third = dataSource[2];
   return (
-    <div className="flex gap-8">
+    <div style={{ height: "calc(100% - 11rem - 32px)" }} className="flex gap-8">
       <TopItem
         project={second}
         height={second.count / first.count}
@@ -59,17 +59,17 @@ function TopItem({
       </div>
       <div
         className={cn(
-          "text-center font-bold px-2 py-1",
+          "text-center font-bold px-2 py-1 h-8 truncate",
           styles["top-item-name"]
         )}
       >
         {name}
       </div>
       <div
-        style={{ height: `${height * 40}vh` }}
+        style={{ height: `calc(${height} * (100% - 10rem))` }}
         className={cn(
           styles["top-item-bar"],
-          "w-full flex flex-col justify-around"
+          "w-full h-full flex flex-col justify-around"
         )}
       >
         <Image className="mx-auto" src={image} alt={"top"} />

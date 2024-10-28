@@ -7,7 +7,7 @@ import GroupRight from "@/assets/vote/Group 4.png";
 
 export function Title({ children }: { children: ReactNode }) {
   return (
-    <div className="flex justify-center -mt-8">
+    <div className="flex justify-center -mt-8 h-14">
       <div
         className={cn(
           styles.title,
