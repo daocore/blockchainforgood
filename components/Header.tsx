@@ -66,9 +66,12 @@ export const Header = () => {
   const isOscarCeremony = pathname === ROUTER_PATH.OSCAR_CEREMONY;
 
   const isProject = pathname.startsWith(ROUTER_PATH.PROJECT);
+  const isVoting = pathname.startsWith(ROUTER_PATH.VOTING);
 
   const iconSvgFillColor =
-    isIncubationPage || isOscar || isOscarCeremony ? "white" : "black";
+    isIncubationPage || isOscar || isOscarCeremony || isVoting
+      ? "white"
+      : "black";
 
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 
@@ -124,7 +127,7 @@ export const Header = () => {
         >
           <LogoSvg fill={iconSvgFillColor} />
         </Link>
-        {!isProject && (
+        {!(isProject || isVoting) && (
           <div>
             {/* Desktop */}
             <NavigationMenu
