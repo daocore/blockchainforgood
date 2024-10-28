@@ -35,7 +35,7 @@ export const Sponsors = () => {
     homeStyles.moveFromBottom
   );
   return (
-    <div ref={ref}>
+    <div className="w-full md:w-content" ref={ref}>
       <div className="text-center">
         <h2
           className={cn(
@@ -53,6 +53,7 @@ export const Sponsors = () => {
           <a
             target={item.link ? "_blank" : "_self"}
             href={item.link || undefined}
+            className="flex justify-center w-1/3"
           >
             <div
               className="text-description mr-4 md:mr-8 flex items-center gap-2 font-['Inter'] text-sm md:text-base"
