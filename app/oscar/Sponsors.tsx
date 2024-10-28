@@ -4,19 +4,17 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 import { cn } from "@/lib";
 import styles from "./styles.module.css";
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import HemereImage from "@/assets/oscar/hemera-logo.webp";
 import PingoImage from "@/assets/oscar/PinGo.png";
 import SendingLabsImage from "@/assets/oscar/Sending Labs.png";
 import Image from "next/image";
-import Link from "next/link";
 
 const list = [
   {
     name: "Hemera",
     link: "https://www.thehemera.com/",
     image: HemereImage,
-    style: { filter: "grayscale(1)" },
+    style: { filter: "grayscale(1)", height: "4rem" },
   },
   {
     name: "PinGo",
@@ -62,10 +60,10 @@ export const Sponsors = () => {
               <Image
                 src={item.image}
                 alt={item.name}
-                className="h-12 md:h-16 object-contain"
+                className="h-12 md:h-14 w-auto object-contain"
                 style={item.style}
               />
-              <span>{item.name}</span>
+              <span className="text-xl font-semibold">{item.name}</span>
             </div>
           </a>
         ))}
