@@ -28,7 +28,7 @@ const list = [
     image: SendingLabsImage,
   },
   {
-    name: "ATT Global",
+    name: "",
     // type: 4,
     image: AttGlobalImage,
     link: "http://attglobal.io/",
@@ -55,13 +55,13 @@ export const Sponsors = () => {
         </h2>
       </div>
       <div
-        className={`h-28 py-1 md:py-2 flex items-center justify-center relative overflow-hidden`}
+        className={`my-2 md:my-8 grid grid-cols-2 justify-items-center gap-8 relative`}
       >
         {list.map((item) => (
           <a
             target={item.link ? "_blank" : "_self"}
             href={item.link || undefined}
-            className="flex justify-center w-1/4"
+            className="flex justify-center w-1/2 flex-auto"
           >
             <div
               className="text-description mr-4 md:mr-8 flex items-center gap-2 font-['Inter'] text-sm md:text-base"
