@@ -18,14 +18,14 @@ const list = [
     style: { filter: "grayscale(1)", height: "4rem" },
   },
   {
-    name: "PinGo",
-    link: "",
-    image: PingoImage,
-  },
-  {
     name: "Sending Labs",
     link: "",
     image: SendingLabsImage,
+  },
+  {
+    name: "PinGo",
+    link: "",
+    image: PingoImage,
   },
   {
     name: "",
@@ -43,36 +43,49 @@ export const Sponsors = () => {
     homeStyles.moveFromBottom
   );
   return (
-    <div className="w-full md:w-content" ref={ref}>
+    <div className="w-full md:w-content mx-auto mb-2 md:mb-8" ref={ref}>
       <div className="text-center">
         <h2
           className={cn(
             styles["award-title"],
-            "font-bold text-oscarActive font-['Inter'] inline-block mx-auto text-[20px] md:text-[32px] text-center"
+            "font-bold text-oscarActive font-['Inter'] inline-block mx-auto text-[20px] md:text-[32px] text-center md:mb-4"
           )}
         >
           Sponsors
         </h2>
       </div>
       <div
-        className={`my-2 md:my-8 grid grid-cols-2 justify-items-center gap-8 relative`}
+        className={`my-2 md:my-8 grid grid-cols-2 justify-items-center gap-8 md:gap-16 relative`}
       >
-        {list.map((item) => (
+        {list.map((item, index) => (
           <a
             target={item.link ? "_blank" : "_self"}
             href={item.link || undefined}
-            className="flex justify-center w-1/2 flex-auto"
+            className={cn(
+              "flex justify-center",
+              index % 2 === 0 ? "justify-self-end" : "justify-self-start"
+            )}
           >
             <div
               className="text-description mr-4 md:mr-8 flex items-center gap-2 font-['Inter'] text-sm md:text-base"
               key={item.name}
             >
+              {/* {index % 2 === 0 && (
+                <span className="text-xl font-semibold whitespace-nowrap">
+                  {item.name}
+                </span>
+              )} */}
               <Image
                 src={item.image}
                 alt={item.name}
                 className="h-12 md:h-14 w-auto object-contain"
                 style={item.style}
               />
+              {/* {index % 2 !== 0 && (
+                <span className="text-xl font-semibold whitespace-nowrap">
+                  {item.name}
+                </span>
+              )} */}
               <span className="text-xl font-semibold whitespace-nowrap">
                 {item.name}
               </span>
