@@ -53,10 +53,11 @@ import BDVenturesImage from "@/assets/oscar/BD Ventures.png";
 import RefiDAOImage from "@/assets/oscar/ReFi DAO.png";
 import DogLiberImage from "@/assets/oscar/DogLibre.png";
 import AttGlobalImage from "@/assets/oscar/ATT Global.png";
-import BybitWeb3Image from "@/assets/oscar/bybit web 3.png";
+import BybitWeb3Image from "@/assets/oscar/bybit.jpeg";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
+import { cn } from "@/lib";
 
 const partnerObj = [
   {
@@ -117,15 +118,6 @@ const partnerObj = [
 
 const partersData = [
   {
-    name: "Moledao",
-    type: 1,
-    logo: MoledaoImage,
-    link: "https://moledao.io/",
-    partnersType: 0,
-    style: '{"height":"34px"}',
-    mobileStyle: '{"height":"22px"}',
-  },
-  {
     name: "BC100+",
     type: 1,
     logo: BC100Image,
@@ -151,6 +143,24 @@ const partersData = [
     partnersType: 0,
     style: '{"height": "24px"}',
     mobileStyle: '{"height":"18px"}',
+  },
+  {
+    name: "Bybit Web 3",
+    type: 1,
+    logo: BybitWeb3Image,
+    link: "https://www.bybit.com/",
+    partnersType: 0,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "Moledao",
+    type: 1,
+    logo: MoledaoImage,
+    link: "https://moledao.io/",
+    partnersType: 0,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"22px"}',
   },
   {
     name: "OffChain Global",
@@ -539,28 +549,28 @@ const partersData = [
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
   },
-  {
-    name: "Bybit Web 3",
-    type: 1,
-    logo: BybitWeb3Image,
-    link: "https://www.bybit.com/",
-    partnersType: 0,
-    style: '{"height":"34px"}',
-    mobileStyle: '{"height":"20px"}',
-  },
 ];
 
-const PartnerItem = ({ item }: { item: any }) => {
+const PartnerItem = ({
+  item,
+  isFirst = false,
+}: {
+  item: any;
+  isFirst?: boolean;
+}) => {
   const mobile = useIsMobile();
 
   return (
     <div className="my-6 md:my-10">
-      <div className={`flex flex-wrap justify-center items-center gap-2`}>
+      <div className={`flex flex-wrap justify-center items-center`}>
         {item?.list?.map((ite: any, i: number) => {
           return (
             <a
               key={i}
-              className={`inline-block p-1 mb-1 sx:w-full`}
+              className={cn(
+                "inline-block p-1 mb-1 w-full xs:w-1/2 md:w-1/5",
+                isFirst && (i <= 2 ? "md:w-1/3" : "md:w-1/4")
+              )}
               style={
                 mobile
                   ? {
@@ -674,7 +684,7 @@ export const Partners = () => {
                   {item.name}
                 </h2>
               )}
-              <PartnerItem item={item} />
+              <PartnerItem item={item} isFirst={index === 0} />
             </div>
           );
         })}
