@@ -56,7 +56,7 @@ export const Sponsors = () => {
         </h2>
       </div>
       <div
-        className={`my-2 md:my-8 grid grid-cols-2 justify-items-center gap-8 relative`}
+        className={`my-2 md:my-8 grid grid-cols-2 justify-items-center gap-8 md:gap-16 relative`}
       >
         {list.map((item, index) => (
           <a
