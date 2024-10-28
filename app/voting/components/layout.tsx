@@ -21,7 +21,7 @@ export function Layout({
 }) {
   return (
     <div className={cn("-mt-20 pt-20 w-full h-screen", styles.voting)}>
-      <div className="w-full md:w-content mx-auto">
+      <div className="w-full px-16">
         <Title>{title}</Title>
 
         <div className="flex gap-16 mt-10">
