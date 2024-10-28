@@ -61,7 +61,7 @@ export const Sponsors = () => {
               <Image
                 src={item.image}
                 alt={item.name}
-                className="h-12 md:h-14 object-contain"
+                className="h-12 md:h-16 object-contain"
                 style={item.style}
               />
               <span>{item.name}</span>

@@ -51,6 +51,9 @@ import Tech4EarthImage from "@/assets/oscar/Tech4Earth.png";
 import RenoraImage from "@/assets/oscar/Renora，.png";
 import BDVenturesImage from "@/assets/oscar/BD Ventures.png";
 import RefiDAOImage from "@/assets/oscar/ReFi DAO.png";
+import DogLiberImage from "@/assets/oscar/DogLibre.png";
+import AttGlobalImage from "@/assets/oscar/ATT Global.png";
+import BybitWeb3Image from "@/assets/oscar/bybit web 3.png";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
@@ -450,7 +453,7 @@ const partersData = [
     name: "Association Blockchain Asia",
     type: 4,
     logo: AssociationBlockchainAsiaImage,
-    link: "",
+    link: "https://associationblockchainasia.org/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -459,7 +462,7 @@ const partersData = [
     name: "The Final Frontier",
     type: 4,
     logo: TheFinalFrontierImage,
-    link: "",
+    link: "https://lussa.io/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -468,7 +471,7 @@ const partersData = [
     name: "OpenBuild",
     type: 4,
     logo: OpenBuildImage,
-    link: "",
+    link: "https://openbuild.xyz/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -477,7 +480,7 @@ const partersData = [
     name: "ReFi Starter",
     type: 4,
     logo: RefiStarterImage,
-    link: "",
+    link: "https://refistarter.org/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -486,7 +489,7 @@ const partersData = [
     name: "Tech4Earth",
     type: 4,
     logo: Tech4EarthImage,
-    link: "",
+    link: "https://tech4earth.substack.com/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -495,7 +498,7 @@ const partersData = [
     name: "Renora",
     type: 4,
     logo: RenoraImage,
-    link: "",
+    link: "https://renora.io/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -504,7 +507,7 @@ const partersData = [
     name: "BD Ventures",
     type: 4,
     logo: BDVenturesImage,
-    link: "",
+    link: "https://www.bdventures.vn/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -513,8 +516,35 @@ const partersData = [
     name: "ReFi DAO",
     type: 4,
     logo: RefiDAOImage,
-    link: "",
+    link: "https://linktr.ee/refidao",
     partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "DogLibre",
+    type: 4,
+    logo: DogLiberImage,
+    link: "https://www.doglibre.com/en",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "ATT Global",
+    type: 4,
+    logo: AttGlobalImage,
+    link: "http://attglobal.io/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "Bybit Web 3",
+    type: 1,
+    logo: BybitWeb3Image,
+    link: "https://www.bybit.com/",
+    partnersType: 0,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
   },
@@ -525,7 +555,7 @@ const PartnerItem = ({ item }: { item: any }) => {
 
   return (
     <div className="my-6 md:my-10">
-      <div className={`flex flex-wrap justify-center items-center`}>
+      <div className={`flex flex-wrap justify-center items-center gap-2`}>
         {item?.list?.map((ite: any, i: number) => {
           return (
             <a
