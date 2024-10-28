@@ -1,8 +1,13 @@
+"use client";
+
 import { cn } from "@/lib";
 import { IVoteResult } from "../vote/[id]/types";
 import { Layout } from "./components/layout";
 import { ProjectsTrends } from "./projects-trend";
 import styles from "./styles.module.css";
+import { useEffect, useRef, useState } from "react";
+import { ProjectDetail } from "./project-detail";
+import { rejects } from "assert";
 
 const data = [
   {
@@ -310,8 +315,50 @@ const data = [
 ] as unknown as IVoteResult[];
 
 export default function VotePage() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showTrends, setShowTrends] = useState(true);
+
+  const showTrensRef = useRef<boolean>(showTrends);
+
+  const showProjectTrend = () =>
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(1);
+      }, 30000);
+    }).then(() => {
+      setShowTrends(true);
+      showTrensRef.current = true;
+    });
+
+  const showProjectDetail = () =>
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(1);
+      }, 10000);
+    }).then(() => {
+      setShowTrends(false);
+      showTrensRef.current = false;
+    });
+
+  const toggleComponent = (): Promise<any> => {
+    let promise;
+    if (showTrensRef.current) {
+      promise = showProjectDetail();
+    } else {
+      promise = showProjectTrend();
+    }
+    return promise.then(() => toggleComponent());
+  };
+
+  useEffect(() => {
+    toggleComponent();
+  }, []);
   return (
-    <Layout title="TOP 10 PROJECTS">
+    <Layout
+      dataSource={data}
+      title="TOP 10 PROJECTS"
+      onProjectSelected={setCurrentIndex}
+    >
       <div className={cn("w-full relative p-4", styles["right-wrapper"])}>
         <div
           className={cn(
@@ -319,7 +366,11 @@ export default function VotePage() {
             "absolute inset-0 opacity-20"
           )}
         />
-        <ProjectsTrends dataSource={data} />
+        {showTrends ? (
+          <ProjectsTrends dataSource={data} />
+        ) : (
+          <ProjectDetail item={data[currentIndex]} />
+        )}
       </div>
     </Layout>
   );
