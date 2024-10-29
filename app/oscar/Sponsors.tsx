@@ -70,22 +70,12 @@ export const Sponsors = () => {
               className="text-description mr-4 md:mr-8 flex items-center gap-2 font-['Inter'] text-sm md:text-base"
               key={item.name}
             >
-              {/* {index % 2 === 0 && (
-                <span className="text-xl font-semibold whitespace-nowrap">
-                  {item.name}
-                </span>
-              )} */}
               <Image
                 src={item.image}
                 alt={item.name}
                 className="h-12 md:h-14 w-auto object-contain"
                 style={item.style}
               />
-              {/* {index % 2 !== 0 && (
-                <span className="text-xl font-semibold whitespace-nowrap">
-                  {item.name}
-                </span>
-              )} */}
               <span className="text-xl font-semibold whitespace-nowrap">
                 {item.name}
               </span>

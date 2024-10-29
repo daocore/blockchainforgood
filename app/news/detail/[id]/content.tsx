@@ -25,7 +25,7 @@ export function Content({ data }: { data: INewsDetail }) {
         />
         <div className="ml-2 flex flex-col justify-between">
           <Link
-            href={author.link}
+            href={author.link || ""}
             target="_blank"
             className="font-bold text-black hover:text-main"
           >

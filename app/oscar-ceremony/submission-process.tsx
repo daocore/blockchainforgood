@@ -65,8 +65,16 @@ export function SubmissionProcess() {
                 {
                   img: UserImage,
                   name: "Allan",
-                  org: "Moledao",
-                  relation: "Partner",
+                  org: [
+                    {
+                      name: "Blockchain For Good Alliance (BGA)",
+                      title: "Partner",
+                    },
+                    {
+                      name: "Moledao",
+                      title: "Co-Builder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/allanfang/",
                 },
               ]}
@@ -87,50 +95,78 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: HarnImage,
                   name: "Harn",
-                  org: "Trigger Asset Management",
-                  relation: "CEO",
+                  org: [
+                    {
+                      name: "Trigger Asset Management",
+                      title: "CEO",
+                    },
+                  ],
                   link: "",
                 },
                 {
                   img: KCImage,
                   name: "KC",
-                  org: "AYA Foundation",
-                  relation: "Investments, Impact Lead",
+                  org: [
+                    {
+                      name: "AYA Foundation",
+                      title: "Investments, Impact Lead",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/ong-kok-chung/",
                 },
                 {
                   img: GianlucaImage,
                   name: "Gianluca",
-                  org: "NapulETH",
-                  relation: "CEO & Co-Founder",
+                  org: [
+                    {
+                      name: "NapulETH",
+                      title: "CEO & Co-Founder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/gdbmoodglobalservices/?utm_source=share&utm_campaign=share_via&utm_conte",
                 },
                 {
                   img: AdamImage,
                   name: "Adam",
-                  org: "3 Comma Capital SCR",
-                  relation: "Venture Partner",
+                  org: [
+                    {
+                      name: "3 Comma Capital SCR",
+                      title: "Venture Partner",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/adamihsanboon/",
                 },
                 {
                   img: Adam2Image,
                   name: "Adam",
-                  org: "Growth Ensemble",
-                  relation: "Co-Founder",
+                  org: [
+                    {
+                      name: "Growth Ensemble",
+                      title: "Co-Founder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/adamflinter/",
                 },
                 {
                   img: FelixsimImage,
                   name: "Felixsim",
-                  org: "Salad Ventures",
-                  relation: "Founder",
+                  org: [
+                    {
+                      name: "Salad Ventures",
+                      title: "Founder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/simfelix",
                 },
                 {
                   img: JayKohImage,
                   name: "JayKoh",
-                  org: "Association Blockchain Asia",
-                  relation: "Vice President",
+                  org: [
+                    {
+                      name: "Association Blockchain Asia",
+                      title: "Vice President",
+                    },
+                  ],
                   link: "https://x.com/Krypto_JayK",
                 },
               ]}
@@ -179,8 +215,16 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: UserImage,
                   name: "Allan",
-                  org: "Moledao",
-                  relation: "Partner",
+                  org: [
+                    {
+                      name: "Blockchain For Good Alliance (BGA)",
+                      title: "Partner",
+                    },
+                    {
+                      name: "Moledao",
+                      title: "Co-Builder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/allanfang/",
                 },
               ]}
@@ -198,15 +242,23 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: DilipChenoyImage,
                   name: "Dilip Chenoy",
-                  org: "Bharat Web3 Association",
-                  relation: "Chairman",
+                  org: [
+                    {
+                      name: "Bharat Web3 Association",
+                      title: "Chairman",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/dilip-chenoy-59613215/",
                 },
                 {
                   img: DFBAWImage,
                   name: "Datuk Ts. Fadzli Abdul Wahit",
-                  org: "Digital Industry Development at Malaysia Digital Economy Corporation (MDEC)",
-                  relation: "Head/Senior",
+                  org: [
+                    {
+                      name: "Digital Industry Development at Malaysia Digital Economy Corporation (MDEC)",
+                      title: "Head/SVP Digital Industry Development",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/datuk-ts-fadzli-abdul-wahit-6813244b/",
                 },
               ]}
@@ -231,36 +283,56 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: AdzImage,
                   name: "Adz",
-                  org: "Partisia Blockchain Foundation",
-                  relation: "CEO",
+                  org: [
+                    {
+                      name: "Partisia Blockchain Foundation",
+                      title: "CEO",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/adrienneyoungman/",
                 },
                 {
                   img: LucasImage,
                   name: "LucasZhgr",
-                  org: "PositiveBlockchain",
-                  relation: "Founder",
+                  org: [
+                    {
+                      name: "PositiveBlockchain",
+                      title: "Founder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/lucas-zaehringer-65725145/",
                 },
                 {
                   img: MarianaImage,
                   name: "MarianadlRW",
-                  org: "Inatba",
-                  relation: "BoD",
+                  org: [
+                    {
+                      name: "Inatba",
+                      title: "BoD",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/mariana-de-la-roche-es?utm_source=share&utm_campaign=share_via&utm_conte",
                 },
                 {
                   img: VenusKhorImage,
                   name: "VenusKhor",
-                  org: "Masverse/Maschain",
-                  relation: "Chief Brand Officer",
+                  org: [
+                    {
+                      name: "Masverse/Maschain",
+                      title: "Chief Brand Officer",
+                    },
+                  ],
                   link: "https://my.linkedin.com/in/vgotlight",
                 },
                 {
                   img: MeetImage,
                   name: "Meet",
-                  org: "Algorand Foundation",
-                  relation: "Engagement Support Engineer",
+                  org: [
+                    {
+                      name: "Algorand Foundation",
+                      title: "Engagement Support Engineer",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/meet-thosar-bb049225/",
                 },
               ]}
@@ -278,8 +350,16 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: BenImage,
                   name: "Ben",
-                  org: "Bybit",
-                  relation: "CEO",
+                  org: [
+                    {
+                      name: "Blockchain For Good Alliance (BGA)",
+                      title: "Initiator",
+                    },
+                    {
+                      name: "Bybit",
+                      title: "Co-founder and CEO",
+                    },
+                  ],
                   link: "",
                 },
               ]}
@@ -297,29 +377,49 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: RodrigoVasquezImage,
                   name: "Rodrigo Vasquez",
-                  org: "Ethereum Foundation",
-                  relation: "Ecosystem Funding Initiative Lead",
+                  org: [
+                    {
+                      name: "Ethereum Foundation",
+                      title: "Ecosystem Funding Initiative Lead",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/rodrigo-vasquez-89514569/",
                 },
                 {
                   img: ScootImage,
                   name: "Scott Moore",
-                  org: "Gitcoin",
-                  relation: "Co-Founder",
+                  org: [
+                    {
+                      name: "Public Works",
+                      title: "Founder",
+                    },
+                    {
+                      name: "Gitcoin",
+                      title: "Co-Founder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/notscottmoore",
                 },
                 {
                   img: MikeImage,
                   name: "Mike",
-                  org: "Immunefi",
-                  relation: "Head Of Sales",
+                  org: [
+                    {
+                      name: "Immunefi",
+                      title: "Head Of Sales",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/mike-o-keeffe/",
                 },
                 {
                   img: ComposeusImage,
                   name: "Composeus",
-                  org: "DV Labs",
-                  relation: "Chief Growth Officer",
+                  org: [
+                    {
+                      name: "DV Labs",
+                      title: "Chief Growth Officer",
+                    },
+                  ],
                   link: "https://x.com/composeus",
                 },
               ]}
@@ -344,8 +444,16 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: HelenImage,
                   name: "Helen",
-                  org: "Bybit",
-                  relation: "COO",
+                  org: [
+                    {
+                      name: "Blockchain For Good Alliance (BGA)",
+                      title: "Founder",
+                    },
+                    {
+                      name: "Bybit",
+                      title: "Co-founder and COO",
+                    },
+                  ],
                 },
               ]}
             />
@@ -360,13 +468,11 @@ function UserAvater({
   img,
   name,
   org,
-  relation,
   link = "",
 }: {
   img: string | StaticImageData;
   name: string;
-  org: string;
-  relation: string;
+  org: any[];
   link?: string;
 }) {
   return (
@@ -381,8 +487,14 @@ function UserAvater({
         />
         <div>
           <p className={cn(styles.typ, "font-semibold")}>{name}</p>
-          <p className={cn(styles.typ, "text-xs")}>{org}</p>
-          <p className={cn(styles["typ-description"], "text-xs")}>{relation}</p>
+          {org.map((item) => (
+            <p className="text-xs">
+              <span className={cn(styles.typ)}>{item.name}, </span>
+              <span className={cn(styles["typ-description"])}>
+                {item.title}
+              </span>
+            </p>
+          ))}
         </div>
       </div>
     </a>
@@ -442,7 +554,6 @@ function PartContentItem({
             img={speark.img}
             name={speark.name}
             org={speark.org}
-            relation={speark.relation}
             link={speark.link}
           />
         ))}
