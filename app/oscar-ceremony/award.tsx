@@ -27,15 +27,20 @@ const AWARD_LIST = [
     ],
     buttons: [
       (isSafari: boolean) => (
-        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-          <span
-            className={cn(
-              isSafari ? "text-description" : styles["award-btn-rule-span"]
-            )}
-          >
-            Rules
-          </span>
-        </Button>
+        <Link
+          target="__blank"
+          href="https://www.blockchainforgood.xyz/news/detail/41d6b262-ad52-48ba-a76a-e0337284412b"
+        >
+          <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+            <span
+              className={cn(
+                isSafari ? "text-description" : styles["award-btn-rule-span"]
+              )}
+            >
+              Rules
+            </span>
+          </Button>
+        </Link>
       ),
       () => (
         <Button
@@ -60,15 +65,20 @@ const AWARD_LIST = [
     ],
     buttons: [
       (isSafari: boolean) => (
-        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-          <span
-            className={cn(
-              isSafari ? "text-description" : styles["award-btn-rule-span"]
-            )}
-          >
-            Rules
-          </span>
-        </Button>
+        <Link
+          target="__blank"
+          href="https://www.blockchainforgood.xyz/news/detail/41d6b262-ad52-48ba-a76a-e0337284412b"
+        >
+          <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+            <span
+              className={cn(
+                isSafari ? "text-description" : styles["award-btn-rule-span"]
+              )}
+            >
+              Rules
+            </span>
+          </Button>
+        </Link>
       ),
       () => (
         <Link
@@ -95,15 +105,20 @@ const AWARD_LIST = [
     ],
     buttons: [
       (isSafari: boolean) => (
-        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-          <span
-            className={cn(
-              isSafari ? "text-description" : styles["award-btn-rule-span"]
-            )}
-          >
-            Rules
-          </span>
-        </Button>
+        <Link
+          target="__blank"
+          href="https://www.blockchainforgood.xyz/news/detail/41d6b262-ad52-48ba-a76a-e0337284412b"
+        >
+          <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+            <span
+              className={cn(
+                isSafari ? "text-description" : styles["award-btn-rule-span"]
+              )}
+            >
+              Rules
+            </span>
+          </Button>
+        </Link>
       ),
       () => (
         <Link
