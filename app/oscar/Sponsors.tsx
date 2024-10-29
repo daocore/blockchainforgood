@@ -4,19 +4,23 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 import { cn } from "@/lib";
 import styles from "./styles.module.css";
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import HemereImage from "@/assets/oscar/hemera-logo.webp";
 import PingoImage from "@/assets/oscar/PinGo.png";
 import SendingLabsImage from "@/assets/oscar/Sending Labs.png";
 import Image from "next/image";
-import Link from "next/link";
+import AttGlobalImage from "@/assets/oscar/ATT Global.png";
 
 const list = [
   {
     name: "Hemera",
     link: "https://www.thehemera.com/",
     image: HemereImage,
-    style: { filter: "grayscale(1)" },
+    style: { filter: "grayscale(1)", height: "4rem" },
+  },
+  {
+    name: "Sending Labs",
+    link: "",
+    image: SendingLabsImage,
   },
   {
     name: "PinGo",
@@ -24,9 +28,13 @@ const list = [
     image: PingoImage,
   },
   {
-    name: "Sending Labs",
-    link: "",
-    image: SendingLabsImage,
+    name: "",
+    // type: 4,
+    image: AttGlobalImage,
+    link: "http://attglobal.io/",
+    // partnersType: 5,
+    // style: '{"height":"34px"}',
+    // mobileStyle: '{"height":"20px"}',
   },
 ];
 
@@ -36,24 +44,28 @@ export const Sponsors = () => {
   );
 
   return (
-    <div ref={ref}>
+    <div className="w-full md:w-content mx-auto mb-2 md:mb-8" ref={ref}>
       <div className="text-center">
         <h2
           className={cn(
             styles["award-title"],
-            "font-bold text-oscarActive font-['Inter'] inline-block mx-auto text-[20px] md:text-[32px] text-center"
+            "font-bold text-oscarActive font-['Inter'] inline-block mx-auto text-[20px] md:text-[32px] text-center md:mb-4"
           )}
         >
           Sponsors
         </h2>
       </div>
       <div
-        className={`h-28 py-1 md:py-2 flex items-center justify-center relative overflow-hidden`}
+        className={`my-2 md:my-8 grid grid-cols-2 justify-items-center gap-8 md:gap-16 relative`}
       >
-        {list.map((item) => (
+        {list.map((item, index) => (
           <a
             target={item.link ? "_blank" : "_self"}
             href={item.link || undefined}
+            className={cn(
+              "flex justify-center",
+              index % 2 === 0 ? "justify-self-end" : "justify-self-start"
+            )}
           >
             <div
               className="text-description mr-4 md:mr-8 flex items-center gap-2 font-['Inter'] text-sm md:text-base"
@@ -62,10 +74,12 @@ export const Sponsors = () => {
               <Image
                 src={item.image}
                 alt={item.name}
-                className="h-12 md:h-14 object-contain"
+                className="h-12 md:h-14 w-auto object-contain"
                 style={item.style}
               />
-              <span>{item.name}</span>
+              <span className="text-xl font-semibold whitespace-nowrap">
+                {item.name}
+              </span>
             </div>
           </a>
         ))}

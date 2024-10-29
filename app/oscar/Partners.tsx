@@ -51,9 +51,12 @@ import Tech4EarthImage from "@/assets/oscar/Tech4Earth.png";
 import RenoraImage from "@/assets/oscar/Renora，.png";
 import BDVenturesImage from "@/assets/oscar/BD Ventures.png";
 import RefiDAOImage from "@/assets/oscar/ReFi DAO.png";
+import DogLiberImage from "@/assets/oscar/DogLibre.png";
+import BybitWeb3Image from "@/assets/oscar/bybit.png";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
+import { cn } from "@/lib";
 
 const partnerObj = [
   {
@@ -114,15 +117,6 @@ const partnerObj = [
 
 const partersData = [
   {
-    name: "Moledao",
-    type: 1,
-    logo: MoledaoImage,
-    link: "https://moledao.io/",
-    partnersType: 0,
-    style: '{"height":"34px"}',
-    mobileStyle: '{"height":"22px"}',
-  },
-  {
     name: "BC100+",
     type: 1,
     logo: BC100Image,
@@ -148,6 +142,24 @@ const partersData = [
     partnersType: 0,
     style: '{"height": "24px"}',
     mobileStyle: '{"height":"18px"}',
+  },
+  {
+    name: "Bybit Web 3",
+    type: 1,
+    logo: BybitWeb3Image,
+    link: "https://www.bybit.com/",
+    partnersType: 0,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "Moledao",
+    type: 1,
+    logo: MoledaoImage,
+    link: "https://moledao.io/",
+    partnersType: 0,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"22px"}',
   },
   {
     name: "OffChain Global",
@@ -450,7 +462,7 @@ const partersData = [
     name: "Association Blockchain Asia",
     type: 4,
     logo: AssociationBlockchainAsiaImage,
-    link: "",
+    link: "https://associationblockchainasia.org/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -459,7 +471,7 @@ const partersData = [
     name: "The Final Frontier",
     type: 4,
     logo: TheFinalFrontierImage,
-    link: "",
+    link: "https://lussa.io/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -468,7 +480,7 @@ const partersData = [
     name: "OpenBuild",
     type: 4,
     logo: OpenBuildImage,
-    link: "",
+    link: "https://openbuild.xyz/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -477,7 +489,7 @@ const partersData = [
     name: "ReFi Starter",
     type: 4,
     logo: RefiStarterImage,
-    link: "",
+    link: "https://refistarter.org/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -486,7 +498,7 @@ const partersData = [
     name: "Tech4Earth",
     type: 4,
     logo: Tech4EarthImage,
-    link: "",
+    link: "https://tech4earth.substack.com/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -495,7 +507,7 @@ const partersData = [
     name: "Renora",
     type: 4,
     logo: RenoraImage,
-    link: "",
+    link: "https://renora.io/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -504,7 +516,7 @@ const partersData = [
     name: "BD Ventures",
     type: 4,
     logo: BDVenturesImage,
-    link: "",
+    link: "https://www.bdventures.vn/",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
@@ -513,14 +525,29 @@ const partersData = [
     name: "ReFi DAO",
     type: 4,
     logo: RefiDAOImage,
-    link: "",
+    link: "https://linktr.ee/refidao",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "DogLibre",
+    type: 4,
+    logo: DogLiberImage,
+    link: "https://www.doglibre.com/en",
     partnersType: 5,
     style: '{"height":"34px"}',
     mobileStyle: '{"height":"20px"}',
   },
 ];
 
-const PartnerItem = ({ item }: { item: any }) => {
+const PartnerItem = ({
+  item,
+  isFirst = false,
+}: {
+  item: any;
+  isFirst?: boolean;
+}) => {
   const mobile = useIsMobile();
 
   return (
@@ -530,7 +557,10 @@ const PartnerItem = ({ item }: { item: any }) => {
           return (
             <a
               key={i}
-              className={`inline-block p-1 mb-1 sx:w-full`}
+              className={cn(
+                "inline-block p-1 mb-1 w-full xs:w-1/2 md:w-1/5",
+                isFirst && (i <= 2 ? "md:w-1/3" : "md:w-1/4")
+              )}
               style={
                 mobile
                   ? {
@@ -644,7 +674,7 @@ export const Partners = () => {
                   {item.name}
                 </h2>
               )}
-              <PartnerItem item={item} />
+              <PartnerItem item={item} isFirst={index === 0} />
             </div>
           );
         })}
