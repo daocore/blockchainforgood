@@ -458,6 +458,13 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
               ]}
             />
           </PartItem>
+
+          <PartItem time="5:40 PM - 7:00 PM" title="The Gala">
+            <PartContentItem
+              title="Encore"
+              desc="Networking session with an afterparty and light refreshments and networking before the event ends."
+            />
+          </PartItem>
         </div>
       </div>
     </div>
