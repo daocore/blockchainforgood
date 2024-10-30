@@ -21,11 +21,14 @@ import HarnImage from "@/assets/oscar/Avatar Harn.png";
 import GianlucaImage from "@/assets/oscar/Avatar Gianluca.png";
 import KCImage from "@/assets/oscar/Avatar KC.png";
 import AdamImage from "@/assets/oscar/Avatar Adam.png";
-import Adam2Image from "@/assets/oscar/Avatar Adam2.png";
+// import Adam2Image from "@/assets/oscar/Avatar Adam2.png";
 import ComposeusImage from "@/assets/oscar/Avatar Composeus.png";
 import RodrigoVasquezImage from "@/assets/oscar/Avatar Rodrigo Vasquez.png";
 import FelixsimImage from "@/assets/oscar/Avatar28.png";
 import JayKohImage from "@/assets/oscar/Avatar22.png";
+import GabrielaChangValdovinosImage from "@/assets/oscar/Avatar Gabriela Chang Valdovinos.png";
+import CryptobirdImage from "@/assets/oscar/Avatar Cryptobird.png";
+import BruceImage from "@/assets/oscar/Avatar Bruce.png";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
@@ -136,17 +139,17 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   ],
                   link: "https://www.linkedin.com/in/adamihsanboon/",
                 },
-                {
-                  img: Adam2Image,
-                  name: "Adam",
-                  org: [
-                    {
-                      name: "Growth Ensemble",
-                      title: "Co-Founder",
-                    },
-                  ],
-                  link: "https://www.linkedin.com/in/adamflinter/",
-                },
+                // {
+                //   img: Adam2Image,
+                //   name: "Adam",
+                //   org: [
+                //     {
+                //       name: "Growth Ensemble",
+                //       title: "Co-Founder",
+                //     },
+                //   ],
+                //   link: "https://www.linkedin.com/in/adamflinter/",
+                // },
                 {
                   img: FelixsimImage,
                   name: "Felixsim",
@@ -168,6 +171,28 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                     },
                   ],
                   link: "https://x.com/Krypto_JayK",
+                },
+                {
+                  img: CryptobirdImage,
+                  name: "Cryptobird",
+                  org: [
+                    {
+                      name: "ThreeDAO Founders' Fund",
+                      title: "Manager Partner",
+                    },
+                  ],
+                  link: "https://twitter.com/tianhongfei",
+                },
+                {
+                  img: BruceImage,
+                  name: "Bruce",
+                  org: [
+                    {
+                      name: "Partisia Blockchain Foundation",
+                      title: "Chief of Staff",
+                    },
+                  ],
+                  link: "https://linkedin.com/in/ahnbruce",
                 },
               ]}
             />
@@ -269,6 +294,19 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="EthicHub's Keynote"
               desc="EthicHub, one of the flagship projects of BGA's incubation, will present its groundbreaking work in using blockchain to support farmers in developing countries through decentralized finance (DeFi). "
+              spearks={[
+                {
+                  img: GabrielaChangValdovinosImage,
+                  name: "Gabriela Chang Valdovinos",
+                  org: [
+                    {
+                      name: "EthicHub",
+                      title: "CSO and Co-Founder",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/gabriela-chang-valdovinos-76b34410/",
+                },
+              ]}
             />
           </PartItem>
 
