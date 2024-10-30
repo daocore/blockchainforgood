@@ -6,6 +6,7 @@ import styles from "../styles.module.css";
 import FirstImage from "@/assets/vote/first.png";
 import SecondImage from "@/assets/vote/second.png";
 import ThirdImage from "@/assets/vote/third.png";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 export function TopThree({ dataSource }: { dataSource: IVoteResult[] }) {
   const first = dataSource[0];
@@ -74,7 +75,9 @@ function TopItem({
       >
         <Image className="mx-auto" src={image} alt={"top"} />
         <div className="text-center">
-          <p className="text-5xl font-bold">{count}</p>
+          <p className="text-5xl font-bold">
+            <AnimatedCounter value={count} />
+          </p>
           <p className="text-xl">Votes</p>
         </div>
       </div>

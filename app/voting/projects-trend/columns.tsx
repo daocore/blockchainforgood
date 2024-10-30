@@ -5,9 +5,8 @@ import { IMAGE_URL } from "@/constants";
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
-import { ArrowDown, ArrowUp } from "lucide-react";
-import { ReactNode } from "react";
 import Link from "next/link";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 export const columns: ColumnDef<IVoteResult>[] = [
   {
@@ -90,7 +89,7 @@ export const columns: ColumnDef<IVoteResult>[] = [
       } = row;
       return (
         <span className="text-oscarActive font-bold text-2xl italic">
-          {count}
+          <AnimatedCounter value={count} />
         </span>
       );
     },
