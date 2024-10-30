@@ -1,7 +1,6 @@
 "use client";
 
 import { Loading } from "@/components/Loading";
-import { HACKTHON_APPLY_EVENT_ID } from "@/constants/env";
 import { Suspense } from "react";
 import HackathonImage from "@/assets/hackathon.png";
 import Image from "next/image";
@@ -57,7 +56,7 @@ function FormImpl() {
       className="w-full cursor-pointer hover:shadow-lg h-8 px-6 text-center text-text text-sm font-medium font-['Inter'] leading-[14px] flex justify-center items-center"
       onClick={() => {
         router.push(
-          `${ROUTER_PATH.FORM.ORGANIZATION}/${HACKTHON_APPLY_EVENT_ID}`
+          `${ROUTER_PATH.FORM.ORGANIZATION}/6e18e6b2-477a-4213-8de2-ebdf6ac45c39`
         );
       }}
     >
