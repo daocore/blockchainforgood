@@ -4,11 +4,13 @@ import { cn } from "@/lib";
 import { Layout } from "./components/layout";
 import { ProjectsTrends } from "./projects-trend";
 import styles from "./styles.module.css";
+import "./styles.css";
 import { useEffect, useRef, useState } from "react";
 import { ProjectDetail } from "./project-detail";
 import { useAPIGetVoteResult } from "../vote/[id]/api";
 import { OSCAR_VOTE_ID } from "@/constants";
 import { Loading } from "./skeleton-loading";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const SECNODE = 1000;
 
@@ -85,11 +87,22 @@ export default function VotePage() {
             "absolute inset-0 opacity-20"
           )}
         />
-        {showTrends ? (
-          <ProjectsTrends dataSource={topTenData} />
-        ) : (
-          <ProjectDetail item={topTenData[currentIndex]} />
-        )}
+        <div className={cn(styles["voting-transition-wrap"], "h-full")}>
+          <TransitionGroup>
+            <CSSTransition
+              key={showTrends ? "A" : "B"}
+              timeout={500}
+              classNames="voting-fade"
+              className="h-full"
+            >
+              {showTrends ? (
+                <ProjectsTrends dataSource={topTenData} />
+              ) : (
+                <ProjectDetail item={topTenData[currentIndex]} />
+              )}
+            </CSSTransition>
+          </TransitionGroup>
+        </div>
       </div>
     </Layout>
   );

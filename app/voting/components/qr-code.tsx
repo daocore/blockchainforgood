@@ -6,7 +6,13 @@ import Image from "next/image";
 
 export function QRCode() {
   return (
-    <div className={cn("w-full p-4 flex justify-between", styles.qrcode)}>
+    <div
+      className={cn(
+        "w-full p-4 flex justify-between relative overflow-hidden",
+        styles.qrcode,
+        styles.bulibuli
+      )}
+    >
       <Image className="w-36 h-36" src={CodeImage} alt="vote" />
       <div className="flex flex-col justify-between">
         <p className="text-oscarActive text-4xl font-medium">Call To Action</p>
