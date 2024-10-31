@@ -49,7 +49,11 @@ export function Hash() {
                 styles.hash
               )}
             >
-              <Image className="w-5" src={hash.image} alt={hash.label} />
+              <Image
+                className="w-5 grayscale"
+                src={hash.image}
+                alt={hash.label}
+              />
               <span className="text-xl">{hash.label}</span>
             </div>
           </Link>
