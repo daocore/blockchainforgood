@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { ControllerRenderProps, useForm, UseFormReturn } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -25,7 +25,9 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import crypto from "crypto"
+import crypto from "crypto";
+import { IVoteCategory, VOTE_CATEGORY } from "./types";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const publicKey = `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt8icam8RbPeukZi5Vzj1
@@ -35,39 +37,58 @@ qthADATkixmF824qo6fyZZRmdmNdDwBju3U7kSEy178rzZNeM0h6YP4zjwTIUGdD
 ICAE6FUzN4wGO93uoAx/uXAo5Nf/0iq9WqVGwSvB28D5Oh6sc9DJhHKJtrOXJuNw
 uTlG6yi9QGuMNL+5alRn6/7JmqHzzGVxgJsuaOaF1eAFs+ndPqSA/8auYcdQoCc1
 WwIDAQAB
------END PUBLIC KEY-----`
+-----END PUBLIC KEY-----`;
 
-const formSchema = z.object({
-  email: z.string().email(),
-  verifyCode: z.string().min(1),
-  captchaCode: z.string().optional(),
-  candidates: z
-    .array(z.string())
-    .refine((value) => value.some((item) => item), {
-      message: "You have to select at least one item.",
-    })
-    .refine((value) => value?.length <= 10, {
-      message: "You can select up to 10 items.",
-    }),
-  nickname: z.string().min(1),
-  walletAddress: z.string().optional(),
-  link: z.object({
-    telegram: z.string().optional(),
-    linkedin: z.string().optional(),
-  }),
-});
+interface IPropss {
+  id: string;
+  orgs: OrganizationEntity[];
+  category: IVoteCategory;
+  maximum: number;
+  onSuccessed: () => void;
+}
 
+type IFormFields = {
+  email?: string;
+  verifyCode?: string;
+  captchaCode?: string;
+  link?: {
+    telegram?: string;
+    linkedin?: string;
+  };
+  candidates?: string[];
+  nickname?: string;
+  walletAddress?: string;
+};
 export function VoteForm({
   id,
   orgs,
+  category,
+  maximum,
   onSuccessed,
-}: {
-  id: string;
-  orgs: OrganizationEntity[];
-  onSuccessed: () => void;
-}) {
+}: IPropss) {
+  // 根据maximum动态定义schema
+  const formSchema = z.object({
+    email: z.string().email(),
+    verifyCode: z.string().min(1),
+    captchaCode: z.string().optional(),
+    candidates: z
+      .array(z.string())
+      .refine((value) => value.some((item) => item), {
+        message: "You have to select at least one item.",
+      })
+      .refine((value) => value?.length <= maximum, {
+        message: `You can select up to ${maximum} items.`,
+      }),
+    nickname: z.string().min(1),
+    walletAddress: z.string().optional(),
+    link: z.object({
+      telegram: z.string().optional(),
+      linkedin: z.string().optional(),
+    }),
+  });
+
   // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<IFormFields>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
@@ -79,7 +100,7 @@ export function VoteForm({
 
   // 2. Define a submit handler.
   const [submitLoading, setSubmitLoading] = useState(false);
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: IFormFields) {
     try {
       setSubmitLoading(true);
       const apiData = {
@@ -104,6 +125,8 @@ export function VoteForm({
   }
 
   const [filterProject, setFilterProject] = useState("");
+
+  const isMultiple = category === VOTE_CATEGORY.MULTIPLE;
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -201,7 +224,7 @@ export function VoteForm({
         <FormField
           control={form.control}
           name="candidates"
-          render={() => (
+          render={({ field }) => (
             <FormItem>
               <div className="mb-4">
                 <FormLabel className="text-base flex items-center gap-2">
@@ -214,50 +237,26 @@ export function VoteForm({
                     onChange={(e) => setFilterProject(e.target.value)}
                   />
                 </FormLabel>
-                <FormDescription>
-                  Each email account is allowed one vote, with the option to
-                  select between 1 and 10 projects
-                </FormDescription>
+                {isMultiple && (
+                  <FormDescription>
+                    {`Each email account is allowed one vote, with the option to
+                  select between 1 and ${maximum} projects`}
+                  </FormDescription>
+                )}
               </div>
-              <div className="grid grid-cols-2 gap-2">
-                {orgs
-                  .filter((org) =>
-                    org.name.toLowerCase().includes(filterProject.toLowerCase())
-                  )
-                  .map((org) => (
-                    <FormField
-                      key={org.id}
-                      control={form.control}
-                      name="candidates"
-                      render={({ field }) => {
-                        return (
-                          <FormItem
-                            key={org.id}
-                            className="flex flex-row items-start space-x-3 space-y-0"
-                          >
-                            <FormControl>
-                              <Checkbox
-                                checked={field.value?.includes(org.id)}
-                                onCheckedChange={(checked) => {
-                                  return checked
-                                    ? field.onChange([...field.value, org.id])
-                                    : field.onChange(
-                                      field.value?.filter(
-                                        (value) => value !== org.id
-                                      )
-                                    );
-                                }}
-                              />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              {org.name}
-                            </FormLabel>
-                          </FormItem>
-                        );
-                      }}
-                    />
-                  ))}
-              </div>
+              {isMultiple ? (
+                <Multiple
+                  orgs={orgs}
+                  filterProject={filterProject}
+                  form={form}
+                />
+              ) : (
+                <Single
+                  field={field as ControllerRenderProps<IFormFields>}
+                  orgs={orgs}
+                  filterProject={filterProject}
+                />
+              )}
 
               <FormMessage />
             </FormItem>
@@ -274,6 +273,89 @@ export function VoteForm({
         </Button>
       </form>
     </Form>
+  );
+}
+
+function Multiple({
+  orgs,
+  filterProject,
+  form,
+}: {
+  orgs: IPropss["orgs"];
+  filterProject: string;
+  form: UseFormReturn<IFormFields>;
+}) {
+  return (
+    <div className="grid grid-cols-2 gap-2">
+      {orgs
+        .filter((org) =>
+          org.name.toLowerCase().includes(filterProject.toLowerCase())
+        )
+        .map((org) => (
+          <FormField
+            key={org.id}
+            control={form.control}
+            name="candidates"
+            render={({ field }) => {
+              return (
+                <FormItem
+                  key={org.id}
+                  className="flex flex-row items-start space-x-3 space-y-0"
+                >
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value?.includes(org.id)}
+                      onCheckedChange={(checked) => {
+                        return checked
+                          ? field.onChange([...field.value, org.id])
+                          : field.onChange(
+                              field.value?.filter((value) => value !== org.id)
+                            );
+                      }}
+                    />
+                  </FormControl>
+                  <FormLabel className="font-normal">{org.name}</FormLabel>
+                </FormItem>
+              );
+            }}
+          />
+        ))}
+    </div>
+  );
+}
+
+function Single({
+  orgs,
+  filterProject,
+  field,
+}: {
+  orgs: IPropss["orgs"];
+  filterProject: string;
+  field: ControllerRenderProps<IFormFields>;
+}) {
+  return (
+    <div className="grid grid-cols-2 gap-2">
+      <FormControl>
+        <RadioGroup
+          onValueChange={(val: string) => field.onChange([val])}
+          defaultValue={(field.value as string[])[0]}
+          className="flex flex-col space-y-1"
+        >
+          {orgs
+            .filter((org) =>
+              org.name.toLowerCase().includes(filterProject.toLowerCase())
+            )
+            .map((org) => (
+              <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormControl>
+                  <RadioGroupItem value={org.id} />
+                </FormControl>
+                <FormLabel className="font-normal">{org.name}</FormLabel>
+              </FormItem>
+            ))}
+        </RadioGroup>
+      </FormControl>
+    </div>
   );
 }
 
@@ -326,14 +408,18 @@ export function SendEmail({ form }: { form: any }) {
     return crypto.publicEncrypt(
       {
         key: publicKey,
-        padding: crypto.constants.RSA_PKCS1_OAEP_PADDING // 使用 RSA_PKCS1_PADDING 填充方案
+        padding: crypto.constants.RSA_PKCS1_OAEP_PADDING, // 使用 RSA_PKCS1_PADDING 填充方案
       },
-      Buffer.from(JSON.stringify(data), 'utf8') as any
+      Buffer.from(JSON.stringify(data), "utf8") as any
     );
   };
 
   const onSendEmailCodeImpl = () => {
-    APISendEmailCode({ email: encryptedData({ fuckSybil: form.getValues().email }).toString('base64') });
+    APISendEmailCode({
+      email: encryptedData({ fuckSybil: form.getValues().email }).toString(
+        "base64"
+      ),
+    });
     setIsCounting(true);
     handleDialogOpenChange(false);
   };

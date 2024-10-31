@@ -109,6 +109,8 @@ export function VoteDetail({ id }: { id: string }) {
             id={id}
             orgs={data.organizations}
             onSuccessed={onVoteSuccessed}
+            category={data.category}
+            maximum={data.maximum}
           />
         </CardContent>
       </Card>
