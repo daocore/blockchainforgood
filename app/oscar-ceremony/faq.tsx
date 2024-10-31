@@ -45,7 +45,11 @@ export const FAQ = () => {
     homeStyles.moveFromBottom
   );
   return (
-    <div id="faq" ref={ref} className="w-full md:w-content m-auto px-6 md:px-0">
+    <div
+      id="faq"
+      ref={ref}
+      className="hash-section w-full md:w-content m-auto px-6 md:px-0"
+    >
       <h2 className="text-lg md:text-xl font-bold text-oscarActive mb-4">
         FAQ
       </h2>

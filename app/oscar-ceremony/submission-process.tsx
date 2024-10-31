@@ -36,7 +36,7 @@ import homeStyles from "../home/styles.module.css";
 export function SubmissionProcess() {
   return (
     <div className="w-full md:w-content mx-auto px-2 md:px-0">
-      <div id="agenda" className="flex items-center gap-2">
+      <div id="agenda" className="hash-section flex items-center gap-2">
         <Image width={40} height={40} src={ProcessIconImage} alt="Process" />
         <h2 className="text-oscarActive text-3xl font-bold">Event Agenda</h2>
       </div>
@@ -555,9 +555,6 @@ function PartItem({
   title: string;
   children: React.ReactNode;
 }) {
-  const ref = useIntersectionObserver<HTMLDivElement>(
-    homeStyles.moveFromBottom
-  );
   return (
     <div className="block md:flex space-y-2 md:space-y-0 md:space-x-2">
       <div

@@ -44,7 +44,11 @@ export const Sponsors = () => {
   );
 
   return (
-    <div className="w-full md:w-content mx-auto mb-2 md:mb-8" ref={ref}>
+    <div
+      id="partner"
+      className="hash-section w-full md:w-content mx-auto mb-2 md:mb-8"
+      ref={ref}
+    >
       <div className="text-center">
         <h2
           className={cn(

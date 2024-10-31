@@ -654,11 +654,7 @@ export const Partners = () => {
   );
 
   return (
-    <div
-      id="partner"
-      ref={ref}
-      className="w-full md:w-content mx-auto px-6 md:px-0"
-    >
+    <div ref={ref} className="w-full md:w-content mx-auto px-6 md:px-0">
       <h2
         className={`font-bold text-oscarActive font-['Inter'] text-[20px] md:text-[32px] text-center`}
       >
