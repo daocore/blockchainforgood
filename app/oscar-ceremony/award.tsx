@@ -21,10 +21,15 @@ const AWARD_LIST = [
     ambassador: "Individual",
     prize: "Prize Worth $3000",
     tags: [
-      "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
-      "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
-      "Bangkok Trip Reimbursement (A $2000 reimbursement for your trip to Bangkok)",
+      "BGA Merchandise Package",
+      "On-Chain Certificate",
+      "Bangkok Trip Reimbursement",
     ],
+    // tags: [
+    //   "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
+    //   "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
+    //   "Bangkok Trip Reimbursement (A $2000 reimbursement for your trip to Bangkok)",
+    // ],
     buttons: [
       (isSafari: boolean) => (
         <Link
@@ -59,10 +64,15 @@ const AWARD_LIST = [
     ambassador: "Individual",
     prize: "Prize Worth $1000",
     tags: [
-      "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
-      "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
-      "$500 Cash Reward (A cash prize awarded to the winner)",
+      "BGA Merchandise Package",
+      "On-Chain Certificate",
+      "$500 Cash Reward",
     ],
+    // tags: [
+    //   "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
+    //   "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
+    //   "$500 Cash Reward (A cash prize awarded to the winner)",
+    // ],
     buttons: [
       (isSafari: boolean) => (
         <Link
@@ -98,11 +108,12 @@ const AWARD_LIST = [
     name: "BGA Ambassador Star",
     ambassador: "Ambassador",
     prize: "Prize Worth $300",
-    tags: [
-      "$150 Gift (Choose from a selection of exciting items: Michelle Retro Speaker, JBL Sports Speaker, Apple Gift Card, Amazon Gift Card)",
-      "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
-      "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
-    ],
+    tags: ["$150 Gift", "BGA Merchandise Package", "On-Chain Certificate"],
+    // tags: [
+    //   "$150 Gift (Choose from a selection of exciting items: Michelle Retro Speaker, JBL Sports Speaker, Apple Gift Card, Amazon Gift Card)",
+    //   "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
+    //   "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
+    // ],
     buttons: [
       (isSafari: boolean) => (
         <Link
