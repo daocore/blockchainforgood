@@ -4,7 +4,7 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 import { cn } from "@/lib";
 import styles from "./styles.module.css";
-import HemereImage from "@/assets/oscar/hemera-logo.webp";
+import HemereImage from "@/assets/oscar/herera-logo.png";
 import PingoImage from "@/assets/oscar/PinGo.png";
 import SendingLabsImage from "@/assets/oscar/Sending Labs.png";
 import Image from "next/image";
@@ -55,16 +55,13 @@ export const Sponsors = () => {
           Sponsors
         </h2>
       </div>
-      <div
-        className={`my-2 md:my-8 grid grid-cols-2 justify-items-center gap-8 md:gap-16 relative`}
-      >
+      <div className={`my-2 md:my-8 grid grid-cols-4 gap-2 relative`}>
         {list.map((item, index) => (
           <a
             target={item.link ? "_blank" : "_self"}
             href={item.link || undefined}
             className={cn(
-              "flex justify-center",
-              index % 2 === 0 ? "justify-self-end" : "justify-self-start"
+              "flex justify-center border border-white/10 px-5 py-8"
             )}
           >
             <div
@@ -74,12 +71,9 @@ export const Sponsors = () => {
               <Image
                 src={item.image}
                 alt={item.name}
-                className="h-12 md:h-14 w-auto object-contain"
+                className="h-12 w-auto object-contain"
                 style={item.style}
               />
-              <span className="text-xl font-semibold whitespace-nowrap">
-                {item.name}
-              </span>
             </div>
           </a>
         ))}
