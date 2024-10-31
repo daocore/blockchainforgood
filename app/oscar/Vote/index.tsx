@@ -1,9 +1,10 @@
+"use client";
+
 import { DataTable } from "./data-table";
 import { columns } from "./columns";
 import { useAPIGetVoteResult, useAPIVoteDetail } from "@/app/vote/[id]/api";
 import { Loading } from "./skelete-loading";
 import { Search } from "./search";
-import { CountDown } from "./count-down";
 import {
   useReactTable,
   ColumnFiltersState,
@@ -51,7 +52,7 @@ export function Vote() {
   return (
     <div
       id="projects"
-      className="w-full md:w-content mx-auto p-4 md:p-8 box-border border border-white/70"
+      className="hash-section w-full md:w-content mx-auto p-4 md:p-8 box-border border border-white/70"
     >
       <div className="px-4 flex flex-col md:flex-row justify-between items-center gap-4">
         <h3 className="text-[28px] leading-[42px] font-bold text-white">

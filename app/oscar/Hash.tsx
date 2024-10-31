@@ -38,10 +38,10 @@ const HASH_LIST = [
 
 export function Hash() {
   return (
-    <div className="w-full sticky top-0 z-50 bg-oscarBlack">
+    <div id="navbar" className="w-full sticky top-0 z-50 bg-oscarBlack">
       <div className="mx-auto w-full md:w-content grid grid-cols-3 md:grid-cols-5">
         {HASH_LIST.map((hash) => (
-          <Link href={hash.hash}>
+          <Link className="" href={hash.hash}>
             <div
               key={hash.label}
               className={cn(

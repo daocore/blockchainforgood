@@ -7,7 +7,8 @@
   --typ-active: 42.12deg 41.27% 50.59%;
 }
 
-.hash:hover {
+.hash:hover,
+.hash-active {
   background: linear-gradient(
     90deg,
     rgba(193, 168, 117, 0) 2.2%,
@@ -18,11 +19,13 @@
   mix-blend-mode: normal;
 }
 
-.hash:hover img {
+.hash:hover,
+.hash-active img {
   filter: none;
 }
 
-.hash:hover span {
+.hash:hover,
+.hash-active span {
   /* Text Gradient */
   background: linear-gradient(0deg, #c1a875, #c1a875),
     linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #ffffff 95.95%),

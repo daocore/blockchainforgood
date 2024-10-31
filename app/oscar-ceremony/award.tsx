@@ -155,7 +155,7 @@ export function Award() {
     <div
       ref={ref}
       id="award"
-      className="w-full md:w-content mx-auto pt-6 px-2 md:px-0"
+      className="hash-section w-full md:w-content mx-auto pt-6 px-2 md:px-0"
     >
       <div className="text-center">
         <h2
