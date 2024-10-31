@@ -3,6 +3,7 @@ import { OrganizationEntity } from "@/app/square/types";
 export interface IVote {
   id: string;
   name: string;
+  category: IVoteCategory;
   maximum: number;
   stimestampms: string;
   etimestampms: string;
@@ -55,3 +56,10 @@ export interface IVoteResult {
   trend: number;
   eventId: string;
 }
+
+export enum VOTE_CATEGORY {
+  SINGLE = 0,
+  MULTIPLE = 1,
+}
+
+export type IVoteCategory = VOTE_CATEGORY.SINGLE | VOTE_CATEGORY.MULTIPLE;
