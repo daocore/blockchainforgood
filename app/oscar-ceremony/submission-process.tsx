@@ -29,9 +29,9 @@ import JayKohImage from "@/assets/oscar/Avatar22.png";
 import GabrielaChangValdovinosImage from "@/assets/oscar/Avatar Gabriela Chang Valdovinos.png";
 import CryptobirdImage from "@/assets/oscar/Avatar Cryptobird.png";
 import BruceImage from "@/assets/oscar/Avatar Bruce.png";
-
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import homeStyles from "../home/styles.module.css";
+import BurcuMavisImage from "@/assets/oscar/Avatar Burcu Mavis.png";
+import RobertPasickeImage from "@/assets/oscar/Avatar Robert Pasicko.png";
+import AnkeLiuImage from "@/assets/oscar/Avatar Anke Liu.png";
 
 export function SubmissionProcess() {
   return (
@@ -226,6 +226,19 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="Opening Remarks"
               desc="The United Nations Development Programme (UNDP) will highlight the critical role blockchain can play in accelerating global development."
+              spearks={[
+                {
+                  img: RobertPasickeImage,
+                  name: "Robert Pasicko",
+                  org: [
+                    {
+                      name: "UNDP",
+                      title: "AltFinLab Team Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/robert-pasicko-5a563a3/",
+                },
+              ]}
             />
           </PartItem>
 
@@ -285,6 +298,17 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                     },
                   ],
                   link: "https://www.linkedin.com/in/datuk-ts-fadzli-abdul-wahit-6813244b/",
+                },
+                {
+                  img: BurcuMavisImage,
+                  name: "Burcu Mavis",
+                  org: [
+                    {
+                      name: "UNDP",
+                      title: "Blockchain Academy and Accelerator Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/burcu-m-7a9325149/",
                 },
               ]}
             />
@@ -372,6 +396,17 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                     },
                   ],
                   link: "https://www.linkedin.com/in/meet-thosar-bb049225/",
+                },
+                {
+                  img: AnkeLiuImage,
+                  name: "Anke Liu",
+                  org: [
+                    {
+                      name: "Stellar Development Foundation",
+                      title: "Ecosystem Growth Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/ankeliu/",
                 },
               ]}
             />
