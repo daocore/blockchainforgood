@@ -619,8 +619,11 @@ export const Judge = () => {
     homeStyles.moveFromBottom
   );
   return (
-    <div id="judges" ref={ref} className={cn("md:w-content w-full")}>
-      <h2 className="font-bold text-oscarActive font-['Inter'] mx-auto text-[20px] md:text-[32px] text-center">
+    <div ref={ref} className={cn("md:w-content w-full")}>
+      <h2
+        id="judges"
+        className="hash-section font-bold text-oscarActive font-['Inter'] mx-auto text-[20px] md:text-[32px] text-center"
+      >
         Judges
       </h2>
       <div

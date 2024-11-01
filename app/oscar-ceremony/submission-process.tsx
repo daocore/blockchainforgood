@@ -29,14 +29,14 @@ import JayKohImage from "@/assets/oscar/Avatar22.png";
 import GabrielaChangValdovinosImage from "@/assets/oscar/Avatar Gabriela Chang Valdovinos.png";
 import CryptobirdImage from "@/assets/oscar/Avatar Cryptobird.png";
 import BruceImage from "@/assets/oscar/Avatar Bruce.png";
-
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import homeStyles from "../home/styles.module.css";
+import BurcuMavisImage from "@/assets/oscar/Avatar Burcu Mavis.png";
+import RobertPasickeImage from "@/assets/oscar/Avatar Robert Pasicko.png";
+import AnkeLiuImage from "@/assets/oscar/Avatar Anke Liu.png";
 
 export function SubmissionProcess() {
   return (
     <div className="w-full md:w-content mx-auto px-2 md:px-0">
-      <div id="agenda" className="flex items-center gap-2">
+      <div id="agenda" className="hash-section flex items-center gap-2">
         <Image width={40} height={40} src={ProcessIconImage} alt="Process" />
         <h2 className="text-oscarActive text-3xl font-bold">Event Agenda</h2>
       </div>
@@ -226,6 +226,19 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="Opening Remarks"
               desc="The United Nations Development Programme (UNDP) will highlight the critical role blockchain can play in accelerating global development."
+              spearks={[
+                {
+                  img: RobertPasickeImage,
+                  name: "Robert Pasicko",
+                  org: [
+                    {
+                      name: "UNDP",
+                      title: "AltFinLab Team Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/robert-pasicko-5a563a3/",
+                },
+              ]}
             />
           </PartItem>
 
@@ -285,6 +298,17 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                     },
                   ],
                   link: "https://www.linkedin.com/in/datuk-ts-fadzli-abdul-wahit-6813244b/",
+                },
+                {
+                  img: BurcuMavisImage,
+                  name: "Burcu Mavis",
+                  org: [
+                    {
+                      name: "UNDP",
+                      title: "Blockchain Academy and Accelerator Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/burcu-m-7a9325149/",
                 },
               ]}
             />
@@ -372,6 +396,17 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                     },
                   ],
                   link: "https://www.linkedin.com/in/meet-thosar-bb049225/",
+                },
+                {
+                  img: AnkeLiuImage,
+                  name: "Anke Liu",
+                  org: [
+                    {
+                      name: "Stellar Development Foundation",
+                      title: "Ecosystem Growth Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/ankeliu/",
                 },
               ]}
             />
@@ -555,9 +590,6 @@ function PartItem({
   title: string;
   children: React.ReactNode;
 }) {
-  const ref = useIntersectionObserver<HTMLDivElement>(
-    homeStyles.moveFromBottom
-  );
   return (
     <div className="block md:flex space-y-2 md:space-y-0 md:space-x-2">
       <div
@@ -593,7 +625,7 @@ function PartContentItem({
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-3">
         {spearks.map((speark) => (
           <UserAvater
             img={speark.img}

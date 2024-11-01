@@ -1,6 +1,6 @@
-import AgendaImage from "@/assets/oscar-ceremony/agenda.png";
-import JudgeImage from "@/assets/oscar/Judge.webp";
-import RocketImage from "@/assets/oscar/Rocket.webp";
+import AgendaImage from "@/assets/oscar-ceremony/Agenda-active.png";
+import JudgeImage from "@/assets/oscar/Judge.png";
+import RocketImage from "@/assets/oscar/Rocket.png";
 import PartnerImage from "@/assets/oscar-ceremony/partner.png";
 import FAQImage from "@/assets/oscar-ceremony/faq.png";
 import Image from "next/image";
@@ -38,10 +38,10 @@ const HASH_LIST = [
 
 export function Hash() {
   return (
-    <div className="w-full sticky top-0 z-50 bg-oscarBlack">
+    <div id="navbar" className="w-full sticky top-0 z-50 bg-oscarBlack">
       <div className="mx-auto w-full md:w-content grid grid-cols-3 md:grid-cols-5">
         {HASH_LIST.map((hash) => (
-          <Link href={hash.hash}>
+          <Link className="" href={hash.hash}>
             <div
               key={hash.label}
               className={cn(
@@ -49,7 +49,11 @@ export function Hash() {
                 styles.hash
               )}
             >
-              <Image className="w-5" src={hash.image} alt={hash.label} />
+              <Image
+                className="w-5 grayscale"
+                src={hash.image}
+                alt={hash.label}
+              />
               <span className="text-xl">{hash.label}</span>
             </div>
           </Link>

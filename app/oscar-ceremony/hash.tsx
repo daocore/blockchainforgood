@@ -1,4 +1,4 @@
-import AgendaImage from "@/assets/oscar-ceremony/agenda.png";
+import AgendaImage from "@/assets/oscar-ceremony/Agenda-active.png";
 import AwardImage from "@/assets/oscar-ceremony/award.png";
 import PartnerImage from "@/assets/oscar-ceremony/partner.png";
 import FAQImage from "@/assets/oscar-ceremony/faq.png";
@@ -32,7 +32,10 @@ const HASH_LIST = [
 
 export function Hash() {
   return (
-    <div className="w-full md:w-content mx-auto grid grid-cols-2 md:grid-cols-4 sticky top-0 z-50 bg-oscarBlack">
+    <div
+      id="navbar"
+      className="w-full md:w-content mx-auto grid grid-cols-2 md:grid-cols-4 sticky top-0 z-50 bg-oscarBlack"
+    >
       {HASH_LIST.map((hash) => (
         <Link href={hash.hash}>
           <div
@@ -42,7 +45,11 @@ export function Hash() {
               styles.hash
             )}
           >
-            <Image className="w-5" src={hash.image} alt={hash.label} />
+            <Image
+              className="w-5 grayscale"
+              src={hash.image}
+              alt={hash.label}
+            />
             <span className="text-xl">{hash.label}</span>
           </div>
         </Link>
