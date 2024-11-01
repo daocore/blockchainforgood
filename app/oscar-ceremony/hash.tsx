@@ -1,4 +1,4 @@
-import AgendaImage from "@/assets/oscar-ceremony/agenda.png";
+import AgendaImage from "@/assets/oscar-ceremony/Agenda-active.png";
 import AwardImage from "@/assets/oscar-ceremony/award.png";
 import PartnerImage from "@/assets/oscar-ceremony/partner.png";
 import FAQImage from "@/assets/oscar-ceremony/faq.png";
