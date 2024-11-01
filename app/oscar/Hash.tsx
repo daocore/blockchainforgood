@@ -1,4 +1,4 @@
-import AgendaImage from "@/assets/oscar-ceremony/agenda.png";
+import AgendaImage from "@/assets/oscar-ceremony/Agenda-active.png";
 import JudgeImage from "@/assets/oscar/Judge.png";
 import RocketImage from "@/assets/oscar/Rocket.png";
 import PartnerImage from "@/assets/oscar-ceremony/partner.png";

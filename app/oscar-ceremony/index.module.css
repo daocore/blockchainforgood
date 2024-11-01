@@ -19,12 +19,12 @@
   mix-blend-mode: normal;
 }
 
-.hash:hover,
+.hash:hover img,
 .hash-active img {
   filter: none;
 }
 
-.hash:hover,
+.hash:hover span,
 .hash-active span {
   /* Text Gradient */
   background: linear-gradient(0deg, #c1a875, #c1a875),
@@ -106,10 +106,7 @@
 }
 
 .award-name {
-  /* Text Gradient */
-  background: linear-gradient(0deg, #c1a875, #c1a875),
-    linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #ffffff 95.95%),
-    linear-gradient(
+  background: linear-gradient(
       76.82deg,
       #7d8ca3 11.6%,
       #9ea1a1 25.31%,
@@ -117,13 +114,16 @@
       #576265 55.72%,
       #9fa2a5 82.54%,
       #d6d6d7 91.31%
-    );
+    ),
+    /* linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #ffffff 95.95%), */
+      rgba(193, 168, 117, 1);
+  background-blend-mode: overlay, color;
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-  background-blend-mode: color, overlay, normal;
-  text-shadow: 0px 2px 12px #000000;
+  text-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 1);
 }
 
 .award-btn-rule {
@@ -220,6 +220,12 @@
 
 .trophy-gray {
   filter: grayscale(1);
+}
+
+.award-item {
+  background-image: url(../..//assets/oscar-ceremony/award-bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
 .award-item:hover {
