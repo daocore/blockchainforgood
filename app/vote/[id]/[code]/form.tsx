@@ -15,35 +15,19 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { APICreateVote, APISendEmailCode } from "../api";
-import { useEffect, useState } from "react";
+import { APICreateVote } from "./api";
+import { useState } from "react";
 import { OrganizationEntity } from "@/app/square/types";
 import { encryptToken } from "../actions";
-import {
-  loadCaptchaEnginge,
-  LoadCanvasTemplate,
-  validateCaptcha,
-} from "react-simple-captcha";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import crypto from "crypto";
 import { IVoteCategory, VOTE_CATEGORY } from "../types";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-
-const publicKey = `-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt8icam8RbPeukZi5Vzj1
-+eOmH+u9ELD0nAzdLOw6UUfsHw0eTJkyH3SisU68YQ7y6OX3/nGE6Wsm/nJR+/OM
-aTb7yrK3PqSOUFrjzsH5aau/PTsNg0++EHuZJhZHoMw7iZLw30UZY0MO5rKS55JV
-qthADATkixmF824qo6fyZZRmdmNdDwBju3U7kSEy178rzZNeM0h6YP4zjwTIUGdD
-ICAE6FUzN4wGO93uoAx/uXAo5Nf/0iq9WqVGwSvB28D5Oh6sc9DJhHKJtrOXJuNw
-uTlG6yi9QGuMNL+5alRn6/7JmqHzzGVxgJsuaOaF1eAFs+ndPqSA/8auYcdQoCc1
-WwIDAQAB
------END PUBLIC KEY-----`;
 
 interface IPropss {
   id: string;
   orgs: OrganizationEntity[];
   category: IVoteCategory;
   maximum: number;
+  code: string;
   onSuccessed: () => void;
 }
 
@@ -64,12 +48,12 @@ export function VoteForm({
   orgs,
   category,
   maximum,
+  code,
   onSuccessed,
 }: IPropss) {
   // 根据maximum动态定义schema
   const formSchema = z.object({
     email: z.string().email(),
-    verifyCode: z.string().min(1),
     captchaCode: z.string().optional(),
     candidates: z
       .array(z.string())
@@ -92,7 +76,6 @@ export function VoteForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
-      verifyCode: "",
       candidates: [],
       nickname: "",
     },
@@ -106,7 +89,7 @@ export function VoteForm({
       const apiData = {
         id,
         email: values.email,
-        verifyCode: values.verifyCode,
+        code,
         candidates: values.candidates,
         nickname: values.nickname,
         walletAddress: values.walletAddress,
@@ -155,24 +138,6 @@ export function VoteForm({
               </FormLabel>
               <FormControl>
                 <Input type="email" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="verifyCode"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                <span className="text-red-500">*</span>Verification Code
-              </FormLabel>
-              <FormControl>
-                <div className="flex gap-2 items-center">
-                  <Input {...field} />
-                  <SendEmail form={form} />
-                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -356,112 +321,5 @@ function Single({
         </RadioGroup>
       </FormControl>
     </div>
-  );
-}
-
-export function SendEmail({ form }: { form: any }) {
-  const [captchaCodeOpen, setCaptchaCodeOpen] = useState(false);
-  const handleDialogOpenChange = (open: boolean) => {
-    if (!open) {
-      setCaptchaCodeOpen(false);
-      form.setValue("captchaCode", "");
-      form.clearErrors("captchaCode");
-    } else {
-      setTimeout(() => {
-        loadCaptchaEnginge(6);
-      }, 200);
-    }
-  };
-
-  const [countdown, setCountdown] = useState(60);
-  const [isCounting, setIsCounting] = useState(false);
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (isCounting && countdown > 0) {
-      timer = setInterval(() => {
-        setCountdown((prevCountdown) => prevCountdown - 1);
-      }, 1000);
-    } else if (countdown === 0) {
-      setIsCounting(false);
-      setCountdown(60);
-    }
-    return () => clearInterval(timer);
-  }, [isCounting, countdown]);
-
-  const onShowCaptchaCode = () => {
-    const email = form.getValues().email;
-    if (!email || isCounting) return;
-    setCaptchaCodeOpen(true);
-  };
-
-  const onSendEmailCode = () => {
-    if (validateCaptcha(form.getValues().captchaCode)) {
-      onSendEmailCodeImpl();
-    } else {
-      form.setError("captchaCode", {
-        message: "Captcha code is incorrect.",
-      });
-    }
-  };
-
-  const encryptedData = (data: any) => {
-    return crypto.publicEncrypt(
-      {
-        key: publicKey,
-        padding: crypto.constants.RSA_PKCS1_OAEP_PADDING, // 使用 RSA_PKCS1_PADDING 填充方案
-      },
-      Buffer.from(JSON.stringify(data), "utf8") as any
-    );
-  };
-
-  const onSendEmailCodeImpl = () => {
-    APISendEmailCode({
-      email: encryptedData({ fuckSybil: form.getValues().email }).toString(
-        "base64"
-      ),
-    });
-    setIsCounting(true);
-    handleDialogOpenChange(false);
-  };
-
-  return (
-    <Dialog open={captchaCodeOpen} onOpenChange={handleDialogOpenChange}>
-      <DialogTrigger asChild>
-        <Button
-          type="button"
-          onClick={onShowCaptchaCode}
-          className="bg-main w-24"
-          size="sm"
-          disabled={isCounting}
-        >
-          {isCounting ? `${countdown}s` : "Send Code"}
-        </Button>
-      </DialogTrigger>
-      <DialogContent>
-        <div>
-          <FormField
-            control={form.control}
-            name="captchaCode"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>
-                  <span className="text-red-500">*</span>Captcha Code
-                </FormLabel>
-                <FormControl>
-                  <div className="flex gap-2 items-center">
-                    <Input {...field} />
-                    <LoadCanvasTemplate reloadText="Reload" />
-                  </div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-        <div>
-          <Button onClick={onSendEmailCode}>Check</Button>
-        </div>
-      </DialogContent>
-    </Dialog>
   );
 }

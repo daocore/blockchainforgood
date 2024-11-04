@@ -21,6 +21,7 @@ export interface IVote {
     };
   };
   organizations: Array<OrganizationEntity>;
+  isUsed?: boolean;
 }
 
 export interface ICreateVote {
