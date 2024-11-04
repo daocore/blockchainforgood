@@ -11,15 +11,15 @@ import { Clock3, MapPin } from "lucide-react";
 import Image from "next/image";
 import { VoteForm } from "./form";
 import { Separator } from "@/components/ui/separator";
-import { useAPIVoteDetail } from "../api";
+import { useAPIVoteDetail } from "./api";
 import { IMAGE_URL } from "@/constants";
 import { Loading } from "../skeleton-loading";
 import { getTime, getTimeData, getTimeZone } from "../utils";
 import { useRef } from "react";
-import { Successed } from "../successed";
+import { Successed } from "./successed";
 
 export function OnSiteVoteDetail({ id, code }: { id: string; code: string }) {
-  const { data, isLoading } = useAPIVoteDetail(id);
+  const { data, isLoading } = useAPIVoteDetail(id, code);
 
   const successedRef = useRef<{ onSuccessed: () => void }>();
   if (isLoading || !data) {
@@ -29,6 +29,18 @@ export function OnSiteVoteDetail({ id, code }: { id: string; code: string }) {
   const onVoteSuccessed = () => {
     successedRef.current?.onSuccessed();
   };
+
+  if (data.isUsed) {
+    return (
+      <div className="w-full max-w-[768px] mx-auto mb-8">
+        <Card>
+          <CardContent className="text-center pt-6 text-red-500">
+            Code has already been used.
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-[768px] mx-auto mb-8">
@@ -111,6 +123,7 @@ export function OnSiteVoteDetail({ id, code }: { id: string; code: string }) {
             onSuccessed={onVoteSuccessed}
             category={data.category}
             maximum={data.maximum}
+            code={code}
           />
         </CardContent>
       </Card>
