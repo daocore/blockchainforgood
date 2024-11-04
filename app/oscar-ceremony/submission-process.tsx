@@ -32,6 +32,10 @@ import BruceImage from "@/assets/oscar/Avatar Bruce.png";
 import BurcuMavisImage from "@/assets/oscar/Avatar Burcu Mavis.png";
 import RobertPasickeImage from "@/assets/oscar/Avatar Robert Pasicko.png";
 import AnkeLiuImage from "@/assets/oscar/Avatar Anke Liu.png";
+import AbdullaAlDhaheriImage from "@/assets/oscar/Avatar Abdulla Al Dhaheri.png";
+import AlexandereEislImage from "@/assets/oscar/Avatar AlexanderEisl.png";
+import PinakiImage from "@/assets/oscar/Avatar Pinaki.png";
+import DrWIssamanyaTulthaisongImage from "@/assets/oscar/Avatar Dr. Wissamanya Tulthaisong.png";
 
 export function SubmissionProcess() {
   return (
@@ -194,6 +198,28 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   ],
                   link: "https://linkedin.com/in/ahnbruce",
                 },
+                {
+                  img: BurcuMavisImage,
+                  name: "Burcu Mavis",
+                  org: [
+                    {
+                      name: "UNDP",
+                      title: "Blockchain Academy and Accelerator Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/burcu-m-7a9325149/",
+                },
+                {
+                  img: PinakiImage,
+                  name: "Pinaki",
+                  org: [
+                    {
+                      name: "Affi Network",
+                      title: "Founder/CEO",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/pinaki-s/",
+                },
               ]}
             />
 
@@ -225,7 +251,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
           <PartItem time="1:30 PM - 1:40 PM" title="A Vision for Global Change">
             <PartContentItem
               title="Opening Remarks"
-              desc="The United Nations Development Programme (UNDP) will highlight the critical role blockchain can play in accelerating global development."
+              desc="The representatives of the Thai National Assembly will discuss blockchain solutions for the region of Thailand."
               spearks={[
                 {
                   img: RobertPasickeImage,
@@ -237,6 +263,18 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                     },
                   ],
                   link: "https://www.linkedin.com/in/robert-pasicko-5a563a3/",
+                },
+                {
+                  img: DrWIssamanyaTulthaisongImage,
+                  name: "Dr. Wissamanya Tulthaisong",
+                  org: [
+                    {
+                      name: "National Assembly of Thailand",
+                      title: `Secretary of the commerce commission and intellectual property house of representatives
+& Expert on the committee of the fund for agricultural rehabilitation and development`,
+                    },
+                  ],
+                  link: "",
                 },
               ]}
             />
@@ -309,6 +347,28 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                     },
                   ],
                   link: "https://www.linkedin.com/in/burcu-m-7a9325149/",
+                },
+                {
+                  img: AbdullaAlDhaheriImage,
+                  name: "Abdulla Al Dhaheri",
+                  org: [
+                    {
+                      name: "The Blockchain Center Abu Dhabi",
+                      title: "CEO",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/abdulla-a-297569b7/",
+                },
+                {
+                  img: AlexandereEislImage,
+                  name: "AlexanderEisl",
+                  org: [
+                    {
+                      name: "ABC Research",
+                      title: "Managing Director",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/alexandereisl",
                 },
               ]}
             />
