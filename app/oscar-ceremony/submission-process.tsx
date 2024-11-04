@@ -251,7 +251,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
           <PartItem time="1:30 PM - 1:40 PM" title="A Vision for Global Change">
             <PartContentItem
               title="Opening Remarks"
-              desc="The representatives of the Thai National Assembly will discuss blockchain solutions for the region of Thailand."
+              desc="The United Nations Development Programme (UNDP) will highlight the critical role blockchain can play in accelerating global development."
               spearks={[
                 {
                   img: RobertPasickeImage,
@@ -264,6 +264,12 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   ],
                   link: "https://www.linkedin.com/in/robert-pasicko-5a563a3/",
                 },
+              ]}
+            />
+            <PartContentItem
+              title=""
+              desc="The representatives of the Thai National Assembly will discuss blockchain solutions for the region of Thailand."
+              spearks={[
                 {
                   img: DrWIssamanyaTulthaisongImage,
                   name: "Dr. Wissamanya Tulthaisong",
@@ -277,6 +283,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   link: "",
                 },
               ]}
+              className="md:grid-cols-1"
             />
           </PartItem>
 
@@ -676,16 +683,20 @@ function PartContentItem({
   title,
   desc,
   spearks = [],
+  className,
 }: {
   title: string;
   desc: string;
   spearks?: any[];
+  className?: string;
 }) {
   return (
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-3">
+      <div
+        className={cn("grid grid-cols-1 md:grid-cols-4 gap-4 mt-3", className)}
+      >
         {spearks.map((speark) => (
           <UserAvater
             img={speark.img}
