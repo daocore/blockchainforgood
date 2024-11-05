@@ -68,8 +68,10 @@ export const Header = () => {
   const isProject = pathname.startsWith(ROUTER_PATH.PROJECT);
   const isVoting = pathname.startsWith(ROUTER_PATH.VOTING);
 
+  const isOnSiteVote = /\/vote\/*\/*/.test(pathname);
+
   const iconSvgFillColor =
-    isIncubationPage || isOscar || isOscarCeremony || isVoting
+    isIncubationPage || isOscar || isOscarCeremony || isVoting || isOnSiteVote
       ? "white"
       : "black";
 
@@ -232,7 +234,10 @@ export const Header = () => {
                 size={18}
                 className={cn(
                   "md:hidden cursor-pointer absoluted z-30 top-3 right-2",
-                  (isOscar || isIncubationPage || isOscarCeremony) &&
+                  (isOscar ||
+                    isIncubationPage ||
+                    isOscarCeremony ||
+                    isOnSiteVote) &&
                     "text-white"
                 )}
                 onClick={() => setShowMobileMenu(true)}
