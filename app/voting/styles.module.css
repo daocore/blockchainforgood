@@ -116,7 +116,7 @@
     linear-gradient(290.69deg, rgba(255, 217, 137, 0) 78.82%, #ffd989 131.97%),
     linear-gradient(120.51deg, rgba(255, 217, 137, 0) 89.66%, #ffd989 167.63%),
     linear-gradient(0deg, rgba(22, 17, 7, 0.4), rgba(22, 17, 7, 0.4));
-  height: calc(100vh - 5rem - 3.5rem - 2.5rem - 2rem);
+  height: calc(100vh - 5rem - 3.5rem - 2.5rem - 2rem - 4rem);
 }
 
 .right-wrapper-bg {
@@ -162,3 +162,28 @@
 /* .bulibuli::before {
   
 } */
+
+.tab-active-wrapper {
+  border: 1px solid #c09845;
+  background: linear-gradient(0deg, #c1a875, #c1a875),
+    linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #ffffff 95.95%),
+    linear-gradient(
+      76.82deg,
+      #7d8ca3 11.6%,
+      #9ea1a1 25.31%,
+      #848b8a 48.06%,
+      #576265 55.72%,
+      #9fa2a5 82.54%,
+      #d6d6d7 91.31%
+    );
+  background-blend-mode: color, overlay, normal;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.tab-active {
+  background-image: url(../../assets/voting/tab-active.png);
+  background-position: center;
+}

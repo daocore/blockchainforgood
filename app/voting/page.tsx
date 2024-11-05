@@ -7,10 +7,13 @@ import styles from "./styles.module.css";
 import "./styles.css";
 import { useEffect, useRef, useState } from "react";
 import { ProjectDetail } from "./project-detail";
-import { useAPIGetVoteResult } from "../vote/[id]/api";
-import { OSCAR_VOTE_ID } from "@/constants";
+import { useAPIGetVoteResult } from "../vote/[id]/[code]/api";
+import { useAPIVoteDetail } from "../vote/[id]/api";
 import { Loading } from "./skeleton-loading";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { IVotingResult } from "../vote/[id]/[code]/types";
+import { IVote } from "../vote/[id]/types";
+import { PROJECT_LIST, PROJECT_LOGO_MAP } from "./consts";
 
 const SECNODE = 1000;
 
@@ -22,13 +25,13 @@ const REFRESH_TIME = 30 * SECNODE;
 const TRENDS_TITLE = "TOP 10 PROJECTS";
 const PROJECT_TITLE = "PROJECTS INTRO";
 
+const ID = "19";
+
 export default function VotePage() {
   const { data = [], isLoading } = useAPIGetVoteResult(
-    { id: OSCAR_VOTE_ID },
+    { id: ID },
     REFRESH_TIME
   );
-
-  const topTenData = data.slice(0, 10);
 
   const [title, setTitle] = useState(TRENDS_TITLE);
 
@@ -70,38 +73,58 @@ export default function VotePage() {
   };
 
   useEffect(() => {
-    toggleComponent();
+    // toggleComponent();
   }, []);
 
-  if (isLoading && topTenData.length === 0) return <Loading />;
+  if (isLoading && data.length === 0) return <Loading />;
   return (
-    <Layout
-      dataSource={topTenData}
-      title={title}
-      onProjectSelected={setCurrentIndex}
-    >
-      <div className={cn("w-full relative p-4", styles["right-wrapper"])}>
-        <div
-          className={cn(
-            styles["right-wrapper-bg"],
-            "absolute inset-0 opacity-20"
-          )}
-        />
-        <div className={cn(styles["voting-transition-wrap"], "h-full")}>
-          <TransitionGroup>
-            <CSSTransition
-              key={showTrends ? "A" : "B"}
-              timeout={500}
-              classNames="voting-fade"
-              className="h-full"
-            >
-              {showTrends ? (
-                <ProjectsTrends dataSource={topTenData} />
-              ) : (
-                <ProjectDetail item={topTenData[currentIndex]} />
+    <Layout dataSource={data} title={title}>
+      <div className="w-full max-w-[calc(100vw-39rem)]">
+        <div className={cn("w-full relative p-4", styles["right-wrapper"])}>
+          <div
+            className={cn(
+              styles["right-wrapper-bg"],
+              "absolute inset-0 opacity-20"
+            )}
+          />
+          <div className={cn(styles["voting-transition-wrap"], "h-full")}>
+            <TransitionGroup>
+              <CSSTransition
+                key={showTrends ? "A" : "B"}
+                timeout={500}
+                classNames="voting-fade"
+                className="h-full"
+              >
+                {showTrends ? (
+                  <ProjectsTrends dataSource={data} />
+                ) : (
+                  <ProjectDetail
+                    name={PROJECT_LIST[currentIndex]}
+                    intro={PROJECT_LOGO_MAP[PROJECT_LIST[currentIndex]].intro}
+                  />
+                )}
+              </CSSTransition>
+            </TransitionGroup>
+          </div>
+        </div>
+        <div className="flex gap-2 mt-2 overflow-x-auto cursor-pointer">
+          {PROJECT_LIST.map((name, index) => (
+            <div
+              className={cn(
+                index === currentIndex && styles["tab-active-wrapper"]
               )}
-            </CSSTransition>
-          </TransitionGroup>
+            >
+              <div
+                onClick={() => setCurrentIndex(index)}
+                className={cn(
+                  "text-darkGray text-xl py-2 px-4 whitespace-nowrap",
+                  index === currentIndex && styles["tab-active"]
+                )}
+              >
+                {name}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </Layout>
