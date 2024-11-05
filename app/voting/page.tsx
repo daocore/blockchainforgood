@@ -8,11 +8,8 @@ import "./styles.css";
 import { useEffect, useRef, useState } from "react";
 import { ProjectDetail } from "./project-detail";
 import { useAPIGetVoteResult } from "../vote/[id]/[code]/api";
-import { useAPIVoteDetail } from "../vote/[id]/api";
 import { Loading } from "./skeleton-loading";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { IVotingResult } from "../vote/[id]/[code]/types";
-import { IVote } from "../vote/[id]/types";
 import { PROJECT_LIST, PROJECT_LOGO_MAP } from "./consts";
 
 const SECNODE = 1000;
@@ -73,7 +70,7 @@ export default function VotePage() {
   };
 
   useEffect(() => {
-    // toggleComponent();
+    toggleComponent();
   }, []);
 
   if (isLoading && data.length === 0) return <Loading />;
@@ -99,8 +96,8 @@ export default function VotePage() {
                   <ProjectsTrends dataSource={data} />
                 ) : (
                   <ProjectDetail
-                    name={PROJECT_LIST[currentIndex]}
-                    intro={PROJECT_LOGO_MAP[PROJECT_LIST[currentIndex]].intro}
+                    name={PROJECT_LIST[currentIndex].name}
+                    intro={PROJECT_LIST[currentIndex].intro}
                   />
                 )}
               </CSSTransition>
@@ -108,7 +105,7 @@ export default function VotePage() {
           </div>
         </div>
         <div className="flex gap-2 mt-2 overflow-x-auto cursor-pointer">
-          {PROJECT_LIST.map((name, index) => (
+          {PROJECT_LIST.map((item, index) => (
             <div
               className={cn(
                 index === currentIndex && styles["tab-active-wrapper"]
@@ -121,7 +118,7 @@ export default function VotePage() {
                   index === currentIndex && styles["tab-active"]
                 )}
               >
-                {name}
+                {item.name}
               </div>
             </div>
           ))}

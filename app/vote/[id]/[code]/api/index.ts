@@ -2,9 +2,8 @@ import useSWR from "swr";
 import { IVote, IVoteResult, IVoteResultParams } from "../../types";
 import { http, Q } from "@/lib/http";
 import { ICreateOnSiteVote, IVotingResult } from "../types";
-
-import { getVoteDetailFetcher } from "../../api";
-import { PROJECT_LOGO_MAP } from "@/app/voting/consts";
+import { PROJECT_LIST, PROJECT_LOGO_MAP } from "@/app/voting/consts";
+import { IProject } from "@/app/voting/types";
 
 const API_PATH = {
   GET_DETAIL: "/vote/details/on-site",
@@ -69,11 +68,10 @@ export async function APIGetVoteResult(params: IVoteResultParams) {
       },
     })
   );
-  const vote = await getVoteDetailFetcher(params);
   const tableData = initialTableData(
     response,
-    vote?.organizations,
-    vote?.event?.id
+    PROJECT_LIST,
+    params.id
   ) as unknown as IVotingResult[];
   let isAllZero = true;
   let total = 0;
@@ -101,7 +99,7 @@ export async function APIGetVoteResult(params: IVoteResultParams) {
 
 function initialTableData(
   data: IVoteResult[] = [],
-  orgs: IVote["organizations"] = [],
+  orgs: IProject[] = [],
   eventId: string
 ): IVoteResult[] {
   const newRes = [...data.map((item) => ({ ...item, eventId }))];
@@ -121,7 +119,7 @@ function initialTableData(
         ranking: "-" as unknown as number,
         trend: 0,
         count: 0,
-        project: org,
+        project: org as any,
         eventId,
       };
     })

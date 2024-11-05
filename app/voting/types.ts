@@ -5,3 +5,8 @@ export type IExtraProjectInfo = {
   activeLogo: StaticImageData;
   intro: string;
 };
+
+export type IProject = IExtraProjectInfo & {
+  id: string;
+  name: string;
+};

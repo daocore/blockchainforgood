@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { VoteForm } from "./form";
 import { useAPIVoteDetail } from "./api";
@@ -16,6 +10,7 @@ import { Successed } from "./successed";
 import PosterImage from "@/assets/voting/poster.png";
 import IntroImage from "@/assets/voting/intro.png";
 import TitleImage from "@/assets/voting/title.png";
+import { Projects } from "./projects";
 
 export function OnSiteVoteDetail({ id, code }: { id: string; code: string }) {
   const { data, isLoading } = useAPIVoteDetail(id, code);
@@ -42,24 +37,12 @@ export function OnSiteVoteDetail({ id, code }: { id: string; code: string }) {
   }
 
   return (
-    <div className="w-full max-w-[768px] mx-auto mb-8 -mt-20 bg-oscarBlack">
+    <div className="w-full max-w-[768px] mx-auto pb-4 -mt-20 bg-oscarBlack">
       <Successed ref={successedRef} />
       <Image src={PosterImage} alt="poster" />
       <Image src={IntroImage} alt="intro" />
       <Image src={TitleImage} alt="title" />
-
-      <Card className="mt-4">
-        <CardContent className="pt-6">
-          <VoteForm
-            id={id}
-            orgs={data.organizations}
-            onSuccessed={onVoteSuccessed}
-            category={data.category}
-            maximum={data.maximum}
-            code={code}
-          />
-        </CardContent>
-      </Card>
+      <Projects />
     </div>
   );
 }
