@@ -1,13 +1,13 @@
+import { IVoteResult } from "../types";
+import { IExtraProjectInfo } from "@/app/voting/types";
+
 export interface ICreateOnSiteVote {
   id: string;
-  email: string;
   code: string;
   candidates: string[];
-  nickname: string;
-  walletAddress: string;
-  link: {
-    telgram?: string;
-    linkedin?: string;
-  };
   token: string;
 }
+
+export type IVotingResult = Omit<IVoteResult, "project"> & {
+  project: Omit<IVoteResult["project"], "logo"> & IExtraProjectInfo;
+};

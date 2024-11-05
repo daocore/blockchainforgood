@@ -4,20 +4,18 @@ import { TopThree } from "./top-three";
 import { QRCode } from "./qr-code";
 import { Title } from "./title";
 import { ReactNode } from "react";
-import { IVoteResult } from "@/app/vote/[id]/types";
 import Image from "next/image";
 import { IMAGE_URL } from "@/constants";
+import { IVotingResult } from "@/app/vote/[id]/[code]/types";
 
 export function Layout({
   children,
   title,
   dataSource,
-  onProjectSelected,
 }: {
   children: ReactNode;
   title: string;
-  dataSource: IVoteResult[];
-  onProjectSelected: (index: number) => void;
+  dataSource: IVotingResult[];
 }) {
   return (
     <div className={cn("-mt-20 pt-20 w-full h-screen relative", styles.voting)}>
@@ -43,19 +41,6 @@ export function Layout({
             <QRCode />
           </div>
           {children}
-        </div>
-        <div className="flex justify-end gap-2 mt-2">
-          {dataSource.map((item, index) => (
-            <Image
-              key={item.id}
-              width={32}
-              height={32}
-              className="w-8 h-auto object-contain cursor-pointer"
-              src={`${IMAGE_URL}${item.project.logo}`}
-              alt={item.project.name}
-              onClick={() => onProjectSelected(index)}
-            />
-          ))}
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import BGAGlodImage from "@/assets/vote/BGA Gold.png";
 import Image from "next/image";
 
 export function QRCode() {
+  console.log(BGAGlodImage.width, BGAGlodImage.height);
   return (
     <div
       className={cn(
@@ -16,14 +17,15 @@ export function QRCode() {
       <Image className="w-36 h-36" src={CodeImage} alt="vote" />
       <div className="flex flex-col justify-between">
         <p className="text-oscarActive text-4xl font-medium">Call To Action</p>
-        <Image
-          // style={{ width: "264px" }}
-          className="h-16 w-auto"
-          width={264}
-          height={64}
-          src={BGAGlodImage}
-          alt="BGA"
-        />
+        <div className="flex justify-end">
+          <Image
+            className="h-12 w-48"
+            width={240}
+            height={64}
+            src={BGAGlodImage}
+            alt="BGA"
+          />
+        </div>
       </div>
     </div>
   );

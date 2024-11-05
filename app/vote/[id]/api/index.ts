@@ -15,44 +15,48 @@ const API_PATH = {
   GET_VOTE_RESULT: "/vote/vote/result",
 };
 
+export const getVoteDetailFetcher = async (querys: any) => {
+  const response = (await Q(
+    http.get(API_PATH.GET_DETAIL, {
+      params: querys,
+      headers: {
+        "Cache-Control": "no-cache",
+      },
+    })
+  )) as IVote;
+  let loc = {
+    city: "-",
+    area: "-",
+  };
+  try {
+    loc = JSON.parse(response.event.location);
+  } catch (error) {}
+  const location =
+    response.event.online === 1
+      ? "ONLINE"
+      : (loc?.city ? loc?.city + ", " : "") + loc?.area;
+  response.event.location = location;
+  return response;
+};
+
 export function useAPIVoteDetail(id: string) {
   const url = API_PATH.GET_DETAIL;
   const querys = {
     id,
   };
 
-  const fetcher = async () => {
-    const response = (await Q(
-      http.get(url, {
-        params: querys,
-        headers: {
-          "Cache-Control": "no-cache",
-        },
-      })
-    )) as IVote;
-    let loc = {
-      city: "-",
-      area: "-",
-    };
-    try {
-      loc = JSON.parse(response.event.location);
-    } catch (error) {}
-    const location =
-      response.event.online === 1
-        ? "ONLINE"
-        : (loc?.city ? loc?.city + ", " : "") + loc?.area;
-    response.event.location = location;
-    return response;
-  };
-
-  return useSWR<IVote>([url, querys], fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-    onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
-      return;
-    },
-  });
+  return useSWR<IVote>(
+    [url, querys],
+    ([url, querys]) => getVoteDetailFetcher(querys),
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
+        return;
+      },
+    }
+  );
 }
 
 export function APICreateVote(data: ICreateVote) {

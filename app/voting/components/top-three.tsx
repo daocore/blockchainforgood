@@ -1,5 +1,3 @@
-import { IVoteResult } from "@/app/vote/[id]/types";
-import { IMAGE_URL } from "@/constants";
 import { cn } from "@/lib";
 import Image, { StaticImageData } from "next/image";
 import styles from "../styles.module.css";
@@ -7,24 +5,32 @@ import FirstImage from "@/assets/vote/first.png";
 import SecondImage from "@/assets/vote/second.png";
 import ThirdImage from "@/assets/vote/third.png";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { IVotingResult } from "@/app/vote/[id]/[code]/types";
 
-export function TopThree({ dataSource }: { dataSource: IVoteResult[] }) {
+export function TopThree({ dataSource }: { dataSource: IVotingResult[] }) {
   const first = dataSource[0];
   const second = dataSource[1];
   const third = dataSource[2];
+  const isShow = first && second && third;
+
+  const isZero = first.count === 0;
   return (
     <div style={{ height: "calc(100% - 11rem - 32px)" }} className="flex gap-8">
-      <TopItem
-        project={second}
-        height={second.count / first.count}
-        image={SecondImage}
-      />
-      <TopItem project={first} height={1} image={FirstImage} />
-      <TopItem
-        project={third}
-        height={third.count / first.count}
-        image={ThirdImage}
-      />
+      {isShow && (
+        <>
+          <TopItem
+            project={second}
+            height={isZero ? 0 : second.count / first.count}
+            image={SecondImage}
+          />
+          <TopItem project={first} height={isZero ? 0 : 1} image={FirstImage} />
+          <TopItem
+            project={third}
+            height={isZero ? 0 : third.count / first.count}
+            image={ThirdImage}
+          />
+        </>
+      )}
     </div>
   );
 }
@@ -34,40 +40,28 @@ function TopItem({
   height,
   image,
 }: {
-  project: IVoteResult;
+  project: IVotingResult;
   height: number;
   image: StaticImageData;
 }) {
-  const { name, logo } = project.project;
+  const { name, activeLogo } = project.project;
   const { count } = project;
   return (
     <div className="flex gap-2 flex-col justify-end text-white ">
-      <div className={cn("w-32 h-32 rounded-full", styles["top-item-image"])}>
-        <div
-          className={cn(
-            styles["top-item-image-inner"],
-            "w-full h-full rounded-full overflow-hidden flex justify-center items-center"
-          )}
-        >
-          <Image
-            width={1}
-            height={1}
-            className="w-auto"
-            src={`${IMAGE_URL}${logo}`}
-            alt={name}
-          />
-        </div>
+      <div className={cn("w-32")}>
+        <Image
+          width={1}
+          height={1}
+          className="w-32"
+          src={activeLogo}
+          alt={name}
+        />
       </div>
       <div
-        className={cn(
-          "text-center font-bold px-2 py-1 h-8 truncate",
-          styles["top-item-name"]
-        )}
-      >
-        {name}
-      </div>
-      <div
-        style={{ height: `calc(${height} * (100% - 10rem))` }}
+        style={{
+          height: `calc(${height} * (100% - 10rem))`,
+          minHeight: "132px",
+        }}
         className={cn(
           styles["top-item-bar"],
           "w-full h-full flex flex-col justify-around"

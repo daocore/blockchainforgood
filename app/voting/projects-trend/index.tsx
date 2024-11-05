@@ -12,12 +12,14 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { columns } from "./columns";
+import { IVotingResult } from "@/app/vote/[id]/[code]/types";
 
-export function ProjectsTrends({ dataSource }: { dataSource: IVoteResult[] }) {
-  const max = dataSource[0].count;
-  const restProject = dataSource
-    .slice(3)
-    .map((project) => ({ ...project, total: max }));
+export function ProjectsTrends({
+  dataSource,
+}: {
+  dataSource: IVotingResult[];
+}) {
+  const restProject = dataSource.slice(3);
   const table = useReactTable({
     data: restProject,
     columns,

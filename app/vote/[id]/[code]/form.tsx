@@ -53,8 +53,6 @@ export function VoteForm({
 }: IPropss) {
   // 根据maximum动态定义schema
   const formSchema = z.object({
-    email: z.string().email(),
-    captchaCode: z.string().optional(),
     candidates: z
       .array(z.string())
       .refine((value) => value.some((item) => item), {
@@ -63,21 +61,13 @@ export function VoteForm({
       .refine((value) => value?.length <= maximum, {
         message: `You can select up to ${maximum} items.`,
       }),
-    nickname: z.string().min(1),
-    walletAddress: z.string().optional(),
-    link: z.object({
-      telegram: z.string().optional(),
-      linkedin: z.string().optional(),
-    }),
   });
 
   // 1. Define your form.
   const form = useForm<IFormFields>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
       candidates: [],
-      nickname: "",
     },
   });
 
@@ -88,12 +78,8 @@ export function VoteForm({
       setSubmitLoading(true);
       const apiData = {
         id,
-        email: values.email,
         code,
         candidates: values.candidates,
-        nickname: values.nickname,
-        walletAddress: values.walletAddress,
-        link: values.link,
       };
       const token = await encryptToken(JSON.stringify(apiData));
       await APICreateVote({
@@ -113,79 +99,6 @@ export function VoteForm({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="nickname"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                <span className="text-red-500">*</span>Nickname
-              </FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                <span className="text-red-500">*</span>Email
-              </FormLabel>
-              <FormControl>
-                <Input type="email" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="walletAddress"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Wallet Address</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormDescription>
-                Enter your wallet address for a chance to receive a limited-time
-                POAP.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="link.telegram"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Telgram</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="link.linkedin"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>LinkedIn</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
         <FormField
           control={form.control}
           name="candidates"

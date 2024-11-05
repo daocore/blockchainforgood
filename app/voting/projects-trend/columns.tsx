@@ -7,8 +7,9 @@ import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { IVotingResult } from "@/app/vote/[id]/[code]/types";
 
-export const columns: ColumnDef<IVoteResult>[] = [
+export const columns: ColumnDef<IVotingResult>[] = [
   {
     accessorKey: "ranking",
     header: "RANK",
@@ -39,8 +40,8 @@ export const columns: ColumnDef<IVoteResult>[] = [
         <Image
           width={24}
           height={24}
-          className="rounded-full w-6 h-6 hidden md:block"
-          src={`${IMAGE_URL}${project.logo}`}
+          className="rounded-full w-auto h-6 hidden md:block"
+          src={project.logo}
           alt={project.name}
         />
       );

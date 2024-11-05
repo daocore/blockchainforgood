@@ -11,9 +11,10 @@ import {
 } from "@/components/ui/table";
 import { cn } from "@/lib";
 import { IVoteResult } from "@/app/vote/[id]/types";
+import { IVotingResult } from "@/app/vote/[id]/[code]/types";
 
 interface DataTableProps {
-  table: TableInstance<IVoteResult>;
+  table: TableInstance<IVotingResult>;
 }
 
 const DEFAILT_MAX_SHOW_ROWS = 10;
