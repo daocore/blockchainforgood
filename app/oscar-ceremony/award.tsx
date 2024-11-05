@@ -19,28 +19,33 @@ const AWARD_LIST = [
   {
     name: "Collaboration Bridge Award ",
     ambassador: "Individual",
-    prize: "Price Worth $3000",
+    prize: "Prize Worth $3000",
     tags: [
-      "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
-      "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
-      "Bangkok Trip Reimbursement (A $2000 reimbursement for your trip to Bangkok)",
+      "BGA Merchandise Package",
+      "On-Chain Certificate",
+      "Bangkok Trip Reimbursement",
     ],
     buttons: [
       (isSafari: boolean) => (
-        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-          <span
-            className={cn(
-              isSafari ? "text-description" : styles["award-btn-rule-span"]
-            )}
-          >
-            Rules
-          </span>
-        </Button>
+        <Link
+          target="__blank"
+          href="https://www.blockchainforgood.xyz/news/detail/41d6b262-ad52-48ba-a76a-e0337284412b"
+        >
+          <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+            <span
+              className={cn(
+                isSafari ? "text-description" : styles["award-btn-rule-span"]
+              )}
+            >
+              Rules
+            </span>
+          </Button>
+        </Link>
       ),
       () => (
         <Button
           className={cn(
-            "px-8 rounded-none opacity-70",
+            "px-8 rounded-none opacity-70 w-44",
             styles["award-btn-invatation"]
           )}
         >
@@ -52,23 +57,28 @@ const AWARD_LIST = [
   {
     name: "Public Welfare Contribution Award",
     ambassador: "Individual",
-    prize: "Price Worth $1000",
+    prize: "Prize Worth $1000",
     tags: [
-      "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
-      "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
-      "$500 Cash Reward (A cash prize awarded to the winner)",
+      "BGA Merchandise Package",
+      "On-Chain Certificate",
+      "$500 Cash Reward",
     ],
     buttons: [
       (isSafari: boolean) => (
-        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-          <span
-            className={cn(
-              isSafari ? "text-description" : styles["award-btn-rule-span"]
-            )}
-          >
-            Rules
-          </span>
-        </Button>
+        <Link
+          target="__blank"
+          href="https://www.blockchainforgood.xyz/news/detail/41d6b262-ad52-48ba-a76a-e0337284412b"
+        >
+          <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+            <span
+              className={cn(
+                isSafari ? "text-description" : styles["award-btn-rule-span"]
+              )}
+            >
+              Rules
+            </span>
+          </Button>
+        </Link>
       ),
       () => (
         <Link
@@ -76,7 +86,7 @@ const AWARD_LIST = [
           href={`${ROUTER_PATH.FORM.PERSON}/${OSCAR_CONTRIBUTION_AWARD_EVENT_ID}`}
         >
           <Button
-            className={cn("px-8 rounded-none", styles["award-btn-apply"])}
+            className={cn("px-8 rounded-none w-44", styles["award-btn-apply"])}
           >
             <span>Apply</span>
           </Button>
@@ -87,23 +97,28 @@ const AWARD_LIST = [
   {
     name: "BGA Ambassador Star",
     ambassador: "Ambassador",
-    prize: "Price Worth $300",
+    prize: "Prize Worth $300",
     tags: [
-      "$150 Gift (Choose from a selection of exciting items: Michelle Retro Speaker, JBL Sports Speaker, Apple Gift Card, Amazon Gift Card)",
-      "BGA Merchandise Package (A complete set of exclusive BGA merchandise, including a hat, clothing, and badges)",
-      "On-Chain Certificate (Receive a digital certificate verifying your participation, securely recorded on the blockchain)",
+      "BGA Merchandise Package",
+      "On-Chain Certificate",
+      "$500 Cash Reward",
     ],
     buttons: [
       (isSafari: boolean) => (
-        <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-          <span
-            className={cn(
-              isSafari ? "text-description" : styles["award-btn-rule-span"]
-            )}
-          >
-            Rules
-          </span>
-        </Button>
+        <Link
+          target="__blank"
+          href="https://www.blockchainforgood.xyz/news/detail/41d6b262-ad52-48ba-a76a-e0337284412b"
+        >
+          <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
+            <span
+              className={cn(
+                isSafari ? "text-description" : styles["award-btn-rule-span"]
+              )}
+            >
+              Rules
+            </span>
+          </Button>
+        </Link>
       ),
       () => (
         <Link
@@ -111,7 +126,7 @@ const AWARD_LIST = [
           href={`${ROUTER_PATH.FORM.PERSON}/${HACKTHON_APPLY_EVENT_ID}`}
         >
           <Button
-            className={cn("px-8 rounded-none", styles["award-btn-apply"])}
+            className={cn("px-8 rounded-none w-44", styles["award-btn-apply"])}
           >
             <span>Apply</span>
           </Button>
@@ -129,7 +144,7 @@ export function Award() {
     <div
       ref={ref}
       id="award"
-      className="w-full md:w-content mx-auto pt-6 px-2 md:px-0"
+      className="hash-section w-full md:w-content mx-auto pt-6 px-2 md:px-0"
     >
       <div className="text-center">
         <h2
@@ -158,68 +173,77 @@ function AwardItem({ item }: { item: (typeof AWARD_LIST)[number] }) {
     <div
       ref={ref}
       className={cn(
-        "flex flex-col md:flex-row gap-6 items-center p-6 mt-6",
+        "flex flex-col md:flex-row md:justify-between gap-6 items-center p-6 mt-6",
         styles["award-item"]
       )}
     >
-      <div className="flex gap-2 mr-3 w-80 flex-none">
-        <Image
-          height={80}
-          className={cn("h-20 w-auto", styles["trophy-gray"])}
-          src={TrophyImage}
-          alt="trophy"
-        />
-        <div className="flex flex-col justify-around">
-          <h3 className={cn(styles["award-name"], "text-xl md:text-2xl mb-2")}>
-            {item.name}
-          </h3>
-          <div
-            className={cn(
-              "flex justify-around items-center gap-1 whitespace-nowrap"
-            )}
-          >
-            <span
+      <div className="flex flex-col md:flex-row justify-between gap-2 md:gap-0 w-full items-center">
+        <div className="flex">
+          <Image
+            height={80}
+            className={cn("h-20 w-auto mr-6", styles["trophy-gray"])}
+            src={TrophyImage}
+            alt="trophy"
+          />
+          <div className="flex flex-col justify-around md:w-80">
+            <h3
               className={cn(
-                isSafari ? "text-description" : styles["award-description"]
+                styles["award-name"],
+                "text-xl md:text-[22px] font-semibold mb-2"
               )}
             >
-              {item.ambassador}
-            </span>
-            <span
-              style={{
-                width: "1px",
-                borderRight: "1px solid #2D3541",
-              }}
-              className="py-1 flex-none h-4"
-            ></span>
-            <span
+              {item.name}
+            </h3>
+            <div
               className={cn(
-                isSafari ? "text-description" : styles["award-description"]
+                "flex items-center gap-3 md:gap-6 whitespace-nowrap"
               )}
             >
-              {item.prize}
-            </span>
+              <span
+                className={cn(
+                  isSafari ? "text-description" : styles["award-description"]
+                )}
+              >
+                {item.ambassador}
+              </span>
+              <span
+                style={{
+                  width: "1px",
+                  borderRight: "1px solid #B6B6BF",
+                }}
+                className="py-1 flex-none h-4"
+              ></span>
+              <span
+                className={cn(
+                  isSafari ? "text-description" : styles["award-description"]
+                )}
+              >
+                {item.prize}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div
-        className={cn(
-          "w-full border-b border-oscarActive md:w-0 md:h-10 md:border-l"
-        )}
-      />
-      <div className="flex flex-wrap gap-2 h-min">
-        {item.tags.map((tag, index) => (
-          <div
-            key={tag}
-            className={cn(
-              styles["award-tag"],
-              "px-6 py-2 md:px-4 md:py-1 rounded-full text-sm"
-            )}
-          >{`${index + 1}. ${tag}`}</div>
-        ))}
+        <div
+          className={cn(
+            "w-full border-b border-oscarActive md:w-0 md:h-10 md:border-l"
+          )}
+        />
+        <div className="flex flex-wrap gap-2 h-min md:w-[403px]">
+          {item.tags.map((tag, index) => (
+            <div
+              key={tag}
+              className={cn(
+                styles["award-tag"],
+                "px-6 py-1 md:px-4 md:py-2 rounded-full text-sm"
+              )}
+            >
+              {tag}
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="flex gap-2">
+      <div className="flex-none space-x-2">
         {item.buttons.map((fn, index) => fn(isSafari))}
       </div>
     </div>

@@ -57,6 +57,7 @@ export function useAPIVoteDetail(id: string) {
       },
     }
   );
+
 }
 
 export function APICreateVote(data: ICreateVote) {
@@ -72,7 +73,7 @@ export function APIGetVoteResult(params: IVoteResultParams) {
     http.get(API_PATH.GET_VOTE_RESULT, {
       params,
       headers: {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=10",
       },
     })
   );

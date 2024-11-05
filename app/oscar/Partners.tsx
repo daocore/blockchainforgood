@@ -43,9 +43,23 @@ import HERDAOImage from "@/assets/oscar/H.E.R. DAO.png";
 import SaladVenturesImage from "@/assets/oscar/Salad Ventures.png";
 import GroupFiImage from "@/assets/oscar/GroupFi.png";
 import MaschainImage from "@/assets/oscar/Masverse/Maschain.png";
+import AssociationBlockchainAsiaImage from "@/assets/oscar/Association Blockchain Asia.png";
+import TheFinalFrontierImage from "@/assets/oscar/The Final Frontier.png";
+import OpenBuildImage from "@/assets/oscar/OpenBuild.png";
+import RefiStarterImage from "@/assets/oscar/ReFi Starter.png";
+import Tech4EarthImage from "@/assets/oscar/Tech4Earth.png";
+import RenoraImage from "@/assets/oscar/Renora，.png";
+import BDVenturesImage from "@/assets/oscar/BD Ventures.png";
+import RefiDAOImage from "@/assets/oscar/ReFi DAO.png";
+import DogLiberImage from "@/assets/oscar/DogLibre.png";
+import BybitWeb3Image from "@/assets/oscar/bybit.png";
+import ContributionDAOImage from "@/assets/oscar/ContributionDAO.png";
+import ZapixImage from "@/assets/oscar/zapix.png";
+import DelaRocheWConsultingImage from "@/assets/oscar/de la Roche W. Consulting.png";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
+import { cn } from "@/lib";
 
 const partnerObj = [
   {
@@ -106,15 +120,6 @@ const partnerObj = [
 
 const partersData = [
   {
-    name: "Moledao",
-    type: 1,
-    logo: MoledaoImage,
-    link: "https://moledao.io/",
-    partnersType: 0,
-    style: '{"height":"34px"}',
-    mobileStyle: '{"height":"22px"}',
-  },
-  {
     name: "BC100+",
     type: 1,
     logo: BC100Image,
@@ -140,6 +145,24 @@ const partersData = [
     partnersType: 0,
     style: '{"height": "24px"}',
     mobileStyle: '{"height":"18px"}',
+  },
+  {
+    name: "Bybit Web 3",
+    type: 1,
+    logo: BybitWeb3Image,
+    link: "https://www.bybit.com/",
+    partnersType: 0,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "Moledao",
+    type: 1,
+    logo: MoledaoImage,
+    link: "https://moledao.io/",
+    partnersType: 0,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"22px"}',
   },
   {
     name: "OffChain Global",
@@ -438,42 +461,146 @@ const partersData = [
     style: '{"height":"38px"}',
     mobileStyle: '{"height":"24px"}',
   },
+  {
+    name: "Association Blockchain Asia",
+    type: 4,
+    logo: AssociationBlockchainAsiaImage,
+    link: "https://associationblockchainasia.org/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "The Final Frontier",
+    type: 4,
+    logo: TheFinalFrontierImage,
+    link: "https://lussa.io/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "OpenBuild",
+    type: 4,
+    logo: OpenBuildImage,
+    link: "https://openbuild.xyz/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "ReFi Starter",
+    type: 4,
+    logo: RefiStarterImage,
+    link: "https://refistarter.org/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "Tech4Earth",
+    type: 4,
+    logo: Tech4EarthImage,
+    link: "https://tech4earth.substack.com/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "Renora",
+    type: 4,
+    logo: RenoraImage,
+    link: "https://renora.io/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "BD Ventures",
+    type: 4,
+    logo: BDVenturesImage,
+    link: "https://www.bdventures.vn/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "ReFi DAO",
+    type: 4,
+    logo: RefiDAOImage,
+    link: "https://linktr.ee/refidao",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "DogLibre",
+    type: 4,
+    logo: DogLiberImage,
+    link: "https://www.doglibre.com/en",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "ContributionDAO",
+    type: 4,
+    logo: ContributionDAOImage,
+    link: "https://www.contributiondao.com/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "Zapix",
+    type: 4,
+    logo: ZapixImage,
+    link: "https://x.com/zapixyz",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
+  {
+    name: "De la Roche W. Consulting",
+    type: 4,
+    logo: DelaRocheWConsultingImage,
+    link: "https://www.delarocheconsulting.com/",
+    partnersType: 5,
+    style: '{"height":"34px"}',
+    mobileStyle: '{"height":"20px"}',
+  },
 ];
 
-const PartnerItem = ({ item }: { item: any }) => {
+const PartnerItem = ({
+  item,
+  isFirst = false,
+}: {
+  item: any;
+  isFirst?: boolean;
+}) => {
   const mobile = useIsMobile();
 
   return (
     <div className="my-6 md:my-10">
-      <div className={`flex flex-wrap justify-center items-center`}>
+      <div className={`flex flex-wrap justify-center gap-2 items-center`}>
         {item?.list?.map((ite: any, i: number) => {
           return (
             <a
               key={i}
-              className={`inline-block p-1 mb-1 sx:w-full`}
-              style={
-                mobile
-                  ? {
-                      height: ["Media Partners", "Community"].includes(
-                        item.type
-                      )
-                        ? 50
-                        : 64,
-                      // width: `${(1 / item.ratio) * 100}%`,
-                    }
-                  : item.style || {}
-              }
+              className={cn(
+                "inline-block flex- mb-1 w-full xs:w-[calc((100%-2rem)/2)] md:w-[calc((100%-8rem)/5)] border border-white/10 px-5 py-8",
+                isFirst && "md:w-[calc((100%-6rem)/4)]"
+              )}
               target={ite?.link ? "_blank" : "_self"}
               href={ite?.link || undefined}
               rel="noreferrer"
             >
-              <div
-                className="overflow-hidden rounded-md  flex justify-center items-center w-full h-full"
-                style={{ padding: 10, ...(mobile ? {} : item?.imgStyle || {}) }}
-              >
+              <div className="overflow-hidden flex justify-center items-center w-full h-full">
                 <img
                   src={ite?.logo.src}
-                  style={{ ...((mobile ? ite.mobileStyle : ite?.style) || {}) }}
+                  style={{
+                    ...((mobile ? ite.mobileStyle : { height: "32px" }) || {}),
+                  }}
                   alt=""
                 />
               </div>
@@ -527,11 +654,7 @@ export const Partners = () => {
   );
 
   return (
-    <div
-      id="partner"
-      ref={ref}
-      className="w-full md:w-content mx-auto px-6 md:px-0"
-    >
+    <div ref={ref} className="w-full md:w-content mx-auto px-6 md:px-0">
       <h2
         className={`font-bold text-oscarActive font-['Inter'] text-[20px] md:text-[32px] text-center`}
       >
@@ -564,7 +687,7 @@ export const Partners = () => {
                   {item.name}
                 </h2>
               )}
-              <PartnerItem item={item} />
+              <PartnerItem item={item} isFirst={index === 0} />
             </div>
           );
         })}

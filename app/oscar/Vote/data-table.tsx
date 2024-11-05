@@ -111,7 +111,7 @@ export function DataTable({ table, id }: DataTableProps) {
         </div>
       )}
 
-      <Link href={`/vote/${id}`}>
+      {/* <Link href={`/vote/${id}`}>
         <Button
           style={{
             background: "linear-gradient(254.42deg, #FFCA5C 0%, #C09845 83.9%)",
@@ -122,7 +122,7 @@ export function DataTable({ table, id }: DataTableProps) {
         >
           Vote
         </Button>
-      </Link>
+      </Link> */}
     </div>
   );
 }

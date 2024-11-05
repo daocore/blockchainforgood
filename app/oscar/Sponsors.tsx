@@ -1,60 +1,40 @@
 "use client";
 
-import BC100Image from "@/assets/oscar/BC1000.png";
-import InatbaImage from "@/assets/oscar/INATBA.png";
-import PBPositiveBlockchainImage from "@/assets/oscar/PBPositiveBlockchain.io.png";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
 import { cn } from "@/lib";
 import styles from "./styles.module.css";
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import { useIsMobile } from "@/hooks";
-import HemereImage from "@/assets/oscar/hemera-logo.webp";
+import HemereImage from "@/assets/oscar/herera-logo.png";
+import PingoImage from "@/assets/oscar/PinGo.png";
+import SendingLabsImage from "@/assets/oscar/Sending Labs.png";
 import Image from "next/image";
-import Link from "next/link";
+import AttGlobalImage from "@/assets/oscar/ATT Global.png";
 
-export const partersData = [
+const list = [
   {
-    approve: 0,
-    id: "3",
-    name: "BC100+",
-    sort: 2,
-    type: 1,
-    logo: BC100Image,
-    link: "https://bc100plus.org/",
-    partnersType: 0,
-    style: '{"height":"34px"}',
-    mobileStyle: '{"height":"22px"}',
-    createDate: "2023-01-17T06:40:21.384Z",
-    updateDate: "2023-01-17T06:40:21.384Z",
+    name: "Hemera",
+    link: "https://www.thehemera.com/",
+    image: HemereImage,
+    style: { filter: "grayscale(1)", height: "4rem" },
   },
   {
-    approve: 0,
-    id: "4",
-    name: "Inatba",
-    sort: 0,
-    type: 1,
-    logo: InatbaImage,
-    link: "https://inatba.org/",
-    partnersType: 0,
-    style: '{"height":"38px"}',
-    mobileStyle: '{"height":"24px"}',
-    createDate: "2023-01-17T06:40:21.388Z",
-    updateDate: "2023-01-17T06:40:21.388Z",
+    name: "Sending Labs",
+    link: "",
+    image: SendingLabsImage,
   },
   {
-    approve: 0,
-    id: "104",
-    name: "positive blockchain",
-    sort: 0,
-    type: 0,
-    logo: PBPositiveBlockchainImage,
-    link: "https://positiveblockchain.io/",
-    partnersType: 0,
-    style: '{"height": "24px"}',
-    mobileStyle: '{"height":"18px"}',
-    createDate: "2023-11-08T14:33:10.047Z",
-    updateDate: "2023-11-08T14:33:10.047Z",
+    name: "PinGo",
+    link: "",
+    image: PingoImage,
+  },
+  {
+    name: "",
+    // type: 4,
+    image: AttGlobalImage,
+    link: "http://attglobal.io/",
+    // partnersType: 5,
+    // style: '{"height":"34px"}',
+    // mobileStyle: '{"height":"20px"}',
   },
 ];
 
@@ -62,44 +42,46 @@ export const Sponsors = () => {
   const ref = useIntersectionObserver<HTMLDivElement>(
     homeStyles.moveFromBottom
   );
-
   return (
-    <div ref={ref}>
+    <div
+      id="partner"
+      className="hash-section w-full md:w-content mx-auto mb-2 md:mb-8"
+      ref={ref}
+    >
       <div className="text-center">
         <h2
           className={cn(
             styles["award-title"],
-            "font-bold text-oscarActive font-['Inter'] inline-block mx-auto text-[20px] md:text-[32px] text-center"
+            "font-bold text-oscarActive font-['Inter'] inline-block mx-auto text-[20px] md:text-[32px] text-center md:mb-4"
           )}
         >
           Sponsors
         </h2>
       </div>
       <div
-        className={`h-28 py-1 md:py-2 flex flex-col antialiased items-center justify-center relative overflow-hidden`}
+        className={`my-2 md:my-8 grid grid-cols-1 md:grid-cols-4 gap-2 relative`}
       >
-        <InfiniteMovingCards direction="left" speed="normal">
-          {Array(10)
-            ?.fill("Hemera")
-            .map((item, index) => {
-              return (
-                <Link target="__blank" href="https://www.thehemera.com/">
-                  <div
-                    className="text-description mr-4 md:mr-8 flex items-center gap-2 font-['Inter'] text-sm md:text-base"
-                    key={index}
-                  >
-                    <Image
-                      src={HemereImage}
-                      alt={item}
-                      className="h-12 md:h-14 object-contain"
-                      style={{ filter: "grayscale(1)" }}
-                    />
-                    <span>{item}</span>
-                  </div>
-                </Link>
-              );
-            })}
-        </InfiniteMovingCards>
+        {list.map((item, index) => (
+          <a
+            target={item.link ? "_blank" : "_self"}
+            href={item.link || undefined}
+            className={cn(
+              "flex justify-center border border-white/10 px-5 py-8"
+            )}
+          >
+            <div
+              className="text-description mr-4 md:mr-8 flex items-center gap-2 font-['Inter'] text-sm md:text-base"
+              key={item.name}
+            >
+              <Image
+                src={item.image}
+                alt={item.name}
+                className="h-12 w-auto object-contain"
+                style={item.style}
+              />
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   );

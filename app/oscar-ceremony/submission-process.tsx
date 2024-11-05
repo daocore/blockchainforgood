@@ -11,26 +11,36 @@ import AdzImage from "@/assets/oscar/Avatar Adz.png";
 import LucasImage from "@/assets/oscar/Avatar Lucas.png";
 import MarianaImage from "@/assets/oscar/Avatar Mariana.png";
 import VenusKhorImage from "@/assets/oscar/Avatar VenusKhor.png";
+import MeetImage from "@/assets/oscar/Avatar Meet.png";
 import MikeImage from "@/assets/oscar/Avatar Mike.png";
 import ScootImage from "@/assets/oscar/Avatar Scott Moore.png";
 import BenImage from "@/assets/oscar/Avatar Ben.png";
+import DilipChenoyImage from "@/assets/oscar/Avatar DilipChenoy.png";
+import DFBAWImage from "@/assets/oscar/Avatar Datuk Fadzli Bin Abdul Wahit.png";
 import HarnImage from "@/assets/oscar/Avatar Harn.png";
 import GianlucaImage from "@/assets/oscar/Avatar Gianluca.png";
 import KCImage from "@/assets/oscar/Avatar KC.png";
 import AdamImage from "@/assets/oscar/Avatar Adam.png";
-import Adam2Image from "@/assets/oscar/Avatar Adam2.png";
+// import Adam2Image from "@/assets/oscar/Avatar Adam2.png";
 import ComposeusImage from "@/assets/oscar/Avatar Composeus.png";
 import RodrigoVasquezImage from "@/assets/oscar/Avatar Rodrigo Vasquez.png";
 import FelixsimImage from "@/assets/oscar/Avatar28.png";
 import JayKohImage from "@/assets/oscar/Avatar22.png";
-
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import homeStyles from "../home/styles.module.css";
+import GabrielaChangValdovinosImage from "@/assets/oscar/Avatar Gabriela Chang Valdovinos.png";
+import CryptobirdImage from "@/assets/oscar/Avatar Cryptobird.png";
+import BruceImage from "@/assets/oscar/Avatar Bruce.png";
+import BurcuMavisImage from "@/assets/oscar/Avatar Burcu Mavis.png";
+import RobertPasickeImage from "@/assets/oscar/Avatar Robert Pasicko.png";
+import AnkeLiuImage from "@/assets/oscar/Avatar Anke Liu.png";
+import AbdullaAlDhaheriImage from "@/assets/oscar/Avatar Abdulla Al Dhaheri.png";
+import AlexandereEislImage from "@/assets/oscar/Avatar AlexanderEisl.png";
+import PinakiImage from "@/assets/oscar/Avatar Pinaki.png";
+import DrWIssamanyaTulthaisongImage from "@/assets/oscar/Avatar Dr. Wissamanya Tulthaisong.png";
 
 export function SubmissionProcess() {
   return (
     <div className="w-full md:w-content mx-auto px-2 md:px-0">
-      <div id="agenda" className="flex items-center gap-2">
+      <div id="agenda" className="hash-section flex items-center gap-2">
         <Image width={40} height={40} src={ProcessIconImage} alt="Process" />
         <h2 className="text-oscarActive text-3xl font-bold">Event Agenda</h2>
       </div>
@@ -62,8 +72,16 @@ export function SubmissionProcess() {
                 {
                   img: UserImage,
                   name: "Allan",
-                  org: "Moledao",
-                  relation: "Partner",
+                  org: [
+                    {
+                      name: "Blockchain For Good Alliance (BGA)",
+                      title: "Partner",
+                    },
+                    {
+                      name: "Moledao",
+                      title: "Co-Builder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/allanfang/",
                 },
               ]}
@@ -77,58 +95,130 @@ export function SubmissionProcess() {
 In true cinematic fashion, each project pitch will have to tell the story of a "hero" facing a global crisis (one of the 17 SDGs), with blockchain as the "tool" they wield to drive change and create a better future.`}
             />
             <PartContentItem
-              title="Academy of Innovation (name of panel to put on website)"
+              title="Academy of Innovation"
               desc={`The judging panel, known as The Academy, comprises esteemed leaders and visionaries from the blockchain, sustainability, and tech industries. These experts will evaluate the pitches based on innovation, impact, and potential for global scalability. 
 Just as the Academy determines the best in film, our "Academy of Innovation" will determine which project stands as the beacon of blockchain excellence, shaping the future of sustainable development.`}
               spearks={[
                 {
                   img: HarnImage,
                   name: "Harn",
-                  org: "Trigger Asset Management",
-                  relation: "CEO",
+                  org: [
+                    {
+                      name: "Trigger Asset Management",
+                      title: "CEO",
+                    },
+                  ],
                   link: "",
                 },
                 {
                   img: KCImage,
                   name: "KC",
-                  org: "AYA Foundation",
-                  relation: "Investments, Impact Lead",
+                  org: [
+                    {
+                      name: "AYA Foundation",
+                      title: "Investments, Impact Lead",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/ong-kok-chung/",
                 },
                 {
                   img: GianlucaImage,
                   name: "Gianluca",
-                  org: "NapulETH",
-                  relation: "CEO & Co-Founder",
+                  org: [
+                    {
+                      name: "NapulETH",
+                      title: "CEO & Co-Founder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/gdbmoodglobalservices/?utm_source=share&utm_campaign=share_via&utm_conte",
                 },
                 {
                   img: AdamImage,
                   name: "Adam",
-                  org: "3 Comma Capital SCR",
-                  relation: "Venture Partner",
+                  org: [
+                    {
+                      name: "3 Comma Capital SCR",
+                      title: "Venture Partner",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/adamihsanboon/",
                 },
-                {
-                  img: Adam2Image,
-                  name: "Adam",
-                  org: "Growth Ensemble",
-                  relation: "Co-Founder",
-                  link: "https://www.linkedin.com/in/adamflinter/",
-                },
+                // {
+                //   img: Adam2Image,
+                //   name: "Adam",
+                //   org: [
+                //     {
+                //       name: "Growth Ensemble",
+                //       title: "Co-Founder",
+                //     },
+                //   ],
+                //   link: "https://www.linkedin.com/in/adamflinter/",
+                // },
                 {
                   img: FelixsimImage,
                   name: "Felixsim",
-                  org: "Salad Ventures",
-                  relation: "Founder",
+                  org: [
+                    {
+                      name: "Salad Ventures",
+                      title: "Founder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/simfelix",
                 },
                 {
                   img: JayKohImage,
                   name: "JayKoh",
-                  org: "Association Blockchain Asia",
-                  relation: "Vice President",
+                  org: [
+                    {
+                      name: "Association Blockchain Asia",
+                      title: "Vice President",
+                    },
+                  ],
                   link: "https://x.com/Krypto_JayK",
+                },
+                {
+                  img: CryptobirdImage,
+                  name: "Cryptobird",
+                  org: [
+                    {
+                      name: "ThreeDAO Founders' Fund",
+                      title: "Manager Partner",
+                    },
+                  ],
+                  link: "https://twitter.com/tianhongfei",
+                },
+                {
+                  img: BruceImage,
+                  name: "Bruce",
+                  org: [
+                    {
+                      name: "Partisia Blockchain Foundation",
+                      title: "Chief of Staff",
+                    },
+                  ],
+                  link: "https://linkedin.com/in/ahnbruce",
+                },
+                {
+                  img: BurcuMavisImage,
+                  name: "Burcu Mavis",
+                  org: [
+                    {
+                      name: "UNDP",
+                      title: "Blockchain Academy and Accelerator Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/burcu-m-7a9325149/",
+                },
+                {
+                  img: PinakiImage,
+                  name: "Pinaki",
+                  org: [
+                    {
+                      name: "Affi Network",
+                      title: "Founder/CEO",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/pinaki-s/",
                 },
               ]}
             />
@@ -162,6 +252,38 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="Opening Remarks"
               desc="The United Nations Development Programme (UNDP) will highlight the critical role blockchain can play in accelerating global development."
+              spearks={[
+                {
+                  img: RobertPasickeImage,
+                  name: "Robert Pasicko",
+                  org: [
+                    {
+                      name: "UNDP",
+                      title: "AltFinLab Team Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/robert-pasicko-5a563a3/",
+                },
+              ]}
+            />
+            <PartContentItem
+              title=""
+              desc="The representatives of the Thai National Assembly will discuss blockchain solutions for the region of Thailand."
+              spearks={[
+                {
+                  img: DrWIssamanyaTulthaisongImage,
+                  name: "Dr. Wissamanya Tulthaisong",
+                  org: [
+                    {
+                      name: "National Assembly of Thailand",
+                      title: `Secretary of the commerce commission and intellectual property house of representatives
+& Expert on the committee of the fund for agricultural rehabilitation and development`,
+                    },
+                  ],
+                  link: "",
+                },
+              ]}
+              className="md:grid-cols-1"
             />
           </PartItem>
 
@@ -176,8 +298,16 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: UserImage,
                   name: "Allan",
-                  org: "Moledao",
-                  relation: "Partner",
+                  org: [
+                    {
+                      name: "Blockchain For Good Alliance (BGA)",
+                      title: "Partner",
+                    },
+                    {
+                      name: "Moledao",
+                      title: "Co-Builder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/allanfang/",
                 },
               ]}
@@ -191,6 +321,63 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="A Take from Global Governments"
               desc="Representatives from various institutions across India, Malaysia, Japan, South Korea, Hong Kong, Abu Dhabi, and Thailand, will come together in a high-level panel, discussing national initiatives to adopt blockchain for public good."
+              spearks={[
+                {
+                  img: DilipChenoyImage,
+                  name: "Dilip Chenoy",
+                  org: [
+                    {
+                      name: "Bharat Web3 Association",
+                      title: "Chairman",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/dilip-chenoy-59613215/",
+                },
+                {
+                  img: DFBAWImage,
+                  name: "Datuk Ts. Fadzli Abdul Wahit",
+                  org: [
+                    {
+                      name: "Digital Industry Development at Malaysia Digital Economy Corporation (MDEC)",
+                      title: "Head/SVP Digital Industry Development",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/datuk-ts-fadzli-abdul-wahit-6813244b/",
+                },
+                {
+                  img: BurcuMavisImage,
+                  name: "Burcu Mavis",
+                  org: [
+                    {
+                      name: "UNDP",
+                      title: "Blockchain Academy and Accelerator Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/burcu-m-7a9325149/",
+                },
+                {
+                  img: AbdullaAlDhaheriImage,
+                  name: "Abdulla Al Dhaheri",
+                  org: [
+                    {
+                      name: "The Blockchain Center Abu Dhabi",
+                      title: "CEO",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/abdulla-a-297569b7/",
+                },
+                {
+                  img: AlexandereEislImage,
+                  name: "AlexanderEisl",
+                  org: [
+                    {
+                      name: "ABC Research",
+                      title: "Managing Director",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/alexandereisl",
+                },
+              ]}
             />
           </PartItem>
 
@@ -198,6 +385,19 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="EthicHub's Keynote"
               desc="EthicHub, one of the flagship projects of BGA's incubation, will present its groundbreaking work in using blockchain to support farmers in developing countries through decentralized finance (DeFi). "
+              spearks={[
+                {
+                  img: GabrielaChangValdovinosImage,
+                  name: "Gabriela Chang Valdovinos",
+                  org: [
+                    {
+                      name: "EthicHub",
+                      title: "CSO and Co-Founder",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/gabriela-chang-valdovinos-76b34410/",
+                },
+              ]}
             />
           </PartItem>
 
@@ -212,30 +412,68 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: AdzImage,
                   name: "Adz",
-                  org: "Partisia Blockchain Foundation",
-                  relation: "CEO",
+                  org: [
+                    {
+                      name: "Partisia Blockchain Foundation",
+                      title: "CEO",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/adrienneyoungman/",
                 },
                 {
                   img: LucasImage,
                   name: "LucasZhgr",
-                  org: "PositiveBlockchain",
-                  relation: "Founder",
+                  org: [
+                    {
+                      name: "PositiveBlockchain",
+                      title: "Founder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/lucas-zaehringer-65725145/",
                 },
                 {
                   img: MarianaImage,
                   name: "MarianadlRW",
-                  org: "Inatba",
-                  relation: "BoD",
+                  org: [
+                    {
+                      name: "Inatba",
+                      title: "BoD",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/mariana-de-la-roche-es?utm_source=share&utm_campaign=share_via&utm_conte",
                 },
                 {
                   img: VenusKhorImage,
                   name: "VenusKhor",
-                  org: "Masverse/Maschain",
-                  relation: "Chief Brand Officer",
+                  org: [
+                    {
+                      name: "Masverse/Maschain",
+                      title: "Chief Brand Officer",
+                    },
+                  ],
                   link: "https://my.linkedin.com/in/vgotlight",
+                },
+                {
+                  img: MeetImage,
+                  name: "Meet",
+                  org: [
+                    {
+                      name: "Algorand Foundation",
+                      title: "Engagement Support Engineer",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/meet-thosar-bb049225/",
+                },
+                {
+                  img: AnkeLiuImage,
+                  name: "Anke Liu",
+                  org: [
+                    {
+                      name: "Stellar Development Foundation",
+                      title: "Ecosystem Growth Lead",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/ankeliu/",
                 },
               ]}
             />
@@ -252,8 +490,16 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: BenImage,
                   name: "Ben",
-                  org: "Bybit",
-                  relation: "CEO",
+                  org: [
+                    {
+                      name: "Blockchain For Good Alliance (BGA)",
+                      title: "Initiator",
+                    },
+                    {
+                      name: "Bybit",
+                      title: "Co-founder and CEO",
+                    },
+                  ],
                   link: "",
                 },
               ]}
@@ -271,29 +517,49 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: RodrigoVasquezImage,
                   name: "Rodrigo Vasquez",
-                  org: "Ethereum Foundation",
-                  relation: "Ecosystem Funding Initiative Lead",
+                  org: [
+                    {
+                      name: "Ethereum Foundation",
+                      title: "Ecosystem Funding Initiative Lead",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/rodrigo-vasquez-89514569/",
                 },
                 {
                   img: ScootImage,
                   name: "Scott Moore",
-                  org: "Gitcoin",
-                  relation: "Co-Founder",
+                  org: [
+                    {
+                      name: "Public Works",
+                      title: "Founder",
+                    },
+                    {
+                      name: "Gitcoin",
+                      title: "Co-Founder",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/notscottmoore",
                 },
                 {
                   img: MikeImage,
                   name: "Mike",
-                  org: "Immunefi",
-                  relation: "Head Of Sales",
+                  org: [
+                    {
+                      name: "Immunefi",
+                      title: "Head Of Sales",
+                    },
+                  ],
                   link: "https://www.linkedin.com/in/mike-o-keeffe/",
                 },
                 {
                   img: ComposeusImage,
                   name: "Composeus",
-                  org: "DV Labs",
-                  relation: "Chief Growth Officer",
+                  org: [
+                    {
+                      name: "DV Labs",
+                      title: "Chief Growth Officer",
+                    },
+                  ],
                   link: "https://x.com/composeus",
                 },
               ]}
@@ -318,10 +584,25 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 {
                   img: HelenImage,
                   name: "Helen",
-                  org: "Bybit",
-                  relation: "COO",
+                  org: [
+                    {
+                      name: "Blockchain For Good Alliance (BGA)",
+                      title: "Founder",
+                    },
+                    {
+                      name: "Bybit",
+                      title: "Co-founder and COO",
+                    },
+                  ],
                 },
               ]}
+            />
+          </PartItem>
+
+          <PartItem time="5:40 PM - 7:00 PM" title="The Gala">
+            <PartContentItem
+              title="Encore"
+              desc="Networking session with an afterparty and light refreshments and networking before the event ends."
             />
           </PartItem>
         </div>
@@ -334,13 +615,11 @@ function UserAvater({
   img,
   name,
   org,
-  relation,
   link = "",
 }: {
   img: string | StaticImageData;
   name: string;
-  org: string;
-  relation: string;
+  org: any[];
   link?: string;
 }) {
   return (
@@ -355,8 +634,14 @@ function UserAvater({
         />
         <div>
           <p className={cn(styles.typ, "font-semibold")}>{name}</p>
-          <p className={cn(styles.typ, "text-xs")}>{org}</p>
-          <p className={cn(styles["typ-description"], "text-xs")}>{relation}</p>
+          {org.map((item) => (
+            <p className="text-xs">
+              <span className={cn(styles.typ)}>{item.name}, </span>
+              <span className={cn(styles["typ-description"])}>
+                {item.title}
+              </span>
+            </p>
+          ))}
         </div>
       </div>
     </a>
@@ -372,9 +657,6 @@ function PartItem({
   title: string;
   children: React.ReactNode;
 }) {
-  const ref = useIntersectionObserver<HTMLDivElement>(
-    homeStyles.moveFromBottom
-  );
   return (
     <div className="block md:flex space-y-2 md:space-y-0 md:space-x-2">
       <div
@@ -401,22 +683,25 @@ function PartContentItem({
   title,
   desc,
   spearks = [],
+  className,
 }: {
   title: string;
   desc: string;
   spearks?: any[];
+  className?: string;
 }) {
   return (
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div
+        className={cn("grid grid-cols-1 md:grid-cols-4 gap-4 mt-3", className)}
+      >
         {spearks.map((speark) => (
           <UserAvater
             img={speark.img}
             name={speark.name}
             org={speark.org}
-            relation={speark.relation}
             link={speark.link}
           />
         ))}
