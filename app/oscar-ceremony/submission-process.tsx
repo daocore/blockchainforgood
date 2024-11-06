@@ -562,6 +562,17 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   ],
                   link: "https://x.com/composeus",
                 },
+                {
+                  img: FelixsimImage,
+                  name: "Felixsim",
+                  org: [
+                    {
+                      name: "Salad Ventures",
+                      title: "Founder",
+                    },
+                  ],
+                  link: "https://www.linkedin.com/in/simfelix",
+                },
               ]}
             />
           </PartItem>
