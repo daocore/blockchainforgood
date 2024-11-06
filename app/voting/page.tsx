@@ -11,6 +11,7 @@ import { useAPIGetVoteResult } from "../vote/[id]/[code]/api";
 import { Loading } from "./skeleton-loading";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { PROJECT_LIST, PROJECT_LOGO_MAP } from "./consts";
+import { ONSITE_VOTE_ID } from "@/constants";
 
 const SECNODE = 1000;
 
@@ -22,7 +23,7 @@ const REFRESH_TIME = 30 * SECNODE;
 const TRENDS_TITLE = "TOP 10 PROJECTS";
 const PROJECT_TITLE = "PROJECTS INTRO";
 
-const ID = "19";
+const ID = ONSITE_VOTE_ID;
 
 export default function VotePage() {
   const { data = [], isLoading } = useAPIGetVoteResult(

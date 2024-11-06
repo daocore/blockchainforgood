@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { APICreateVote, useAPIVoteDetail } from "./api";
 import { Loading } from "../skeleton-loading";
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 import { Successed } from "./successed";
 import PosterImage from "@/assets/voting/poster.png";
 import IntroImage from "@/assets/voting/intro.png";
@@ -40,25 +40,18 @@ export function OnSiteVoteDetail({ id, code }: { id: string; code: string }) {
 
   if (data.isUsed) {
     return (
-      <div className="w-full max-w-[768px] mx-auto h-full mt-6">
-        <Card>
-          <CardContent className="text-center pt-6 text-red-500 bg-oscarBlack">
-            Code has already been used.
-          </CardContent>
-        </Card>
-      </div>
+      <WarnningTip>
+        You have already cast your vote, One QR code can only be used to vote
+        once.
+      </WarnningTip>
     );
   }
 
   if (data.isInvalid) {
     return (
-      <div className="w-full max-w-[768px] mx-auto h-full mt-5">
-        <Card>
-          <CardContent className="text-center pt-6 text-red-500 bg-oscarBlack">
-            Invalid code.
-          </CardContent>
-        </Card>
-      </div>
+      <WarnningTip>
+        The url is invalid. Please check the url and try again.
+      </WarnningTip>
     );
   }
 
@@ -69,6 +62,16 @@ export function OnSiteVoteDetail({ id, code }: { id: string; code: string }) {
       <Image src={IntroImage} alt="intro" />
       <Image src={TitleImage} alt="title" />
       <Projects onVoting={onVoteSubmiting} weight={data.weight} />
+    </div>
+  );
+}
+
+function WarnningTip({ children }: { children: ReactNode }) {
+  return (
+    <div className="w-full max-w-[768px] mx-auto h-[calc(100vh-197px)] -mt-12 bg-oscarBlack">
+      <div className="h-full text-darkGray text-lg px-6 flex justify-center items-center">
+        {children}
+      </div>
     </div>
   );
 }
