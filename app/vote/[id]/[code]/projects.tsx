@@ -39,7 +39,7 @@ export function Projects({
             key={rowIndex}
             className="flex justify-center items-center gap-6"
             style={{
-              marginTop: rowIndex === 0 ? "0" : "-3rem", // 让每一行都向上偏移，创造重叠效果
+              marginTop: rowIndex === 0 ? "0" : "-2.5rem", // 让每一行都向上偏移，创造重叠效果
             }}
           >
             {row.map((item) => (
@@ -77,7 +77,7 @@ export function ProjectItem({
     <Drawer>
       <DrawerTrigger asChild>
         <div className="cursor-pointer">
-          <Image src={item.activeLogo} alt={item.name} />
+          <Image className="w-28" src={item.activeLogo} alt={item.name} />
         </div>
       </DrawerTrigger>
       <DrawerContent className="pb-6 bg-oscarBlack border-none">
