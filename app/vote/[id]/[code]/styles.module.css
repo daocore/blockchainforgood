@@ -1,0 +1,25 @@
+.submit {
+  border: 2px solid;
+  border-image-source: linear-gradient(
+      76.82deg,
+      #576265 11.6%,
+      #9ea1a1 25.31%,
+      #848b8a 48.06%,
+      #576265 55.72%,
+      #576265 77.23%,
+      #757a7b 85.34%,
+      #576265 91.31%
+    ),
+    linear-gradient(339.03deg, rgba(255, 255, 255, 0) 52.79%, #ffffff 95.95%),
+    linear-gradient(0deg, #f8d48c, #f8d48c);
+  border-image-slice: 1;
+  box-shadow: 0px 2px 8px -2px #7e652c80;
+
+  background: linear-gradient(
+    0deg,
+    rgba(230, 183, 73, 0.1) 0%,
+    rgba(244, 197, 85, 0.1) 70%,
+    rgba(253, 199, 71, 0.1) 100%
+  );
+  color: #e7b84a;
+}
