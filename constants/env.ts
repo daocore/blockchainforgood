@@ -101,6 +101,13 @@ export const OSCAR_VOTE_ID = {
   [ENetwork.ZFDEV]: "2",
 }[BGA_ENV];
 
+export const ONSITE_VOTE_ID = {
+  [ENetwork.PRODUCTION]: "18",
+  [ENetwork.DEVELOPMENT]: "19",
+  [ENetwork.STAGING]: "19",
+  [ENetwork.ZFDEV]: "19",
+}[BGA_ENV];
+
 // BGA的一些特殊事件，有些地方的list需要过滤掉他们
 export const BGA_SPECIAL_EVENT = [
   PARTNER_EVENT_ID,
