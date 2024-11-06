@@ -40,7 +40,7 @@ export const columns: ColumnDef<IVotingResult>[] = [
         <Image
           width={24}
           height={24}
-          className="rounded-full w-auto h-6 hidden md:block"
+          className="rounded-full w-auto h-12 hidden md:block"
           src={project.logo}
           alt={project.name}
         />
