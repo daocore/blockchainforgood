@@ -37,9 +37,12 @@ export default function VotePage() {
 
   const showTrensRef = useRef<boolean>(showTrends);
 
+  const projectTrendTimeoutIdRef = useRef<NodeJS.Timeout>();
+  const projectDetailTimeoutIdRef = useRef<NodeJS.Timeout>();
+
   const showProjectTrend = () =>
     new Promise((resolve, reject) => {
-      setTimeout(() => {
+      projectTrendTimeoutIdRef.current = setTimeout(() => {
         resolve(1);
       }, SHOW_PROJECT_TIME);
     }).then(() => {
@@ -50,7 +53,7 @@ export default function VotePage() {
 
   const showProjectDetail = () =>
     new Promise((resolve, reject) => {
-      setTimeout(() => {
+      projectDetailTimeoutIdRef.current = setTimeout(() => {
         resolve(1);
       }, SHOW_TRENDS_TIME);
     }).then(() => {
@@ -73,6 +76,16 @@ export default function VotePage() {
     toggleComponent();
   }, []);
 
+  const onCancelShowProject = () => {
+    clearTimeout(projectDetailTimeoutIdRef.current);
+
+    setShowTrends(true);
+    setTitle(TRENDS_TITLE);
+    showTrensRef.current = true;
+
+    toggleComponent();
+  };
+
   if (isLoading && data.length === 0) return <Loading />;
   return (
     <Layout dataSource={data} title={title}>
@@ -81,7 +94,7 @@ export default function VotePage() {
           <div
             className={cn(
               styles["right-wrapper-bg"],
-              "absolute inset-0 opacity-20"
+              "absolute inset-0 opacity-20 -z-10"
             )}
           />
           <div className={cn(styles["voting-transition-wrap"], "h-full")}>
@@ -96,8 +109,8 @@ export default function VotePage() {
                   <ProjectsTrends dataSource={data} />
                 ) : (
                   <ProjectDetail
-                    name={PROJECT_LIST[currentIndex].name}
-                    intro={PROJECT_LIST[currentIndex].intro}
+                    project={PROJECT_LIST[currentIndex]}
+                    onBack={onCancelShowProject}
                   />
                 )}
               </CSSTransition>
