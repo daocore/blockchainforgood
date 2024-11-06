@@ -2,7 +2,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { VoteForm } from "./form";
 import { APICreateVote, useAPIVoteDetail } from "./api";
 import { Loading } from "../skeleton-loading";
 import { useRef } from "react";
@@ -41,10 +40,22 @@ export function OnSiteVoteDetail({ id, code }: { id: string; code: string }) {
 
   if (data.isUsed) {
     return (
-      <div className="w-full max-w-[768px] mx-auto h-full">
+      <div className="w-full max-w-[768px] mx-auto h-full mt-6">
         <Card>
           <CardContent className="text-center pt-6 text-red-500 bg-oscarBlack">
             Code has already been used.
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  if (data.isInvalid) {
+    return (
+      <div className="w-full max-w-[768px] mx-auto h-full mt-5">
+        <Card>
+          <CardContent className="text-center pt-6 text-red-500 bg-oscarBlack">
+            Invalid code.
           </CardContent>
         </Card>
       </div>
@@ -57,7 +68,7 @@ export function OnSiteVoteDetail({ id, code }: { id: string; code: string }) {
       <Image src={PosterImage} alt="poster" />
       <Image src={IntroImage} alt="intro" />
       <Image src={TitleImage} alt="title" />
-      <Projects onVoting={onVoteSubmiting} />
+      <Projects onVoting={onVoteSubmiting} weight={data.weight} />
     </div>
   );
 }

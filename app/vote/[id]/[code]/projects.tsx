@@ -1,11 +1,11 @@
+"use client";
+
 import { PROJECT_LIST } from "@/app/voting/consts";
 import { IProject } from "@/app/voting/types";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -13,6 +13,8 @@ import {
 import { cn } from "@/lib";
 import Image from "next/image";
 import styles from "./styles.module.css";
+import { useState } from "react";
+import { Loading } from "@/components/Loading";
 
 // 定义每行数据
 const rows = [
@@ -24,8 +26,10 @@ const rows = [
 
 export function Projects({
   onVoting,
+  weight = 1,
 }: {
   onVoting: (projectId: string) => Promise<any>;
+  weight: number;
 }) {
   return (
     <div>
@@ -39,7 +43,12 @@ export function Projects({
             }}
           >
             {row.map((item) => (
-              <ProjectItem onVoting={onVoting} key={item.id} item={item} />
+              <ProjectItem
+                onVoting={onVoting}
+                key={item.id}
+                item={item}
+                weight={weight}
+              />
             ))}
           </div>
         ))}
@@ -50,13 +59,19 @@ export function Projects({
 
 export function ProjectItem({
   item,
+  weight,
   onVoting,
 }: {
   item: IProject;
+  weight: number;
   onVoting: (projectId: string) => Promise<any>;
 }) {
+  const [submiting, setSubmiting] = useState(false);
   const onSubmitVote = async () => {
-    onVoting(item.id);
+    setSubmiting(true);
+    onVoting(item.id).finally(() => {
+      setSubmiting(false);
+    });
   };
   return (
     <Drawer>
@@ -76,15 +91,17 @@ export function ProjectItem({
           </DrawerTitle>
           <DrawerDescription>{item.intro}</DrawerDescription>
         </DrawerHeader>
-        <div
+        <button
           onClick={onSubmitVote}
+          disabled={submiting}
           className={cn(
             styles.submit,
             "text-xl font-extrabold text-center py-2 w-4/5 mx-auto cursor-pointer"
           )}
         >
-          + 1
-        </div>
+          {submiting && <Loading color="#B5964D" />}
+          <span className={cn(submiting && "ml-2")}>+ {weight}</span>
+        </button>
       </DrawerContent>
     </Drawer>
   );

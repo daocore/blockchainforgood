@@ -27,21 +27,6 @@ export function useAPIVoteDetail(id: string, code: string) {
         },
       })
     )) as IVote;
-
-    if (!response.isUsed) {
-      let loc = {
-        city: "-",
-        area: "-",
-      };
-      try {
-        loc = JSON.parse(response.event.location);
-      } catch (error) {}
-      const location =
-        response.event.online === 1
-          ? "ONLINE"
-          : (loc?.city ? loc?.city + ", " : "") + loc?.area;
-      response.event.location = location;
-    }
     return response;
   };
 
