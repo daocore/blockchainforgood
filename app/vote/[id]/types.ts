@@ -22,6 +22,8 @@ export interface IVote {
   };
   organizations: Array<OrganizationEntity>;
   isUsed?: boolean;
+  isInvalid?: boolean;
+  weight?: number;
 }
 
 export interface ICreateVote {

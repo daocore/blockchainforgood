@@ -49,9 +49,9 @@ export const Successed = forwardRef(function Successed(props, ref) {
           <DialogTitle className="text-center text-[#FFD989]">
             Congrats! You’ve just voted project!
           </DialogTitle>
-          <DialogDescription className="text-center text-white">
+          {/* <DialogDescription className="text-center text-white">
             See your voted projects in the projects tab.
-          </DialogDescription>
+          </DialogDescription> */}
         </DialogHeader>
         {/* <Button
           onClick={onCheckResult}
