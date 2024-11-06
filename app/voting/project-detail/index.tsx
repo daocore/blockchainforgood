@@ -22,7 +22,7 @@ export function ProjectDetail({
         <div className="text-white text-lg">{intro}</div>
       </div>
       <div
-        className="cursor-pointer text-xl font-medium flex justify-end items-center gap-2 mt-4"
+        className="cursor-pointer text-xl font-medium flex justify-end items-center gap-2 mt-8"
         style={{ color: "#C09845" }}
         onClick={onBack}
       >

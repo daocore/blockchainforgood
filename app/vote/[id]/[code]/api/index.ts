@@ -96,12 +96,13 @@ function initialTableData(
   const notExistedProject = orgs.filter(
     (org) => !existedProjectIds.includes(org.id)
   );
+  const order = newRes.length + 1;
   newRes.push(
-    ...notExistedProject.map((org) => {
+    ...notExistedProject.map((org, index) => {
       return {
         id: org.id,
         total: 0,
-        ranking: "-" as unknown as number,
+        ranking: order + index,
         trend: 0,
         count: 0,
         project: org as any,
