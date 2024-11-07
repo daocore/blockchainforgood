@@ -16,9 +16,9 @@ export function ProjectDetail({
         <div>
           <Image className="mx-auto" src={logo} alt={name} />
         </div>
-        <div className="text-center text-4xl font-bold text-oscarActive my-2">
+        {/* <div className="text-center text-4xl font-bold text-oscarActive my-2">
           {name}
-        </div>
+        </div> */}
         <div className="text-white text-lg">{intro}</div>
       </div>
       <div
