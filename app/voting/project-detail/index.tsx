@@ -13,7 +13,7 @@ export function ProjectDetail({
   return (
     <div className="h-full flex flex-col justify-center px-6">
       <div className="">
-        <div>
+        <div className="mb-4">
           <Image className="mx-auto" src={logo} alt={name} />
         </div>
         {/* <div className="text-center text-4xl font-bold text-oscarActive my-2">
