@@ -11,7 +11,7 @@ export function ProjectDetail({
 }) {
   const { name, intro, logo } = project;
   return (
-    <div className="h-full flex flex-col justify-center px-6">
+    <div className="h-full flex flex-col justify-center px-6 relative">
       <div className="">
         <div className="mb-4">
           <Image className="mx-auto" src={logo} alt={name} />
@@ -22,7 +22,7 @@ export function ProjectDetail({
         <div className="text-white text-lg">{intro}</div>
       </div>
       <div
-        className="cursor-pointer text-xl font-medium flex justify-end items-center gap-2 mt-8"
+        className="absolute bottom-6 right-6 cursor-pointer text-xl font-medium flex justify-end items-center gap-2 mt-8"
         style={{ color: "#C09845" }}
         onClick={onBack}
       >
