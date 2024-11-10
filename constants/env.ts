@@ -102,7 +102,7 @@ export const OSCAR_VOTE_ID = {
 }[BGA_ENV];
 
 export const ONSITE_VOTE_ID = {
-  [ENetwork.PRODUCTION]: "18",
+  [ENetwork.PRODUCTION]: "19",
   [ENetwork.DEVELOPMENT]: "19",
   [ENetwork.STAGING]: "19",
   [ENetwork.ZFDEV]: "19",
