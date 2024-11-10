@@ -25,7 +25,7 @@ export const BASE_URL = {
 // 资源的base url
 export const ASSETS_URL = {
   [ENetwork.PRODUCTION]: "https://a.moledao.io/assets",
-  [ENetwork.DEVELOPMENT]: "https://a.moledao.io/assets",
+  [ENetwork.DEVELOPMENT]: "https://beta.moledao.io/assets",
   [ENetwork.STAGING]: "https://beta.moledao.io/assets",
   [ENetwork.ZFDEV]: "https://beta.moledao.io/assets",
 }[BGA_ENV];
