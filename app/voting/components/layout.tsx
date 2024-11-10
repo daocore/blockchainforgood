@@ -36,7 +36,7 @@ export function Layout({
         <Title>{title}</Title>
 
         <div className="flex gap-16 mt-10">
-          <div className="space-y-8">
+          <div className="flex flex-col justify-between gap-6 w-[600px]">
             <TopThree dataSource={dataSource} />
             <QRCode />
           </div>

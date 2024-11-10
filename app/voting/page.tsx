@@ -90,7 +90,7 @@ export default function VotePage() {
   if (isLoading && data.length === 0) return <Loading />;
   return (
     <Layout dataSource={data} title={title}>
-      <div className="w-full max-w-[calc(100vw-39rem)]">
+      <div className="w-full max-w-[calc(100vw-10rem-600px)]">
         <div className={cn("w-full relative p-4", styles["right-wrapper"])}>
           <div
             className={cn(
