@@ -15,7 +15,10 @@ export function TopThree({ dataSource }: { dataSource: IVotingResult[] }) {
 
   const isZero = first.count === 0;
   return (
-    <div style={{ height: "calc(100% - 11rem - 32px)" }} className="flex gap-8">
+    <div
+      style={{ height: "calc(100% - 137px - 32px)" }}
+      className="flex justify-between gap-8"
+    >
       {isShow && (
         <>
           <TopItem
