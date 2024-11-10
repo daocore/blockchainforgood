@@ -20,4 +20,5 @@ export const ROUTER_PATH = {
   OSCAR: "/oscar",
   OSCAR_CEREMONY: "/oscar-ceremony",
   PROJECT: "/project/",
+  VOTING: "/voting",
 };

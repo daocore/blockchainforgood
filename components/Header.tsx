@@ -66,9 +66,14 @@ export const Header = () => {
   const isOscarCeremony = pathname === ROUTER_PATH.OSCAR_CEREMONY;
 
   const isProject = pathname.startsWith(ROUTER_PATH.PROJECT);
+  const isVoting = pathname.startsWith(ROUTER_PATH.VOTING);
+
+  const isOnSiteVote = /\/vote\/*\/*/.test(pathname);
 
   const iconSvgFillColor =
-    isIncubationPage || isOscar || isOscarCeremony ? "white" : "black";
+    isIncubationPage || isOscar || isOscarCeremony || isVoting || isOnSiteVote
+      ? "white"
+      : "black";
 
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 
@@ -117,14 +122,19 @@ export const Header = () => {
         "relative"
       )}
     >
-      <div className="py-3 justify-between items-center flex w-full md:w-content m-auto">
+      <div
+        className={cn(
+          "py-3 justify-between items-center flex w-full",
+          isVoting ? "px-16" : "md:w-content mx-auto"
+        )}
+      >
         <Link
           href={isProject ? "" : ROUTER_PATH.HOME}
           className="flex items-center gap-2 cursor-pointer"
         >
           <LogoSvg fill={iconSvgFillColor} />
         </Link>
-        {!isProject && (
+        {!(isProject || isVoting) && (
           <div>
             {/* Desktop */}
             <NavigationMenu
@@ -224,7 +234,10 @@ export const Header = () => {
                 size={18}
                 className={cn(
                   "md:hidden cursor-pointer absoluted z-30 top-3 right-2",
-                  (isOscar || isIncubationPage || isOscarCeremony) &&
+                  (isOscar ||
+                    isIncubationPage ||
+                    isOscarCeremony ||
+                    isOnSiteVote) &&
                     "text-white"
                 )}
                 onClick={() => setShowMobileMenu(true)}

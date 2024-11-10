@@ -25,7 +25,7 @@ export const BASE_URL = {
 // 资源的base url
 export const ASSETS_URL = {
   [ENetwork.PRODUCTION]: "https://a.moledao.io/assets",
-  [ENetwork.DEVELOPMENT]: "https://beta.moledao.io/assets",
+  [ENetwork.DEVELOPMENT]: "https://a.moledao.io/assets",
   [ENetwork.STAGING]: "https://beta.moledao.io/assets",
   [ENetwork.ZFDEV]: "https://beta.moledao.io/assets",
 }[BGA_ENV];
@@ -99,6 +99,13 @@ export const OSCAR_VOTE_ID = {
   [ENetwork.DEVELOPMENT]: "7",
   [ENetwork.STAGING]: "7",
   [ENetwork.ZFDEV]: "2",
+}[BGA_ENV];
+
+export const ONSITE_VOTE_ID = {
+  [ENetwork.PRODUCTION]: "18",
+  [ENetwork.DEVELOPMENT]: "19",
+  [ENetwork.STAGING]: "19",
+  [ENetwork.ZFDEV]: "19",
 }[BGA_ENV];
 
 // BGA的一些特殊事件，有些地方的list需要过滤掉他们
