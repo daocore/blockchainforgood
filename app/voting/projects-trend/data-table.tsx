@@ -54,7 +54,7 @@ export function DataTable({ table }: DataTableProps) {
         {table.getRowModel().rows?.length ? (
           table.getRowModel().rows.map((row) => (
             <TableRow
-              className="border-none"
+              className="border-none hover:bg-[#FFD989]/20"
               key={row.id}
               data-state={row.getIsSelected() && "selected"}
             >
