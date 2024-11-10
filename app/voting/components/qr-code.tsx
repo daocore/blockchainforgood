@@ -19,7 +19,7 @@ export function QRCode() {
         src={BGAGlodImage}
         alt="BGA"
       />
-      <div className="text-right tracking-tight">
+      <div className="text-right -tracking-[1px]">
         <h3 className="text-[#C09845] text-xl font-bold">
           Please scan the QR code on your card
         </h3>
