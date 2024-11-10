@@ -24,8 +24,8 @@ export const LogoSvg = forwardRef<
       <svg
         ref={ref}
         className={className}
-        width="89"
-        height="24"
+        width="111"
+        height="30"
         viewBox="0 0 89 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
