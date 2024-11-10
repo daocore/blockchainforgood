@@ -63,19 +63,19 @@ function TopItem({
       <div
         style={{
           height: `calc(${height} * (100% - 10rem))`,
-          minHeight: "132px",
+          minHeight: "176px",
         }}
         className={cn(
           styles["top-item-bar"],
           "w-full h-full flex flex-col justify-around"
         )}
       >
-        <Image className="mx-auto" src={image} alt={"top"} />
-        <div className="text-center">
-          <p className="text-5xl font-bold">
+        <div className="space-y-2 h-full">
+          <Image className="mx-auto pt-6" src={image} alt={"top"} />
+          <p className="text-5xl font-bold text-center">
             <AnimatedCounter value={count} />
           </p>
-          <p className="text-xl">Votes</p>
+          <p className="text-xl text-center">Votes</p>
         </div>
       </div>
     </div>
