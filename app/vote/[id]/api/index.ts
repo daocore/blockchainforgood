@@ -57,7 +57,6 @@ export function useAPIVoteDetail(id: string) {
       },
     }
   );
-
 }
 
 export function APICreateVote(data: ICreateVote) {

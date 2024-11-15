@@ -5,12 +5,11 @@ import { IMAGE_URL } from "@/constants";
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
-import { ArrowDown, ArrowUp } from "lucide-react";
-import { ReactNode } from "react";
 import Link from "next/link";
 
 export const columns: ColumnDef<IVoteResult>[] = [
   {
+    id: "ranking",
     accessorKey: "ranking",
     header: "RANKING",
     size: 100,
@@ -27,7 +26,7 @@ export const columns: ColumnDef<IVoteResult>[] = [
         <Image
           width={24}
           height={24}
-          className="rounded-full w-6 h-6 hidden md:block"
+          className="rounded-full w-6 h-6"
           src={`${IMAGE_URL}${project.logo}`}
           alt={project.name}
         />
@@ -37,14 +36,55 @@ export const columns: ColumnDef<IVoteResult>[] = [
   {
     accessorKey: "project.name",
     id: "projectName",
-    header: "NAME",
+    header: () => {
+      return <span>NUMBER OF VOTES</span>;
+    },
+    cell: ({ row }) => {
+      const {
+        original: { project, eventId, count, total },
+      } = row;
+      const precentValue = Math.round((count / total) * 100);
+
+      return (
+        <div className="relative h-11 hidden md:block">
+          <Progress
+            childrenClassName="bg-oscarActive"
+            className="h-full bg-white/10 hidden md:block absolute inset-0 rounded-none"
+            value={precentValue}
+          />
+          <Link
+            className="absolute top-1/2 -translate-y-1/2"
+            target="_blank"
+            href={`/project/${eventId}/${project.id}`}
+          >
+            <span
+              style={{ color: "#ffd989" }}
+              className="inline-block w-full text-xl font-semibol italic whitespace-nowrap indent-2"
+            >
+              {project.name}
+            </span>
+          </Link>
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "project.name",
+    id: "projectName2",
+    header: () => {
+      return <span>PROJECT</span>;
+    },
     cell: ({ row }) => {
       const {
         original: { project, eventId },
       } = row;
+
       return (
         <Link target="_blank" href={`/project/${eventId}/${project.id}`}>
-          <span className="inline-block w-full font-bold whitespace-normal">
+          <span
+            style={{ color: "#ffd989" }}
+            className="inline-block w-full text-xl font-semibol italic"
+          >
             {project.name}
           </span>
         </Link>
@@ -52,41 +92,19 @@ export const columns: ColumnDef<IVoteResult>[] = [
     },
   },
   {
-    id: "process",
+    id: "votes",
+    accessorKey: "project",
     header: () => {
-      return <span className="hidden md:block">NUMBER OF VOTES</span>;
+      return <span className="block md:hidden">VOTES</span>;
     },
-    cell: ({ row }) => {
-      const {
-        original: { count, total },
-      } = row;
-      const precentValue = Math.round((count / total) * 100);
-      return (
-        <Progress
-          childrenClassName="bg-oscarActive"
-          className="h-1 bg-white/10 hidden md:block"
-          value={precentValue}
-        />
-      );
-    },
-  },
-  {
-    header: "TRENDS",
     size: 100,
     maxSize: 120,
     cell: ({ row }) => {
       const {
-        original: { trend, count },
+        original: { count },
       } = row;
-      let icon: ReactNode = <span className="text-description">--</span>;
-      if (trend > 0) {
-        icon = <ArrowUp className="text-oscarActive w-4 h-4" />;
-      } else if (trend < 0) {
-        icon = <ArrowDown className="text-description w-4 h-4" />;
-      }
       return (
         <div className="flex items-center gap-2">
-          {icon}
           <span className="text-oscarActive">{count}</span>
         </div>
       );

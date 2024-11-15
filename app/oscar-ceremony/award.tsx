@@ -2,139 +2,90 @@
 
 import { cn } from "@/lib";
 import styles from "./index.module.css";
-import TrophyImage from "@/assets/oscar-ceremony/trophy.png";
-import Image from "next/image";
-import { Button } from "@/components/ui";
+import Trophy2Image from "@/assets/oscar-ceremony/trophy2.png";
+import Image, { StaticImageData } from "next/image";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import homeStyles from "../home/styles.module.css";
-import Link from "next/link";
-import {
-  HACKTHON_APPLY_EVENT_ID,
-  OSCAR_CONTRIBUTION_AWARD_EVENT_ID,
-  ROUTER_PATH,
-} from "@/constants";
 import { useIsSafari } from "@/hooks/useIsSafari";
+import HarnImage from "@/assets/vote/result/Harn.png";
+import MarianaImage from "@/assets/vote/result/Mariana.png";
+import MilicaImage from "@/assets/vote/result/Milica.png";
+import BreeAnneYekImage from "@/assets/vote/result/BreeAnne Yek.png";
 
 const AWARD_LIST = [
   {
     name: "Collaboration Bridge Award ",
     ambassador: "Individual",
     prize: "Prize Worth $3000",
-    tags: [
-      "BGA Merchandise Package",
-      "On-Chain Certificate",
-      "Bangkok Trip Reimbursement",
-    ],
-    buttons: [
-      (isSafari: boolean) => (
-        <Link
-          target="__blank"
-          href="https://www.blockchainforgood.xyz/news/detail/41d6b262-ad52-48ba-a76a-e0337284412b"
-        >
-          <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-            <span
-              className={cn(
-                isSafari ? "text-description" : styles["award-btn-rule-span"]
-              )}
-            >
-              Rules
-            </span>
-          </Button>
-        </Link>
-      ),
-      () => (
-        <Button
-          className={cn(
-            "px-8 rounded-none opacity-70 w-44",
-            styles["award-btn-invatation"]
-          )}
-        >
-          <span>Exclusive Invitation</span>
-        </Button>
-      ),
+    users: [
+      {
+        img: HarnImage,
+        name: "Harn",
+        org: [
+          {
+            name: "Collaboration Bridge Award",
+            title: "CEO, Trigger Asset Management",
+          },
+        ],
+        link: "",
+      },
     ],
   },
   {
     name: "Public Welfare Contribution Award",
     ambassador: "Individual",
     prize: "Prize Worth $1000",
-    tags: [
-      "BGA Merchandise Package",
-      "On-Chain Certificate",
-      "$500 Cash Reward",
-    ],
-    buttons: [
-      (isSafari: boolean) => (
-        <Link
-          target="__blank"
-          href="https://www.blockchainforgood.xyz/news/detail/41d6b262-ad52-48ba-a76a-e0337284412b"
-        >
-          <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-            <span
-              className={cn(
-                isSafari ? "text-description" : styles["award-btn-rule-span"]
-              )}
-            >
-              Rules
-            </span>
-          </Button>
-        </Link>
-      ),
-      () => (
-        <Link
-          target="__blank"
-          href={`${ROUTER_PATH.FORM.PERSON}/${OSCAR_CONTRIBUTION_AWARD_EVENT_ID}`}
-        >
-          <Button
-            className={cn("px-8 rounded-none w-44", styles["award-btn-apply"])}
-          >
-            <span>Apply</span>
-          </Button>
-        </Link>
-      ),
-    ],
-  },
-  {
-    name: "BGA Ambassador Star",
-    ambassador: "Ambassador",
-    prize: "Prize Worth $300",
-    tags: [
-      "BGA Merchandise Package",
-      "On-Chain Certificate",
-      "$500 Cash Reward",
-    ],
-    buttons: [
-      (isSafari: boolean) => (
-        <Link
-          target="__blank"
-          href="https://www.blockchainforgood.xyz/news/detail/41d6b262-ad52-48ba-a76a-e0337284412b"
-        >
-          <Button className={cn("px-4 rounded-none", styles["award-btn-rule"])}>
-            <span
-              className={cn(
-                isSafari ? "text-description" : styles["award-btn-rule-span"]
-              )}
-            >
-              Rules
-            </span>
-          </Button>
-        </Link>
-      ),
-      () => (
-        <Link
-          target="__blank"
-          href={`${ROUTER_PATH.FORM.PERSON}/${HACKTHON_APPLY_EVENT_ID}`}
-        >
-          <Button
-            className={cn("px-8 rounded-none w-44", styles["award-btn-apply"])}
-          >
-            <span>Apply</span>
-          </Button>
-        </Link>
-      ),
+    users: [
+      {
+        img: MarianaImage,
+        name: "Mariana de la Roche W",
+        org: [
+          {
+            name: "Board of Directors INATBA",
+            title: "Founder of de la Roche W. Consulting",
+          },
+        ],
+        link: "",
+      },
+      {
+        img: MilicaImage,
+        name: "Milica Dimitrijevic",
+        org: [
+          {
+            name: "Blockchain for Good Alliance (BGA)",
+            title: "Digital Innovation for Social Impact Advisor Partner",
+          },
+          {
+            name: "PositiveBlockchain",
+            title: "Program Lead",
+          },
+          {
+            name: "BC100+",
+            title: "Steering Committee Member",
+          },
+        ],
+        link: "",
+      },
+      {
+        img: BreeAnneYekImage,
+        name: "BreeAnne Yek",
+        org: [
+          {
+            name: "Advocate & Consultant",
+            title: "Founder",
+          },
+        ],
+        link: "",
+      },
     ],
   },
-] as const;
+  // {
+  //   name: "BGA Ambassador Star",
+  //   ambassador: "Ambassador",
+  //   prize: "Prize Worth $300",
+  //   users: [],
+  // },
+];
 
 export function Award() {
   const ref = useIntersectionObserver<HTMLDivElement>(
@@ -156,7 +107,7 @@ export function Award() {
           Awards
         </h2>
       </div>
-      {AWARD_LIST.map((award, index) => (
+      {AWARD_LIST.map((award) => (
         <AwardItem key={award.name} item={award} />
       ))}
     </div>
@@ -170,82 +121,99 @@ function AwardItem({ item }: { item: (typeof AWARD_LIST)[number] }) {
 
   const isSafari = useIsSafari();
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "flex flex-col md:flex-row md:justify-between gap-6 items-center p-6 mt-6",
-        styles["award-item"]
-      )}
-    >
-      <div className="flex flex-col md:flex-row justify-between gap-2 md:gap-0 w-full items-center">
-        <div className="flex">
-          <Image
-            height={80}
-            className={cn("h-20 w-auto mr-6", styles["trophy-gray"])}
-            src={TrophyImage}
-            alt="trophy"
-          />
-          <div className="flex flex-col justify-around md:w-80">
-            <h3
+    <div ref={ref} className={cn("p-6 mt-6 space-y-4", styles["award-item"])}>
+      <div className="flex">
+        <Image
+          height={80}
+          // className={cn("h-20 w-auto mr-6", styles["trophy-gray"])}
+          className={cn("h-20 w-auto mr-6")}
+          src={Trophy2Image}
+          alt="trophy"
+        />
+        <div className="flex flex-col justify-around">
+          <h3
+            className={cn(
+              styles["award-name"],
+              "text-xl md:text-[22px] font-semibold"
+            )}
+          >
+            {item.name}
+          </h3>
+          <div
+            className={cn("flex items-center gap-3 md:gap-6 whitespace-nowrap")}
+          >
+            <span
               className={cn(
-                styles["award-name"],
-                "text-xl md:text-[22px] font-semibold mb-2"
+                isSafari ? "text-description" : styles["award-description"]
               )}
             >
-              {item.name}
-            </h3>
-            <div
+              {item.ambassador}
+            </span>
+            <span
+              style={{
+                width: "1px",
+                borderRight: "1px solid #B6B6BF",
+              }}
+              className="py-1 flex-none h-4"
+            ></span>
+            <span
               className={cn(
-                "flex items-center gap-3 md:gap-6 whitespace-nowrap"
+                isSafari ? "text-description" : styles["award-description"]
               )}
             >
-              <span
-                className={cn(
-                  isSafari ? "text-description" : styles["award-description"]
-                )}
-              >
-                {item.ambassador}
-              </span>
-              <span
-                style={{
-                  width: "1px",
-                  borderRight: "1px solid #B6B6BF",
-                }}
-                className="py-1 flex-none h-4"
-              ></span>
-              <span
-                className={cn(
-                  isSafari ? "text-description" : styles["award-description"]
-                )}
-              >
-                {item.prize}
-              </span>
-            </div>
+              {item.prize}
+            </span>
           </div>
         </div>
+      </div>
+      <div className="w-full h-0 border-b border-white/20"></div>
+      <div className={cn("grid grid-cols-1 md:grid-cols-4 gap-4 mt-3")}>
+        {item.users.map((user) => (
+          <UserAvater
+            img={user.img}
+            name={user.name}
+            org={user.org}
+            link={user.link}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
-        <div
-          className={cn(
-            "w-full border-b border-oscarActive md:w-0 md:h-10 md:border-l"
-          )}
+function UserAvater({
+  img,
+  name,
+  org,
+  link = "",
+}: {
+  img: string | StaticImageData;
+  name: string;
+  org: any[];
+  link?: string;
+}) {
+  return (
+    <a target="__blank" href={link || undefined}>
+      <div className={cn("flex gap-2", styles.speaker)}>
+        <Image
+          width={56}
+          height={56}
+          className="w-14 h-14 rounded-full"
+          src={img}
+          alt="User"
         />
-        <div className="flex flex-wrap gap-2 h-min md:w-[403px]">
-          {item.tags.map((tag, index) => (
-            <div
-              key={tag}
-              className={cn(
-                styles["award-tag"],
-                "px-6 py-1 md:px-4 md:py-2 rounded-full text-sm"
-              )}
-            >
-              {tag}
-            </div>
+        <div>
+          <p className={cn(styles.typ, "font-semibold")}>{name}</p>
+          {org.map((item) => (
+            <p className="text-xs">
+              <span className={cn(styles.typ)}>{item.name}, </span>
+              <span className={cn(styles["typ-description"])}>
+                {item.title}
+              </span>
+            </p>
           ))}
         </div>
       </div>
-      <div className="flex-none space-x-2">
-        {item.buttons.map((fn, index) => fn(isSafari))}
-      </div>
-    </div>
+    </a>
   );
 }

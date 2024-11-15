@@ -15,9 +15,12 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { OSCAR_VOTE_ID } from "@/constants";
 import { IVote, IVoteResult } from "@/app/vote/[id]/types";
+import ICONImage from "@/assets/vote/result/Icon1.png";
+import Image from "next/image";
+import { useIsMobile } from "@/hooks";
 
 const ID = OSCAR_VOTE_ID;
 
@@ -31,12 +34,39 @@ export function Vote() {
     vote?.organizations,
     vote?.event?.id
   );
+
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+
+  const [columnVisibility, setColumnVisibility] = useState({
+    avator: true,
+    projectName: true,
+    projectName2: false,
+  });
+
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (isMobile) {
+      setColumnVisibility({
+        avator: false,
+        projectName: false,
+        projectName2: true,
+      });
+    } else {
+      setColumnVisibility({
+        avator: true,
+        projectName: true,
+        projectName2: false,
+      });
+    }
+  }, [isMobile]);
+
   const table = useReactTable({
     data: tableData,
     columns,
     state: {
       columnFilters,
+      columnVisibility,
     },
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
@@ -52,17 +82,17 @@ export function Vote() {
   return (
     <div
       id="projects"
-      className="hash-section w-full md:w-content mx-auto p-4 md:p-8 box-border border border-white/70"
+      className="hash-section w-full md:w-content mx-auto box-border"
     >
-      <div className="px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-        <h3 className="text-[28px] leading-[42px] font-bold text-white">
-          Top Ten Community Votes
+      <div className="flex items-center gap-4">
+        <Image src={ICONImage} alt="top 10 projects" className="w-9 h-9" />
+        <h3 className="text-3xl leading-[42px] font-bold text-oscarActive">
+          TOP10 Projects
         </h3>
-        <div className="flex flex-col md:flex-row gap-4">
-          {/* {vote && <CountDown endTime={+vote.etimestampms} />} */}
-          <Search table={table} />
-        </div>
       </div>
+      {/* <div className="flex flex-col md:flex-row gap-4">
+          <Search table={table} />
+        </div> */}
       {isLoading && !data && <Loading />}
       {data && <DataTable id={ID} table={table} />}
     </div>

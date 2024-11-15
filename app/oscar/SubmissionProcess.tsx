@@ -68,7 +68,7 @@ export const SubmissionProcess = () => {
       id="agenda"
       className="hash-section w-full md:w-content m-auto px-6 md:px-0"
     >
-      <OscarTitle text="Agenda" center />
+      <OscarTitle text="Submission Process" center />
       <div className="items-center flex justify-between flex-wrap gap-6 mt-6">
         {data.map((item, index) => (
           <ProcessItem key={index} item={item} index={index + 1} />
