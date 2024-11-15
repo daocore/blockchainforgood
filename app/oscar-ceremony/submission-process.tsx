@@ -21,7 +21,6 @@ import HarnImage from "@/assets/oscar/Avatar Harn.png";
 import GianlucaImage from "@/assets/oscar/Avatar Gianluca.png";
 import KCImage from "@/assets/oscar/Avatar KC.png";
 import AdamImage from "@/assets/oscar/Avatar Adam.png";
-// import Adam2Image from "@/assets/oscar/Avatar Adam2.png";
 import ComposeusImage from "@/assets/oscar/Avatar Composeus.png";
 import RodrigoVasquezImage from "@/assets/oscar/Avatar Rodrigo Vasquez.png";
 import FelixsimImage from "@/assets/oscar/Avatar28.png";
@@ -37,9 +36,144 @@ import AlexandereEislImage from "@/assets/oscar/Avatar AlexanderEisl.png";
 import PinakiImage from "@/assets/oscar/Avatar Pinaki.png";
 import DrWIssamanyaTulthaisongImage from "@/assets/oscar/Avatar Dr. Wissamanya Tulthaisong.png";
 
+import AutoScroll from "embla-carousel-auto-scroll";
+import Image1_1 from "@/assets/vote/result/1-1.png";
+import Image1_2 from "@/assets/vote/result/1-2.png";
+import Image1_3 from "@/assets/vote/result/1-3.png";
+import Image1_4 from "@/assets/vote/result/1-4.png";
+import Image1_5 from "@/assets/vote/result/1-5.png";
+import Image1_6 from "@/assets/vote/result/1-6.png";
+import Image1_7 from "@/assets/vote/result/1-7.png";
+import Image1_8 from "@/assets/vote/result/1-8.png";
+import Image2_1 from "@/assets/vote/result/2-1.png";
+import Image2_2 from "@/assets/vote/result/2-2.png";
+import Image2_3 from "@/assets/vote/result/2-3.png";
+import Image2_4 from "@/assets/vote/result/2-4.png";
+import Image2_5 from "@/assets/vote/result/2-5.png";
+import Image2_6 from "@/assets/vote/result/2-6.png";
+import Image2_7 from "@/assets/vote/result/2-7.png";
+import Image2_8 from "@/assets/vote/result/2-8.png";
+import Image3_1 from "@/assets/vote/result/3-1.png";
+import Image3_2 from "@/assets/vote/result/3-2.png";
+import Image3_3 from "@/assets/vote/result/3-3.png";
+import Image3_4 from "@/assets/vote/result/3-4.png";
+import Image3_5 from "@/assets/vote/result/3-5.png";
+import Image3_6 from "@/assets/vote/result/3-6.png";
+import Image3_7 from "@/assets/vote/result/3-7.png";
+import Image3_8 from "@/assets/vote/result/3-8.png";
+import Image4_1 from "@/assets/vote/result/4-1.png";
+import Image4_2 from "@/assets/vote/result/4-2.png";
+import Image4_3 from "@/assets/vote/result/4-3.png";
+import Image4_4 from "@/assets/vote/result/4-4.png";
+import Image4_5 from "@/assets/vote/result/4-5.png";
+import Image4_6 from "@/assets/vote/result/4-6.png";
+import Image4_7 from "@/assets/vote/result/4-7.png";
+import Image4_8 from "@/assets/vote/result/4-8.png";
+import Image4_9 from "@/assets/vote/result/4-8.png";
+import Image4_10 from "@/assets/vote/result/4-10.png";
+import Image5_1 from "@/assets/vote/result/5-1.png";
+import Image5_2 from "@/assets/vote/result/5-2.png";
+import Image5_3 from "@/assets/vote/result/5-3.png";
+import Image5_4 from "@/assets/vote/result/5-4.png";
+import Image5_5 from "@/assets/vote/result/5-5.png";
+import Image5_6 from "@/assets/vote/result/5-6.png";
+import Image5_7 from "@/assets/vote/result/5-7.png";
+import Image5_8 from "@/assets/vote/result/5-8.png";
+import Image6_1 from "@/assets/vote/result/6-1.png";
+import Image7_1 from "@/assets/vote/result/7-1.png";
+import Image7_2 from "@/assets/vote/result/7-2.png";
+import Image7_3 from "@/assets/vote/result/7-3.png";
+import Image7_4 from "@/assets/vote/result/7-4.png";
+import Image7_5 from "@/assets/vote/result/7-5.png";
+import Image7_6 from "@/assets/vote/result/7-6.png";
+import Image7_7 from "@/assets/vote/result/7-7.png";
+
+import Image8_1 from "@/assets/vote/result/8-1.png";
+import Image8_2 from "@/assets/vote/result/8-2.png";
+import Image8_3 from "@/assets/vote/result/8-3.png";
+import Image8_4 from "@/assets/vote/result/8-4.png";
+import Image8_5 from "@/assets/vote/result/8-5.png";
+import Image8_6 from "@/assets/vote/result/8-6.png";
+import Image8_7 from "@/assets/vote/result/8-7.png";
+import Image8_8 from "@/assets/vote/result/8-8.png";
+import Image9_1 from "@/assets/vote/result/9-1.png";
+import Image9_2 from "@/assets/vote/result/9-2.png";
+import Image9_3 from "@/assets/vote/result/9-3.png";
+import Image9_4 from "@/assets/vote/result/9-4.png";
+import Image9_5 from "@/assets/vote/result/9-5.png";
+import Image9_6 from "@/assets/vote/result/9-6.png";
+import Image9_7 from "@/assets/vote/result/9-7.png";
+import Image10_1 from "@/assets/vote/result/10-1.png";
+import Image10_2 from "@/assets/vote/result/10-2.png";
+import Image10_3 from "@/assets/vote/result/10-3.png";
+import Image10_4 from "@/assets/vote/result/10-4.png";
+import Image10_5 from "@/assets/vote/result/10-5.png";
+import Image11_1 from "@/assets/vote/result/11-1.png";
+import Image11_2 from "@/assets/vote/result/11-2.png";
+import Image11_3 from "@/assets/vote/result/11-3.png";
+import Image11_4 from "@/assets/vote/result/11-4.png";
+import Image11_5 from "@/assets/vote/result/11-5.png";
+import Image11_6 from "@/assets/vote/result/11-6.png";
+import Image11_7 from "@/assets/vote/result/11-7.png";
+import Image11_8 from "@/assets/vote/result/11-8.png";
+import Image12_1 from "@/assets/vote/result/12-1.png";
+import Image12_2 from "@/assets/vote/result/12-2.png";
+import Image12_3 from "@/assets/vote/result/12-3.png";
+import Image12_4 from "@/assets/vote/result/12-4.png";
+import Image12_5 from "@/assets/vote/result/12-5.png";
+import Image12_6 from "@/assets/vote/result/12-6.png";
+import Image13_1 from "@/assets/vote/result/13-1.png";
+import Image13_2 from "@/assets/vote/result/13-2.png";
+import Image13_3 from "@/assets/vote/result/13-3.png";
+import Image13_4 from "@/assets/vote/result/13-4.png";
+import Image13_5 from "@/assets/vote/result/13-5.png";
+import Image13_6 from "@/assets/vote/result/13-6.png";
+import Image13_7 from "@/assets/vote/result/13-7.png";
+import Image13_8 from "@/assets/vote/result/13-8.png";
+import Image14_1 from "@/assets/vote/result/14-1.png";
+import Image14_2 from "@/assets/vote/result/14-2.png";
+import Image14_3 from "@/assets/vote/result/14-3.png";
+import Image14_4 from "@/assets/vote/result/14-4.png";
+import Image15_1 from "@/assets/vote/result/15-1.png";
+import Image15_2 from "@/assets/vote/result/15-2.png";
+import Image15_3 from "@/assets/vote/result/15-3.png";
+import Image15_4 from "@/assets/vote/result/15-4.png";
+import Image15_5 from "@/assets/vote/result/15-5.png";
+import Image15_6 from "@/assets/vote/result/15-6.png";
+import Image15_7 from "@/assets/vote/result/15-7.png";
+import Image16_1 from "@/assets/vote/result/16-1.png";
+import Image16_2 from "@/assets/vote/result/16-2.png";
+import Image16_3 from "@/assets/vote/result/16-3.png";
+import Image16_4 from "@/assets/vote/result/16-4.png";
+import Image16_5 from "@/assets/vote/result/16-5.png";
+import Image16_6 from "@/assets/vote/result/16-6.png";
+import Image16_7 from "@/assets/vote/result/16-7.png";
+import Image16_8 from "@/assets/vote/result/16-8.png";
+import Image16_9 from "@/assets/vote/result/16-9.png";
+import Image16_10 from "@/assets/vote/result/16-10.png";
+import Image16_11 from "@/assets/vote/result/16-11.png";
+import Image16_12 from "@/assets/vote/result/16-12.png";
+import Image17_1 from "@/assets/vote/result/17-1.png";
+import Image17_2 from "@/assets/vote/result/17-2.png";
+import Image17_3 from "@/assets/vote/result/17-3.png";
+import Image17_4 from "@/assets/vote/result/17-4.png";
+import Image17_5 from "@/assets/vote/result/17-5.png";
+import Image17_6 from "@/assets/vote/result/17-6.png";
+import Image17_7 from "@/assets/vote/result/17-7.png";
+import Image17_8 from "@/assets/vote/result/17-8.png";
+import Image17_9 from "@/assets/vote/result/17-9.png";
+
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { useCallback, useState } from "react";
+
 export function SubmissionProcess() {
   return (
-    <div className="w-full md:w-content mx-auto px-2 md:px-0">
+    <div className="w-screen md:w-content mx-auto px-2 md:px-0">
       <div id="agenda" className="hash-section flex items-center gap-2">
         <Image width={40} height={40} src={ProcessIconImage} alt="Process" />
         <h2 className="text-oscarActive text-3xl font-bold">Event Agenda</h2>
@@ -60,10 +194,30 @@ export function SubmissionProcess() {
             <PartContentItem
               title="The Red Carpet"
               desc="Registration for event participants begins. In true glamour and excitement, take a snapshot to remember this event at our red carpet and photobooth."
+              imageSource={[
+                Image1_1,
+                Image1_2,
+                Image1_3,
+                Image1_4,
+                Image1_5,
+                Image1_6,
+                Image1_7,
+                Image1_8,
+              ]}
             />
             <PartContentItem
               title="Opening Premiere"
               desc="A cinematic, epic style opening video will highlight the current global sustainability challenges, juxtaposed with innovative blockchain solutions that have made a difference."
+              imageSource={[
+                Image2_1,
+                Image2_2,
+                Image2_3,
+                Image2_4,
+                Image2_5,
+                Image2_6,
+                Image2_7,
+                Image2_8,
+              ]}
             />
             <PartContentItem
               title="The Spotlight"
@@ -85,6 +239,16 @@ export function SubmissionProcess() {
                   link: "https://www.linkedin.com/in/allanfang/",
                 },
               ]}
+              imageSource={[
+                Image3_1,
+                Image3_2,
+                Image3_3,
+                Image3_4,
+                Image3_5,
+                Image3_6,
+                Image3_7,
+                Image3_8,
+              ]}
             />
           </PartItem>
 
@@ -93,6 +257,18 @@ export function SubmissionProcess() {
               title="Rising Stars"
               desc={`10 shortlisted projects from across the globe, who have participated in the Sustainable Innovation Summit: The 17 SDGs Challenge, will step into the spotlight, presenting their blockchain solutions that confront sustainability challenges. 
 In true cinematic fashion, each project pitch will have to tell the story of a "hero" facing a global crisis (one of the 17 SDGs), with blockchain as the "tool" they wield to drive change and create a better future.`}
+              imageSource={[
+                Image4_1,
+                Image4_2,
+                Image4_3,
+                Image4_4,
+                Image4_5,
+                Image4_6,
+                Image4_7,
+                Image4_8,
+                Image4_9,
+                Image4_10,
+              ]}
             />
             <PartContentItem
               title="Academy of Innovation"
@@ -143,17 +319,6 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   ],
                   link: "https://www.linkedin.com/in/adamihsanboon/",
                 },
-                // {
-                //   img: Adam2Image,
-                //   name: "Adam",
-                //   org: [
-                //     {
-                //       name: "Growth Ensemble",
-                //       title: "Co-Founder",
-                //     },
-                //   ],
-                //   link: "https://www.linkedin.com/in/adamflinter/",
-                // },
                 {
                   img: FelixsimImage,
                   name: "Felixsim",
@@ -221,11 +386,22 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   link: "https://www.linkedin.com/in/pinaki-s/",
                 },
               ]}
+              imageSource={[
+                Image5_1,
+                Image5_2,
+                Image5_3,
+                Image5_4,
+                Image5_5,
+                Image5_6,
+                Image5_7,
+                Image5_8,
+              ]}
             />
 
             <PartContentItem
               title="The People's Choice"
               desc={`In the spirit of audience engagement, attendees will have the opportunity to cast their votes live via a dedicated app, selecting their favorite project as the "People’s Choice" among the innovative blockchain solutions.`}
+              imageSource={[Image6_1]}
             />
           </PartItem>
 
@@ -233,6 +409,17 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <p className={cn(styles.description)}>
               Lunch break and mini networking.
             </p>
+            <CarouselList
+              dataSource={[
+                Image7_1,
+                Image7_2,
+                Image7_3,
+                Image7_4,
+                Image7_5,
+                Image7_6,
+                Image7_7,
+              ]}
+            />
           </PartItem>
         </div>
       </div>
@@ -265,6 +452,16 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   link: "https://www.linkedin.com/in/robert-pasicko-5a563a3/",
                 },
               ]}
+              imageSource={[
+                Image8_1,
+                Image8_2,
+                Image8_3,
+                Image8_4,
+                Image8_5,
+                Image8_6,
+                Image8_7,
+                Image8_8,
+              ]}
             />
             <PartContentItem
               title=""
@@ -284,6 +481,15 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                 },
               ]}
               className="md:grid-cols-1"
+              imageSource={[
+                Image9_1,
+                Image9_2,
+                Image9_3,
+                Image9_4,
+                Image9_5,
+                Image9_6,
+                Image9_7,
+              ]}
             />
           </PartItem>
 
@@ -310,6 +516,13 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   ],
                   link: "https://www.linkedin.com/in/allanfang/",
                 },
+              ]}
+              imageSource={[
+                Image10_1,
+                Image10_2,
+                Image10_3,
+                Image10_4,
+                Image10_5,
               ]}
             />
           </PartItem>
@@ -378,6 +591,16 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   link: "https://www.linkedin.com/in/alexandereisl",
                 },
               ]}
+              imageSource={[
+                Image11_1,
+                Image11_2,
+                Image11_3,
+                Image11_4,
+                Image11_5,
+                Image11_6,
+                Image11_7,
+                Image11_8,
+              ]}
             />
           </PartItem>
 
@@ -397,6 +620,14 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   ],
                   link: "https://www.linkedin.com/in/gabriela-chang-valdovinos-76b34410/",
                 },
+              ]}
+              imageSource={[
+                Image12_1,
+                Image12_2,
+                Image12_3,
+                Image12_4,
+                Image12_5,
+                Image12_6,
               ]}
             />
           </PartItem>
@@ -476,6 +707,16 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   link: "https://www.linkedin.com/in/ankeliu/",
                 },
               ]}
+              imageSource={[
+                Image13_1,
+                Image13_2,
+                Image13_3,
+                Image13_4,
+                Image13_5,
+                Image13_6,
+                Image13_7,
+                Image13_8,
+              ]}
             />
           </PartItem>
 
@@ -503,6 +744,7 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   link: "",
                 },
               ]}
+              imageSource={[Image14_1, Image14_2, Image14_3, Image14_4]}
             />
           </PartItem>
 
@@ -574,6 +816,15 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                   link: "https://www.linkedin.com/in/simfelix",
                 },
               ]}
+              imageSource={[
+                Image15_1,
+                Image15_2,
+                Image15_3,
+                Image15_4,
+                Image15_5,
+                Image15_6,
+                Image15_7,
+              ]}
             />
           </PartItem>
 
@@ -581,6 +832,20 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
             <PartContentItem
               title="The Hall of Fame"
               desc="The Chains of Change Hall of Fame will honor visionary leaders, trailblazing projects and BGA members that have leveraged blockchain technology to drive real-world positive impact."
+              imageSource={[
+                Image16_1,
+                Image16_2,
+                Image16_3,
+                Image16_4,
+                Image16_5,
+                Image16_6,
+                Image16_7,
+                Image16_8,
+                Image16_9,
+                Image16_10,
+                Image16_11,
+                Image16_12,
+              ]}
             />
           </PartItem>
 
@@ -606,6 +871,17 @@ Just as the Academy determines the best in film, our "Academy of Innovation" wil
                     },
                   ],
                 },
+              ]}
+              imageSource={[
+                Image17_1,
+                Image17_2,
+                Image17_3,
+                Image17_4,
+                Image17_5,
+                Image17_6,
+                Image17_7,
+                Image17_8,
+                Image17_9,
               ]}
             />
           </PartItem>
@@ -678,7 +954,12 @@ function PartItem({
       >
         {time}
       </div>
-      <div className={cn(styles["process-part-content"], "w-full p-6")}>
+      <div
+        className={cn(
+          styles["process-part-content"],
+          "w-full md:w-[calc(100%-12.5rem)] p-6"
+        )}
+      >
         <div className="flex items-center gap-4">
           <Image className="w-6 h-5" src={AgendaImage} alt="agenda" />
           <h3 className="text-oscarActive text-xl font-semibold">{title}</h3>
@@ -695,18 +976,20 @@ function PartContentItem({
   desc,
   spearks = [],
   className,
+  imageSource,
 }: {
   title: string;
   desc: string;
   spearks?: any[];
   className?: string;
+  imageSource?: StaticImageData[];
 }) {
   return (
     <div>
       <h4 className="text-white font-semibold">{title}</h4>
       <p className={cn(styles.description, "py-2")}>{desc}</p>
       <div
-        className={cn("grid grid-cols-1 md:grid-cols-4 gap-4 mt-3", className)}
+        className={cn("grid grid-cols-1 md:grid-cols-4 gap-4 my-3", className)}
       >
         {spearks.map((speark) => (
           <UserAvater
@@ -717,6 +1000,57 @@ function PartContentItem({
           />
         ))}
       </div>
+      {imageSource && <CarouselList dataSource={imageSource} />}
+    </div>
+  );
+}
+
+function CarouselList({ dataSource }: { dataSource: StaticImageData[] }) {
+  const [api, setApi] = useState<CarouselApi>(null);
+
+  const toggleAutoplay = useCallback(() => {
+    const autoScroll = api?.plugins()?.autoScroll;
+
+    if (!autoScroll) return;
+
+    const playOrStop = autoScroll.isPlaying()
+      ? autoScroll.stop
+      : autoScroll.play;
+    playOrStop();
+  }, [api]);
+
+  return (
+    <div>
+      <Carousel
+        setApi={setApi}
+        opts={{
+          loop: true,
+          align: "start",
+          duration: 40,
+          watchDrag: false,
+          watchFocus: false,
+          watchResize: false,
+          watchSlides: false,
+        }}
+        plugins={[
+          AutoScroll({
+            playOnInit: false,
+          }),
+        ]}
+        onMouseEnter={toggleAutoplay}
+        onMouseLeave={toggleAutoplay}
+      >
+        <CarouselContent>
+          {dataSource.map((data) => (
+            <CarouselItem
+              key={data.src}
+              className="w-32 md:w-[285px] basis-auto"
+            >
+              <Image src={data} width={285} height={160} alt={data.src} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </div>
   );
 }

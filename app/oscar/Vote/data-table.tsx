@@ -10,8 +10,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/lib";
-import { Button } from "@/components/ui";
-import Link from "next/link";
 import { IVoteResult } from "@/app/vote/[id]/types";
 import { ChevronsDown } from "lucide-react";
 import { useState } from "react";
@@ -26,7 +24,7 @@ const DEFAILT_MAX_SHOW_ROWS = 10;
 export function DataTable({ table, id }: DataTableProps) {
   const [showAll, setShowAll] = useState(false);
   return (
-    <div className="mt-10">
+    <div className="mt-10 border border-white/70">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -63,7 +61,7 @@ export function DataTable({ table, id }: DataTableProps) {
               .rows.slice(0, showAll ? undefined : DEFAILT_MAX_SHOW_ROWS)
               .map((row) => (
                 <TableRow
-                  className="border-none"
+                  className="border-none hover:bg-[#FFD989]/20"
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
@@ -103,26 +101,13 @@ export function DataTable({ table, id }: DataTableProps) {
         <div>
           <ChevronsDown
             className={cn(
-              "mx-auto text-white cursor-pointer",
+              "mx-auto text-oscarActive cursor-pointer my-4",
               showAll && "transform rotate-180"
             )}
             onClick={() => setShowAll((val) => !val)}
           />
         </div>
       )}
-
-      {/* <Link href={`/vote/${id}`}>
-        <Button
-          style={{
-            background: "linear-gradient(254.42deg, #FFCA5C 0%, #C09845 83.9%)",
-            color: "#101927",
-          }}
-          className="px-6 rounded-full leading-7 h-7 mx-auto w-full mt-10"
-          size="sm"
-        >
-          Vote
-        </Button>
-      </Link> */}
     </div>
   );
 }
