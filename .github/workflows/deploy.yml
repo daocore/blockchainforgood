@@ -17,4 +17,4 @@ jobs:
 
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no -p 1203 root@8.219.61.117 'cd /www/wwwroot/bga.blockchainforgood.xyz && git pull origin feat/cicd && docker build --memory=1g -t bga:latest . && docker compose down && docker compose up -d'
+          ssh -o StrictHostKeyChecking=no -p 1203 root@8.219.61.117 'cd /www/wwwroot/bga.blockchainforgood.xyz && git pull origin feat/cicd && docker build --no-cache --memory=1g -t bga:latest . && docker compose down && docker compose up -d'
