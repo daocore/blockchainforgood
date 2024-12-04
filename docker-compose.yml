@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  feip:
+    container_name: bga
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      # args:
+    restart: always
+    ports:
+      - 3003:3000

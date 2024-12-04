@@ -5,6 +5,7 @@ const nextConfig = {
     //   exclude: ['error'],
     // },
   },
+  output: "standalone",
   images: {
     unoptimized: true,
     remotePatterns: [
