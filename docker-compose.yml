@@ -6,7 +6,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-      # args:
+    image: bga:latest # 镜像名称
     restart: always
     ports:
       - 3003:3000
