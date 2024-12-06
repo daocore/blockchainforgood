@@ -18,11 +18,11 @@ import {
 
 const menuNavs = [
   {
-    name: "Oscar",
+    name: "Oscar1",
     route: ROUTER_PATH.OSCAR,
   },
   {
-    name: "Programme",
+    name: "Programme1",
     children: [
       {
         name: "Hackathon",
