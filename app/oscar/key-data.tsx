@@ -43,7 +43,7 @@ export function KeyData() {
 function KeyDataItem({ item }: { item: (typeof keyDatas)[number] }) {
   const { label, value } = item;
   return (
-    <div>
+    <div className="text-center md:text-left">
       <p
         className={cn(
           "text-3xl md:text-5xl font-medium",
