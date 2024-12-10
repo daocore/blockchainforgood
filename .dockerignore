@@ -1,0 +1,11 @@
+Dockerfile
+.dockerignore
+node_modules
+README.md
+.next
+docker
+.git
+.vscode
+.idea
+.github
+.DS_Store
