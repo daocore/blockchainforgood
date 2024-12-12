@@ -8,7 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # 构建 Docker 镜像（添加多阶段构建优化镜像大小）
       - name: Build Docker image
@@ -33,7 +33,6 @@ jobs:
           # 在服务器上解压、加载镜像并清理
           ssh -o StrictHostKeyChecking=no -p 1203 root@8.219.61.117 '
             cd /www/wwwroot/www.chainforgood.org && 
-            git pull && 
             gunzip -c /tmp/bga.tar.gz | docker load && 
             rm /tmp/bga.tar.gz && 
             docker compose up --force-recreate -d && 
