@@ -10,11 +10,31 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # 构建 Docker 镜像（添加多阶段构建优化镜像大小）
+      - name: Build Docker image
+        run: docker build -t bga:latest .
+
+      # 压缩镜像文件以减少传输大小
+      - name: Save and compress Docker image
+        run: |
+          docker save bga:latest | gzip > bga.tar.gz
+
       - name: Install SSH Key
         uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
 
+      # 传输并部署（使用压缩文件）
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no -p 1203 root@8.219.61.117 'cd /www/wwwroot/www.chainforgood.org && git pull && docker build --memory=1g -t bga:latest . && docker compose up --force-recreate -d'
+          # 传输压缩后的 Docker 镜像文件
+          scp -o StrictHostKeyChecking=no -P 1203 bga.tar.gz root@8.219.61.117:/tmp/
+
+          # 在服务器上解压、加载镜像并清理
+          ssh -o StrictHostKeyChecking=no -p 1203 root@8.219.61.117 '
+            cd /www/wwwroot/www.chainforgood.org && 
+            git pull && 
+            gunzip -c /tmp/bga.tar.gz | docker load && 
+            rm /tmp/bga.tar.gz && 
+            docker compose up --force-recreate -d && 
+            docker image prune -f'  # 清理旧镜像
