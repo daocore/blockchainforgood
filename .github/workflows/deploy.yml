@@ -12,7 +12,7 @@ jobs:
 
       # 构建 Docker 镜像（添加多阶段构建优化镜像大小）
       - name: Build Docker image
-        run: docker build -t bga:latest .
+        run: docker build --no-cache -t bga:latest .
 
       # 压缩镜像文件以减少传输大小
       - name: Save and compress Docker image
