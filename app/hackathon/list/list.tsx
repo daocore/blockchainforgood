@@ -49,7 +49,7 @@ function HackathonItem({
   const { location, assets } = item;
 
   const locationObj = location ? JSON.parse(location) : {};
-  const rawAssetsList = [...(assets ? JSON.parse(assets) : []), item.cover];
+  const rawAssetsList = [...parseAssets(assets), item.cover];
   const assetsList: string[] = rawAssetsList.slice(1, 3);
 
   const firstAssets = rawAssetsList[0];
@@ -99,4 +99,13 @@ function HackathonItem({
       </div>
     </div>
   );
+}
+
+function parseAssets(assets: string) {
+  if (!assets) return [];
+  try {
+    return JSON.parse(assets);
+  } catch (error) {
+    return [assets];
+  }
 }
