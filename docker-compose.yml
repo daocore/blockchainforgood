@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  website:
+    container_name: bga
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: bga:latest # 镜像名称
+    restart: always
+    ports:
+      - 3003:3000

@@ -5,6 +5,7 @@ const nextConfig = {
     //   exclude: ['error'],
     // },
   },
+  output: "standalone",
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -16,7 +17,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'a.moledao.io',
+        hostname: 'api.moledao.io',
         port: '',
         pathname: '/**',
       },
