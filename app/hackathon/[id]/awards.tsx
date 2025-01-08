@@ -9,6 +9,7 @@ import { EventsRoleValue } from "@/app/square/types";
 import styles from "./index.module.css";
 import { cn } from "@/lib";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Empty } from "@/components/Empty";
 
 export function Awards() {
   return (
@@ -46,6 +47,10 @@ function List() {
 
   if (isLoading) {
     return <SkeletonAwards />;
+  }
+
+  if (list.length === 0) {
+    return <Empty />;
   }
 
   return (

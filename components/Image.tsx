@@ -5,16 +5,14 @@ export function RawImage({
   src,
   alt = src,
   className,
-}: {
-  src: string;
-  className?: string;
-  alt?: string;
-}) {
+  ...props
+}: React.ImgHTMLAttributes<HTMLImageElement>) {
   return (
     <img
       src={`${IMAGE_URL}${src}`}
       alt={alt}
       className={cn("w-auto h-auto", className)}
+      {...props}
     />
   );
 }

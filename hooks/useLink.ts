@@ -83,5 +83,5 @@ export const useGithubLink = (links?: SocialLinksEntity[], prefix?: string) => {
   };
   const linkMap = parse(links, prefix);
 
-  return linkMap?.github;
+  return linkMap?.[SocialLinksEnumValue[SocialLinksEnum.GITHUB].text];
 };
