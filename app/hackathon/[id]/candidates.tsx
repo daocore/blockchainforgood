@@ -22,6 +22,7 @@ import {
 import { useState } from "react";
 import { EventsRoleValue } from "@/app/square/types";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Empty } from "@/components/Empty";
 
 export function Candidates() {
   return (
@@ -47,6 +48,10 @@ function List() {
     return <SkeletonCandidate />;
   }
 
+  if (list.length === 0) {
+    return <Empty />;
+  }
+
   return (
     <div className="">
       {list.map((item) => (
@@ -57,7 +62,7 @@ function List() {
 }
 
 function Item({ item }: { item: EventsApproveEntity }) {
-  const { organization } = item;
+  const { organization, diyimage } = item;
 
   const { logo, name, tags } = organization;
 
@@ -69,6 +74,14 @@ function Item({ item }: { item: EventsApproveEntity }) {
     setOpen(val);
   };
 
+  let imageSrc = logo;
+  let imageStyle = {};
+  if (diyimage) {
+    const image = JSON.parse(diyimage);
+    imageSrc = image.url;
+    imageStyle = image.style;
+  }
+
   return (
     <Drawer open={open} onOpenChange={onShowVisit}>
       <DrawerTrigger asChild>
@@ -78,7 +91,12 @@ function Item({ item }: { item: EventsApproveEntity }) {
             "flex md:justify-between items-start md:items-center group flex-col-reverse md:flex-row gap-4"
           )}
         >
-          <RawImage src={logo} alt={name} className="h-14 object-contain" />
+          <RawImage
+            src={imageSrc}
+            alt={name}
+            style={imageStyle}
+            className="h-14 object-contain"
+          />
           <Tags tags={tags} />
           <Links organization={organization} />
         </div>
@@ -128,14 +146,18 @@ function Links({
   };
   return (
     <div className="hidden gap-4 md:group-hover:flex">
-      <Button className="text-black" onClick={onVisitDemo}>
-        <Image src={DemoImage} alt="demo" className="mr-2" />
-        Demo
-      </Button>
-      <Button className="text-black" onClick={onVisitGithub}>
-        <Image src={GithubImage} alt="github" className="mr-2" />
-        Github
-      </Button>
+      {demo && (
+        <Button className="text-black" onClick={onVisitDemo}>
+          <Image src={DemoImage} alt="demo" className="mr-2" />
+          Demo
+        </Button>
+      )}
+      {githubLink && (
+        <Button className="text-black" onClick={onVisitGithub}>
+          <Image src={GithubImage} alt="github" className="mr-2" />
+          Github
+        </Button>
+      )}
     </div>
   );
 }
@@ -156,20 +178,24 @@ function LinksMobile({
   };
   return (
     <div className="text-black text-lg font-semibold">
-      <div
-        className="flex gap-2 cursor-pointer p-4 hover:bg-[#ECECEE] active:bg-[#ECECEE]"
-        onClick={onVisitDemo}
-      >
-        <Image src={DemoImage} alt="demo" className="w-6 h-6" />
-        Demo
-      </div>
-      <div
-        className="flex gap-2 cursor-pointer p-4 hover:bg-[#ECECEE] active:bg-[#ECECEE]"
-        onClick={onVisitGithub}
-      >
-        <Image src={GithubImage} alt="github" className="w-6 h-6" />
-        Github
-      </div>
+      {demo && (
+        <div
+          className="flex gap-2 cursor-pointer p-4 hover:bg-[#ECECEE] active:bg-[#ECECEE]"
+          onClick={onVisitDemo}
+        >
+          <Image src={DemoImage} alt="demo" className="w-6 h-6" />
+          Demo
+        </div>
+      )}
+      {githubLink && (
+        <div
+          className="flex gap-2 cursor-pointer p-4 hover:bg-[#ECECEE] active:bg-[#ECECEE]"
+          onClick={onVisitGithub}
+        >
+          <Image src={GithubImage} alt="github" className="w-6 h-6" />
+          Github
+        </div>
+      )}
     </div>
   );
 }

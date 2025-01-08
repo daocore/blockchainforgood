@@ -145,6 +145,8 @@ interface CarouselNavigateProps {
 function CarouselNavigate(props: CarouselNavigateProps) {
   const isMobile = useIsMobile();
 
+  if (props.assetsList.length <= 1) return null;
+
   if (isMobile) {
     return <CarouselNavigateMobile {...props} />;
   }
