@@ -19,14 +19,20 @@ import Autoplay from "embla-carousel-autoplay";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks";
 import { RawImage } from "@/components/Image";
+import styles from "./index.module.css";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function Header() {
   const { id } = useParams<{ id: string }>();
 
   const { data = {} as EventsEntity, isLoading } = useAPIGetEventDetail(id);
 
+  if (isLoading) {
+    return <Skeleton className="h-96" />;
+  }
+
   return (
-    <div className="w-full relative">
+    <div className={cn("w-full relative", styles.header)}>
       <Title item={data} />
       <AssestList item={data} />
     </div>

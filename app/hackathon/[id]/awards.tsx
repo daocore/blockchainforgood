@@ -9,33 +9,8 @@ import { EventsRoleValue } from "@/app/square/types";
 import styles from "./index.module.css";
 import { cn } from "@/lib";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Empty } from "@/components/Empty";
 
 export function Awards() {
-  return (
-    <div className="relative">
-      <div
-        className={cn(
-          "w-full max-w-content mx-auto py-14 flex flex-col md:flex-row gap-6"
-        )}
-      >
-        <Title />
-        <List />
-      </div>
-      <div className={cn(styles.awards, "absolute inset-0 opacity-5")} />
-    </div>
-  );
-}
-
-function Title() {
-  return (
-    <div className="w-full md:w-80 text-center text-black text-5xl font-bold">
-      Awards
-    </div>
-  );
-}
-
-function List() {
   const { id } = useParams<{ id: string }>();
 
   const { isLoading, data: { list } = { list: [], total: 0 } } =
@@ -50,9 +25,33 @@ function List() {
   }
 
   if (list.length === 0) {
-    return <Empty />;
+    return null;
   }
 
+  return (
+    <div className="relative">
+      <div
+        className={cn(
+          "w-full max-w-content mx-auto py-14 flex flex-col md:flex-row gap-6"
+        )}
+      >
+        <Title />
+        <List list={list} />
+      </div>
+      <div className={cn(styles.awards, "absolute inset-0 opacity-5")} />
+    </div>
+  );
+}
+
+function Title() {
+  return (
+    <div className="w-full md:w-80 text-center text-black text-5xl font-bold">
+      Awards
+    </div>
+  );
+}
+
+function List({ list }: { list: EventsApproveEntity[] }) {
   return (
     <div className="w-full space-y-6 md:space-y-0 px-4">
       {list.map((item) => (
