@@ -1,0 +1,102 @@
+"use client";
+
+export function Candidates() {
+  return (
+    <div className="w-full bg-white pb-10 md:pb-14">
+      <div className="w-full max-w-desktop mx-auto">
+        <h2 className="text-black font-bold text-[120px] leading-[1.1] p-10 text-center">
+          Programme
+        </h2>
+        <List />
+      </div>
+    </div>
+  );
+}
+
+import P1Image from "@/assets/joint-fund/p1.png";
+import P2Image from "@/assets/joint-fund/p2.png";
+import P3Image from "@/assets/joint-fund/p3.png";
+import P4Image from "@/assets/joint-fund/p4.png";
+import ArrowRightIcon from "@/assets/joint-fund/arrow-up-right.png";
+import { ArrowUpRightIcon } from "lucide-react";
+import Image from "next/image";
+import { cn } from "@/lib";
+const list = [
+  {
+    status: 0,
+    name: "BGA <> Masverse1",
+    id: "1",
+    parents: [P1Image, P2Image, P3Image, P4Image],
+  },
+  {
+    status: 0,
+    name: "BGA <> Masverse2",
+    id: "3",
+    parents: [
+      P1Image,
+      P2Image,
+      P3Image,
+      P4Image,
+      P1Image,
+      P2Image,
+      P3Image,
+      P4Image,
+    ],
+  },
+] as any[];
+
+const statuses = ["Soon", "In Progress", "Completed"];
+
+function List() {
+  return (
+    <div>
+      {list.map((item) => (
+        <Item key={item.id} item={item} />
+      ))}
+      <div className="flex justify-center mt-10 md:mt-20">
+        <span className="text-base font-semibold border border-black py-3 px-4 inline-flex gap-2 mx-auto">
+          Apply to Collaberate
+          <ArrowUpRightIcon className="w-6 h-6" />
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function Item({ item }: { item: any }) {
+  return (
+    <div className="text-black p-10 border-b border-black flex justify-between items-start md:items-end hover:bg-[#ececee] group">
+      <div className="space-y-8 md:space-y-28">
+        <div className="space-y-3">
+          <Status status={item.status} />
+          <h3 className="text-5xl font-bold">{item.name}</h3>
+        </div>
+        <div className="flex gap-4 flex-wrap">
+          {item.parents.map((parent: any) => (
+            <Image src={parent} alt="parent" className="h-10 shrink-0 grow-0" height={40} />
+          ))}
+        </div>
+      </div>
+  
+      
+      <div className="flex justify-between items-center">
+        <span className="hidden md:inline-flex cursor-pointer text-base font-semibold border border-black py-3 px-4  gap-2 shrink-0 grow-0 group-hover:bg-black group-hover:text-white">
+          More
+          <ArrowUpRightIcon className="w-6 h-6" />
+        </span>
+        <ArrowUpRightIcon className="w-6 h-6 cursor-pointer md:hidden" />
+      </div>
+    </div>
+  );
+}
+
+
+const classMap: Record<number, string> = {
+  0: "border border-black text-black",
+  1: "bg-black text-white",
+  2: "bg-[#d6d6d7] text-typography",
+};
+function Status({ status }: { status: number }) {
+
+  return <div className={cn("text-base font-bold py-1 px-2 inline-block", classMap[status])}>{statuses[status]}</div>;
+}
