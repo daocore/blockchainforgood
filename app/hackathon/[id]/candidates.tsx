@@ -22,20 +22,8 @@ import {
 import { useState } from "react";
 import { EventsRoleValue } from "@/app/square/types";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Empty } from "@/components/Empty";
 
 export function Candidates() {
-  return (
-    <div className="bg-incubation pt-14 pb-32 px-6 md:px-10">
-      <div className="w-full max-w-content mx-auto">
-        <h2 className="text-white font-bold text-5xl py-14">Candidates</h2>
-        <List />
-      </div>
-    </div>
-  );
-}
-
-function List() {
   const { id } = useParams<{ id: string }>();
 
   const { isLoading, data: { list } = { list: [], total: 0 } } =
@@ -49,9 +37,20 @@ function List() {
   }
 
   if (list.length === 0) {
-    return <Empty />;
+    return null;
   }
 
+  return (
+    <div className="bg-incubation pt-14 pb-32 px-6 md:px-10">
+      <div className="w-full max-w-content mx-auto">
+        <h2 className="text-white font-bold text-5xl py-14">Candidates</h2>
+        <List list={list} />
+      </div>
+    </div>
+  );
+}
+
+function List({ list }: { list: EventsApproveEntity[] }) {
   return (
     <div className="">
       {list.map((item) => (
