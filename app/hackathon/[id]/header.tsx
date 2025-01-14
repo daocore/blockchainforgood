@@ -50,14 +50,13 @@ function Title({ item }: { item: EventsEntity }) {
   return (
     <div className="absolute top-0 left-0 w-full z-10 pt-6 pl-6">
       <div className="max-w-content mx-auto space-y-6">
-        <h2 className="text-white font-bold text-5xl w-1/2">{name}</h2>
-        <div className="text-2xl font-bold text-white space-x-4">
+        <h2 className="text-white font-bold text-3xl md:text-5xl w-full md:w-1/2">{name}</h2>
+        <div className="text-xs md:text-2xl font-bold text-white flex gap-2 md:gap-6">
           {startDate && (
             <span className="inline-flex gap-2">
               <Image
-                alt="location w-8 h-8"
-                width={36}
-                height={36}
+                alt="location"
+                className="md:w-8 md:h-8 w-4 h-4"
                 src={TimeImage}
               />
               {startDate}
@@ -66,9 +65,8 @@ function Title({ item }: { item: EventsEntity }) {
           {locationObj?.area && (
             <span className="inline-flex gap-2">
               <Image
-                alt="location w-8 h-8"
-                width={36}
-                height={36}
+                alt="location"
+                className="md:w-8 md:h-8 w-4 h-4"
                 src={LocationImage}
               />
               {locationObj?.area}
@@ -103,7 +101,7 @@ function AssestList({ item }: { item: EventsEntity }) {
   };
 
   return (
-    <div className="relative min-h-80">
+    <div className="relative">
       <Carousel
         setApi={setApi}
         opts={{
@@ -120,14 +118,15 @@ function AssestList({ item }: { item: EventsEntity }) {
         <CarouselContent>
           {rawAssetsList.map((asset, index) => (
             <CarouselItem key={index}>
-              <div className="flex">
+              <div className="flex relative">
                 <RawImage
                   src={asset}
                   key={asset}
                   className={cn(
-                    "w-full max-h-[75vh] object-contain"
+                    "w-full max-h-[75vh] object-cover"
                   )}
                 />
+                <div className="bg-main/80 absolute right-0 top-0 w-12 md:w-24 h-full"></div>
               </div>
             </CarouselItem>
           ))}
@@ -166,7 +165,7 @@ function CarouselNavigateImpl({
   onScrollTo,
 }: CarouselNavigateProps) {
   return (
-    <div className="absolute bottom-8 right-8 space-x-3">
+    <div className="absolute bottom-8 right-32 space-x-3">
       {assetsList.map((_, index) => (
         <span
           className={cn(

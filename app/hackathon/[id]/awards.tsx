@@ -46,7 +46,7 @@ export function Awards() {
 
 function Title() {
   return (
-    <div className="w-full md:w-80 text-center text-black text-5xl font-bold">
+    <div className="w-full md:w-80 text-center text-black text-3xl md:text-5xl font-bold pb-6">
       Awards
     </div>
   );
@@ -75,7 +75,7 @@ function Item({ item }: { item: EventsApproveEntity }) {
     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-black pb-4 md:pb-0 border-b border-black group">
       <div className="space-y-4">
         <Tags tags={tags} />
-        <h3 className="text-block font-bold text-[32px] !mb-8">{name}</h3>
+        <h3 className="text-block font-bold text-[28px] md:text-[32px] leading-[1.1] !mb-8">{name}</h3>
         <div className="flex items-center gap-4">
           <div className="flex gap-1 items-center">
             <RawImage
