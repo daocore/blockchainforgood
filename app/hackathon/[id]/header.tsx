@@ -125,7 +125,7 @@ function AssestList({ item }: { item: EventsEntity }) {
                   src={asset}
                   key={asset}
                   className={cn(
-                    "w-full max-h-[calc(100vh-6rem)] md:max-h-[calc(100vh-8rem)] aspect-video  object-cover"
+                    "w-full max-h-[75vh] object-contain"
                   )}
                 />
               </div>
