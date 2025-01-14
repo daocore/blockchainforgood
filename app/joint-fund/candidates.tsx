@@ -13,39 +13,13 @@ export function Candidates() {
   );
 }
 
-import P1Image from "@/assets/joint-fund/p1.png";
-import P2Image from "@/assets/joint-fund/p2.png";
-import P3Image from "@/assets/joint-fund/p3.png";
-import P4Image from "@/assets/joint-fund/p4.png";
-import ArrowRightIcon from "@/assets/joint-fund/arrow-up-right.png";
+
 import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib";
-const list = [
-  {
-    status: 0,
-    name: "BGA <> Masverse1",
-    id: "1",
-    parents: [P1Image, P2Image, P3Image, P4Image],
-  },
-  {
-    status: 0,
-    name: "BGA <> Masverse2",
-    id: "3",
-    parents: [
-      P1Image,
-      P2Image,
-      P3Image,
-      P4Image,
-      P1Image,
-      P2Image,
-      P3Image,
-      P4Image,
-    ],
-  },
-] as any[];
-
-const statuses = ["Soon", "In Progress", "Completed"];
+import { IItem, list, STATUS } from "./data";
+import { useRouter } from "next-nprogress-bar";
+import { ROUTER_PATH } from "@/constants/router";
 
 function List() {
   return (
@@ -63,9 +37,10 @@ function List() {
   );
 }
 
-function Item({ item }: { item: any }) {
+function Item({ item }: { item: IItem }) {
+  const router = useRouter();
   return (
-    <div className="text-black p-10 border-b border-black flex justify-between items-start md:items-end hover:bg-[#ececee] group">
+    <div onClick={() => router.push(`${ROUTER_PATH.JOINT_FUND}/${item.id}`)} className="cursor-pointer text-black p-10 border-b border-black flex justify-between items-start md:items-end hover:bg-[#ececee] group">
       <div className="space-y-8 md:space-y-28">
         <div className="space-y-3">
           <Status status={item.status} />
@@ -80,7 +55,7 @@ function Item({ item }: { item: any }) {
   
       
       <div className="flex justify-between items-center">
-        <span className="hidden md:inline-flex cursor-pointer text-base font-semibold border border-black py-3 px-4  gap-2 shrink-0 grow-0 group-hover:bg-black group-hover:text-white">
+        <span className="hidden md:inline-flex cursor-pointer text-base font-semibold border border-black py-3 px-4  gap-2 shrink-0 grow-0 group-hover:bg-black group-hover:text-white transition-all duration-300">
           More
           <ArrowUpRightIcon className="w-6 h-6" />
         </span>
@@ -97,6 +72,5 @@ const classMap: Record<number, string> = {
   2: "bg-[#d6d6d7] text-typography",
 };
 function Status({ status }: { status: number }) {
-
-  return <div className={cn("text-base font-bold py-1 px-2 inline-block", classMap[status])}>{statuses[status]}</div>;
+  return <div className={cn("text-base font-bold py-1 px-2 inline-block", classMap[status])}>{STATUS[status]}</div>;
 }

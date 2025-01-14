@@ -15,11 +15,12 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "./ui/navigation-menu";
+import { isHomePage, isIncubationPage, isJointFundPage, isOscarPage, isProjectPage, isSquarePage, isVotingPage, isOnSiteVotePage } from "@/lib";
 
 const menuNavs = [
   {
-    name: "Oscar",
-    route: ROUTER_PATH.OSCAR,
+    name: "Joint Fund",
+    route: ROUTER_PATH.JOINT_FUND,
   },
   {
     name: "Programme",
@@ -53,29 +54,27 @@ const menuNavs = [
   },
 ];
 
+
 export const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const isHomePage = pathname === ROUTER_PATH.HOME;
+  const isHome = isHomePage(pathname);
+  const isIncubation = isIncubationPage(pathname);
+  const isSquare = isSquarePage(pathname);
+  const isOscar = isOscarPage(pathname);
+  const isJointFund = isJointFundPage(pathname);
+  const isProject = isProjectPage(pathname);
+  const isVoting = isVotingPage(pathname);
+  const isOnSiteVote = isOnSiteVotePage(pathname);
 
-  const isIncubationPage = pathname === ROUTER_PATH.INCUBATION;
+  const isScreenBG = isIncubation || isJointFund;
 
-  const isSquarePage = pathname === ROUTER_PATH.SQUARE;
-  const isOscar = pathname === ROUTER_PATH.OSCAR;
-  const isOscarCeremony = pathname === ROUTER_PATH.OSCAR_CEREMONY;
 
-  const isProject = pathname.startsWith(ROUTER_PATH.PROJECT);
-  const isVoting = pathname.startsWith(ROUTER_PATH.VOTING);
-
-  const isOnSiteVote = /\/vote\/*\/*/.test(pathname);
-
-  const iconSvgFillColor =
-    isIncubationPage || isOscar || isOscarCeremony || isVoting || isOnSiteVote
-      ? "white"
-      : "black";
+  const isIconDark = isScreenBG || isOscar || isVoting || isOnSiteVote;
 
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+
 
   const onHiddenMobileMenuWhenClickOutside = (
     e: React.MouseEvent<HTMLDivElement>
@@ -115,10 +114,10 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        showHeaderBlur && (isSquarePage || isHomePage) && "layout-header",
-        isHomePage && "earth-bg",
+        showHeaderBlur && (isSquare || isHome) && "layout-header",
+        isHome && "earth-bg",
         "w-full h-12 md:h-20 box-border px-4 md:px-0 sticky top-0 z-50",
-        isIncubationPage && "bg-incubation",
+        isScreenBG && "bg-incubation",
         "relative"
       )}
     >
@@ -132,7 +131,7 @@ export const Header = () => {
           href={isProject ? "" : ROUTER_PATH.HOME}
           className="flex items-center gap-2 cursor-pointer"
         >
-          <LogoSvg fill={iconSvgFillColor} />
+          <LogoSvg fill={isIconDark ? "white" : "black"} />
         </Link>
         {!(isProject || isVoting) && (
           <div>
@@ -156,14 +155,14 @@ export const Header = () => {
                         <NavigationMenuTrigger
                           className={cn(
                             "bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent p-0 hover:text-main",
-                            (isOscar || isOscarCeremony) && "text-darkGray"
+                            isOscar && "text-darkGray"
                           )}
                         >
                           <div
                             className={cn(
                               "justify-center items-center gap-2.5 flex hover:text-main",
-                              isIncubationPage && "text-halfWhite",
-                              (isOscar || isOscarCeremony) && "text-darkGray",
+                              isScreenBG && "text-halfWhite",
+                              isOscar && "text-darkGray",
                               (isSpeicalRoute(nav.route)
                                 ? pathname === nav.route
                                 : pathname!.startsWith(nav.route)) &&
@@ -206,8 +205,8 @@ export const Header = () => {
                           key={nav.name}
                           className={cn(
                             "justify-center items-center gap-2.5 flex hover:text-main py-2 px-2 md:px-6",
-                            isIncubationPage && "text-halfWhite",
-                            (isOscar || isOscarCeremony) && "text-darkGray",
+                            isScreenBG && "text-halfWhite",
+                            isOscar && "text-darkGray",
                             nav.route === ROUTER_PATH.OSCAR &&
                               "hover:text-oscarActive",
                             (isSpeicalRoute(nav.route)
@@ -235,8 +234,7 @@ export const Header = () => {
                 className={cn(
                   "md:hidden cursor-pointer absoluted z-30 top-3 right-2",
                   (isOscar ||
-                    isIncubationPage ||
-                    isOscarCeremony ||
+                    isScreenBG ||
                     isOnSiteVote) &&
                     "text-white"
                 )}
@@ -258,7 +256,7 @@ export const Header = () => {
                     <div
                       className={cn(
                         "py-2 px-2 text-active",
-                        (isOscar || isOscarCeremony) && "text-darkGray",
+                        isOscar && "text-darkGray",
                         pathname === ROUTER_PATH.HOME && "text-main"
                       )}
                     >
@@ -274,7 +272,7 @@ export const Header = () => {
                         nav={nav}
                         onRoute={onMobileTopicClick}
                         className={cn(
-                          (isOscar || isOscarCeremony) && "text-darkGray",
+                          isOscar && "text-darkGray",
                           (isSpeicalRoute(nav.route)
                             ? pathname === nav.route
                             : nav.route && pathname.startsWith(nav.route)) &&
@@ -292,6 +290,7 @@ export const Header = () => {
     </header>
   );
 };
+
 
 function MobileMenuItem({
   className,
@@ -355,3 +354,4 @@ const isSpeicalRoute = (route: string) =>
 
 const getActiveClassName = (isOscar: boolean): string =>
   isOscar ? "text-oscarActive" : "text-main";
+

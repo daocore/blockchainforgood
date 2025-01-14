@@ -6,6 +6,7 @@ import { cn } from "@/lib";
 import { LogoSvg } from "./LogoSvg";
 import { useRef } from "react";
 import { ArrowDownToLine, Download } from "lucide-react";
+import { isIncubationPage,isJointFundPage } from "@/lib";
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -15,9 +16,14 @@ export const Footer = () => {
     return null;
   }
 
-  const isIncubationPage = pathname === ROUTER_PATH.INCUBATION;
+  const isIncubation = isIncubationPage(pathname);
+  const isJointFund = isJointFundPage(pathname);
 
-  const iconSvgFillColor = isIncubationPage ? "#7D8CA3" : "black";
+  const isScreenBG = isIncubation || isJointFund;
+
+
+
+  const iconSvgFillColor = isScreenBG ? "#7D8CA3" : "black";
 
   const onDownloadLogo = async () => {
     fetch("/api/download-images")
@@ -38,7 +44,7 @@ export const Footer = () => {
     <footer
       className={cn(
         "w-full h-[197px] py-8 bg-zinc-300 flex justify-center items-center",
-        isIncubationPage && "bg-incubation"
+        isScreenBG && "bg-incubation"
       )}
     >
       <div className="w-full md:w-content flex-col justify-start items-start gap-8 inline-flex px-4 md:px-0">
@@ -69,7 +75,7 @@ export const Footer = () => {
             <h3
               className={cn(
                 "flex gap-1 text-black text-base font-bold font-['Inter'] leading-normal cursor-pointer",
-                isIncubationPage && "text-description"
+                isScreenBG && "text-description"
               )}
             >
               Media Kit
@@ -81,7 +87,7 @@ export const Footer = () => {
           <p
             className={cn(
               "grow shrink basis-0 text-text text-xs font-normal font-['Inter'] leading-[18px]",
-              isIncubationPage && "text-description"
+              isScreenBG && "text-description"
             )}
           >
             © 2024 Blockchain For Good Alliance. All rights reserved.
