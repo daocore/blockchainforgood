@@ -33,6 +33,10 @@ const menuNavs = [
         name: "Incubation",
         route: ROUTER_PATH.INCUBATION,
       },
+      {
+        name: "Oscar",
+        route: ROUTER_PATH.OSCAR,
+      },
     ],
   },
   {

@@ -4,9 +4,9 @@ import { ROUTER_PATH } from "@/constants";
 import { trackSensors } from "@/lib/sensors";
 import { cn } from "@/lib";
 import { LogoSvg } from "./LogoSvg";
-import { useRef } from "react";
-import { ArrowDownToLine, Download } from "lucide-react";
-import { isIncubationPage,isJointFundPage } from "@/lib";
+import { ArrowDownToLine } from "lucide-react";
+import { isIncubationPage, isHackathonPage, isJointFundPage } from "@/lib";
+
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -18,10 +18,8 @@ export const Footer = () => {
 
   const isIncubation = isIncubationPage(pathname);
   const isJointFund = isJointFundPage(pathname);
-
-  const isScreenBG = isIncubation || isJointFund;
-
-
+  const isHackathon = isHackathonPage(pathname);
+  const isScreenBG = isIncubation || isHackathon isJointFund;
 
   const iconSvgFillColor = isScreenBG ? "#7D8CA3" : "black";
 
