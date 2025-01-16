@@ -8,8 +8,13 @@ export function isIncubationPage(pathname: string) {
   return pathname === ROUTER_PATH.INCUBATION;
 }
 
+
+export function isJointFundPage(pathname: string) {
+  return pathname.startsWith(ROUTER_PATH.JOINT_FUND);
+
 export function isHackathonPage(pathname: string) {
   return pathname.startsWith(ROUTER_PATH.HACKATHON);
+
 }
 
 export function isProjectPage(pathname: string) {

@@ -5,7 +5,8 @@ import { trackSensors } from "@/lib/sensors";
 import { cn } from "@/lib";
 import { LogoSvg } from "./LogoSvg";
 import { ArrowDownToLine } from "lucide-react";
-import { isIncubationPage, isHackathonPage } from "@/lib";
+import { isIncubationPage, isHackathonPage, isJointFundPage } from "@/lib";
+
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -16,9 +17,9 @@ export const Footer = () => {
   }
 
   const isIncubation = isIncubationPage(pathname);
+  const isJointFund = isJointFundPage(pathname);
   const isHackathon = isHackathonPage(pathname);
-
-  const isScreenBG = isIncubation || isHackathon;
+  const isScreenBG = isIncubation || isHackathon isJointFund;
 
   const iconSvgFillColor = isScreenBG ? "#7D8CA3" : "black";
 

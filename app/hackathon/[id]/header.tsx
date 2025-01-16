@@ -1,5 +1,4 @@
 "use client";
-
 import { useParams } from "next/navigation";
 import { useAPIGetEventDetail } from "../api";
 import { EventsEntity } from "../types";
@@ -14,6 +13,11 @@ import LocationImage from "@/assets/hackathon/location.png";
 import TimeImage from "@/assets/hackathon/calendar-check.png";
 import Image from "next/image";
 import { cn } from "@/lib";
+
+import { IMAGE_URL } from "@/constants";
+import { getUTCTime } from "@/lib/date";
+import Autoplay from "embla-carousel-autoplay";
+
 import { getUTCTime } from "@/lib/date";
 import Autoplay from "embla-carousel-autoplay";
 import { useState, useEffect } from "react";
@@ -83,7 +87,7 @@ function AssestList({ item }: { item: EventsEntity }) {
   const rawAssetsList = [...parseAssets(assets), cover].filter(Boolean);
 
   const [api, setApi] = useState<CarouselApi>();
-
+            
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {

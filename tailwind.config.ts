@@ -45,6 +45,7 @@ const config = {
       },
       maxWidth: {
         content: "1232px",
+        desktop: "1400px",
       },
       colors: {
         main: "hsl(var(--main))",
