@@ -1,7 +1,7 @@
-export function Responsibility() {
-    return (
-        <div id="responsibility" className="h-screen">
-            <h1>Responsibility</h1>
-        </div>
-    )
+export function Responsibility({ content }: { content: string }) {
+  return (
+    <div id="responsibility" className="h-screen">
+      {content}
+    </div>
+  );
 }

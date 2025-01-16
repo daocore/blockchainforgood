@@ -9,35 +9,9 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import AutoScroll from "embla-carousel-auto-scroll";
+import { IItem } from "../data";
 
-const PARTNERS = [
-  P1Image,
-  P2Image,
-  P3Image,
-  P4Image,
-  P1Image,
-  P2Image,
-  P3Image,
-  P4Image,
-  P1Image,
-  P2Image,
-  P3Image,
-  P4Image,
-  P1Image,
-  P2Image,
-  P3Image,
-  P4Image,
-  P1Image,
-  P2Image,
-  P3Image,
-  P4Image,
-  P1Image,
-  P2Image,
-  P3Image,
-  P4Image,
-];
-
-export function Partners() {
+export function Partners({ partners }: { partners: IItem["parents"] }) {
   return (
     <div className="py-10">
       <Carousel
@@ -59,9 +33,9 @@ export function Partners() {
         ]}
       >
         <CarouselContent className="gap-10">
-          {PARTNERS.map((partner, index) => (
+          {partners.map((partner, index) => (
             <CarouselItem className="w-32 basis-auto" key={index}>
-                <Image src={partner} alt={`Partner ${index + 1}`} />
+              <Image src={partner} alt={`Partner ${index + 1}`} />
             </CarouselItem>
           ))}
         </CarouselContent>
