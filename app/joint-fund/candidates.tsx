@@ -40,20 +40,34 @@ function List() {
 function Item({ item }: { item: IItem }) {
   const router = useRouter();
   return (
-    <div onClick={() => router.push(`${ROUTER_PATH.JOINT_FUND}/${item.id}`)} className="cursor-pointer text-black p-10 border-b border-black flex justify-between items-start md:items-end hover:bg-[#ececee] group">
-      <div className="space-y-8 md:space-y-28">
-        <div className="space-y-3">
-          <Status status={item.status} />
-          <h3 className="text-5xl font-bold">{item.name}</h3>
+    <div
+      onClick={() => router.push(`${ROUTER_PATH.JOINT_FUND}/${item.id}`)}
+      className="cursor-pointer text-black p-10 border-b border-black flex justify-between items-start md:items-end gap-2 md:gap-4 hover:bg-[#ececee] group"
+    >
+      <div className="flex items-center justify-between gap-2 md:gap-4 w-full">
+        <div className="space-y-8 md:space-y-28">
+          <div className="space-y-3">
+            <Status status={item.status} />
+            <h3 className="text-5xl font-bold">{item.name}</h3>
+          </div>
+          <div className="flex gap-4 flex-wrap">
+            {item.parents.slice(0, 4).map((parent: any) => (
+              <Image
+                src={parent}
+                alt="parent"
+                className="h-10 shrink-0 grow-0"
+                height={40}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex gap-4 flex-wrap">
-          {item.parents.map((parent: any) => (
-            <Image src={parent} alt="parent" className="h-10 shrink-0 grow-0" height={40} />
-          ))}
-        </div>
+        <Image
+          src={item.cover}
+          alt="cover"
+          className="max-w-40 h-40 object-cover"
+        />
       </div>
-  
-      
+
       <div className="flex justify-between items-center">
         <span className="hidden md:inline-flex cursor-pointer text-base font-semibold border border-black py-3 px-4  gap-2 shrink-0 grow-0 group-hover:bg-black group-hover:text-white transition-all duration-300">
           More

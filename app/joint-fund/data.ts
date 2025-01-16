@@ -2,9 +2,11 @@ import P1Image from "@/assets/joint-fund/p1.png";
 import P2Image from "@/assets/joint-fund/p2.png";
 import P3Image from "@/assets/joint-fund/p3.png";
 import P4Image from "@/assets/joint-fund/p4.png";
+import CoverImage from "@/assets/joint-fund/cover.png";
 import { StaticImageData } from "next/image";
 
 export interface IItem {
+  cover: StaticImageData;
   status: 0 | 1 | 2;
   name: string;
   description: string;
@@ -26,6 +28,7 @@ export interface IItem {
 export const list: IItem[] = [
   {
     status: 0,
+    cover: CoverImage,
     name: "BGA <> Masverse1",
     link: "https://www.google.com",
     description:
@@ -76,6 +79,7 @@ export const list: IItem[] = [
   },
   {
     status: 0,
+    cover: CoverImage,
     name: "BGA <> Masverse2",
     link: "https://www.google.com",
     description:
