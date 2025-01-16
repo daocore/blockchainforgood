@@ -13,11 +13,6 @@ import LocationImage from "@/assets/hackathon/location.png";
 import TimeImage from "@/assets/hackathon/calendar-check.png";
 import Image from "next/image";
 import { cn } from "@/lib";
-
-import { IMAGE_URL } from "@/constants";
-import { getUTCTime } from "@/lib/date";
-import Autoplay from "embla-carousel-autoplay";
-
 import { getUTCTime } from "@/lib/date";
 import Autoplay from "embla-carousel-autoplay";
 import { useState, useEffect } from "react";
