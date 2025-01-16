@@ -22,6 +22,7 @@ import {
 import { useState } from "react";
 import { EventsRoleValue } from "@/app/square/types";
 import { Skeleton } from "@/components/ui/skeleton";
+import { motion } from "motion/react";
 
 export function Candidates() {
   const { id } = useParams<{ id: string }>();
@@ -41,12 +42,20 @@ export function Candidates() {
   }
 
   return (
-    <div className="bg-incubation pt-14 pb-32 px-6 md:px-10">
+    <motion.div
+      className="bg-incubation pt-14 pb-32 px-6 md:px-10"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease: "easeIn" }}
+    >
       <div className="w-full max-w-content mx-auto">
-        <h2 className="text-white font-bold text-3xl md:text-5xl pb-6 md:pb-14">Candidates</h2>
+        <h2 className="text-white font-bold text-3xl md:text-5xl pb-6 md:pb-14">
+          Candidates
+        </h2>
         <List list={list} />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
