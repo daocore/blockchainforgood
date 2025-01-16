@@ -19,7 +19,7 @@ export const Footer = () => {
   const isIncubation = isIncubationPage(pathname);
   const isJointFund = isJointFundPage(pathname);
   const isHackathon = isHackathonPage(pathname);
-  const isScreenBG = isIncubation || isHackathon isJointFund;
+  const isScreenBG = isIncubation || isHackathon || isJointFund;
 
   const iconSvgFillColor = isScreenBG ? "#7D8CA3" : "black";
 
