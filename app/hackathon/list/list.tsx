@@ -9,6 +9,7 @@ import { SkeletonList } from "./skeleton";
 import { cn } from "@/lib";
 import { useRouter } from "next-nprogress-bar";
 import { parseAssets } from "../utils";
+import { motion } from "motion/react";
 
 export function List() {
   const {
@@ -62,11 +63,15 @@ function HackathonItem({
   const router = useRouter();
 
   return (
-    <div
+    <motion.div
       className={cn("mx-4 md:mx-0 cursor-pointer", className)}
       onClick={() => {
         router.push(`/hackathon/${item.id}`);
       }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease: "easeIn" }}
     >
       <p className="flex text-base items-center text-main gap-1 font-semibold truncate ">
         <Image
@@ -105,6 +110,6 @@ function HackathonItem({
           />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

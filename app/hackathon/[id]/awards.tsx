@@ -30,7 +30,13 @@ export function Awards() {
   }
 
   return (
-    <div className="relative">
+    <motion.div
+      className="relative"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease: "easeIn" }}
+    >
       <div
         className={cn(
           "w-full max-w-content mx-auto py-14 flex flex-col md:flex-row gap-6"
@@ -39,8 +45,13 @@ export function Awards() {
         <Title />
         <List list={list} />
       </div>
-      <div className={cn(styles.awards, "absolute inset-0 opacity-5 pointer-events-none")} />
-    </div>
+      <div
+        className={cn(
+          styles.awards,
+          "absolute inset-0 opacity-5 pointer-events-none"
+        )}
+      />
+    </motion.div>
   );
 }
 
