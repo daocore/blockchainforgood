@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ROUTER_PATH } from "@/constants";
 import { useRouter } from "next-nprogress-bar";
-import { LogoSvg } from "./LogoSvg";
+import { LogoSvg, LogoPNG } from "./LogoSvg";
 import { useEffect, useState } from "react";
 import { ChevronDown, ChevronUp, Equal, X } from "lucide-react";
 import {
@@ -75,6 +75,8 @@ export const Header = () => {
       ? "white"
       : "black";
 
+  const isDark = isIncubationPage || isOscar || isOscarCeremony;
+
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 
   const onHiddenMobileMenuWhenClickOutside = (
@@ -132,7 +134,8 @@ export const Header = () => {
           href={isProject ? "" : ROUTER_PATH.HOME}
           className="flex items-center gap-2 cursor-pointer"
         >
-          <LogoSvg fill={iconSvgFillColor} />
+          {/* <LogoSvg fill={iconSvgFillColor} /> */}
+          <LogoPNG isDark={isDark} />
         </Link>
         {!(isProject || isVoting) && (
           <div>
