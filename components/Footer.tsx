@@ -3,9 +3,10 @@ import { usePathname } from "next/navigation";
 import { ROUTER_PATH } from "@/constants";
 import { trackSensors } from "@/lib/sensors";
 import { cn } from "@/lib";
-import { LogoSvg } from "./LogoSvg";
-import { ArrowDownToLine } from "lucide-react";
-import { isIncubationPage, isHackathonPage, isJointFundPage } from "@/lib";
+
+import { LogoSvg, LogoPNG } from "./LogoSvg";
+import { useRef } from "react";
+import { ArrowDownToLine, Download } from "lucide-react";
 
 
 export const Footer = () => {
@@ -47,13 +48,15 @@ export const Footer = () => {
     >
       <div className="w-full md:w-content flex-col justify-start items-start gap-8 inline-flex px-4 md:px-0">
         <div className="flex-col justify-start items-start gap-4 flex w-full">
-          <LogoSvg
+          <LogoPNG
             style={{
               transform: "translateX(35%) scale(1.7)",
             }}
             className="scale-[1.7] translate-x-2"
-            fill={iconSvgFillColor}
+            isDark={isIncubationPage}
+            // fill={iconSvgFillColor}
           />
+
           <div
             className={cn(
               "justify-center items-center gap-2 inline-flex cursor-pointer"
