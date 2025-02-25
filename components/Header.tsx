@@ -77,7 +77,7 @@ export const Header = () => {
 
   const isIconDark = isScreenBG || isOscar || isVoting || isOnSiteVote;
 
-  const isDark = isIncubationPage || isOscar || isOscarCeremony;
+  const isDark = isIncubation || isOscar;
 
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 

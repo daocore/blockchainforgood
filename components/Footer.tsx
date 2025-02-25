@@ -7,7 +7,11 @@ import { cn } from "@/lib";
 import { LogoSvg, LogoPNG } from "./LogoSvg";
 import { useRef } from "react";
 import { ArrowDownToLine, Download } from "lucide-react";
-
+import {
+  isIncubationPage,
+  isJointFundPage,
+  isHackathonPage,
+} from "@/lib/router";
 
 export const Footer = () => {
   const pathname = usePathname();
@@ -53,7 +57,7 @@ export const Footer = () => {
               transform: "translateX(35%) scale(1.7)",
             }}
             className="scale-[1.7] translate-x-2"
-            isDark={isIncubationPage}
+            isDark={isIncubation}
             // fill={iconSvgFillColor}
           />
 
