@@ -27,7 +27,15 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 const videos: any[] = [
   {
     name: "",
+    id: "oAW_0JhcUL8",
+  },
+  {
+    name: "",
     id: "neM00nSTFW8",
+  },
+  {
+    name: "",
+    id: "5DwK8gmCk8g",
   },
 ];
 
@@ -62,8 +70,8 @@ const VideoItem = ({
   return (
     <>
       <div
-        className="relative cursor-pointer"
-        style={{ width: 240, height: 135 }}
+        className="relative cursor-pointer w-full"
+        style={{ height: 238 }}
         data-click2={click}
         onClick={click}
       >
@@ -71,8 +79,8 @@ const VideoItem = ({
           <div className="font-bold font-['Inter']">{project?.name}</div>
         </div>
         <YouTube
-          className={`absolute w-[240px] h-[135px] cursor-pointer`}
-          opts={{ width: "240", height: "135" }}
+          className={`absolute w-full cursor-pointer`}
+          opts={{ width: "100%", height: "238" }}
           videoId={project.id}
         />
       </div>
@@ -94,7 +102,10 @@ const VideoItem = ({
           onItemChange(false);
         }}
       >
-        <YouTube videoId={project.id} />
+        <YouTube
+          opts={{ width: "100%", height: "100%" }}
+          videoId={project.id}
+        />
       </DialogsWithFooterAndTitle>
     </>
   );
@@ -105,12 +116,13 @@ const Videos = () => {
   const [active, setActive] = useState(null);
 
   return (
-    <div className="h-[135px] flex flex-col antialiased items-center justify-center relative overflow-hidden">
+    <div className="h-[238px] md:w-content flex flex-col antialiased items-center justify-center relative overflow-hidden">
       <InfiniteMovingCards
         direction="left"
         speed="slow"
         isPause={true}
-        wrapClassName="justify-center"
+        className="w-full"
+        wrapClassName="grid grid-cols-3 gap-6"
       >
         {videos.map((video, index) => {
           return (
